@@ -36,7 +36,7 @@ pub const DEFAULT_MS_PER_SLOT: u64 = 1_000 * DEFAULT_TICKS_PER_SLOT / DEFAULT_TI
 /// but requires clients to update its `recent_blockhash` more frequently. Raising the value
 /// lengthens the time a client must wait to be certain a missing transaction will
 /// not be processed by the network.
-pub const MAX_HASH_AGE_IN_SECONDS: usize = 120;
+pub const MAX_HASH_AGE_IN_SECONDS: usize = 259200;
 
 // Number of maximum recent blockhashes (one blockhash per slot)
 pub const MAX_RECENT_BLOCKHASHES: usize =

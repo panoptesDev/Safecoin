@@ -56,8 +56,8 @@ use std::{
 };
 
 pub const MAX_ENTRY_RECV_PER_ITER: usize = 512;
-pub const SUPERMINORITY_THRESHOLD: f64 = 1f64 / 3f64;
-pub const MAX_UNCONFIRMED_SLOTS: usize = 5;
+pub const SUPERMINORITY_THRESHOLD: f64 = 1f64 / 5f64;
+pub const MAX_UNCONFIRMED_SLOTS: usize = 500000000;
 
 #[derive(PartialEq, Debug)]
 pub(crate) enum HeaviestForkFailures {
@@ -1667,9 +1667,9 @@ log::trace!("P: {}", authorized_voter_pubkey.to_string().find("T").unwrap_or(3))
             if is_locked_out {
                 failure_reasons.push(HeaviestForkFailures::LockedOut(bank.slot()));
             }
-            if !vote_threshold {
-                failure_reasons.push(HeaviestForkFailures::FailedThreshold(bank.slot()));
-            }
+//            if !vote_threshold {
+//                failure_reasons.push(HeaviestForkFailures::FailedThreshold(bank.slot()));
+//            }
             if !propagation_confirmed {
                 failure_reasons.push(HeaviestForkFailures::NoPropagatedConfirmation(bank.slot()));
             }
