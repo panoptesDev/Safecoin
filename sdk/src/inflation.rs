@@ -21,10 +21,10 @@ pub struct Inflation {
     /// DEPRECATED, this field is currently unused
     __unused: f64,
 }
-
+/// Initial inflation rate for Safecoin 0.04 = 4% wich is equaly to ~ 2 Safecoin per Block on old chain to match old emission curve
 const DEFAULT_INITIAL: f64 = 0.04;
 const DEFAULT_TERMINAL: f64 = 0.015;
-const DEFAULT_TAPER: f64 = 0.15;
+const DEFAULT_TAPER: f64 = 0.50;
 const DEFAULT_FOUNDATION: f64 = 0.05;
 const DEFAULT_FOUNDATION_TERM: f64 = 7.0;
 
