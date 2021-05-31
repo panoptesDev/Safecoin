@@ -129,7 +129,8 @@ pub const MAX_MULTIPLE_ACCOUNTS: usize = 100;
 pub const NUM_LARGEST_ACCOUNTS: usize = 20;
 
 // Validators that are this number of slots behind are considered delinquent
-pub const DELINQUENT_VALIDATOR_SLOT_DISTANCE: u64 = 128;
+// increased by 50% for Safecoin to complement lowered hardware requirements
+pub const DELINQUENT_VALIDATOR_SLOT_DISTANCE: u64 = 192;
 
 impl RpcRequest {
     pub(crate) fn build_request_json(self, id: u64, params: Value) -> Value {
