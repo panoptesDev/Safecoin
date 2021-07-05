@@ -102,14 +102,17 @@ impl Inflation {
 
     /// portion of total that goes to validators
     pub fn validator(&self, year: f64) -> f64 {
-        self.total(year)
+        self.total(year) - self.foundation(year)
     }
 
     /// portion of total that goes to foundation
     pub fn foundation(&self, year: f64) -> f64 {
-        
+        if year < self.foundation_term {
+            self.total(year) * self.foundation
+        } else {        
             0.0
-          }
+        }
+    }
 }
 
 #[cfg(test)]
