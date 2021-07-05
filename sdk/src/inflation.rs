@@ -1,5 +1,5 @@
 //! configuration for network inflation
-
+use chrono::prelude::*;
 #[derive(Serialize, Deserialize, PartialEq, Clone, Debug, Copy, AbiExample)]
 #[serde(rename_all = "camelCase")]
 pub struct Inflation {
@@ -22,11 +22,19 @@ pub struct Inflation {
     __unused: f64,
 }
 /// Initial inflation rate for Safecoin 0.04 = 4% wich is equaly to ~ 2 Safecoin per Block on old chain to match old emission curve
+if dt.timestamp_millis() < 1625793176000 {
+const DEFAULT_INITIAL: f64 = 0.08;
+const DEFAULT_TERMINAL: f64 = 0.015;
+const DEFAULT_TAPER: f64 = 0.15;
+const DEFAULT_FOUNDATION: f64 = 0.05;
+const DEFAULT_FOUNDATION_TERM: f64 = 7.0;
+}else{
 const DEFAULT_INITIAL: f64 = 0.04;
 const DEFAULT_TERMINAL: f64 = 0.015;
 const DEFAULT_TAPER: f64 = 0.15;
 const DEFAULT_FOUNDATION: f64 = 0.00;
 const DEFAULT_FOUNDATION_TERM: f64 = 0.0;
+}    
 
 impl Default for Inflation {
     fn default() -> Self {
