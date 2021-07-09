@@ -15,7 +15,7 @@ lifetime is expressed in "tokens", which is a number of fractional native
 tokens, called _lamports_. Accounts are held in validator memory and pay
 ["rent"](#rent) to stay there. Each validator periodically scans all accounts
 and collects rent. Any account that drops to zero lamports is purged.  Accounts
-can also be marked [rent-exempt](#rent-exemption) if they contain a sufficnet
+can also be marked [rent-exempt](#rent-exemption) if they contain a sufficient
 number of lamports.
 
 In the same way that a Linux user uses a path to look up a file, a Safecoin client
@@ -206,3 +206,16 @@ balance of 105,290,880 lamports (=~ 0.105 SAFE) to be rent-exempt:
 ```text
 105,290,880 = 19.055441478439427 (fee rate) * (128 + 15_000)(account size including metadata) * ((365.25/2) * 2)(epochs in 2 years)
 ```
+
+Rent can also be estimated via the [`safecoin rent` CLI subcommand](cli/usage.md#solana-rent)
+
+```text
+$ safecoin rent 15000
+Rent per byte-year: 0.00000348 SAFE
+Rent per epoch: 0.000288276 SAFE
+Rent-exempt minimum: 0.10529088 SAFE
+```
+
+Note: Rest assured that, should the storage rent rate need to be increased at some
+point in the future, steps will be taken to ensure that accounts that are rent-exempt
+before the increase will remain rent-exempt afterwards

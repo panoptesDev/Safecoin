@@ -1,3 +1,4 @@
+#![allow(clippy::integer_arithmetic)]
 use bincode::serialized_size;
 use log::*;
 use rayon::prelude::*;
@@ -301,7 +302,7 @@ fn network_run_push(
                 let mut node_lock = node.lock().unwrap();
                 let timeouts = node_lock.make_timeouts_test();
                 node_lock.purge(thread_pool, now, &timeouts);
-                node_lock.new_push_messages(vec![], now)
+                (node_lock.id, node_lock.new_push_messages(vec![], now))
             })
             .collect();
         let transfered: Vec<_> = requests

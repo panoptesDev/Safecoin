@@ -16,6 +16,7 @@ pub(crate) struct SelectVoteAndResetForkResult {
 }
 
 pub(crate) trait ForkChoice {
+    type ForkChoiceKey;
     fn compute_bank_stats(
         &mut self,
         bank: &Bank,
@@ -36,4 +37,8 @@ pub(crate) trait ForkChoice {
         ancestors: &HashMap<u64, HashSet<u64>>,
         bank_forks: &RwLock<BankForks>,
     ) -> (Arc<Bank>, Option<Arc<Bank>>);
+
+    fn mark_fork_invalid_candidate(&mut self, invalid_slot: &Self::ForkChoiceKey);
+
+    fn mark_fork_valid_candidate(&mut self, valid_slot: &Self::ForkChoiceKey);
 }

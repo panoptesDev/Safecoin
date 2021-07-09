@@ -102,7 +102,9 @@ if ((airdrops_enabled)); then
     echo "--keypair argument must be provided"
     exit 1
   fi
-  $solana_cli "${common_args[@]}" --keypair "$SAFECOIN_CONFIG_DIR/faucet.json" transfer "$keypair" "$stake_sol"
+  $solana_cli \
+    "${common_args[@]}" --keypair "$SAFECOIN_CONFIG_DIR/faucet.json" \
+    transfer --allow-unfunded-recipient "$keypair" "$stake_sol"
 fi
 
 if [[ -n $keypair ]]; then
@@ -110,7 +112,7 @@ if [[ -n $keypair ]]; then
 fi
 
 if ! [[ -f "$stake_account" ]]; then
-  $solana_keygen new --no-passphrase -so "$stake_account"
+  $safecoin_keygen new --no-passphrase -so "$stake_account"
 else
   echo "$stake_account already exists! Using it"
 fi

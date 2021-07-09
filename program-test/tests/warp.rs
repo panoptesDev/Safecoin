@@ -1,5 +1,7 @@
+#![allow(clippy::integer_arithmetic)]
 use {
-    solana_program::{
+    solana_program_test::{processor, ProgramTest, ProgramTestError},
+    solana_sdk::{
         account_info::{next_account_info, AccountInfo},
         clock::Clock,
         entrypoint::ProgramResult,
@@ -7,12 +9,9 @@ use {
         program_error::ProgramError,
         pubkey::Pubkey,
         rent::Rent,
+        signature::{Keypair, Signer},
         system_instruction, system_program,
         sysvar::{clock, Sysvar},
-    },
-    solana_program_test::{processor, ProgramTest, ProgramTestError},
-    solana_sdk::{
-        signature::{Keypair, Signer},
         transaction::{Transaction, TransactionError},
     },
     solana_stake_program::{
@@ -57,7 +56,7 @@ async fn clock_sysvar_updated_from_warp() {
 
     let mut context = program_test.start_with_context().await;
     let expected_slot = 5_000_000;
-    let instruction = Instruction::new(
+    let instruction = Instruction::new_with_bincode(
         program_id,
         &expected_slot,
         vec![AccountMeta::new_readonly(clock::id(), false)],
@@ -82,7 +81,7 @@ async fn clock_sysvar_updated_from_warp() {
 
     // Warp to success!
     context.warp_to_slot(expected_slot).unwrap();
-    let instruction = Instruction::new(
+    let instruction = Instruction::new_with_bincode(
         program_id,
         &expected_slot,
         vec![AccountMeta::new_readonly(clock::id(), false)],
@@ -163,6 +162,8 @@ async fn stake_rewards_from_warp() {
     let program_test = ProgramTest::default();
 
     let mut context = program_test.start_with_context().await;
+    // warp once to make sure stake config doesn't get rent-collected
+    context.warp_to_slot(100).unwrap();
     let mut instructions = vec![];
     let validator_keypair = Keypair::new();
     instructions.push(system_instruction::create_account(

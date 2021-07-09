@@ -31,7 +31,7 @@ pub fn calculate_non_circulating_supply(bank: &Arc<Bank>) -> NonCirculatingSuppl
         bank.get_filtered_indexed_accounts(
             &IndexKey::ProgramId(solana_stake_program::id()),
             // The program-id account index checks for Account owner on inclusion. However, due to
-            // the current AccountsDB implementation, an account may remain in storage as a
+            // the current AccountsDb implementation, an account may remain in storage as a
             // zero-lamport Account::Default() after being wiped and reinitialized in later
             // updates. We include the redundant filter here to avoid returning these accounts.
             |account| account.owner == solana_stake_program::id(),
@@ -40,7 +40,7 @@ pub fn calculate_non_circulating_supply(bank: &Arc<Bank>) -> NonCirculatingSuppl
         bank.get_program_accounts(&solana_stake_program::id())
     };
     for (pubkey, account) in stake_accounts.iter() {
-        let stake_account = StakeState::from(&account).unwrap_or_default();
+        let stake_account = StakeState::from(account).unwrap_or_default();
         match stake_account {
             StakeState::Initialized(meta) => {
                 if meta.lockup.is_in_force(&clock, None)
@@ -87,7 +87,7 @@ solana_sdk::pubkeys!(
         "CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S",
         "7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2",
         "GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ",
-        "Mc5XB47H3DKJHym5RLa9mPzWv5snERsF3KNv5AauXK8",
+        "4jAMsnkjcRapWdVaXMvJc1QMcD53t1tbqnwXQmdRWGRe",
         "7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri",
         "AG3m2bAibcY8raMt4oXEGqRHwX4FWKPPJVjZxn1LySDX",
         "5XdtyEDREHJXXW1CTtCsVjJRjBapAwK78ZquzvnNVRrV",
@@ -98,7 +98,7 @@ solana_sdk::pubkeys!(
         "3o6xgkJ9sTmDeQWyfj3sxwon18fXJB9PV5LDc8sfgR4a",
         "GumSE5HsMV5HCwBTv2D2D81yy9x17aDkvobkqAfTRgmo",
         "AzVV9ZZDxTgW4wWfJmsG6ytaHpQGSe1yz76Nyy84VbQF",
-        "8CUUMKYNGxdgYio5CLHRHyzMEhhVRMcqefgE6dLqnVRK",
+        "ETb9UBuunEPA1RrwwZ9WrkJ4BJ1836ZUcE9UfRYnDQRK",
         "CQDYc4ET2mbFhVpgj41gXahL6Exn5ZoPcGAzSHuYxwmE",
         "5PLJZLJiRR9vf7d1JCCg7UuWjtyN9nkab9uok6TqSyuP",
         "7xJ9CLtEAcEShw9kW2gSoZkRWL566Dg12cvgzANJwbTr",
@@ -126,9 +126,9 @@ solana_sdk::pubkeys!(
 solana_sdk::pubkeys!(
     withdraw_authority,
     [
-        "8CUUMKYNGxdgYio5CLHRHyzMEhhVRMcqefgE6dLqnVRK",
-        "3FFaheyqtyAXZSYxDzsr5CVKvJuvZD1WE1VEsBtDbRqB",
-        "FdGYQdiRky8NZzN9wZtczTBcWLYYRXrJ3LMDhqDPn5rM",
+        "ETb9UBuunEPA1RrwwZ9WrkJ4BJ1836ZUcE9UfRYnDQRK",
+        "3DSuNXv7qzvcB6TKAxzaREvW85vit7xw4m2NBWf75585",
+        "6DB5E4mEyFzr9n6jt2aew73cjfysiHegLbmHmC4xME3u",
         "4e6KwQpyzGQPfgVr5Jn3g5jLjbXB4pKPa2jRLohEb1QA",
     ]
 );
@@ -138,6 +138,7 @@ mod tests {
     use super::*;
     use solana_sdk::{
         account::Account,
+        account::AccountSharedData,
         epoch_schedule::EpochSchedule,
         genesis_config::{ClusterType, GenesisConfig},
     };
@@ -194,9 +195,11 @@ mod tests {
             ..GenesisConfig::default()
         };
         let mut bank = Arc::new(Bank::new(&genesis_config));
+        let sysvar_and_native_program_delta = 10;
         assert_eq!(
             bank.capitalization(),
             (num_genesis_accounts + num_non_circulating_accounts + num_stake_accounts) * balance
+                + sysvar_and_native_program_delta,
         );
 
         let non_circulating_supply = calculate_non_circulating_supply(&bank);
@@ -212,7 +215,10 @@ mod tests {
         bank = Arc::new(new_from_parent(&bank));
         let new_balance = 11;
         for key in non_circulating_accounts {
-            bank.store_account(&key, &Account::new(new_balance, 0, &Pubkey::default()));
+            bank.store_account(
+                &key,
+                &AccountSharedData::new(new_balance, 0, &Pubkey::default()),
+            );
         }
         let non_circulating_supply = calculate_non_circulating_supply(&bank);
         assert_eq!(

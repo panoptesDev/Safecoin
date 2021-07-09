@@ -1,3 +1,4 @@
+#![allow(clippy::integer_arithmetic)]
 use assert_matches::assert_matches;
 use crossbeam_channel::{unbounded, Receiver};
 use gag::BufferRedirect;
@@ -30,13 +31,14 @@ use solana_local_cluster::{
     cluster::Cluster,
     cluster_tests,
     local_cluster::{ClusterConfig, LocalCluster},
+    validator_configs::*,
 };
 use solana_runtime::{
     bank_forks::{ArchiveFormat, SnapshotConfig},
     snapshot_utils,
 };
 use solana_sdk::{
-    account::Account,
+    account::AccountSharedData,
     client::{AsyncClient, SyncClient},
     clock::{self, Slot},
     commitment_config::CommitmentConfig,
@@ -58,14 +60,17 @@ use std::{
     sync::atomic::{AtomicBool, Ordering},
     sync::Arc,
     thread::{sleep, Builder, JoinHandle},
-    time::Duration,
+    time::{Duration, Instant},
 };
 use tempfile::TempDir;
+
+const RUST_LOG_FILTER: &str =
+    "error,solana_core::replay_stage=warn,solana_local_cluster=info,local_cluster=info";
 
 #[test]
 #[serial]
 fn test_ledger_cleanup_service() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_ledger_cleanup_service");
     let num_nodes = 3;
     let validator_config = ValidatorConfig {
@@ -76,7 +81,7 @@ fn test_ledger_cleanup_service() {
         cluster_lamports: 10_000,
         poh_config: PohConfig::new_sleep(Duration::from_millis(50)),
         node_stakes: vec![100; num_nodes],
-        validator_configs: vec![validator_config; num_nodes],
+        validator_configs: make_identical_validator_configs(&validator_config, num_nodes),
         ..ClusterConfig::default()
     };
     let mut cluster = LocalCluster::new(&mut config);
@@ -106,7 +111,7 @@ fn test_ledger_cleanup_service() {
 #[test]
 #[serial]
 fn test_spend_and_verify_all_nodes_1() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_spend_and_verify_all_nodes_1");
     let num_nodes = 1;
     let local = LocalCluster::new_with_equal_stakes(num_nodes, 10_000, 100);
@@ -121,7 +126,7 @@ fn test_spend_and_verify_all_nodes_1() {
 #[test]
 #[serial]
 fn test_spend_and_verify_all_nodes_2() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_spend_and_verify_all_nodes_2");
     let num_nodes = 2;
     let local = LocalCluster::new_with_equal_stakes(num_nodes, 10_000, 100);
@@ -136,7 +141,7 @@ fn test_spend_and_verify_all_nodes_2() {
 #[test]
 #[serial]
 fn test_spend_and_verify_all_nodes_3() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_spend_and_verify_all_nodes_3");
     let num_nodes = 3;
     let local = LocalCluster::new_with_equal_stakes(num_nodes, 10_000, 100);
@@ -151,7 +156,7 @@ fn test_spend_and_verify_all_nodes_3() {
 #[test]
 #[serial]
 fn test_local_cluster_signature_subscribe() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let num_nodes = 2;
     let cluster = LocalCluster::new_with_equal_stakes(num_nodes, 10_000, 100);
     let nodes = cluster.get_node_pubkeys();
@@ -225,7 +230,7 @@ fn test_local_cluster_signature_subscribe() {
 #[allow(unused_attributes)]
 #[ignore]
 fn test_spend_and_verify_all_nodes_env_num_nodes() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let num_nodes: usize = std::env::var("NUM_NODES")
         .expect("please set environment variable NUM_NODES")
         .parse()
@@ -239,55 +244,30 @@ fn test_spend_and_verify_all_nodes_env_num_nodes() {
     );
 }
 
-#[allow(unused_attributes)]
-#[test]
-#[should_panic]
-fn test_validator_exit_default_config_should_panic() {
-    solana_logger::setup();
-    error!("test_validator_exit_default_config_should_panic");
-    let num_nodes = 2;
-    let local = LocalCluster::new_with_equal_stakes(num_nodes, 10_000, 100);
-    cluster_tests::validator_exit(&local.entry_point_info, num_nodes);
-}
-
-#[test]
-#[serial]
-fn test_validator_exit_2() {
-    solana_logger::setup();
-    error!("test_validator_exit_2");
-    let num_nodes = 2;
-    let mut validator_config = ValidatorConfig::default();
-    validator_config.rpc_config.enable_validator_exit = true;
-    validator_config.wait_for_supermajority = Some(0);
-
-    let mut config = ClusterConfig {
-        cluster_lamports: 10_000,
-        node_stakes: vec![100; num_nodes],
-        validator_configs: vec![validator_config; num_nodes],
-        ..ClusterConfig::default()
-    };
-    let local = LocalCluster::new(&mut config);
-    cluster_tests::validator_exit(&local.entry_point_info, num_nodes);
-}
-
 // Cluster needs a supermajority to remain, so the minimum size for this test is 4
 #[test]
 #[serial]
 fn test_leader_failure_4() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_leader_failure_4");
     let num_nodes = 4;
-    let mut validator_config = ValidatorConfig::default();
-    validator_config.rpc_config.enable_validator_exit = true;
+    let validator_config = ValidatorConfig::default();
     let mut config = ClusterConfig {
         cluster_lamports: 10_000,
         node_stakes: vec![100; 4],
-        validator_configs: vec![validator_config; num_nodes],
+        validator_configs: make_identical_validator_configs(&validator_config, num_nodes),
         ..ClusterConfig::default()
     };
     let local = LocalCluster::new(&mut config);
+
     cluster_tests::kill_entry_and_spend_and_verify_rest(
         &local.entry_point_info,
+        &local
+            .validators
+            .get(&local.entry_point_info.id)
+            .unwrap()
+            .config
+            .validator_exit,
         &local.funding_keypair,
         num_nodes,
         config.ticks_per_slot * config.poh_config.target_tick_duration.as_millis() as u64,
@@ -309,12 +289,12 @@ fn run_cluster_partition<E, F>(
     leader_schedule: Option<(LeaderSchedule, Vec<Arc<Keypair>>)>,
     on_partition_start: E,
     on_partition_resolved: F,
-    additional_accounts: Vec<(Pubkey, Account)>,
+    additional_accounts: Vec<(Pubkey, AccountSharedData)>,
 ) where
     E: FnOnce(&mut LocalCluster),
     F: FnOnce(&mut LocalCluster),
 {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     info!("PARTITION_TEST!");
     let num_nodes = partitions.len();
     let node_stakes: Vec<_> = partitions
@@ -360,7 +340,7 @@ fn run_cluster_partition<E, F>(
     let mut config = ClusterConfig {
         cluster_lamports,
         node_stakes,
-        validator_configs: vec![validator_config; num_nodes],
+        validator_configs: make_identical_validator_configs(&validator_config, num_nodes),
         validator_keys: Some(
             validator_keys
                 .into_iter()
@@ -395,7 +375,6 @@ fn run_cluster_partition<E, F>(
     for node in &cluster_nodes {
         let node_client = RpcClient::new_socket(node.rpc);
         let epoch_info = node_client.get_epoch_info().unwrap();
-        info!("slots_per_epoch: {:?}", epoch_info);
         assert_eq!(epoch_info.slots_in_epoch, slots_per_epoch);
     }
 
@@ -438,8 +417,6 @@ fn test_cluster_partition_1_2() {
     run_cluster_partition(&[&[1], &[1, 1]], None, empty, on_partition_resolved, vec![])
 }
 
-#[allow(unused_attributes)]
-#[ignore]
 #[test]
 #[serial]
 fn test_cluster_partition_1_1() {
@@ -643,18 +620,17 @@ fn test_kill_partition_switch_threshold_progress() {
 #[test]
 #[serial]
 fn test_two_unbalanced_stakes() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_two_unbalanced_stakes");
-    let mut validator_config = ValidatorConfig::default();
+    let validator_config = ValidatorConfig::default();
     let num_ticks_per_second = 100;
     let num_ticks_per_slot = 10;
     let num_slots_per_epoch = MINIMUM_SLOTS_PER_EPOCH as u64;
 
-    validator_config.rpc_config.enable_validator_exit = true;
     let mut cluster = LocalCluster::new(&mut ClusterConfig {
         node_stakes: vec![999_990, 3],
         cluster_lamports: 1_000_000,
-        validator_configs: vec![validator_config; 2],
+        validator_configs: make_identical_validator_configs(&validator_config, 2),
         ticks_per_slot: num_ticks_per_slot,
         slots_per_epoch: num_slots_per_epoch,
         stakers_slot_offset: num_slots_per_epoch,
@@ -682,7 +658,7 @@ fn test_forwarding() {
     let mut config = ClusterConfig {
         node_stakes: vec![999_990, 3],
         cluster_lamports: 2_000_000,
-        validator_configs: vec![ValidatorConfig::default(); 2],
+        validator_configs: make_identical_validator_configs(&ValidatorConfig::default(), 2),
         ..ClusterConfig::default()
     };
     let cluster = LocalCluster::new(&mut config);
@@ -704,7 +680,7 @@ fn test_forwarding() {
 #[test]
 #[serial]
 fn test_restart_node() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_restart_node");
     let slots_per_epoch = MINIMUM_SLOTS_PER_EPOCH * 2;
     let ticks_per_slot = 16;
@@ -712,7 +688,7 @@ fn test_restart_node() {
     let mut cluster = LocalCluster::new(&mut ClusterConfig {
         node_stakes: vec![100; 1],
         cluster_lamports: 100,
-        validator_configs: vec![validator_config.clone()],
+        validator_configs: vec![safe_clone_config(&validator_config)],
         ticks_per_slot,
         slots_per_epoch,
         stakers_slot_offset: slots_per_epoch,
@@ -747,7 +723,7 @@ fn test_listener_startup() {
         node_stakes: vec![100; 1],
         cluster_lamports: 1_000,
         num_listeners: 3,
-        validator_configs: vec![ValidatorConfig::default(); 1],
+        validator_configs: make_identical_validator_configs(&ValidatorConfig::default(), 1),
         ..ClusterConfig::default()
     };
     let cluster = LocalCluster::new(&mut config);
@@ -758,13 +734,13 @@ fn test_listener_startup() {
 #[test]
 #[serial]
 fn test_mainnet_beta_cluster_type() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
 
     let mut config = ClusterConfig {
         cluster_type: ClusterType::MainnetBeta,
         node_stakes: vec![100; 1],
         cluster_lamports: 1_000,
-        validator_configs: vec![ValidatorConfig::default(); 1],
+        validator_configs: make_identical_validator_configs(&ValidatorConfig::default(), 1),
         ..ClusterConfig::default()
     };
     let cluster = LocalCluster::new(&mut config);
@@ -865,7 +841,7 @@ fn generate_frozen_account_panic(mut cluster: LocalCluster, frozen_account: Arc<
 #[test]
 #[serial]
 fn test_frozen_account_from_genesis() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let validator_identity =
         Arc::new(solana_sdk::signature::keypair_from_seed(&[0u8; 32]).unwrap());
 
@@ -873,14 +849,11 @@ fn test_frozen_account_from_genesis() {
         validator_keys: Some(vec![(validator_identity.clone(), true)]),
         node_stakes: vec![100; 1],
         cluster_lamports: 1_000,
-        validator_configs: vec![
-            ValidatorConfig {
-                // Freeze the validator identity account
-                frozen_accounts: vec![validator_identity.pubkey()],
-                ..ValidatorConfig::default()
-            };
-            1
-        ],
+        validator_configs: vec![ValidatorConfig {
+            // Freeze the validator identity account
+            frozen_accounts: vec![validator_identity.pubkey()],
+            ..ValidatorConfig::default()
+        }],
         ..ClusterConfig::default()
     };
     generate_frozen_account_panic(LocalCluster::new(&mut config), validator_identity);
@@ -889,7 +862,7 @@ fn test_frozen_account_from_genesis() {
 #[test]
 #[serial]
 fn test_frozen_account_from_snapshot() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let validator_identity =
         Arc::new(solana_sdk::signature::keypair_from_seed(&[0u8; 32]).unwrap());
 
@@ -901,7 +874,10 @@ fn test_frozen_account_from_snapshot() {
         validator_keys: Some(vec![(validator_identity.clone(), true)]),
         node_stakes: vec![100; 1],
         cluster_lamports: 1_000,
-        validator_configs: vec![snapshot_test_config.validator_config.clone()],
+        validator_configs: make_identical_validator_configs(
+            &snapshot_test_config.validator_config,
+            1,
+        ),
         ..ClusterConfig::default()
     };
     let mut cluster = LocalCluster::new(&mut config);
@@ -929,7 +905,7 @@ fn test_frozen_account_from_snapshot() {
 #[test]
 #[serial]
 fn test_consistency_halt() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let snapshot_interval_slots = 20;
     let num_account_paths = 1;
 
@@ -1018,7 +994,7 @@ fn test_consistency_halt() {
 #[test]
 #[serial]
 fn test_snapshot_download() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     // First set up the cluster with 1 node
     let snapshot_interval_slots = 50;
     let num_account_paths = 3;
@@ -1032,7 +1008,10 @@ fn test_snapshot_download() {
     let mut config = ClusterConfig {
         node_stakes: vec![stake],
         cluster_lamports: 1_000_000,
-        validator_configs: vec![leader_snapshot_test_config.validator_config.clone()],
+        validator_configs: make_identical_validator_configs(
+            &leader_snapshot_test_config.validator_config,
+            1,
+        ),
         ..ClusterConfig::default()
     };
 
@@ -1081,7 +1060,7 @@ fn test_snapshot_download() {
 #[test]
 #[serial]
 fn test_snapshot_restart_tower() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     // First set up the cluster with 2 nodes
     let snapshot_interval_slots = 10;
     let num_account_paths = 2;
@@ -1095,8 +1074,8 @@ fn test_snapshot_restart_tower() {
         node_stakes: vec![10000, 10],
         cluster_lamports: 100_000,
         validator_configs: vec![
-            leader_snapshot_test_config.validator_config.clone(),
-            validator_snapshot_test_config.validator_config.clone(),
+            safe_clone_config(&leader_snapshot_test_config.validator_config),
+            safe_clone_config(&validator_snapshot_test_config.validator_config),
         ],
         ..ClusterConfig::default()
     };
@@ -1153,7 +1132,7 @@ fn test_snapshot_restart_tower() {
 #[test]
 #[serial]
 fn test_snapshots_blockstore_floor() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     // First set up the cluster with 1 snapshotting leader
     let snapshot_interval_slots = 10;
     let num_account_paths = 4;
@@ -1173,7 +1152,10 @@ fn test_snapshots_blockstore_floor() {
     let mut config = ClusterConfig {
         node_stakes: vec![10000],
         cluster_lamports: 100_000,
-        validator_configs: vec![leader_snapshot_test_config.validator_config.clone()],
+        validator_configs: make_identical_validator_configs(
+            &leader_snapshot_test_config.validator_config,
+            1,
+        ),
         ..ClusterConfig::default()
     };
 
@@ -1253,7 +1235,7 @@ fn test_snapshots_blockstore_floor() {
 #[test]
 #[serial]
 fn test_snapshots_restart_validity() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let snapshot_interval_slots = 10;
     let num_account_paths = 1;
     let mut snapshot_test_config =
@@ -1276,7 +1258,10 @@ fn test_snapshots_restart_validity() {
     let mut config = ClusterConfig {
         node_stakes: vec![10000],
         cluster_lamports: 100_000,
-        validator_configs: vec![snapshot_test_config.validator_config.clone()],
+        validator_configs: make_identical_validator_configs(
+            &snapshot_test_config.validator_config,
+            1,
+        ),
         ..ClusterConfig::default()
     };
 
@@ -1310,7 +1295,10 @@ fn test_snapshots_restart_validity() {
         // Restart node
         trace!("Restarting cluster from snapshot");
         let nodes = cluster.get_node_pubkeys();
-        cluster.exit_restart_node(&nodes[0], snapshot_test_config.validator_config.clone());
+        cluster.exit_restart_node(
+            &nodes[0],
+            safe_clone_config(&snapshot_test_config.validator_config),
+        );
 
         // Verify account balances on validator
         trace!("Verifying balances");
@@ -1343,7 +1331,7 @@ fn test_fake_shreds_broadcast_leader() {
 }
 
 fn test_faulty_node(faulty_node_type: BroadcastStageType) {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let num_nodes = 2;
     let error_validator_config = ValidatorConfig {
         broadcast_stage_type: faulty_node_type,
@@ -1373,13 +1361,12 @@ fn test_faulty_node(faulty_node_type: BroadcastStageType) {
 
 #[test]
 fn test_wait_for_max_stake() {
-    solana_logger::setup();
-    let mut validator_config = ValidatorConfig::default();
-    validator_config.rpc_config.enable_validator_exit = true;
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
+    let validator_config = ValidatorConfig::default();
     let mut config = ClusterConfig {
         cluster_lamports: 10_000,
         node_stakes: vec![100; 4],
-        validator_configs: vec![validator_config; 4],
+        validator_configs: make_identical_validator_configs(&validator_config, 4),
         ..ClusterConfig::default()
     };
     let cluster = LocalCluster::new(&mut config);
@@ -1395,10 +1382,11 @@ fn test_wait_for_max_stake() {
 // Test that when a leader is leader for banks B_i..B_{i+n}, and B_i is not
 // votable, then B_{i+1} still chains to B_i
 fn test_no_voting() {
-    solana_logger::setup();
-    let mut validator_config = ValidatorConfig::default();
-    validator_config.rpc_config.enable_validator_exit = true;
-    validator_config.voting_disabled = true;
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
+    let validator_config = ValidatorConfig {
+        voting_disabled: true,
+        ..ValidatorConfig::default()
+    };
     let mut config = ClusterConfig {
         cluster_lamports: 10_000,
         node_stakes: vec![100],
@@ -1434,10 +1422,7 @@ fn test_no_voting() {
 #[test]
 #[serial]
 fn test_optimistic_confirmation_violation_detection() {
-    solana_logger::setup();
-    let buf = std::env::var("OPTIMISTIC_CONF_TEST_DUMP_LOG")
-        .err()
-        .map(|_| BufferRedirect::stderr().unwrap());
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     // First set up the cluster with 2 nodes
     let slots_per_epoch = 2048;
     let node_stakes = vec![51, 50];
@@ -1452,7 +1437,10 @@ fn test_optimistic_confirmation_violation_detection() {
     let mut config = ClusterConfig {
         cluster_lamports: 100_000,
         node_stakes: node_stakes.clone(),
-        validator_configs: vec![ValidatorConfig::default(); node_stakes.len()],
+        validator_configs: make_identical_validator_configs(
+            &ValidatorConfig::default(),
+            node_stakes.len(),
+        ),
         validator_keys: Some(validator_keys),
         slots_per_epoch,
         stakers_slot_offset: slots_per_epoch,
@@ -1499,20 +1487,42 @@ fn test_optimistic_confirmation_violation_detection() {
         // ancestor in bank forks).
         blockstore.set_dead_slot(prev_voted_slot).unwrap();
     }
-    cluster.restart_node(&entry_point_id, exited_validator_info);
 
-    // Wait for a root > prev_voted_slot to be set. Because the root is on a
-    // different fork than `prev_voted_slot`, then optimistic confirmation is
-    // violated
-    let client = cluster.get_validator_client(&entry_point_id).unwrap();
-    loop {
-        let last_root = client
-            .get_slot_with_commitment(CommitmentConfig::finalized())
-            .unwrap();
-        if last_root > prev_voted_slot {
-            break;
+    {
+        // Buffer stderr to detect optimistic slot violation log
+        let buf = std::env::var("OPTIMISTIC_CONF_TEST_DUMP_LOG")
+            .err()
+            .map(|_| BufferRedirect::stderr().unwrap());
+        cluster.restart_node(&entry_point_id, exited_validator_info);
+
+        // Wait for a root > prev_voted_slot to be set. Because the root is on a
+        // different fork than `prev_voted_slot`, then optimistic confirmation is
+        // violated
+        let client = cluster.get_validator_client(&entry_point_id).unwrap();
+        loop {
+            let last_root = client
+                .get_slot_with_commitment(CommitmentConfig::finalized())
+                .unwrap();
+            if last_root > prev_voted_slot {
+                break;
+            }
+            sleep(Duration::from_millis(100));
         }
-        sleep(Duration::from_millis(100));
+
+        // Check to see that validator detected optimistic confirmation for
+        // `prev_voted_slot` failed
+        let expected_log =
+            OptimisticConfirmationVerifier::format_optimistic_confirmed_slot_violation_log(
+                prev_voted_slot,
+            );
+        if let Some(mut buf) = buf {
+            let mut output = String::new();
+            buf.read_to_string(&mut output).unwrap();
+            assert!(output.contains(&expected_log));
+            print!("{}", output);
+        } else {
+            panic!("dumped log and disabled testing");
+        }
     }
 
     // Make sure validator still makes progress
@@ -1521,26 +1531,12 @@ fn test_optimistic_confirmation_violation_detection() {
         &[cluster.get_contact_info(&entry_point_id).unwrap().clone()],
         "test_optimistic_confirmation_violation",
     );
-
-    // Check to see that validator detected optimistic confirmation for
-    // `prev_voted_slot` failed
-    let expected_log =
-        OptimisticConfirmationVerifier::format_optimistic_confirmd_slot_violation_log(
-            prev_voted_slot,
-        );
-    if let Some(mut buf) = buf {
-        let mut output = String::new();
-        buf.read_to_string(&mut output).unwrap();
-        assert!(output.contains(&expected_log));
-    } else {
-        panic!("dumped log and disaled testing");
-    }
 }
 
 #[test]
 #[serial]
 fn test_validator_saves_tower() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
 
     let validator_config = ValidatorConfig {
         require_tower: true,
@@ -1753,7 +1749,7 @@ fn remove_tower(ledger_path: &Path, node_pubkey: &Pubkey) {
 //    `A` should not be able to generate a switching proof.
 //
 fn do_test_optimistic_confirmation_violation_with_or_without_tower(with_tower: bool) {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
 
     // First set up the cluster with 4 nodes
     let slots_per_epoch = 2048;
@@ -1785,7 +1781,10 @@ fn do_test_optimistic_confirmation_violation_with_or_without_tower(with_tower: b
     let mut config = ClusterConfig {
         cluster_lamports: 100_000,
         node_stakes: node_stakes.clone(),
-        validator_configs: vec![ValidatorConfig::default(); node_stakes.len()],
+        validator_configs: make_identical_validator_configs(
+            &ValidatorConfig::default(),
+            node_stakes.len(),
+        ),
         validator_keys: Some(validator_keys),
         slots_per_epoch,
         stakers_slot_offset: slots_per_epoch,
@@ -1808,7 +1807,15 @@ fn do_test_optimistic_confirmation_violation_with_or_without_tower(with_tower: b
     // Step 1:
     // Let validator A, B, (D) run for a while.
     let (mut validator_a_finished, mut validator_b_finished) = (false, false);
+    let now = Instant::now();
     while !(validator_a_finished && validator_b_finished) {
+        let elapsed = now.elapsed();
+        if elapsed > Duration::from_secs(30) {
+            panic!(
+                "LocalCluster nodes failed to log enough tower votes in {} secs",
+                elapsed.as_secs()
+            );
+        }
         sleep(Duration::from_millis(100));
 
         if let Some(last_vote) = last_vote_in_tower(&val_a_ledger_path, &validator_a_pubkey) {
@@ -1935,7 +1942,7 @@ enum ClusterMode {
 }
 
 fn do_test_future_tower(cluster_mode: ClusterMode) {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
 
     // First set up the cluster with 4 nodes
     let slots_per_epoch = 2048;
@@ -1964,7 +1971,10 @@ fn do_test_future_tower(cluster_mode: ClusterMode) {
     let mut config = ClusterConfig {
         cluster_lamports: 100_000,
         node_stakes: node_stakes.clone(),
-        validator_configs: vec![ValidatorConfig::default(); node_stakes.len()],
+        validator_configs: make_identical_validator_configs(
+            &ValidatorConfig::default(),
+            node_stakes.len(),
+        ),
         validator_keys: Some(validator_keys),
         slots_per_epoch,
         stakers_slot_offset: slots_per_epoch,
@@ -2043,7 +2053,7 @@ fn test_future_tower_master_slave() {
 
 #[test]
 fn test_hard_fork_invalidates_tower() {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
 
     // First set up the cluster with 2 nodes
     let slots_per_epoch = 2048;
@@ -2068,7 +2078,10 @@ fn test_hard_fork_invalidates_tower() {
     let mut config = ClusterConfig {
         cluster_lamports: 100_000,
         node_stakes: node_stakes.clone(),
-        validator_configs: vec![ValidatorConfig::default(); node_stakes.len()],
+        validator_configs: make_identical_validator_configs(
+            &ValidatorConfig::default(),
+            node_stakes.len(),
+        ),
         validator_keys: Some(validator_keys),
         slots_per_epoch,
         stakers_slot_offset: slots_per_epoch,
@@ -2232,7 +2245,11 @@ fn setup_transfer_scan_threads(
     scan_commitment: CommitmentConfig,
     update_client_receiver: Receiver<ThinClient>,
     scan_client_receiver: Receiver<ThinClient>,
-) -> (JoinHandle<()>, JoinHandle<()>, Vec<(Pubkey, Account)>) {
+) -> (
+    JoinHandle<()>,
+    JoinHandle<()>,
+    Vec<(Pubkey, AccountSharedData)>,
+) {
     let exit_ = exit.clone();
     let starting_keypairs: Arc<Vec<Keypair>> = Arc::new(
         iter::repeat_with(Keypair::new)
@@ -2244,9 +2261,14 @@ fn setup_transfer_scan_threads(
             .take(num_starting_accounts)
             .collect(),
     );
-    let starting_accounts: Vec<(Pubkey, Account)> = starting_keypairs
+    let starting_accounts: Vec<(Pubkey, AccountSharedData)> = starting_keypairs
         .iter()
-        .map(|k| (k.pubkey(), Account::new(1, 0, &system_program::id())))
+        .map(|k| {
+            (
+                k.pubkey(),
+                AccountSharedData::new(1, 0, &system_program::id()),
+            )
+        })
         .collect();
 
     let starting_keypairs_ = starting_keypairs.clone();
@@ -2332,7 +2354,7 @@ fn setup_transfer_scan_threads(
 }
 
 fn run_test_load_program_accounts(scan_commitment: CommitmentConfig) {
-    solana_logger::setup();
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     // First set up the cluster with 2 nodes
     let slots_per_epoch = 2048;
     let node_stakes = vec![51, 50];
@@ -2362,7 +2384,10 @@ fn run_test_load_program_accounts(scan_commitment: CommitmentConfig) {
     let mut config = ClusterConfig {
         cluster_lamports: 100_000,
         node_stakes: node_stakes.clone(),
-        validator_configs: vec![ValidatorConfig::default(); node_stakes.len()],
+        validator_configs: make_identical_validator_configs(
+            &ValidatorConfig::default(),
+            node_stakes.len(),
+        ),
         validator_keys: Some(validator_keys),
         slots_per_epoch,
         stakers_slot_offset: slots_per_epoch,
@@ -2469,11 +2494,12 @@ fn setup_snapshot_validator_config(
     let (account_storage_dirs, account_storage_paths) = generate_account_paths(num_account_paths);
 
     // Create the validator config
-    let mut validator_config = ValidatorConfig::default();
-    validator_config.rpc_config.enable_validator_exit = true;
-    validator_config.snapshot_config = Some(snapshot_config);
-    validator_config.account_paths = account_storage_paths;
-    validator_config.accounts_hash_interval_slots = snapshot_interval_slots;
+    let validator_config = ValidatorConfig {
+        snapshot_config: Some(snapshot_config),
+        account_paths: account_storage_paths,
+        accounts_hash_interval_slots: snapshot_interval_slots,
+        ..ValidatorConfig::default()
+    };
 
     SnapshotValidatorConfig {
         _snapshot_dir: snapshot_dir,

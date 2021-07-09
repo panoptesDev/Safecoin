@@ -3,11 +3,14 @@
 use crate::sanitize::Sanitize;
 use crate::{pubkey::Pubkey, short_vec};
 use bincode::serialize;
+use borsh::BorshSerialize;
 use serde::Serialize;
 use thiserror::Error;
 
 /// Reasons the runtime might have rejected an instruction.
-#[derive(Serialize, Deserialize, Debug, Error, PartialEq, Eq, Clone, AbiExample, AbiEnumVisitor)]
+#[derive(
+    Serialize, Deserialize, Debug, Error, PartialEq, Eq, Clone, AbiExample, AbiEnumVisitor,
+)]
 pub enum InstructionError {
     /// Deprecated! Use CustomError instead!
     /// The program instruction returned an error
@@ -172,20 +175,45 @@ pub enum InstructionError {
     #[error("Cross-program invocation with unauthorized signer or writable account")]
     PrivilegeEscalation,
 
+    /// Failed to create program execution environment
     #[error("Failed to create program execution environment")]
     ProgramEnvironmentSetupFailure,
 
+    /// Program failed to complete
     #[error("Program failed to complete")]
     ProgramFailedToComplete,
 
+    /// Program failed to compile
     #[error("Program failed to compile")]
     ProgramFailedToCompile,
 
+    /// Account is immutable
     #[error("Account is immutable")]
     Immutable,
 
+    /// Incorrect authority provided
     #[error("Incorrect authority provided")]
     IncorrectAuthority,
+
+    /// Failed to serialize or deserialize account data
+    #[error("Failed to serialize or deserialize account data: {0}")]
+    BorshIoError(String),
+
+    /// An account does not have enough lamports to be rent-exempt
+    #[error("An account does not have enough lamports to be rent-exempt")]
+    AccountNotRentExempt,
+
+    /// Invalid account owner
+    #[error("Invalid account owner")]
+    InvalidAccountOwner,
+
+    /// Program arithmetic overflowed
+    #[error("Program arithmetic overflowed")]
+    ArithmeticOverflow,
+
+    /// Unsupported sysvar
+    #[error("Unsupported sysvar")]
+    UnsupportedSysvar,
 }
 
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
@@ -199,7 +227,19 @@ pub struct Instruction {
 }
 
 impl Instruction {
+    #[deprecated(
+        since = "1.6.0",
+        note = "Please use another Instruction constructor instead, such as `Instruction::new_with_bincode`"
+    )]
     pub fn new<T: Serialize>(program_id: Pubkey, data: &T, accounts: Vec<AccountMeta>) -> Self {
+        Self::new_with_bincode(program_id, data, accounts)
+    }
+
+    pub fn new_with_bincode<T: Serialize>(
+        program_id: Pubkey,
+        data: &T,
+        accounts: Vec<AccountMeta>,
+    ) -> Self {
         let data = serialize(data).unwrap();
         Self {
             program_id,
@@ -207,6 +247,31 @@ impl Instruction {
             accounts,
         }
     }
+
+    pub fn new_with_borsh<T: BorshSerialize>(
+        program_id: Pubkey,
+        data: &T,
+        accounts: Vec<AccountMeta>,
+    ) -> Self {
+        let data = data.try_to_vec().unwrap();
+        Self {
+            program_id,
+            data,
+            accounts,
+        }
+    }
+
+    pub fn new_with_bytes(program_id: Pubkey, data: &[u8], accounts: Vec<AccountMeta>) -> Self {
+        Self {
+            program_id,
+            data: data.to_vec(),
+            accounts,
+        }
+    }
+}
+
+pub fn checked_add(a: u64, b: u64) -> Result<u64, InstructionError> {
+    a.checked_add(b).ok_or(InstructionError::InsufficientFunds)
 }
 
 /// Account metadata used to define Instructions

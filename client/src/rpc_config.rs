@@ -1,10 +1,12 @@
-use crate::rpc_filter::RpcFilterType;
-use solana_account_decoder::{UiAccountEncoding, UiDataSliceConfig};
-use solana_sdk::{
-    clock::Epoch,
-    commitment_config::{CommitmentConfig, CommitmentLevel},
+use {
+    crate::rpc_filter::RpcFilterType,
+    solana_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
+    solana_sdk::{
+        clock::{Epoch, Slot},
+        commitment_config::{CommitmentConfig, CommitmentLevel},
+    },
+    solana_transaction_status::{TransactionDetails, UiTransactionEncoding},
 };
-use solana_transaction_status::UiTransactionEncoding;
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -31,7 +33,15 @@ pub struct RpcSimulateTransactionConfig {
     pub encoding: Option<UiTransactionEncoding>,
 }
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RpcRequestAirdropConfig {
+    pub recent_blockhash: Option<String>, // base-58 encoded blockhash
+    #[serde(flatten)]
+    pub commitment: Option<CommitmentConfig>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub enum RpcLargestAccountsFilter {
     Circulating,
@@ -48,7 +58,7 @@ pub struct RpcLargestAccountsConfig {
 
 #[derive(Debug, Clone, Default, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct RpcStakeConfig {
+pub struct RpcEpochConfig {
     pub epoch: Option<Epoch>,
     #[serde(flatten)]
     pub commitment: Option<CommitmentConfig>,
@@ -107,4 +117,101 @@ pub struct RpcGetConfirmedSignaturesForAddress2Config {
     pub before: Option<String>, // Signature as base-58 string
     pub until: Option<String>,  // Signature as base-58 string
     pub limit: Option<usize>,
+    #[serde(flatten)]
+    pub commitment: Option<CommitmentConfig>,
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RpcEncodingConfigWrapper<T> {
+    Deprecated(Option<UiTransactionEncoding>),
+    Current(Option<T>),
+}
+
+impl<T: EncodingConfig + Default + Copy> RpcEncodingConfigWrapper<T> {
+    pub fn convert_to_current(&self) -> T {
+        match self {
+            RpcEncodingConfigWrapper::Deprecated(encoding) => T::new_with_encoding(encoding),
+            RpcEncodingConfigWrapper::Current(config) => config.unwrap_or_default(),
+        }
+    }
+}
+
+pub trait EncodingConfig {
+    fn new_with_encoding(encoding: &Option<UiTransactionEncoding>) -> Self;
+}
+
+#[derive(Debug, Clone, Copy, Default, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RpcConfirmedBlockConfig {
+    pub encoding: Option<UiTransactionEncoding>,
+    pub transaction_details: Option<TransactionDetails>,
+    pub rewards: Option<bool>,
+    #[serde(flatten)]
+    pub commitment: Option<CommitmentConfig>,
+}
+
+impl EncodingConfig for RpcConfirmedBlockConfig {
+    fn new_with_encoding(encoding: &Option<UiTransactionEncoding>) -> Self {
+        Self {
+            encoding: *encoding,
+            ..Self::default()
+        }
+    }
+}
+
+impl RpcConfirmedBlockConfig {
+    pub fn rewards_only() -> Self {
+        Self {
+            transaction_details: Some(TransactionDetails::None),
+            ..Self::default()
+        }
+    }
+
+    pub fn rewards_with_commitment(commitment: Option<CommitmentConfig>) -> Self {
+        Self {
+            transaction_details: Some(TransactionDetails::None),
+            commitment,
+            ..Self::default()
+        }
+    }
+}
+
+impl From<RpcConfirmedBlockConfig> for RpcEncodingConfigWrapper<RpcConfirmedBlockConfig> {
+    fn from(config: RpcConfirmedBlockConfig) -> Self {
+        RpcEncodingConfigWrapper::Current(Some(config))
+    }
+}
+
+#[derive(Debug, Clone, Copy, Default, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RpcConfirmedTransactionConfig {
+    pub encoding: Option<UiTransactionEncoding>,
+    #[serde(flatten)]
+    pub commitment: Option<CommitmentConfig>,
+}
+
+impl EncodingConfig for RpcConfirmedTransactionConfig {
+    fn new_with_encoding(encoding: &Option<UiTransactionEncoding>) -> Self {
+        Self {
+            encoding: *encoding,
+            ..Self::default()
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RpcConfirmedBlocksConfigWrapper {
+    EndSlotOnly(Option<Slot>),
+    CommitmentOnly(Option<CommitmentConfig>),
+}
+
+impl RpcConfirmedBlocksConfigWrapper {
+    pub fn unzip(&self) -> (Option<Slot>, Option<CommitmentConfig>) {
+        match &self {
+            RpcConfirmedBlocksConfigWrapper::EndSlotOnly(end_slot) => (*end_slot, None),
+            RpcConfirmedBlocksConfigWrapper::CommitmentOnly(commitment) => (None, *commitment),
+        }
+    }
 }

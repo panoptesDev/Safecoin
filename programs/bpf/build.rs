@@ -68,6 +68,7 @@ fn main() {
             "dup_accounts",
             "error_handling",
             "external_spend",
+            "finalize",
             "instruction_introspection",
             "invoke",
             "invoke_and_error",
@@ -87,7 +88,7 @@ fn main() {
             "sha256",
             "spoof1",
             "spoof1_system",
-            "sysval",
+            "sysvar",
             "upgradeable",
             "upgraded",
         ];

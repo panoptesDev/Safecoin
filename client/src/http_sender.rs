@@ -1,17 +1,27 @@
-use crate::{
-    client_error::Result,
-    rpc_custom_error,
-    rpc_request::{RpcError, RpcRequest, RpcResponseErrorData},
-    rpc_response::RpcSimulateTransactionResult,
-    rpc_sender::RpcSender,
+use {
+    crate::{
+        client_error::Result,
+        rpc_custom_error,
+        rpc_request::{RpcError, RpcRequest, RpcResponseErrorData},
+        rpc_response::RpcSimulateTransactionResult,
+        rpc_sender::RpcSender,
+    },
+    log::*,
+    reqwest::{self, header::CONTENT_TYPE, StatusCode},
+    std::{
+        sync::{
+            atomic::{AtomicU64, Ordering},
+            Arc,
+        },
+        thread::sleep,
+        time::Duration,
+    },
 };
-use log::*;
-use reqwest::{self, header::CONTENT_TYPE, StatusCode};
-use std::{thread::sleep, time::Duration};
 
 pub struct HttpSender {
-    client: reqwest::blocking::Client,
+    client: Arc<reqwest::blocking::Client>,
     url: String,
+    request_id: AtomicU64,
 }
 
 impl HttpSender {
@@ -20,12 +30,22 @@ impl HttpSender {
     }
 
     pub fn new_with_timeout(url: String, timeout: Duration) -> Self {
-        let client = reqwest::blocking::Client::builder()
-            .timeout(timeout)
-            .build()
-            .expect("build rpc client");
+        // `reqwest::blocking::Client` panics if run in a tokio async context.  Shuttle the
+        // request to a different tokio thread to avoid this
+        let client = Arc::new(
+            tokio::task::block_in_place(move || {
+                reqwest::blocking::Client::builder()
+                    .timeout(timeout)
+                    .build()
+            })
+            .expect("build rpc client"),
+        );
 
-        Self { client, url }
+        Self {
+            client,
+            url,
+            request_id: AtomicU64::new(0),
+        }
     }
 }
 
@@ -38,20 +58,26 @@ struct RpcErrorObject {
 
 impl RpcSender for HttpSender {
     fn send(&self, request: RpcRequest, params: serde_json::Value) -> Result<serde_json::Value> {
-        // Concurrent requests are not supported so reuse the same request id for all requests
-        let request_id = 1;
-
-        let request_json = request.build_request_json(request_id, params);
+        let request_id = self.request_id.fetch_add(1, Ordering::Relaxed);
+        let request_json = request.build_request_json(request_id, params).to_string();
 
         let mut too_many_requests_retries = 5;
         loop {
-            match self
-                .client
-                .post(&self.url)
-                .header(CONTENT_TYPE, "application/json")
-                .body(request_json.to_string())
-                .send()
-            {
+            // `reqwest::blocking::Client` panics if run in a tokio async context.  Shuttle the
+            // request to a different tokio thread to avoid this
+            let response = {
+                let client = self.client.clone();
+                let request_json = request_json.clone();
+                tokio::task::block_in_place(move || {
+                    client
+                        .post(&self.url)
+                        .header(CONTENT_TYPE, "application/json")
+                        .body(request_json)
+                        .send()
+                })
+            };
+
+            match response {
                 Ok(response) => {
                     if !response.status().is_success() {
                         if response.status() == StatusCode::TOO_MANY_REQUESTS
@@ -70,7 +96,9 @@ impl RpcSender for HttpSender {
                         return Err(response.error_for_status().unwrap_err().into());
                     }
 
-                    let json: serde_json::Value = serde_json::from_str(&response.text()?)?;
+                    let response_text = tokio::task::block_in_place(move || response.text())?;
+
+                    let json: serde_json::Value = serde_json::from_str(&response_text)?;
                     if json["error"].is_object() {
                         return match serde_json::from_value::<RpcErrorObject>(json["error"].clone())
                         {
@@ -85,7 +113,7 @@ impl RpcSender for HttpSender {
                                             }
                                         }
                                     },
-                                    rpc_custom_error::JSON_RPC_SERVER_ERROR_NODE_UNHEALTHLY => {
+                                    rpc_custom_error::JSON_RPC_SERVER_ERROR_NODE_UNHEALTHY => {
                                         match serde_json::from_value::<rpc_custom_error::NodeUnhealthyErrorData>(json["error"]["data"].clone()) {
                                             Ok(rpc_custom_error::NodeUnhealthyErrorData {num_slots_behind}) => RpcResponseErrorData::NodeUnhealthy {num_slots_behind},
                                             Err(_err) => {
@@ -118,5 +146,24 @@ impl RpcSender for HttpSender {
                 }
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test(flavor = "multi_thread")]
+    async fn http_sender_on_tokio_multi_thread() {
+        let http_sender = HttpSender::new("http://localhost:1234".to_string());
+        let _ = http_sender.send(RpcRequest::GetVersion, serde_json::Value::Null);
+    }
+
+    #[tokio::test(flavor = "current_thread")]
+    #[should_panic(expected = "can call blocking only when running on the multi-threaded runtime")]
+    async fn http_sender_ontokio_current_thread_should_panic() {
+        // RpcClient::new() will panic in the tokio current-thread runtime due to `tokio::task::block_in_place()` usage, and there
+        // doesn't seem to be a way to detect whether the tokio runtime is multi_thread or current_thread...
+        let _ = HttpSender::new("http://localhost:1234".to_string());
     }
 }

@@ -32,7 +32,7 @@ Try running following command to join the gossip network and view all the other
 nodes in the cluster:
 
 ```bash
-safecoin-gossip spy --entrypoint devnet.safecoin.org:10015
+safecoin-gossip spy --entrypoint entrypoint.devnet.safecoin.org:10015
 # Press ^C to exit
 ```
 
@@ -157,6 +157,15 @@ You can generate a custom vanity keypair using safecoin-keygen. For instance:
 safecoin-keygen grind --starts-with e1v1s:1
 ```
 
+You may request that the generated vanity keypair be expressed as a seed phrase
+which allows recovery of the keypair from the seed phrase and an optionally
+supplied passphrase (note that this is significantly slower than grinding without
+a mnemonic):
+
+```bash
+safecoin-keygen grind --use-mnemonic --starts-with e1v1s:1
+```
+
 Depending on the string requested, it may take days to find a match...
 
 ---
@@ -193,11 +202,11 @@ Wallet Config Updated: /home/solana/.config/solana/wallet/config.yml
 Airdrop yourself some SAFE to get started:
 
 ```bash
-safecoin airdrop 10
+safecoin airdrop 1
 ```
 
 Note that airdrops are only available on Devnet and Testnet. Both are limited
-to 10 SAFE per request.
+to 1 SAFE per request.
 
 To view your current balance:
 
@@ -254,15 +263,17 @@ Connect to the cluster by running:
 safecoin-validator \
   --identity ~/validator-keypair.json \
   --vote-account ~/vote-account-keypair.json \
-  --ledger ~/validator-ledger \
   --rpc-port 8328 \
-  --entrypoint devnet.safecoin.org:10015 \
+  --entrypoint entrypoint.devnet.safecoin.org:10015 \
   --limit-ledger-size \
   --log ~/safecoin-validator.log
 ```
 
 To force validator logging to the console add a `--log -` argument, otherwise
 the validator will automatically log to a file.
+
+The ledger will be placed in the `ledger/` directory by default, use the
+`--ledger` argument to specify a different location.
 
 > Note: You can use a
 > [paper wallet seed phrase](../wallet-guide/paper-wallet.md)
@@ -275,7 +286,7 @@ Confirm your validator connected to the network by opening a new terminal and
 running:
 
 ```bash
-safecoin-gossip spy --entrypoint devnet.safecoin.org:10015
+safecoin-gossip spy --entrypoint entrypoint.devnet.safecoin.org:10015
 ```
 
 If your validator is connected, its public key and IP address will appear in the list.
@@ -354,6 +365,11 @@ very large over time and it's recommended that log rotation be configured.
 
 The validator will re-open its when it receives the `USR1` signal, which is the
 basic primitive that enables log rotation.
+
+If the validator is being started by a wrapper shell script, it is important to
+launch the process with `exec` (`exec safecoin-validator ...`) when using logrotate.
+This will prevent the `USR1` signal from being sent to the script's process
+instead of the validator's, which will kill them both.
 
 #### Using logrotate
 

@@ -249,11 +249,11 @@ mod tests {
     use super::*;
     use solana_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo};
     use solana_runtime::{
-        accounts_background_service::ABSRequestSender,
+        accounts_background_service::AbsRequestSender,
         bank_forks::BankForks,
         genesis_utils::{create_genesis_config_with_vote_accounts, ValidatorVoteKeypairs},
     };
-    use solana_sdk::{pubkey::Pubkey, signature::Signer};
+    use solana_sdk::{account::Account, pubkey::Pubkey, signature::Signer};
     use solana_stake_program::stake_state;
     use solana_vote_program::{
         vote_state::{self, VoteStateVersions},
@@ -411,16 +411,20 @@ mod tests {
             rooted_stake_amount,
         );
 
-        genesis_config.accounts.extend(vec![
-            (pk1, vote_account1.clone()),
-            (sk1, stake_account1),
-            (pk2, vote_account2.clone()),
-            (sk2, stake_account2),
-            (pk3, vote_account3.clone()),
-            (sk3, stake_account3),
-            (pk4, vote_account4.clone()),
-            (sk4, stake_account4),
-        ]);
+        genesis_config.accounts.extend(
+            vec![
+                (pk1, vote_account1.clone()),
+                (sk1, stake_account1),
+                (pk2, vote_account2.clone()),
+                (sk2, stake_account2),
+                (pk3, vote_account3.clone()),
+                (sk3, stake_account3),
+                (pk4, vote_account4.clone()),
+                (sk4, stake_account4),
+            ]
+            .into_iter()
+            .map(|(key, account)| (key, Account::from(account))),
+        );
 
         // Create bank
         let bank = Arc::new(Bank::new(&genesis_config));
@@ -534,7 +538,7 @@ mod tests {
             &working_bank,
         );
         for x in 0..root {
-            bank_forks.set_root(x, &ABSRequestSender::default(), None);
+            bank_forks.set_root(x, &AbsRequestSender::default(), None);
         }
 
         // Add an additional bank/vote that will root slot 2
@@ -573,7 +577,7 @@ mod tests {
             .highest_confirmed_root();
         bank_forks.set_root(
             root,
-            &ABSRequestSender::default(),
+            &AbsRequestSender::default(),
             Some(highest_confirmed_root),
         );
         let highest_confirmed_root_bank = bank_forks.get(highest_confirmed_root);
@@ -642,7 +646,7 @@ mod tests {
             .highest_confirmed_root();
         bank_forks.set_root(
             root,
-            &ABSRequestSender::default(),
+            &AbsRequestSender::default(),
             Some(highest_confirmed_root),
         );
         let highest_confirmed_root_bank = bank_forks.get(highest_confirmed_root);

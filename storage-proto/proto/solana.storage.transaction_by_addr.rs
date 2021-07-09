@@ -56,7 +56,7 @@ pub enum TransactionErrorType {
     ProgramAccountNotFound = 3,
     InsufficientFundsForFee = 4,
     InvalidAccountForFee = 5,
-    DuplicateSignature = 6,
+    AlreadyProcessed = 6,
     BlockhashNotFound = 7,
     InstructionError = 8,
     CallChainTooDeep = 9,
@@ -114,4 +114,9 @@ pub enum InstructionErrorType {
     ProgramFailedToCompile = 41,
     Immutable = 42,
     IncorrectAuthority = 43,
+    BorshIoError = 44,
+    AccountNotRentExempt = 45,
+    InvalidAccountOwner = 46,
+    ArithmeticOverflow = 47,
+    UnsupportedSysvar = 48,
 }

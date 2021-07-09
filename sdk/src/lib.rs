@@ -1,3 +1,4 @@
+#![allow(incomplete_features)]
 #![cfg_attr(RUSTC_WITH_SPECIALIZATION, feature(specialization))]
 #![cfg_attr(RUSTC_NEEDS_PROC_MACRO_HYGIENE, feature(proc_macro_hygiene))]
 
@@ -8,6 +9,7 @@ pub use solana_program::*;
 
 pub mod account;
 pub mod account_utils;
+pub mod arithmetic;
 pub mod builtins;
 pub mod client;
 pub mod commitment_config;

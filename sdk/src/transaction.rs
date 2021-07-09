@@ -20,7 +20,9 @@ use std::result;
 use thiserror::Error;
 
 /// Reasons a transaction might be rejected.
-#[derive(Error, Serialize, Deserialize, Debug, PartialEq, Eq, Clone, AbiExample, AbiEnumVisitor)]
+#[derive(
+    Error, Serialize, Deserialize, Debug, PartialEq, Eq, Clone, AbiExample, AbiEnumVisitor,
+)]
 pub enum TransactionError {
     /// An account is already being processed in another transaction in a way
     /// that does not support parallelism
@@ -48,11 +50,11 @@ pub enum TransactionError {
     #[error("This account may not be used to pay transaction fees")]
     InvalidAccountForFee,
 
-    /// The bank has seen this `Signature` before. This can occur under normal operation
+    /// The bank has seen this transaction before. This can occur under normal operation
     /// when a UDP packet is duplicated, as a user error from a client not updating
     /// its `recent_blockhash`, or as a double-spend attack.
-    #[error("The bank has seen this signature before")]
-    DuplicateSignature,
+    #[error("This transaction has already been processed")]
+    AlreadyProcessed,
 
     /// The bank has not seen the given `recent_blockhash` or the transaction is too old and
     /// the `recent_blockhash` has been discarded.
@@ -315,18 +317,11 @@ impl Transaction {
         Ok(())
     }
 
-    pub fn verify_with_results(&self) -> Vec<bool> {
-        self.signatures
-            .iter()
-            .zip(&self.message.account_keys)
-            .map(|(signature, pubkey)| signature.verify(pubkey.as_ref(), &self.message_data()))
-            .collect()
-    }
-
     /// Verify the transaction
     pub fn verify(&self) -> Result<()> {
+        let message_bytes = self.message_data();
         if !self
-            .verify_with_results()
+            ._verify_with_results(&message_bytes)
             .iter()
             .all(|verify_result| *verify_result)
         {
@@ -334,6 +329,32 @@ impl Transaction {
         } else {
             Ok(())
         }
+    }
+
+    /// Verify the transaction and hash its message
+    pub fn verify_and_hash_message(&self) -> Result<Hash> {
+        let message_bytes = self.message_data();
+        if !self
+            ._verify_with_results(&message_bytes)
+            .iter()
+            .all(|verify_result| *verify_result)
+        {
+            Err(TransactionError::SignatureFailure)
+        } else {
+            Ok(Message::hash_raw_message(&message_bytes))
+        }
+    }
+
+    pub fn verify_with_results(&self) -> Vec<bool> {
+        self._verify_with_results(&self.message_data())
+    }
+
+    pub(crate) fn _verify_with_results(&self, message_bytes: &[u8]) -> Vec<bool> {
+        self.signatures
+            .iter()
+            .zip(&self.message.account_keys)
+            .map(|(signature, pubkey)| signature.verify(pubkey.as_ref(), message_bytes))
+            .collect()
     }
 
     pub fn verify_precompiles(&self) -> Result<()> {
@@ -517,7 +538,7 @@ mod tests {
         let key = Keypair::new();
         let id0 = Pubkey::default();
         let program_id = solana_sdk::pubkey::new_rand();
-        let ix = Instruction::new(
+        let ix = Instruction::new_with_bincode(
             program_id,
             &0,
             vec![
@@ -594,7 +615,8 @@ mod tests {
             AccountMeta::new(keypair.pubkey(), true),
             AccountMeta::new(to, false),
         ];
-        let instruction = Instruction::new(program_id, &(1u8, 2u8, 3u8), account_metas);
+        let instruction =
+            Instruction::new_with_bincode(program_id, &(1u8, 2u8, 3u8), account_metas);
         let message = Message::new(&[instruction], Some(&keypair.pubkey()));
         Transaction::new(&[&keypair], message, Hash::default())
     }
@@ -691,7 +713,7 @@ mod tests {
     fn test_partial_sign_mismatched_key() {
         let keypair = Keypair::new();
         let fee_payer = solana_sdk::pubkey::new_rand();
-        let ix = Instruction::new(
+        let ix = Instruction::new_with_bincode(
             Pubkey::default(),
             &0,
             vec![AccountMeta::new(fee_payer, true)],
@@ -705,7 +727,7 @@ mod tests {
         let keypair0 = Keypair::new();
         let keypair1 = Keypair::new();
         let keypair2 = Keypair::new();
-        let ix = Instruction::new(
+        let ix = Instruction::new_with_bincode(
             Pubkey::default(),
             &0,
             vec![
@@ -735,7 +757,7 @@ mod tests {
         let program_id = Pubkey::default();
         let keypair0 = Keypair::new();
         let id0 = keypair0.pubkey();
-        let ix = Instruction::new(program_id, &0, vec![AccountMeta::new(id0, true)]);
+        let ix = Instruction::new_with_bincode(program_id, &0, vec![AccountMeta::new(id0, true)]);
         let message = Message::new(&[ix], Some(&id0));
         Transaction::new_unsigned(message).sign(&Vec::<&Keypair>::new(), Hash::default());
     }
@@ -746,7 +768,8 @@ mod tests {
         let program_id = Pubkey::default();
         let keypair0 = Keypair::new();
         let wrong_id = Pubkey::default();
-        let ix = Instruction::new(program_id, &0, vec![AccountMeta::new(wrong_id, true)]);
+        let ix =
+            Instruction::new_with_bincode(program_id, &0, vec![AccountMeta::new(wrong_id, true)]);
         let message = Message::new(&[ix], Some(&wrong_id));
         Transaction::new_unsigned(message).sign(&[&keypair0], Hash::default());
     }
@@ -756,7 +779,7 @@ mod tests {
         let program_id = Pubkey::default();
         let keypair0 = Keypair::new();
         let id0 = keypair0.pubkey();
-        let ix = Instruction::new(program_id, &0, vec![AccountMeta::new(id0, true)]);
+        let ix = Instruction::new_with_bincode(program_id, &0, vec![AccountMeta::new(id0, true)]);
         let message = Message::new(&[ix], Some(&id0));
         let mut tx = Transaction::new_unsigned(message);
         tx.sign(&[&keypair0], Hash::default());
@@ -773,7 +796,7 @@ mod tests {
         let keypair0 = Keypair::new();
         let id0 = keypair0.pubkey();
         let id1 = solana_sdk::pubkey::new_rand();
-        let ix = Instruction::new(
+        let ix = Instruction::new_with_bincode(
             program_id,
             &0,
             vec![
@@ -801,7 +824,7 @@ mod tests {
         let presigner_keypair = Keypair::new();
         let presigner_pubkey = presigner_keypair.pubkey();
 
-        let ix = Instruction::new(
+        let ix = Instruction::new_with_bincode(
             program_id,
             &0,
             vec![
@@ -824,7 +847,7 @@ mod tests {
 
         // Wrong key should error, not panic
         let another_pubkey = solana_sdk::pubkey::new_rand();
-        let ix = Instruction::new(
+        let ix = Instruction::new_with_bincode(
             program_id,
             &0,
             vec![

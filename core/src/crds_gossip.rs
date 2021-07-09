@@ -106,10 +106,9 @@ impl CrdsGossip {
         &mut self,
         pending_push_messages: Vec<(CrdsValue, u64)>,
         now: u64,
-    ) -> (Pubkey, HashMap<Pubkey, Vec<CrdsValue>>) {
+    ) -> HashMap<Pubkey, Vec<CrdsValue>> {
         self.process_push_messages(pending_push_messages);
-        let push_messages = self.push.new_push_messages(&self.crds, now);
-        (self.id, push_messages)
+        self.push.new_push_messages(&self.crds, now)
     }
 
     pub(crate) fn push_duplicate_shred(
@@ -208,7 +207,7 @@ impl CrdsGossip {
             gossip_validators,
             &self.id,
             self.shred_version,
-            self.pull.pull_request_time.len(),
+            self.crds.num_nodes(),
             CRDS_GOSSIP_NUM_ACTIVE,
         )
     }
@@ -342,7 +341,7 @@ impl CrdsGossip {
         Self {
             crds: self.crds.clone(),
             push: self.push.mock_clone(),
-            pull: self.pull.clone(),
+            pull: self.pull.mock_clone(),
             ..*self
         }
     }

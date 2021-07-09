@@ -92,7 +92,7 @@ array and operates on the accounts specified by the instructions. The program
 can return successfully, or with an error code. An error return causes the
 entire transaction to fail immediately.
 
-Program's typically provide helper functions to construct instruction they
+Programs typically provide helper functions to construct instructions they
 support. For example, the system program provides the following Rust helper to
 construct a
 [`SystemInstruction::CreateAccount`](https://github.com/solana-labs/solana/blob/6606590b8132e56dab9e60b3f7d20ba7412a736c/sdk/program/src/system_instruction.rs#L63)
@@ -110,7 +110,7 @@ pub fn create_account(
         AccountMeta::new(*from_pubkey, true),
         AccountMeta::new(*to_pubkey, true),
     ];
-    Instruction::new(
+    Instruction::new_with_bincode(
         system_program::id(),
         &SystemInstruction::CreateAccount {
             lamports,
@@ -133,15 +133,15 @@ program will process this instruction. The program's account's owner specifies
 which loader should be used to load and execute the program and the data
 contains information about how the runtime should execute the program.
 
-In the case of [deployed BPF
-programs](developing/deployed-programs/overview.md), the owner is the BPF Loader
-and the account data holds the BPF bytecode.  Program accounts are permanently
-marked as executable by the loader once they are successfully deployed. The
-runtime will reject transactions that specify programs that are not executable.
+In the case of [on-chain BPF programs](developing/on-chain-programs/overview.md),
+the owner is the BPF Loader and the account data holds the BPF bytecode.  Program
+accounts are permanently marked as executable by the loader once they are
+successfully deployed. The runtime will reject transactions that specify programs
+that are not executable.
 
 
-Unlike deployed programs, [builtins](developing/builtins/programs.md) are handled
-differently in that they are built directly into the Safecoin runtime.
+Unlike on-chain programs, [Native Programs](/developing/runtime-facilities/programs)
+are handled differently in that they are built directly into the Safecoin runtime.
 
 ### Accounts
 

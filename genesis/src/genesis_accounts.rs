@@ -19,7 +19,7 @@ const UNLOCKS_HALF_AT_9_MONTHS: UnlockInfo = UnlockInfo {
     cliff_years: 0.75,
     unlocks: 24,
     unlock_years: 2.0,
-    custodian: "6E5sBiiRqEPo4K65bsAM2Hgmr3HeSPMegNzRREgjR8fq",
+    custodian: "4jAMsnkjcRapWdVaXMvJc1QMcD53t1tbqnwXQmdRWGRe",
 };
 
 // no lockups
@@ -28,7 +28,7 @@ const UNLOCKS_ALL_DAY_ZERO: UnlockInfo = UnlockInfo {
     cliff_years: 0.0,
     unlocks: 0,
     unlock_years: 0.0,
-    custodian: "BNc9rD2hRgF9M8bRb3W1HQSGMoJU4TaKyXpxqFSTC5HZ",
+    custodian: "4jAMsnkjcRapWdVaXMvJc1QMcD53t1tbqnwXQmdRWGRe",
 };
 
 pub const CREATOR_STAKER_INFOS: &[StakerInfo] = &[
@@ -248,7 +248,7 @@ pub fn add_genesis_accounts(genesis_config: &mut GenesisConfig, mut issued_lampo
             &UNLOCKS_ALL_DAY_ZERO,
         );
 
-    // "one thanks" (community pool) gets 500_000_000SAFE (total) - above distributions
+    // "one thanks" (community pool) gets 33_370_166SAFE (total) - above distributions
     create_and_add_stakes(
         genesis_config,
         &StakerInfo {

@@ -388,7 +388,7 @@ will wait and track progress on stderr until the transaction has been finalized
 by the cluster. If the transaction fails, it will report any transaction errors.
 
 ```bash
-safecoin transfer <USER_ADDRESS> <AMOUNT> --keypair <KEYPAIR> --url http://localhost:8328
+safecoin transfer <USER_ADDRESS> <AMOUNT> --allow-unfunded-recipient --keypair <KEYPAIR> --url http://localhost:8328
 ```
 
 The [Safecoin Javascript SDK](https://github.com/solana-labs/solana-web3.js)
@@ -420,7 +420,7 @@ In the command-line tool, pass the `--no-wait` argument to send a transfer
 asynchronously, and include your recent blockhash with the `--blockhash` argument:
 
 ```bash
-safecoin transfer <USER_ADDRESS> <AMOUNT> --no-wait --blockhash <RECENT_BLOCKHASH> --keypair <KEYPAIR> --url http://localhost:8328
+safecoin transfer <USER_ADDRESS> <AMOUNT> --no-wait --allow-unfunded-recipient --blockhash <RECENT_BLOCKHASH> --keypair <KEYPAIR> --url http://localhost:8328
 ```
 
 You can also build, sign, and serialize the transaction manually, and fire it off to
@@ -714,4 +714,4 @@ Be sure to test your complete workflow on Safecoin devnet and testnet
 [clusters](../clusters.md) before moving to production on mainnet-beta. Devnet
 is the most open and flexible, and ideal for initial development, while testnet
 offers more realistic cluster configuration. Both devnet and testnet support a faucet,
-run `safecoin airdrop 10` to obtain some devnet or testnet SAFE for developement and testing.
+run `safecoin airdrop 1` to obtain some devnet or testnet SAFE for developement and testing.

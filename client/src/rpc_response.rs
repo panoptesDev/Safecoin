@@ -1,13 +1,17 @@
-use crate::client_error;
-use solana_account_decoder::{parse_token::UiTokenAmount, UiAccount};
-use solana_sdk::{
-    clock::{Epoch, Slot, UnixTimestamp},
-    fee_calculator::{FeeCalculator, FeeRateGovernor},
-    inflation::Inflation,
-    transaction::{Result, TransactionError},
+use {
+    crate::client_error,
+    solana_account_decoder::{parse_token::UiTokenAmount, UiAccount},
+    solana_sdk::{
+        clock::{Epoch, Slot, UnixTimestamp},
+        fee_calculator::{FeeCalculator, FeeRateGovernor},
+        inflation::Inflation,
+        transaction::{Result, TransactionError},
+    },
+    solana_transaction_status::{
+        ConfirmedTransactionStatusWithSignature, TransactionConfirmationStatus,
+    },
+    std::{collections::HashMap, fmt, net::SocketAddr},
 };
-use solana_transaction_status::ConfirmedTransactionStatusWithSignature;
-use std::{collections::HashMap, fmt, net::SocketAddr};
 
 pub type RpcResult<T> = client_error::Result<Response<T>>;
 
@@ -99,6 +103,65 @@ pub struct SlotInfo {
     pub slot: Slot,
     pub parent: Slot,
     pub root: Slot,
+}
+
+#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub struct SlotTransactionStats {
+    pub num_transaction_entries: u64,
+    pub num_successful_transactions: u64,
+    pub num_failed_transactions: u64,
+    pub max_transactions_per_entry: u64,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(rename_all = "camelCase", tag = "type")]
+pub enum SlotUpdate {
+    FirstShredReceived {
+        slot: Slot,
+        timestamp: u64,
+    },
+    Completed {
+        slot: Slot,
+        timestamp: u64,
+    },
+    CreatedBank {
+        slot: Slot,
+        parent: Slot,
+        timestamp: u64,
+    },
+    Frozen {
+        slot: Slot,
+        timestamp: u64,
+        stats: SlotTransactionStats,
+    },
+    Dead {
+        slot: Slot,
+        timestamp: u64,
+        err: String,
+    },
+    OptimisticConfirmation {
+        slot: Slot,
+        timestamp: u64,
+    },
+    Root {
+        slot: Slot,
+        timestamp: u64,
+    },
+}
+
+impl SlotUpdate {
+    pub fn slot(&self) -> Slot {
+        match self {
+            Self::FirstShredReceived { slot, .. } => *slot,
+            Self::Completed { slot, .. } => *slot,
+            Self::CreatedBank { slot, .. } => *slot,
+            Self::Frozen { slot, .. } => *slot,
+            Self::Dead { slot, .. } => *slot,
+            Self::OptimisticConfirmation { slot, .. } => *slot,
+            Self::Root { slot, .. } => *slot,
+        }
+    }
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -254,7 +317,7 @@ pub struct RpcSupply {
     pub non_circulating_accounts: Vec<String>,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 #[serde(rename_all = "camelCase")]
 pub enum StakeActivationState {
     Activating,
@@ -263,7 +326,7 @@ pub enum StakeActivationState {
     Inactive,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 #[serde(rename_all = "camelCase")]
 pub struct RpcStakeActivation {
     pub state: StakeActivationState,
@@ -287,6 +350,7 @@ pub struct RpcConfirmedTransactionStatusWithSignature {
     pub err: Option<TransactionError>,
     pub memo: Option<String>,
     pub block_time: Option<UnixTimestamp>,
+    pub confirmation_status: Option<TransactionConfirmationStatus>,
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -296,6 +360,15 @@ pub struct RpcPerfSample {
     pub num_transactions: u64,
     pub num_slots: u64,
     pub sample_period_secs: u16,
+}
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RpcInflationReward {
+    pub epoch: Epoch,
+    pub effective_slot: Slot,
+    pub amount: u64,       // lamports
+    pub post_balance: u64, // lamports
 }
 
 impl From<ConfirmedTransactionStatusWithSignature> for RpcConfirmedTransactionStatusWithSignature {
@@ -313,6 +386,7 @@ impl From<ConfirmedTransactionStatusWithSignature> for RpcConfirmedTransactionSt
             err,
             memo,
             block_time,
+            confirmation_status: None,
         }
     }
 }
