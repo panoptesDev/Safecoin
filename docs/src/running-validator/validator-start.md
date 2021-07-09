@@ -8,7 +8,7 @@ The solana cli includes `get` and `set` configuration commands to automatically
 set the `--url` argument for cli commands. For example:
 
 ```bash
-solana config set --url http://api.devnet.solana.com
+solana config set --url http://api.devnet.safecoin.org
 ```
 
 While this section demonstrates how to connect to the Devnet cluster, the steps
@@ -23,7 +23,7 @@ to your machine by fetching the transaction count:
 solana transaction-count
 ```
 
-View the [metrics dashboard](https://metrics.solana.com:3000/d/monitor/cluster-telemetry) for more
+View the [metrics dashboard](https://metrics.safecoin.org:3000/d/monitor/cluster-telemetry) for more
 detail on cluster activity.
 
 ## Confirm your Installation
@@ -32,7 +32,7 @@ Try running following command to join the gossip network and view all the other
 nodes in the cluster:
 
 ```bash
-solana-gossip spy --entrypoint entrypoint.devnet.solana.com:8001
+solana-gossip spy --entrypoint entrypoint.devnet.safecoin.org:10015
 # Press ^C to exit
 ```
 
@@ -208,8 +208,8 @@ You should see the following output:
 
 ```text
 Config File: /home/solana/.config/solana/cli/config.yml
-RPC URL: http://api.devnet.solana.com
-WebSocket URL: ws://api.devnet.solana.com/ (computed)
+RPC URL: http://api.devnet.safecoin.org
+WebSocket URL: ws://api.devnet.safecoin.org/ (computed)
 Keypair Path: /home/solana/validator-keypair.json
 Commitment: confirmed
 ```
@@ -281,7 +281,7 @@ solana-validator \
   --identity ~/validator-keypair.json \
   --vote-account ~/vote-account-keypair.json \
   --rpc-port 8899 \
-  --entrypoint entrypoint.devnet.solana.com:8001 \
+  --entrypoint entrypoint.devnet.safecoin.org:10015 \
   --limit-ledger-size \
   --log ~/solana-validator.log
 ```
@@ -303,7 +303,7 @@ Confirm your validator connected to the network by opening a new terminal and
 running:
 
 ```bash
-solana-gossip spy --entrypoint entrypoint.devnet.solana.com:8001
+solana-gossip spy --entrypoint entrypoint.devnet.safecoin.org:10015
 ```
 
 If your validator is connected, its public key and IP address will appear in the list.

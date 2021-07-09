@@ -7,7 +7,7 @@ title: 启动验证程序
 Safecoin cli包含`get`和`set`配置命令，可自动为cli命令设置`--url`参数。 例如：
 
 ```bash
-solana config set --url http://api.devnet.solana.com
+solana config set --url http://api.devnet.safecoin.org
 ```
 
 尽管本节演示了如何连接到Devnet群集，但其他的[Safecoin群集](../clusters.md)步骤与此类似。
@@ -20,14 +20,14 @@ solana config set --url http://api.devnet.solana.com
 solana 交易数统计
 ```
 
-查看 [性能展板](https://metrics.solana.com:3000/d/monitor/cluster-telemetry) 来了解集群活动的细节。
+查看 [性能展板](https://metrics.safecoin.org:3000/d/monitor/cluster-telemetry) 来了解集群活动的细节。
 
 ## 确认您的安装程序
 
 尝试运行以下命令以加入八卦网络并查看集群中的所有其他节点：
 
 ```bash
-solana-gossip spy --entrypoint devnet.solana.com/8001
+solana-gossip spy --entrypoint devnet.safecoin.org/8001
 # 按^C 退出
 ```
 
@@ -166,7 +166,7 @@ solana config set --keypair ~/validator-keypair.json
 
 ```text
 Wallet Config Updated: /home/solana/.config/solana/wallet/config.yml
-* url: http://api.devnet.solana.com
+* url: http://api.devnet.safecoin.org
 * keypair: /home/solana/validator-keypair.json
 ```
 
@@ -226,7 +226,7 @@ solana-validator \
   --vote-account ~/vote-account-keypair.json \
   --ledger ~/validator-ledger \
   --rpc-port 8899 \
-  --entrypoint devnet.solana.com:8001 \
+  --entrypoint devnet.safecoin.org:10015 \
   --limit-ledger-size \
   --log ~/solana-validator.log
 ```
@@ -238,7 +238,7 @@ solana-validator \
 通过打开一个新终端并运行以下命令来确认连接到网络的验证节点：
 
 ```bash
-solana-gossip spy --entrypoint devnet.solana.com:8001
+solana-gossip spy --entrypoint devnet.safecoin.org:10015
 ```
 
 如果您的验证节点已连接，其公钥和IP地址将出现在列表中。

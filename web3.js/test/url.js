@@ -9,5 +9,5 @@ export const url = process.env.TEST_LIVE
   ? 'http://localhost:8899/'
   : 'http://localhost:9999/';
 
-//export const url = 'https://devnet.solana.com/';
-//export const url = 'http://devnet.solana.com/';
+//export const url = 'https://devnet.safecoin.org/';
+//export const url = 'http://devnet.safecoin.org/';

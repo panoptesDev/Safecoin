@@ -46,7 +46,7 @@ solana-validator
   --expected-bank-hash NEW_BANK_HASH  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --hard-fork SLOT_X                  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --no-snapshot-fetch                 # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
-  --entrypoint entrypoint.testnet.solana.com:8001
+  --entrypoint entrypoint.testnet.safecoin.org:10015
   --trusted-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on
   --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY
   --no-untrusted-rpc
@@ -60,7 +60,7 @@ b. If your validator doesn't have ledger up to slot SLOT_X or if you have delete
 solana-validator
   --wait-for-supermajority SLOT_X     # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --expected-bank-hash NEW_BANK_HASH  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
-  --entrypoint entrypoint.testnet.solana.com:8001
+  --entrypoint entrypoint.testnet.safecoin.org:10015
   --trusted-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on
   --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY
   --no-untrusted-rpc

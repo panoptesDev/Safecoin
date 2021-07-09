@@ -6,13 +6,13 @@ Safecoin 维护专用的 API 节点来完成 [JSON RPC](developing/clients/jsonr
 
 ## Devnet（开发者网络）
 
-- `https://api.devnet.solana.com` - 单个 Safecoin 托管的 api 节点；限定频率
+- `https://api.devnet.safecoin.org` - 单个 Safecoin 托管的 api 节点；限定频率
 
 ## Testnet（测试网）
 
-- `https://api.testnet.solana.com` - 单个 Safecoin 托管的 api 节点；限定频率
+- `https://api.testnet.safecoin.org` - 单个 Safecoin 托管的 api 节点；限定频率
 
 ## Mainnet Beta（主网 Beta）
 
-- `https://api.mainnet-beta.solana.com` - Safecoin 托管的 api 节点集群，由负载平衡器支持；限定频率
+- `https://api.mainnet-beta.safecoin.org` - Safecoin 托管的 api 节点集群，由负载平衡器支持；限定频率
 - `https://solana-api.projectserum.com` - Project Serum 托管的 api 节点

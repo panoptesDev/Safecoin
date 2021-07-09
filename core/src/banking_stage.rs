@@ -2753,7 +2753,7 @@ mod tests {
         // Because we've reached the batch limit, old unprocessed packets are
         // dropped and the new one is appended to the end
         let new_packets = Packets::new(vec![Packet::from_data(
-            Some(&SocketAddr::from(([127, 0, 0, 1], 8001))),
+            Some(&SocketAddr::from(([127, 0, 0, 1], 10015))),
             42,
         )
         .unwrap()]);

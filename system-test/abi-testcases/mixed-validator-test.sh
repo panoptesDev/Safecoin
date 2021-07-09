@@ -90,7 +90,7 @@ for v in "${otherVersions[@]}"; do
   (
     set -x
     "$SAFECOIN_BIN"/solana-gossip spy \
-      --entrypoint 127.0.0.1:8001 \
+      --entrypoint 127.0.0.1:10015 \
       --num-nodes-exactly 1 \
       --timeout 30
   )
@@ -116,11 +116,11 @@ for v in "${otherVersions[@]}"; do
       $SAFECOIN_BIN/solana-validator \
       --ledger $ledger \
       --no-snapshot-fetch \
-      --entrypoint 127.0.0.1:8001 \
+      --entrypoint 127.0.0.1:10015 \
       -o - 2>&1 | tee $logDir/$v.log \
     "
     "$SAFECOIN_BIN"/solana-gossip spy \
-      --entrypoint 127.0.0.1:8001 \
+      --entrypoint 127.0.0.1:10015 \
       --num-nodes-exactly $nodeCount \
       --timeout 30
 

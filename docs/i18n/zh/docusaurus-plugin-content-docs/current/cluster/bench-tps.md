@@ -122,7 +122,7 @@ thread apply all bt
 在此示例中，我们将把客户端连接到公共测试网。 在测试网上运行验证器，您需要打开 udp 端口 `8000-1000`。
 
 ```bash
-NDEBUG=1 ./multinode-demo/bench-tps.sh --entrypoint devnet.solana.com:8001 --faucet devnet.solana.com:9900 --duration 60 --tx_count 50
+NDEBUG=1 ./multinode-demo/bench-tps.sh --entrypoint devnet.safecoin.org:10015 --faucet devnet.safecoin.org:9900 --duration 60 --tx_count 50
 ```
 
-您可以在 [metrics dashboard](https://metrics.solana.com:3000/d/monitor/cluster-telemetry?var-testnet=devnet) 上观察客户端交易的影响
+您可以在 [metrics dashboard](https://metrics.safecoin.org:3000/d/monitor/cluster-telemetry?var-testnet=devnet) 上观察客户端交易的影响

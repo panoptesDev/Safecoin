@@ -21,17 +21,17 @@ Safecoin维护着几个不同用途的集群。
   - Devnet包含用于空投的代币龙头，用于应用程序测试
   - Devnet可能会重置账本
   - Devnet通常运行比Mainnet Beta更新的软件版本
-- Devnet的八卦入口点：`entrypoint.devnet.solana.com：8001`
+- Devnet的八卦入口点：`entrypoint.devnet.safecoin.org：8001`
 - Devnet的指标环境变量：
 ```bash
-export SAFECOIN_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=devnet,u=scratch_writer,p=topsecret"
+export SAFECOIN_METRICS_CONFIG="host=https://metrics.safecoin.org:10016,db=devnet,u=scratch_writer,p=topsecret"
 ```
-- Devnet RPC URL：`https://api.devnet.solana.com`
+- Devnet RPC URL：`https://api.devnet.safecoin.org`
 
 ##### 示例 `solana` 命令行配置
 
 ```bash
-solana config set --url https://api.devnet.solana.com
+solana config set --url https://api.devnet.safecoin.org
 ```
 
 ##### 示例 `solana-validator` 命令行
@@ -45,7 +45,7 @@ $ solana-validator \
     --ledger ~/validator-ledger \
     --rpc-port 8899 \
     --dynamic-port-range 8000-8010 \
-    --entrypoint entrypoint.devnet.solana.com:8001 \
+    --entrypoint entrypoint.devnet.safecoin.org:10015 \
     --expected-genesis-hash EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG \
     --wal-recovery-mode skip_any_corrupted_record \
     --limit-ledger-size
@@ -61,17 +61,17 @@ $ solana-validator \
 - Testnet可能会重置账本。
 - Testnet包括用于空投的代币水龙头，用于应用程序测试
 - Testnet通常运行比Devnet和Mainnet Beta都更新的软件版本
-- 测试网 Gossip 入口： `entrypoint.testnet.solana.com:8001`
+- 测试网 Gossip 入口： `entrypoint.testnet.safecoin.org:10015`
 - Testnet的指标环境变量：
 ```bash
-export SAFECOIN_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
+export SAFECOIN_METRICS_CONFIG="host=https://metrics.safecoin.org:10016,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
 ```
-- Testnet 的 RPC URL: `https://api.testnet.solana.com`
+- Testnet 的 RPC URL: `https://api.testnet.safecoin.org`
 
 ##### 示例 `solana` 命令行配置
 
 ```bash
-solana config set --url https://api.testnet.solana.com
+solana config set --url https://api.testnet.safecoin.org
 ```
 
 ##### 示例 `solana-validator` 命令行
@@ -88,7 +88,7 @@ $ solana-validator \
     --ledger ~/validator-ledger \
     --rpc-port 8899 \
     --dynamic-port-range 8000-8010 \
-    --entrypoint entrypoint.testnet.solana.com:8001 \
+    --entrypoint entrypoint.testnet.safecoin.org:10015 \
     --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
     --wal-recovery-mode skip_any_corrupted_record \
     --limit-ledger-size
@@ -96,7 +96,7 @@ $ solana-validator \
 
 `--trusted-validator` 的身份是：
 
-- `5D1fNXzv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on` - testnet.solana.com (Safecoin)
+- `5D1fNXzv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on` - testnet.safecoin.org (Safecoin)
 - `ta1Uvfb7W5BRPrdGnhP9RmeCKzBySGM1hTE4rBRy6T` - Break RPC 节点 (Safecoin)
 - `Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN` - Certus One
 - `9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv` - Algo|Stake
@@ -108,17 +108,17 @@ $ solana-validator \
 - 在Mainnet Beta上发行的代币是**真实的**SAFE
 - 如果您通过我们的硬币清单拍卖等方式支付了购买/发行代币的费用，则这些代币将在Mainnet Beta上转移。
   - 注意：如果您使用的是非命令行钱包，例如集群[Safeflare](wallet-guide/solflare.md)，则该钱包将始终连接到Mainnet Beta。
-- Mainnet Beta 的 Gossip 入口： `entrypoint.mainnet-beta.solana.com:8001`
+- Mainnet Beta 的 Gossip 入口： `entrypoint.mainnet-beta.safecoin.org:10015`
 - Mainnet Beta的指标环境变量：
 ```bash
-export SAFECOIN_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password"
+export SAFECOIN_METRICS_CONFIG="host=https://metrics.safecoin.org:10016,db=mainnet-beta,u=mainnet-beta_write,p=password"
 ```
-- Mainnet Beta 的 RPC URL： `https://api.mainnet-beta.solana.com`
+- Mainnet Beta 的 RPC URL： `https://api.mainnet-beta.safecoin.org`
 
 ##### 示例 `solana` 命令行配置
 
 ```bash
-solana config set --url https://api.mainnet-beta.solana.com
+solana config set --url https://api.mainnet-beta.safecoin.org
 ```
 
 ##### 示例 `solana-validator` 命令行
@@ -136,11 +136,11 @@ $ solana-validator \
     --rpc-port 8899 \
     --private-rpc \
     --dynamic-port-range 8000-8010 \
-    --entrypoint entrypoint.mainnet-beta.solana.com:8001 \
-    --entrypoint entrypoint2.mainnet-beta.solana.com:8001 \
-    --entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
-    --entrypoint entrypoint4.mainnet-beta.solana.com:8001 \
-    --entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
+    --entrypoint entrypoint.mainnet-beta.safecoin.org:10015 \
+    --entrypoint entrypoint2.mainnet-beta.safecoin.org:10015 \
+    --entrypoint entrypoint3.mainnet-beta.safecoin.org:10015 \
+    --entrypoint entrypoint4.mainnet-beta.safecoin.org:10015 \
+    --entrypoint entrypoint5.mainnet-beta.safecoin.org:10015 \
     --expected-genesis-hash 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d \
     --wal-recovery-mode skip_any_corrupted_record \
     --limit-ledger-size

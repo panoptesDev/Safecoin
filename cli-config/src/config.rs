@@ -30,7 +30,7 @@ impl Default for Config {
             keypair_path.extend(&[".config", "solana", "id.json"]);
             keypair_path.to_str().unwrap().to_string()
         };
-        let json_rpc_url = "https://api.mainnet-beta.solana.com".to_string();
+        let json_rpc_url = "https://api.mainnet-beta.safecoin.org".to_string();
 
         // Empty websocket_url string indicates the client should
         // `Config::compute_websocket_url(&json_rpc_url)`
@@ -107,13 +107,13 @@ mod test {
     #[test]
     fn compute_websocket_url() {
         assert_eq!(
-            Config::compute_websocket_url(&"http://api.devnet.solana.com"),
-            "ws://api.devnet.solana.com/".to_string()
+            Config::compute_websocket_url(&"http://api.devnet.safecoin.org"),
+            "ws://api.devnet.safecoin.org/".to_string()
         );
 
         assert_eq!(
-            Config::compute_websocket_url(&"https://api.devnet.solana.com"),
-            "wss://api.devnet.solana.com/".to_string()
+            Config::compute_websocket_url(&"https://api.devnet.safecoin.org"),
+            "wss://api.devnet.safecoin.org/".to_string()
         );
 
         assert_eq!(

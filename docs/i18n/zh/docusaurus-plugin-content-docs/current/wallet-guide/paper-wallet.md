@@ -111,7 +111,7 @@ solana-keygen verify <PUBKEY> ASK
 接下来，配置 `solana` CLI 工具到 [连接一个特定集群](../cli/choose-a-cluster.md)：
 
 ```bash
-solana config set --url <CLUSTER URL> # (例如 https://api.mainnet-beta.solana.com)
+solana config set --url <CLUSTER URL> # (例如 https://api.mainnet-beta.safecoin.org)
 ```
 
 最后，如需检查余额，请运行以下命令：

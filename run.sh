@@ -96,7 +96,7 @@ args=(
   --identity "$validator_identity"
   --vote-account "$validator_vote_account"
   --ledger "$ledgerDir"
-  --gossip-port 8001
+  --gossip-port 10015
   --rpc-port 8899
   --rpc-faucet-address 127.0.0.1:9900
   --log -

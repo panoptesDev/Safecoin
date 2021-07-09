@@ -44,7 +44,7 @@ $5,000 USD in locked SAFE tokens (locked for 12 months)
 
 Out of Scope:
 The following components are out of scope for the bounty program
-* Metrics: `/metrics` in the monorepo as well as https://metrics.solana.com
+* Metrics: `/metrics` in the monorepo as well as https://metrics.safecoin.org
 * Explorer: `/explorer` in the monorepo as well as https://explorer.solana.com
 * Any encrypted credentials, auth tokens, etc. checked into the repo
 * Bugs in dependencies. Please take them upstream!
