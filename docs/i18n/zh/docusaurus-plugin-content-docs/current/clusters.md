@@ -31,13 +31,13 @@ export SAFECOIN_METRICS_CONFIG="host=https://metrics.safecoin.org:10016,db=devne
 ##### 示例 `solana` 命令行配置
 
 ```bash
-solana config set --url https://api.devnet.safecoin.org
+safecoin config set --url https://api.devnet.safecoin.org
 ```
 
-##### 示例 `solana-validator` 命令行
+##### 示例 `safecoin-validator` 命令行
 
 ```bash
-$ solana-validator \
+$ safecoin-validator \
     --identity ~/validator-keypair.json \
     --vote-account ~/vote-account-keypair.json \
     --trusted-validator dv1LfzJvDF7S1fBKpFgKoKXK5yoSosmkAdfbxBo1GqJ \
@@ -71,13 +71,13 @@ export SAFECOIN_METRICS_CONFIG="host=https://metrics.safecoin.org:10016,db=tds,u
 ##### 示例 `solana` 命令行配置
 
 ```bash
-solana config set --url https://api.testnet.safecoin.org
+safecoin config set --url https://api.testnet.safecoin.org
 ```
 
-##### 示例 `solana-validator` 命令行
+##### 示例 `safecoin-validator` 命令行
 
 ```bash
-$ solana-validator \
+$ safecoin-validator \
     --identity ~/validator-keypair.json \
     --vote-account ~/vote-account-keypair.json \
     --trusted-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
@@ -118,13 +118,13 @@ export SAFECOIN_METRICS_CONFIG="host=https://metrics.safecoin.org:10016,db=mainn
 ##### 示例 `solana` 命令行配置
 
 ```bash
-solana config set --url https://api.mainnet-beta.safecoin.org
+safecoin config set --url https://api.mainnet-beta.safecoin.org
 ```
 
-##### 示例 `solana-validator` 命令行
+##### 示例 `safecoin-validator` 命令行
 
 ```bash
-$ solana-validator \
+$ safecoin-validator \
     --identity ~/validator-keypair.json \
     --vote-account ~/vote-account-keypair.json \
     --trusted-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \

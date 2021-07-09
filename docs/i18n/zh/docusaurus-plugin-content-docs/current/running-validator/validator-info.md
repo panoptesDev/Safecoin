@@ -4,18 +4,18 @@ title: 发布验证者信息
 
 您可以将验证者信息发布到链上，以使其对其他用户公开可见。
 
-## 运行solana validator-info
+## 运行safecoin validator-info
 
-运行solana CLI来获取一个验证者信息帐户：
+运行safecoin CLI来获取一个验证者信息帐户：
 
 ```bash
-solana validator-info publish --keypair ~/validator-keypair.json <VALIDATOR_INFO_ARGS> <VALIDATOR_NAME>
+safecoin validator-info publish --keypair ~/validator-keypair.json <VALIDATOR_INFO_ARGS> <VALIDATOR_NAME>
 ```
 
 关于VALIDATOR_INFO_ARGS可选字段的详细信息：
 
 ```bash
-solana validator-info publish --help
+safecoin validator-info publish --help
 ```
 
 ## 示例命令
@@ -23,13 +23,13 @@ solana validator-info publish --help
 发布命令示例：
 
 ```bash
-solana validator-info publish "Elvis Validator" -n elvis -w "https://elvis-validates.com"
+safecoin validator-info publish "Elvis Validator" -n elvis -w "https://elvis-validates.com"
 ```
 
 示例查询命令：
 
 ```bash
-solana validator-info get
+safecoin validator-info get
 ```
 
 输出为
@@ -56,6 +56,6 @@ Validator info from 8WdJvDz6obhADdxpGCiJKZsDYwTLNEDFizayqziDc9ah
 
      `https://keybase.pub/<KEYBASE_USERNAME>/solana/validator-<PUBKEY>`
 
-3. 使用Keybase用户名添加或更新您的`solana Validator-info`。 然后
+3. 使用Keybase用户名添加或更新您的`safecoin Validator-info`。 然后
 
    CLI将验证`validator-<PUBKEY>`文件

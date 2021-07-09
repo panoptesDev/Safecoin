@@ -3924,7 +3924,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-accounts-bench"
+name = "safecoin-accounts-bench"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -3951,7 +3951,7 @@ dependencies = [
  "solana-clap-utils",
  "solana-client",
  "solana-core",
- "solana-faucet",
+ "safecoin-faucet",
  "solana-local-cluster",
  "solana-logger 1.6.13",
  "solana-measure",
@@ -3964,7 +3964,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-banking-bench"
+name = "safecoin-banking-bench"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -4033,7 +4033,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-bench-exchange"
+name = "safecoin-bench-exchange"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -4049,8 +4049,8 @@ dependencies = [
  "solana-client",
  "solana-core",
  "solana-exchange-program",
- "solana-faucet",
- "solana-genesis",
+ "safecoin-faucet",
+ "safecoin-genesis",
  "solana-local-cluster",
  "solana-logger 1.6.13",
  "solana-metrics",
@@ -4061,7 +4061,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-bench-streamer"
+name = "safecoin-bench-streamer"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -4073,7 +4073,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-bench-tps"
+name = "safecoin-bench-tps"
 version = "1.6.13"
 dependencies = [
  "bincode",
@@ -4086,8 +4086,8 @@ dependencies = [
  "solana-clap-utils",
  "solana-client",
  "solana-core",
- "solana-faucet",
- "solana-genesis",
+ "safecoin-faucet",
+ "safecoin-genesis",
  "solana-local-cluster",
  "solana-logger 1.6.13",
  "solana-measure",
@@ -4200,7 +4200,7 @@ dependencies = [
  "solana-client",
  "solana-config-program",
  "solana-core",
- "solana-faucet",
+ "safecoin-faucet",
  "solana-logger 1.6.13",
  "solana-net-utils",
  "solana-remote-wallet",
@@ -4274,7 +4274,7 @@ dependencies = [
  "serde_json",
  "solana-account-decoder",
  "solana-clap-utils",
- "solana-faucet",
+ "safecoin-faucet",
  "solana-logger 1.6.13",
  "solana-net-utils",
  "solana-sdk",
@@ -4352,7 +4352,7 @@ dependencies = [
  "solana-banks-server",
  "solana-clap-utils",
  "solana-client",
- "solana-faucet",
+ "safecoin-faucet",
  "solana-frozen-abi 1.6.13",
  "solana-frozen-abi-macro 1.6.13",
  "solana-ledger",
@@ -4369,7 +4369,7 @@ dependencies = [
  "solana-stake-program",
  "solana-storage-bigtable",
  "solana-streamer",
- "solana-sys-tuner",
+ "safecoin-sys-tuner",
  "solana-transaction-status",
  "solana-version",
  "solana-vote-program",
@@ -4407,7 +4407,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-dos"
+name = "safecoin-dos"
 version = "1.6.13"
 dependencies = [
  "bincode",
@@ -4466,7 +4466,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-faucet"
+name = "safecoin-faucet"
 version = "1.6.13"
 dependencies = [
  "bincode",
@@ -4548,7 +4548,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-genesis"
+name = "safecoin-genesis"
 version = "1.6.13"
 dependencies = [
  "base64 0.12.3",
@@ -4573,7 +4573,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-gossip"
+name = "safecoin-gossip"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -4586,7 +4586,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-install"
+name = "safecoin-install"
 version = "1.6.13"
 dependencies = [
  "atty",
@@ -4619,7 +4619,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-keygen"
+name = "safecoin-keygen"
 version = "1.6.13"
 dependencies = [
  "bs58",
@@ -4692,7 +4692,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-ledger-tool"
+name = "safecoin-ledger-tool"
 version = "1.6.13"
 dependencies = [
  "assert_cmd",
@@ -4744,7 +4744,7 @@ dependencies = [
  "solana-core",
  "solana-download-utils",
  "solana-exchange-program",
- "solana-faucet",
+ "safecoin-faucet",
  "solana-ledger",
  "solana-logger 1.6.13",
  "solana-rayon-threadlimit",
@@ -4757,7 +4757,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-log-analyzer"
+name = "safecoin-log-analyzer"
 version = "1.6.13"
 dependencies = [
  "byte-unit",
@@ -4801,7 +4801,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-merkle-root-bench"
+name = "safecoin-merkle-root-bench"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -4838,7 +4838,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-net-shaper"
+name = "safecoin-net-shaper"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -4921,7 +4921,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-poh-bench"
+name = "safecoin-poh-bench"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -5032,7 +5032,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-ramp-tps"
+name = "safecoin-ramp-tps"
 version = "1.6.13"
 dependencies = [
  "bzip2",
@@ -5226,7 +5226,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-stake-accounts"
+name = "safecoin-stake-accounts"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -5240,7 +5240,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-stake-monitor"
+name = "safecoin-stake-monitor"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -5264,7 +5264,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-stake-o-matic"
+name = "safecoin-stake-o-matic"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -5350,7 +5350,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-store-tool"
+name = "safecoin-store-tool"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -5378,7 +5378,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-sys-tuner"
+name = "safecoin-sys-tuner"
 version = "1.6.13"
 dependencies = [
  "clap",
@@ -5394,7 +5394,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-tokens"
+name = "safecoin-tokens"
 version = "1.6.13"
 dependencies = [
  "bincode",
@@ -5451,7 +5451,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-upload-perf"
+name = "safecoin-upload-perf"
 version = "1.6.13"
 dependencies = [
  "serde_json",
@@ -5459,7 +5459,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-validator"
+name = "safecoin-validator"
 version = "1.6.13"
 dependencies = [
  "base64 0.12.3",
@@ -5486,7 +5486,7 @@ dependencies = [
  "solana-client",
  "solana-core",
  "solana-download-utils",
- "solana-faucet",
+ "safecoin-faucet",
  "solana-ledger",
  "solana-logger 1.6.13",
  "solana-metrics",
@@ -5549,7 +5549,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-watchtower"
+name = "safecoin-watchtower"
 version = "1.6.13"
 dependencies = [
  "clap",

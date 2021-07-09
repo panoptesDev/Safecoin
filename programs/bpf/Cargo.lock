@@ -3073,7 +3073,7 @@ dependencies = [
  "serde_json",
  "solana-account-decoder",
  "solana-clap-utils",
- "solana-faucet",
+ "safecoin-faucet",
  "solana-net-utils",
  "solana-sdk",
  "solana-transaction-status",
@@ -3121,7 +3121,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-faucet"
+name = "safecoin-faucet"
 version = "1.6.13"
 dependencies = [
  "bincode",

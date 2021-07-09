@@ -35,13 +35,13 @@ export SAFECOIN_METRICS_CONFIG="host=https://metrics.safecoin.org:10016,db=devne
 ##### Example `solana` command-line configuration
 
 ```bash
-solana config set --url https://api.devnet.safecoin.org
+safecoin config set --url https://api.devnet.safecoin.org
 ```
 
-##### Example `solana-validator` command-line
+##### Example `safecoin-validator` command-line
 
 ```bash
-$ solana-validator \
+$ safecoin-validator \
     --identity validator-keypair.json \
     --vote-account vote-account-keypair.json \
     --trusted-validator dv1LfzJvDF7S1fBKpFgKoKXK5yoSosmkAdfbxBo1GqJ \
@@ -82,13 +82,13 @@ export SAFECOIN_METRICS_CONFIG="host=https://metrics.safecoin.org:10016,db=tds,u
 ##### Example `solana` command-line configuration
 
 ```bash
-solana config set --url https://api.testnet.safecoin.org
+safecoin config set --url https://api.testnet.safecoin.org
 ```
 
-##### Example `solana-validator` command-line
+##### Example `safecoin-validator` command-line
 
 ```bash
-$ solana-validator \
+$ safecoin-validator \
     --identity validator-keypair.json \
     --vote-account vote-account-keypair.json \
     --trusted-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
@@ -137,13 +137,13 @@ export SAFECOIN_METRICS_CONFIG="host=https://metrics.safecoin.org:10016,db=mainn
 ##### Example `solana` command-line configuration
 
 ```bash
-solana config set --url https://api.mainnet-beta.safecoin.org
+safecoin config set --url https://api.mainnet-beta.safecoin.org
 ```
 
-##### Example `solana-validator` command-line
+##### Example `safecoin-validator` command-line
 
 ```bash
-$ solana-validator \
+$ safecoin-validator \
     --identity ~/validator-keypair.json \
     --vote-account ~/vote-account-keypair.json \
     --trusted-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \

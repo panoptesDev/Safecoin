@@ -209,10 +209,10 @@ balance of 105,290,880 lamports (=~ 0.105 SAFE) to be rent-exempt:
 105,290,880 = 19.055441478439427 (fee rate) * (128 + 15_000)(account size including metadata) * ((365.25/2) * 2)(epochs in 2 years)
 ```
 
-Rent can also be estimated via the [`solana rent` CLI subcommand](cli/usage.md#solana-rent)
+Rent can also be estimated via the [`safecoin rent` CLI subcommand](cli/usage.md#solana-rent)
 
 ```text
-$ solana rent 15000
+$ safecoin rent 15000
 Rent per byte-year: 0.00000348 SAFE
 Rent per epoch: 0.000288276 SAFE
 Rent-exempt minimum: 0.10529088 SAFE

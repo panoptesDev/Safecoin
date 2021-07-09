@@ -67,28 +67,28 @@ if [[ $CI_OS_NAME = windows ]]; then
     cargo-build-bpf
     cargo-test-bpf
     solana
-    solana-install
-    solana-install-init
-    solana-keygen
-    solana-stake-accounts
-    solana-tokens
+    safecoin-install
+    safecoin-install-init
+    safecoin-keygen
+    safecoin-stake-accounts
+    safecoin-tokens
   )
 else
   ./fetch-perf-libs.sh
 
   BINS=(
     solana
-    solana-bench-exchange
-    solana-bench-tps
-    solana-faucet
-    solana-gossip
-    solana-install
-    solana-keygen
-    solana-ledger-tool
-    solana-log-analyzer
-    solana-net-shaper
-    solana-sys-tuner
-    solana-validator
+    safecoin-bench-exchange
+    safecoin-bench-tps
+    safecoin-faucet
+    safecoin-gossip
+    safecoin-install
+    safecoin-keygen
+    safecoin-ledger-tool
+    safecoin-log-analyzer
+    safecoin-net-shaper
+    safecoin-sys-tuner
+    safecoin-validator
   )
 
   # Speed up net.sh deploys by excluding unused binaries
@@ -96,20 +96,20 @@ else
     BINS+=(
       cargo-build-bpf
       cargo-test-bpf
-      solana-dos
-      solana-install-init
-      solana-stake-accounts
-      solana-stake-monitor
-      solana-stake-o-matic
-      solana-test-validator
-      solana-tokens
-      solana-watchtower
+      safecoin-dos
+      safecoin-install-init
+      safecoin-stake-accounts
+      safecoin-stake-monitor
+      safecoin-stake-o-matic
+      safecoin-test-validator
+      safecoin-tokens
+      safecoin-watchtower
     )
   fi
 
-  #XXX: Ensure `solana-genesis` is built LAST!
+  #XXX: Ensure `safecoin-genesis` is built LAST!
   # See https://github.com/solana-labs/solana/issues/5826
-  BINS+=(solana-genesis)
+  BINS+=(safecoin-genesis)
 fi
 
 binArgs=()

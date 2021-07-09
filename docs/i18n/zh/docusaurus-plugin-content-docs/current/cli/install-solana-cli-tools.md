@@ -43,10 +43,10 @@ Update successful
 - 通过运行以下命令来确认您已经安装了想要的 `solana` 版本：
 
 ```bash
-solana --version
+safecoin --version
 ```
 
-- 安装成功后，就可以通过 `solana-install update` 随时更新 Safecoin 软件到新版本。
+- 安装成功后，就可以通过 `safecoin-install update` 随时更新 Safecoin 软件到新版本。
 
 ---
 
@@ -59,13 +59,13 @@ solana --version
 - 复制并粘贴以下命令，然后按回车下载 Safecoin 安装程序到临时目录：
 
 ```bash
-curl https://release.solana.com/LATEST_SAFECOIN_RELEASE_VERSION/solana-install-init-x86_64-pc-windows-msvc.exe --output C:\solana-install-tmp\solana-install-init.exe --create-dirs
+curl https://release.solana.com/LATEST_SAFECOIN_RELEASE_VERSION/safecoin-install-init-x86_64-pc-windows-msvc.exe --output C:\safecoin-install-tmp\safecoin-install-init.exe --create-dirs
 ```
 
 - 复制并粘贴以下命令，然后按 Enter 安装最新版本的 Safecoin 软件。 如果系统弹出安全提示窗口，请选择允许程序运行。
 
 ```bash
-C:\solana-install-tmp\solana-install-init.exe LATEST_SAFECOIN_RELEASE_VERSION
+C:\safecoin-install-tmp\safecoin-install-init.exe LATEST_SAFECOIN_RELEASE_VERSION
 ```
 
 - 安装程序完成后，请按 Enter 键。
@@ -75,14 +75,14 @@ C:\solana-install-tmp\solana-install-init.exe LATEST_SAFECOIN_RELEASE_VERSION
 - 通过运行以下命令来确认您已经安装了想要的 `solana` 版本：
 
 ```bash
-solana --version
+safecoin --version
 ```
 
-- 安装成功后，就可以通过 `solana-install update` 随时更新 Safecoin 软件到新版本。
+- 安装成功后，就可以通过 `safecoin-install update` 随时更新 Safecoin 软件到新版本。
 
 ## 下载预置二进制文件
 
-如果您不想通过 `solana-install` 来管理安装，您也可以手动下载并安装二进制安装包。
+如果您不想通过 `safecoin-install` 来管理安装，您也可以手动下载并安装二进制安装包。
 
 ### Linux 系统
 
@@ -127,5 +127,5 @@ export PATH=$PWD/bin:$PATH
 然后你可以运行以下命令来获得与预置二进制文件相同的结果：
 
 ```bash
-solana-install init
+safecoin-install init
 ```

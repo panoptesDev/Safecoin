@@ -83,4 +83,4 @@ log_pubkey_units: 100,
 solana功能状态
 ```
 
-如果首先遇到问题，请确保您使用的Safecoin工具版本与`solana cluster-version`返回的版本相匹配。  如果它们不匹配，请[安装正确的工具套件](cli/install-solana-cli-tools.md)。
+如果首先遇到问题，请确保您使用的Safecoin工具版本与`safecoin cluster-version`返回的版本相匹配。  如果它们不匹配，请[安装正确的工具套件](cli/install-solana-cli-tools.md)。

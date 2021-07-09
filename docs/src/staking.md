@@ -103,8 +103,8 @@ performance statistics about each one.
 
 To view block production statistics, use the Safecoin command-line tools:
 
-- `solana validators`
-- `solana block-production`
+- `safecoin validators`
+- `safecoin block-production`
 
 The Safecoin team does not make recommendations on how to interpret this
 information. Potential delegators should do their own due diligence.

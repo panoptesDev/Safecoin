@@ -21,24 +21,24 @@ title: Ledger Nano
 在您的计算机运行：
 
 ```bash
-solana-keygen pubkey usb://ledger
+safecoin-keygen pubkey usb://ledger
 ```
 
 该步骤确认您的 Ledger 设备已经连接正确，并且能够与 Safecoin CLI 正常交互。 该命令返回你 Ledger 设备唯一的_钱包 ID_. 当有多台 Nano 设备连接到同一台计算机时， 您可以通过钱包 ID 来指定想使用的 Ledger 硬件钱包。 如果您的电脑只使用一个 Nano 设备，那么就无需指明钱包 ID。 关于通过钱包 ID 使用特定 Ledger 的信息，请参阅[管理多个硬件钱包](#manage-multiple-hardware-wallets)。
 
 ### 查看您的钱包地址
 
-您的 Nano 支持任意数量的有效钱包地址和签名者。 要查看任何地址，请使用前面所说的 `solana-keygen pubkey` 命令，然后接上一个有效的 [密钥对URL](../hardware-wallets.md#specify-a-keypair-url)。
+您的 Nano 支持任意数量的有效钱包地址和签名者。 要查看任何地址，请使用前面所说的 `safecoin-keygen pubkey` 命令，然后接上一个有效的 [密钥对URL](../hardware-wallets.md#specify-a-keypair-url)。
 
 如果需要在自己帐户之间的传输代币，您可以使用多个钱包地址。或在设备上对某一个抵押账号使用不同的键对作为签名授权。
 
 以下所有的命令将显示不同的地址，关联到给定的密钥对路径。 来试一下吧！
 
 ```bash
-solana-keygen pubkey usb://ledger
-solana-keygen pubkey usb://ledger?key=0
-solana-keygen pubkey usb://ledger?key=1
-solana-keygen pubkey usb://ledger?key=2
+safecoin-keygen pubkey usb://ledger
+safecoin-keygen pubkey usb://ledger?key=0
+safecoin-keygen pubkey usb://ledger?key=1
+safecoin-keygen pubkey usb://ledger?key=2
 ```
 
 * 注意：密钥对 URL 参数在 **zsh** &nbsp;[更多解决方案](#troubleshooting)中将被忽视。
@@ -48,23 +48,23 @@ solana-keygen pubkey usb://ledger?key=2
 如果您只计划设备上使用一个地址/密钥对， 那么容易记住的一个路径可能是 `key=0` 的地址。 通过该命令查看它的地址：
 
 ```bash
-solana-keygen pubkey usb://ledger?key=0
+safecoin-keygen pubkey usb://ledger?key=0
 ```
 
 现在，你已经有一个(或多个) 钱包地址，你可以公开分享其中的任何一个地址作为代币接收地址，并且使用关联的密钥对 URL 作为该地址发起交易的签名人。
 
 ### 查看钱包余额
 
-无论是哪个钱包，您都可以通过 `solana balance` 命令来查看帐户余额：
+无论是哪个钱包，您都可以通过 `safecoin balance` 命令来查看帐户余额：
 
 ```bash
-solana balance SOME_WALLET_ADDRESS
+safecoin balance SOME_WALLET_ADDRESS
 ```
 
 例如，如果您的地址是 `7cvkjYAkUYs4W8XcXscca7cBrEGFeSUjeZmKoNBvEwyri`，那么可以输入以下命令查看余额：
 
 ```bash
-solana balance 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri
+safecoin balance 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri
 ```
 
 您也可以在[Explorer](https://explorer.solana.com/accounts)查看任何账户地址的余额，在网页浏览器中将地址粘贴到搜索框来查看余额。
@@ -75,22 +75,22 @@ solana balance 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri
 
 您需要使用该设备来签署交易，完成从 Nano 地址发送代币（通过生成钱包地址的相同密钥对 URL）。 请确保您的 Nano 已插入电脑，通过 PIN 解锁，并且 Ledger Live 处于未运行状态， 同时 Safecoin 应用在设备中打开，显示“应用已准备就绪”。
 
-`solana transfer` 命令用于指定代币发送地址和数量，通过 `--keypair` 参数来指定发送代币的密钥对（签署交易），同时对应地址的余额将减少。
+`safecoin transfer` 命令用于指定代币发送地址和数量，通过 `--keypair` 参数来指定发送代币的密钥对（签署交易），同时对应地址的余额将减少。
 
 ```bash
-solana transfer RECIPIENT_ADDRESS AMOUNT --keypair KEYPAIR_URL_OF_SENDER
+safecoin transfer RECIPIENT_ADDRESS AMOUNT --keypair KEYPAIR_URL_OF_SENDER
 ```
 
 下面是一个完整的实例。 首先，通过某个密钥对 URL 中查看一个地址。 然后检查该地址的余额。 最后，输入一笔交易来发送 `1` SAFE到接收地址 `7cvkjYAkUYs4W8XcXscca7cBrEGFeSUjeZmKoNBvEwyri`。 按下回车键传输命令时，您将看到在 Ledger 设备批准交易细节的提示。 在设备上通过左右键查看交易细节。 如果信息正确，请同时按下"允许"界面的两个按钮，否则请在"拒绝"界面按下这两个按钮。
 
 ```bash
-~$ solana-keygen pubkey usb://ledger?key=42
+~$ safecoin-keygen pubkey usb://ledger?key=42
 CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
 
-~$ solana balance CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
+~$ safecoin balance CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
 1.000005 SAFE
 
-~$ solana transfer 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri 1 --keypair usb://ledger?key=42
+~$ safecoin transfer 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri 1 --keypair usb://ledger?key=42
 
 等待您在 Ledger 硬件钱包确认 usb://ledger/2JT2Xvy6T8hSmT8g6WdeDbHUgoeGdj6bE2VueCZUJmyN
 ✅ 已允许
@@ -109,7 +109,7 @@ CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
 您可以使用界面交互提示而不是使用 Safecoin CLI `交易栏` 命令来生成完全合格的 URL。 例如，试着将 Nano 连接到 USB，输入 PIN 码解锁，并运行以下命令：
 
 ```text
-solana resolve-signer usb://ledger?key=0/0
+safecoin resolve-signer usb://ledger?key=0/0
 ```
 
 您将看到类似这样的输出：
@@ -141,7 +141,7 @@ source ~/.zshrc
 如果不想禁用 zsh 对问题标记字符的特殊处理，您可以在密钥对 URL 中使用反斜杠专门禁用它。 例如：
 
 ```bash
-solana-keygen pubkey usb://ledger\?key=0
+safecoin-keygen pubkey usb://ledger\?key=0
 ```
 
 ## 客服支持

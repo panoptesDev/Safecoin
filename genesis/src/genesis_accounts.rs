@@ -248,13 +248,13 @@ pub fn add_genesis_accounts(genesis_config: &mut GenesisConfig, mut issued_lampo
             &UNLOCKS_ALL_DAY_ZERO,
         );
 
-    // "one thanks" (community pool) gets 500_000_000SAFE (total) - above distributions
+    // "one thanks" (community pool) gets 33_370_166SAFE (total) - above distributions
     create_and_add_stakes(
         genesis_config,
         &StakerInfo {
             name: "one thanks",
             staker: "7vEAL3nS9CWmy1q6njUUyHE7Cf5RmyQpND6CsoHjzPiR",
-            lamports: (500_000_000 * LAMPORTS_PER_SAFE).saturating_sub(issued_lamports),
+            lamports: (33_370_166 * LAMPORTS_PER_SAFE).saturating_sub(issued_lamports),
             withdrawer: Some("3FFaheyqtyAXZSYxDzsr5CVKvJuvZD1WE1VEsBtDbRqB"),
         },
         &UNLOCKS_ALL_DAY_ZERO,
@@ -278,6 +278,6 @@ mod tests {
             .map(|(_, account)| account.lamports)
             .sum::<u64>();
 
-        assert_eq!(500_000_000 * LAMPORTS_PER_SAFE, lamports);
+        assert_eq!(33_370_166 * LAMPORTS_PER_SAFE, lamports);
     }
 }

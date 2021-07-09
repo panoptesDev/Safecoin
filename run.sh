@@ -37,27 +37,27 @@ ledgerDir=$PWD/config/ledger
 SAFECOIN_RUN_SH_CLUSTER_TYPE=${SAFECOIN_RUN_SH_CLUSTER_TYPE:-development}
 
 set -x
-if ! solana address; then
+if ! safecoin address; then
   echo Generating default keypair
-  solana-keygen new --no-passphrase
+  safecoin-keygen new --no-passphrase
 fi
 validator_identity="$dataDir/validator-identity.json"
 if [[ -e $validator_identity ]]; then
   echo "Use existing validator keypair"
 else
-  solana-keygen new --no-passphrase -so "$validator_identity"
+  safecoin-keygen new --no-passphrase -so "$validator_identity"
 fi
 validator_vote_account="$dataDir/validator-vote-account.json"
 if [[ -e $validator_vote_account ]]; then
   echo "Use existing validator vote account keypair"
 else
-  solana-keygen new --no-passphrase -so "$validator_vote_account"
+  safecoin-keygen new --no-passphrase -so "$validator_vote_account"
 fi
 validator_stake_account="$dataDir/validator-stake-account.json"
 if [[ -e $validator_stake_account ]]; then
   echo "Use existing validator stake account keypair"
 else
-  solana-keygen new --no-passphrase -so "$validator_stake_account"
+  safecoin-keygen new --no-passphrase -so "$validator_stake_account"
 fi
 
 if [[ -e "$ledgerDir"/genesis.bin || -e "$ledgerDir"/genesis.tar.bz2 ]]; then
@@ -69,7 +69,7 @@ else
   fi
 
   # shellcheck disable=SC2086
-  solana-genesis \
+  safecoin-genesis \
     --hashes-per-tick sleep \
     --faucet-lamports 500000000000000000 \
     --bootstrap-validator \
@@ -89,7 +89,7 @@ abort() {
 }
 trap abort INT TERM EXIT
 
-solana-faucet &
+safecoin-faucet &
 faucet=$!
 
 args=(
@@ -108,7 +108,7 @@ args=(
   --no-wait-for-vote-to-start-leader
 )
 # shellcheck disable=SC2086
-solana-validator "${args[@]}" $SAFECOIN_RUN_SH_VALIDATOR_ARGS &
+safecoin-validator "${args[@]}" $SAFECOIN_RUN_SH_VALIDATOR_ARGS &
 validator=$!
 
 wait "$validator"

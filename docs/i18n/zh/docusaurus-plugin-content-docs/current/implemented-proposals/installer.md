@@ -13,7 +13,7 @@ title: 集群软件安装和更新
 支持的平台上最简单的安装方法。
 
 ```bash
-$ curl -sSf https://raw.githubusercontent.com/solana-labs/solana/v1.0.0/install/solana-install-init.sh | sh
+$ curl -sSf https://raw.githubusercontent.com/solana-labs/solana/v1.0.0/install/safecoin-install-init.sh | sh
 ```
 
 这个脚本将检查github以获取最新的标签版本，并从那里下载并运行`Safecoin-install-init`二进制文件。
@@ -21,8 +21,8 @@ $ curl -sSf https://raw.githubusercontent.com/solana-labs/solana/v1.0.0/install/
 如果在安装过程中需要指定额外的参数，可以使用下面的shell语法。
 
 ```bash
-$ init_args=.... # arguments for `solana-install-init ...`
-$ curl -sSf https://raw.githubusercontent.com/solana-labs/solana/v1.0.0/install/solana-install-init.sh | sh -s - ${init_args}
+$ init_args=.... # arguments for `safecoin-install-init ...`
+$ curl -sSf https://raw.githubusercontent.com/solana-labs/solana/v1.0.0/install/safecoin-install-init.sh | sh -s - ${init_args}
 ```
 
 ### 从Github发布的版本中获取并运行一个预构建的安装程序。
@@ -30,9 +30,9 @@ $ curl -sSf https://raw.githubusercontent.com/solana-labs/solana/v1.0.0/install/
 通过知名的发布URL，可以获得支持平台的预构建二进制文件。
 
 ```bash
-$ curl -o solana-install-init https://github.com/solana-labs/solana/releases/download/v1.0.0/solana-install-init-x86_64-apple-darwin
-$ chmod +x ./solana-install-init
-$ ./solana-install-init --help
+$ curl -o safecoin-install-init https://github.com/solana-labs/solana/releases/download/v1.0.0/safecoin-install-init-x86_64-apple-darwin
+$ chmod +x ./safecoin-install-init
+$ ./safecoin-install-init --help
 ```
 
 ### 从源代码构建并运行安装程序。
@@ -50,17 +50,17 @@ $ cargo run -- --help
 如果Safecoin发布的tarball\(由`ci/publish-tarball.sh`创建\) 已经上传到一个可公开访问的URL中，以下命令将部署更新。
 
 ```bash
-$ solana-keygen new -o update-manifest.json  # <-- only generated once, the public key is shared with users
-$ solana-install deploy http://example.com/path/to/solana-release.tar.bz2 update-manifest.json
+$ safecoin-keygen new -o update-manifest.json  # <-- only generated once, the public key is shared with users
+$ safecoin-install deploy http://example.com/path/to/solana-release.tar.bz2 update-manifest.json
 ```
 
 ### 运行一个自动更新的验证器节点。
 
 ```bash
-$ solana-install init --pubkey 92DMonmBYXwEMHJ99c9ceRSpAmk9v6i3RdvDdXaVcrfj  # <-- pubkey is obtained from whoever is deploying the updates
-$ export PATH=~/.local/share/solana-install/bin:$PATH
-$ solana-keygen ...  # <-- runs the latest solana-keygen
-$ solana-install run solana-validator ...  # <-- runs a validator, restarting it as necesary when an update is applied
+$ safecoin-install init --pubkey 92DMonmBYXwEMHJ99c9ceRSpAmk9v6i3RdvDdXaVcrfj  # <-- pubkey is obtained from whoever is deploying the updates
+$ export PATH=~/.local/share/safecoin-install/bin:$PATH
+$ safecoin-keygen ...  # <-- runs the latest safecoin-keygen
+$ safecoin-install run safecoin-validator ...  # <-- runs a validator, restarting it as necesary when an update is applied
 ```
 
 ## 链上更新清单
@@ -87,9 +87,9 @@ pub struct SignedUpdateManifest {
 }
 ```
 
-请注意，`manifest` 字段本身包含一个相应的签名\(`manifest_signature`\)，以防止 `solana-install` 工具和 Safecoin 集群 RPC API 之间的中间人攻击。
+请注意，`manifest` 字段本身包含一个相应的签名\(`manifest_signature`\)，以防止 `safecoin-install` 工具和 Safecoin 集群 RPC API 之间的中间人攻击。
 
-为了防止回滚攻击，`solana-install` 将拒绝安装比当前安装的 `timestamp_secs` 更早的更新。
+为了防止回滚攻击，`safecoin-install` 将拒绝安装比当前安装的 `timestamp_secs` 更早的更新。
 
 ## 版本存档内容
 
@@ -101,7 +101,7 @@ pub struct SignedUpdateManifest {
 
 - `/bin/` -- 发行版中包含可用程序的目录。
 
-  `solana-install` 会将这个目录以符号链接的方式连接到
+  `safecoin-install` 会将这个目录以符号链接的方式连接到
 
   `~/.local/share/Safecoin-install/bin` 供 `PATH` 环境变量使用。
 
@@ -109,9 +109,9 @@ pub struct SignedUpdateManifest {
 
 - `...` -- 允许有任何其他文件和目录。
 
-## solana-install 工具
+## safecoin-install 工具
 
-用户使用 `solana-install` 工具来安装和更新他们的集群软件。
+用户使用 `safecoin-install` 工具来安装和更新他们的集群软件。
 
 它在用户的主目录中管理以下文件和目录： ~/. config/Safecoin/install/config. yml -- 用户配置和当前集群软件的信息。
 
@@ -122,11 +122,11 @@ pub struct SignedUpdateManifest {
 ### 命令行界面
 
 ```text
-solana-install 0.16.0
-The solana cluster software installer
+safecoin-install 0.16.0
+The safecoin cluster software installer
 
 USAGE:
-    solana-install [OPTIONS] <SUBCOMMAND>
+    safecoin-install [OPTIONS] <SUBCOMMAND>
 
 FLAGS:
     -h, --help       Prints help information
@@ -145,27 +145,27 @@ SUBCOMMANDS:
 ```
 
 ```text
-solana-install-init
+safecoin-install-init
 initializes a new installation
 
 USAGE:
-    solana-install init [OPTIONS]
+    safecoin-install init [OPTIONS]
 
 FLAGS:
     -h, --help    Prints help information
 
 OPTIONS:
     -d, --data_dir <PATH>    Directory to store install data [default: .../Library/Application Support/solana]
-    -u, --url <URL>          JSON RPC URL for the solana cluster [default: http://api.devnet.safecoin.org]
+    -u, --url <URL>          JSON RPC URL for the safecoin cluster [default: http://api.devnet.safecoin.org]
     -p, --pubkey <PUBKEY>    Public key of the update manifest [default: 9XX329sPuskWhH4DQh6k16c87dHKhXLBZTL3Gxmve8Gp]
 ```
 
 ```text
-solana-install info
+safecoin-install info
 displays information about the current installation
 
 USAGE:
-    solana-install info [FLAGS]
+    safecoin-install info [FLAGS]
 
 FLAGS:
     -h, --help     Prints help information
@@ -173,37 +173,37 @@ FLAGS:
 ```
 
 ```text
-solana-install deploy
+safecoin-install deploy
 deploys a new update
 
 USAGE:
-    solana-install deploy <download_url> <update_manifest_keypair>
+    safecoin-install deploy <download_url> <update_manifest_keypair>
 
 FLAGS:
     -h, --help    Prints help information
 
 ARGS:
-    <download_url>               URL to the solana release archive
+    <download_url>               URL to the safecoin release archive
     <update_manifest_keypair>    Keypair file for the update manifest (/path/to/keypair.json)
 ```
 
 ```text
-solana-install update
+safecoin-install update
 checks for an update, and if available downloads and applies it
 
 USAGE:
-    solana-install update
+    safecoin-install update
 
 FLAGS:
     -h, --help    Prints help information
 ```
 
 ```text
-solana-install run
+safecoin-install run
 Runs a program while periodically checking and applying software updates
 
 USAGE:
-    solana-install run <program_name> [program_arguments]...
+    safecoin-install run <program_name> [program_arguments]...
 
 FLAGS:
     -h, --help    Prints help information

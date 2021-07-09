@@ -1,5 +1,5 @@
 [package]
-name = "solana-tokens"
+name = "safecoin-tokens"
 description = "Blockchain, Rebuilt for Scale"
 authors = ["Safecoin Maintainers <maintainers@solana.foundation>"]
 edition = "2018"
@@ -7,7 +7,7 @@ version = "1.6.13"
 repository = "https://github.com/solana-labs/solana"
 license = "Apache-2.0"
 homepage = "https://solana.com/"
-documentation = "https://docs.rs/solana-tokens"
+documentation = "https://docs.rs/safecoin-tokens"
 
 [dependencies]
 chrono = { version = "0.4", features = ["serde"] }

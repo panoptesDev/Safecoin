@@ -174,7 +174,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 尽管不是JSON RPC API，但RPC HTTP端点上的`GET / health`提供了一种健康检查机制，供负载平衡器或其他网络基础结构使用。 根据以下条件，此请求将始终返回带有 "ok" 或 "behind" 正文的 HTTP 200 OK 响应：
 
-1. 如果向`solana-validator`提供了一个或多个`--trusted-validator`参数，则当节点位于最高可信验证器的`HEALTH_CHECK_SLOT_DISTANCE`插槽内时，返回 "ok"，否则返回 "behind"。
+1. 如果向`safecoin-validator`提供了一个或多个`--trusted-validator`参数，则当节点位于最高可信验证器的`HEALTH_CHECK_SLOT_DISTANCE`插槽内时，返回 "ok"，否则返回 "behind"。
 2. 如果未提供受信任的验证器，则始终返回 "ok"。
 
 ## JSON RPC API 引用
@@ -1240,7 +1240,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 返回节点的当前运行状况。
 
-如果将一个或多个 `--trusted-validator` 参数提供给 `solana-validator`，则当节点位于最高可信验证器的 `HEALTH_CHECK_SLOT_DISTANCE` 插槽内时，将返回 "ok"，否则将返回错误。  如果未提供受信任的验证器，则始终返回“ ok”。
+如果将一个或多个 `--trusted-validator` 参数提供给 `safecoin-validator`，则当节点位于最高可信验证器的 `HEALTH_CHECK_SLOT_DISTANCE` 插槽内时，将返回 "ok"，否则将返回错误。  如果未提供受信任的验证器，则始终返回“ ok”。
 
 #### 参数：
 

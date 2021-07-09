@@ -1961,16 +1961,16 @@ fn report_ephemeral_mnemonic(words: usize, mnemonic: bip39::Mnemonic) {
         divider
     );
     eprintln!(
-        "`solana-keygen recover` and the following {}-word seed phrase:",
+        "`safecoin-keygen recover` and the following {}-word seed phrase:",
         words
     );
     eprintln!("{}\n{}\n{}", divider, phrase, divider);
     eprintln!("To resume a deploy, pass the recovered keypair as");
-    eprintln!("the [PROGRAM_ADDRESS_SIGNER] argument to `solana deploy` or");
-    eprintln!("as the [BUFFER_SIGNER] to `solana program deploy` or `solana write-buffer'.");
+    eprintln!("the [PROGRAM_ADDRESS_SIGNER] argument to `safecoin deploy` or");
+    eprintln!("as the [BUFFER_SIGNER] to `safecoin program deploy` or `safecoin write-buffer'.");
     eprintln!("Or to recover the account's lamports, pass it as the");
     eprintln!(
-        "[BUFFER_ACCOUNT_ADDRESS] argument to `solana program close`.\n{}",
+        "[BUFFER_ACCOUNT_ADDRESS] argument to `safecoin program close`.\n{}",
         divider
     );
 }

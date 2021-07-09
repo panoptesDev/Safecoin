@@ -43,11 +43,11 @@ skip)
 esac
 
 case $clientToRun in
-solana-bench-tps)
+safecoin-bench-tps)
   net/scripts/rsync-retry.sh -vPrc \
     "$entrypointIp":~/solana/config/bench-tps"$clientIndex".yml ./client-accounts.yml
   clientCommand="\
-    solana-bench-tps \
+    safecoin-bench-tps \
       --entrypoint $entrypointIp:10015 \
       --faucet $entrypointIp:9900 \
       --duration 7500 \
@@ -57,12 +57,12 @@ solana-bench-tps)
       --read-client-keys ./client-accounts.yml \
   "
   ;;
-solana-bench-exchange)
-  solana-keygen new --no-passphrase -fso bench.keypair
+safecoin-bench-exchange)
+  safecoin-keygen new --no-passphrase -fso bench.keypair
   net/scripts/rsync-retry.sh -vPrc \
     "$entrypointIp":~/solana/config/bench-exchange"$clientIndex".yml ./client-accounts.yml
   clientCommand="\
-    solana-bench-exchange \
+    safecoin-bench-exchange \
       --entrypoint $entrypointIp:10015 \
       --faucet $entrypointIp:9900 \
       --threads $threadCount \

@@ -10,7 +10,7 @@ title: CLI 使用参考
 
 ```bash
 // 命令
-$solana-keygen pubkey
+$safecoin-keygen pubkey
 
 // 返回
 <PUBKEY>
@@ -20,7 +20,7 @@ $solana-keygen pubkey
 
 ```bash
 // 命令
-$ solana airdrop 2
+$ safecoin airdrop 2
 
 // 返回
 "2.0000000 SAFE"
@@ -30,7 +30,7 @@ $ solana airdrop 2
 
 ```bash
 // 命令
-$ solana balance
+$ safecoin balance
 
 // 返回
 "3.00050001 SAFE"
@@ -40,7 +40,7 @@ $ solana balance
 
 ```bash
 // 命令
-$ solana confirm <TX_SIGNATURE>
+$ safecoin confirm <TX_SIGNATURE>
 
 // 返回
 "Confirmed" / "Not found" / "Transaction failed with error <ERR>"
@@ -50,7 +50,7 @@ $ solana confirm <TX_SIGNATURE>
 
 ```bash
 // 命令
-$ solana deploy <PATH>
+$ safecoin deploy <PATH>
 
 // 返回
 <PROGRAM_ID>

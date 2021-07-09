@@ -61,7 +61,7 @@ while [[ -n $1 ]]; do
     elif [[ $1 = --no-airdrop ]]; then
       airdrops_enabled=0
       shift
-    # solana-validator options
+    # safecoin-validator options
     elif [[ $1 = --expected-genesis-hash ]]; then
       args+=("$1" "$2")
       shift 2
@@ -227,9 +227,9 @@ default_arg --log -
 default_arg --require-tower
 
 if [[ -n $SAFECOIN_CUDA ]]; then
-  program=$solana_validator_cuda
+  program=$safecoin_validator_cuda
 else
-  program=$solana_validator
+  program=$safecoin_validator
 fi
 
 set -e
@@ -291,7 +291,7 @@ setup_validator_accounts() {
   return 0
 }
 
-rpc_url=$($solana_gossip rpc-url --timeout 180 --entrypoint "$gossip_entrypoint")
+rpc_url=$($safecoin_gossip rpc-url --timeout 180 --entrypoint "$gossip_entrypoint")
 
 [[ -r "$identity" ]] || $solana_keygen new --no-passphrase -so "$identity"
 [[ -r "$vote_account" ]] || $solana_keygen new --no-passphrase -so "$vote_account"

@@ -20,7 +20,7 @@ solana-core = { path = "../core", version = "=1.6.13" }
 solana-measure = { path = "../measure", version = "=1.6.13" }
 solana-logger = { path = "../logger", version = "=1.6.13" }
 solana-net-utils = { path = "../net-utils", version = "=1.6.13" }
-solana-faucet = { path = "../faucet", version = "=1.6.13" }
+safecoin-faucet = { path = "../faucet", version = "=1.6.13" }
 solana-runtime = { path = "../runtime", version = "=1.6.13" }
 solana-sdk = { path = "../sdk", version = "=1.6.13" }
 solana-transaction-status = { path = "../transaction-status", version = "=1.6.13" }

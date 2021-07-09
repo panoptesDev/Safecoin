@@ -10,7 +10,7 @@ use {
     },
     solana_client::rpc_client::RpcClient,
     solana_core::rpc::JsonRpcConfig,
-    solana_faucet::faucet::{run_local_faucet_with_port, FAUCET_PORT},
+    safecoin_faucet::faucet::{run_local_faucet_with_port, FAUCET_PORT},
     solana_sdk::{
         account::AccountSharedData,
         clock::Slot,
@@ -21,7 +21,7 @@ use {
         signature::{read_keypair_file, write_keypair_file, Keypair, Signer},
         system_program,
     },
-    solana_validator::{
+    safecoin_validator::{
         admin_rpc_service, dashboard::Dashboard, println_name_value, redirect_stderr_to_file,
         test_validator::*,
     },
@@ -38,7 +38,7 @@ use {
 
 /* 10,000 was derived empirically by watching the size
  * of the rocksdb/ directory self-limit itself to the
- * 40MB-150MB range when running `solana-test-validator`
+ * 40MB-150MB range when running `safecoin-test-validator`
  */
 const DEFAULT_MAX_LEDGER_SHREDS: u64 = 10_000;
 
@@ -57,7 +57,7 @@ fn main() {
     let default_limit_ledger_size = DEFAULT_MAX_LEDGER_SHREDS.to_string();
     let default_faucet_sol = DEFAULT_FAUCET_SAFE.to_string();
 
-    let matches = App::new("solana-test-validator")
+    let matches = App::new("safecoin-test-validator")
         .about("Test Validator")
         .version(solana_version::version!())
         .arg({
@@ -138,7 +138,7 @@ fn main() {
                 .value_name("PORT")
                 .takes_value(true)
                 .default_value(&default_faucet_port)
-                .validator(solana_validator::port_validator)
+                .validator(safecoin_validator::port_validator)
                 .help("Enable the faucet on this port"),
         )
         .arg(
@@ -147,7 +147,7 @@ fn main() {
                 .value_name("PORT")
                 .takes_value(true)
                 .default_value(&default_rpc_port)
-                .validator(solana_validator::port_validator)
+                .validator(safecoin_validator::port_validator)
                 .help("Enable JSON RPC on this port, and the next port for the RPC websocket"),
         )
         .arg(
@@ -213,7 +213,7 @@ fn main() {
                 .long("dynamic-port-range")
                 .value_name("MIN_PORT-MAX_PORT")
                 .takes_value(true)
-                .validator(solana_validator::port_range_validator)
+                .validator(safecoin_validator::port_range_validator)
                 .help(
                     "Range to use for dynamically assigned ports \
                     [default: 1024-65535]",
@@ -493,7 +493,7 @@ fn main() {
     } else if random_mint {
         println_name_value(
             "\nNotice!",
-            "No wallet available. `solana airdrop` localnet SAFE after creating one\n",
+            "No wallet available. `safecoin airdrop` localnet SAFE after creating one\n",
         );
     }
 

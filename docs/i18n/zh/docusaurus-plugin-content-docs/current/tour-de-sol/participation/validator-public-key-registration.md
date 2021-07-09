@@ -11,13 +11,13 @@ title: 创建验证节点公钥
 1. 如果还没有密钥对，请运行以下命令来为验证节点生成一个：
 
    ```bash
-     solana-keygen new -o ~/validator-keypair.json
+     safecoin-keygen new -o ~/validator-keypair.json
    ```
 
 2. 现在可以运行以下命令查看身份公共密钥：
 
    ```bash
-     solana-keygen pubkey ~/validator-keypair.json
+     safecoin-keygen pubkey ~/validator-keypair.json
    ```
 
 > 注意：“validator-keypair.json”文件也是您的 \(ed25519\) 私钥。

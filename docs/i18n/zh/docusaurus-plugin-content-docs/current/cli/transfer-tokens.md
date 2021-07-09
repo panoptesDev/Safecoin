@@ -17,7 +17,7 @@ title: 发送和接收代币
 首先，在测试网给您的钱包_空投_ 一些虚拟代币。
 
 ```bash
-solana airdrop 10 <RECIPIENT_ACCOUNT_ADDRESS> --url https://api.devnet.safecoin.org
+safecoin airdrop 10 <RECIPIENT_ACCOUNT_ADDRESS> --url https://api.devnet.safecoin.org
 ```
 
 其中，用您的 base58-encoded 公钥/钱包地址替换此处的 `<RECIPIENT_ACCOUNT_ADDRESS>`文本。
@@ -27,7 +27,7 @@ solana airdrop 10 <RECIPIENT_ACCOUNT_ADDRESS> --url https://api.devnet.safecoin.
 通过检查帐户余额确认空投已经成功。 输出值应当为 `10 SAFE`:
 
 ```bash
-solana balance <ACCOUNT_ADDRESS> --url https://api.devnet.safecoin.org
+safecoin balance <ACCOUNT_ADDRESS> --url https://api.devnet.safecoin.org
 ```
 
 #### 创建第二个钱包地址
@@ -35,7 +35,7 @@ solana balance <ACCOUNT_ADDRESS> --url https://api.devnet.safecoin.org
 我们需要一个新地址来接收代币。 创建第二个密钥对并记录其公钥：
 
 ```bash
-solana-keygen new --no-passphrase --no-outfile
+safecoin-keygen new --no-passphrase --no-outfile
 ```
 
 输出将在文本 `pubkey:` 后面包括该地址。 复制该地址。 我们在下一步中要用到它。
@@ -51,15 +51,15 @@ pubkey: GKvqsuNcnwWqPzzuhLmGi4rzzh55FhJtGizkhHaEJqiV
 接下来，通过发送来证明你拥有空投代币。 Safecoin 集群只有在您用交易发送方公钥对应的私钥签名时，才会接受交易。
 
 ```bash
-solana transfer --from <KEYPAIR> <RECIPIENT_ACCOUNT_ADDRESS> 5 --url https://api.devnet.safecoin.org --fee-payer <KEYPAIR>
+safecoin transfer --from <KEYPAIR> <RECIPIENT_ACCOUNT_ADDRESS> 5 --url https://api.devnet.safecoin.org --fee-payer <KEYPAIR>
 ```
 
 其中，用第一个钱包的秘钥对的路径替换 `<KEYPAIR>`，用第二个钱包地址替换 `<RECIPIENT_ACCOUNT_ADDRESS>`。
 
-使用 `solana balance` 确认余额已经更新：
+使用 `safecoin balance` 确认余额已经更新：
 
 ```bash
-solana balance <ACCOUNT_ADDRESS> --url http://api.devnet.safecoin.org
+safecoin balance <ACCOUNT_ADDRESS> --url http://api.devnet.safecoin.org
 ```
 
 其中 `<ACCOUNT_ADDRESS>` 是您密钥对的公钥或收件人的公钥。
@@ -67,7 +67,7 @@ solana balance <ACCOUNT_ADDRESS> --url http://api.devnet.safecoin.org
 #### 转账测试的完整示例
 
 ```bash
-$ solana-keygen new --outfile my_solana_wallet.json   # 创建第一个文件系统钱包
+$ safecoin-keygen new --outfile my_solana_wallet.json   # 创建第一个文件系统钱包
 产生新的密钥对
 为了增加安全性，输入一个密码(空白表示不设置密码)：
 将新密钥对写入 my_solana_wallet.json
@@ -78,14 +78,14 @@ pubkey: DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK                          # 
 width enhance concert vacant ketchup eternal spy craft spy guard tag punch    # 如果这是一个真实的钱包，不要将这次单词分享到网络上！
 ==========================================================================
 
-$ solana airdrop 10 DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org  # 空投 10 个 SAFE 到我的钱包地址/公钥
+$ safecoin airdrop 10 DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org  # 空投 10 个 SAFE 到我的钱包地址/公钥
 正在从 35.233.193.70:9900 请求 10 SAFE
 10 SAFE
 
-$ solana balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org # 检查钱包余额
+$ safecoin balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org # 检查钱包余额
 10 SAFE
 
-$ solana-keygen new --no-outfile  # 创建第二个钱包即纸钱包
+$ safecoin-keygen new --no-outfile  # 创建第二个钱包即纸钱包
 生成新的密钥对
 为了增加安全性，输入一个密码(空白表示不设置密码)：
 ====================================================================
@@ -95,13 +95,13 @@ pubkey: 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv                   # 这是�
 clump panic cousin hurt coast charge engage fall eager urge win love  # 如果这是一个真实的钱包，切记不要将这次单词分享到网络上！
 ====================================================================
 
-$ solana transfer --from my_solana_wallet.json 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv 5 --url https://api.devnet.safecoin.org --fee-payer my_solana_wallet.json  # 发送代币到纸钱包的公钥地址
+$ safecoin transfer --from my_solana_wallet.json 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv 5 --url https://api.devnet.safecoin.org --fee-payer my_solana_wallet.json  # 发送代币到纸钱包的公钥地址
 3gmXvykAd1nCQQ7MjosaHLf69Xyaqyq1qw2eu1mgPyYXd5G4v1rihhg1CiRw35b9fHzcftGKKEu4mbUeXY2pEX2z  # 该笔交易的签名
 
-$ solana balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org
+$ safecoin balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org
 4.999995 SAFE  # 由于需要 0.000005 SAFE 的交易费用，发送金额要稍微小于 5 SAFE
 
-$ solana balance 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv --url https://api.devnet.safecoin.org
+$ safecoin balance 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv --url https://api.devnet.safecoin.org
 5 SAFE  # 第二个钱包现在已经接收到第一个钱包发送的 5 SAFE
 
 ```
@@ -112,14 +112,14 @@ $ solana balance 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv --url https://api.
 
 ## 发送代币
 
-如果您已经持有 SAFE 并想要向其他人发送代币，您将需要密钥对的路径， 他们的 base58 编码公钥和准备发送的代币。 上述条件准备好了以后，您可以使用 `solana transfer` 命令来发送代币：
+如果您已经持有 SAFE 并想要向其他人发送代币，您将需要密钥对的路径， 他们的 base58 编码公钥和准备发送的代币。 上述条件准备好了以后，您可以使用 `safecoin transfer` 命令来发送代币：
 
 ```bash
-solana transfer --from <KEYPAIR> <RECIPIENT_ACCOUNT_ADDRESS> <AMOUNT> --fee-payer <KEYPAIR>
+safecoin transfer --from <KEYPAIR> <RECIPIENT_ACCOUNT_ADDRESS> <AMOUNT> --fee-payer <KEYPAIR>
 ```
 
-使用 `solana balance` 确认余额已经更新：
+使用 `safecoin balance` 确认余额已经更新：
 
 ```bash
-solana balance <ACCOUNT_ADDRESS>
+safecoin balance <ACCOUNT_ADDRESS>
 ```

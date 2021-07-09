@@ -14,10 +14,10 @@
 ### 步骤4。 在插槽`SLOT_X`上为插槽`SLOT_X`的硬分叉创建一个新的快照。
 
 ```bash
-$ solana-ledger-tool -l ledger create-snapshot SLOT_X ledger --硬分叉 SLOT_X
+$ safecoin-ledger-tool -l ledger create-snapshot SLOT_X ledger --硬分叉 SLOT_X
 ```
 
-现在，账本目录应包含一个新的快照。 `solana-ledger-tool-create-snapshot` 也会输出新的碎片版本和bank哈希值，分别调用 NEW\_SHRED\_VERSION 和 NEW\_BANK\_HASH。
+现在，账本目录应包含一个新的快照。 `safecoin-ledger-tool-create-snapshot` 也会输出新的碎片版本和bank哈希值，分别调用 NEW\_SHRED\_VERSION 和 NEW\_BANK\_HASH。
 
 调整验证节点的参数：
 
@@ -41,7 +41,7 @@ $ solana-ledger-tool -l ledger create-snapshot SLOT_X ledger --硬分叉 SLOT_X
 > Steps: 1. Install the v1.1.12 release: https://github.com/solana-labs/solana/releases/tag/v1.1.12 2. a. Preferred method, start from your local ledger with:
 >
 > ```bash
-solana-validator
+safecoin-validator
   --wait-for-supermajority SLOT_X     # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --expected-bank-hash NEW_BANK_HASH  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --hard-fork SLOT_X                  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
@@ -57,7 +57,7 @@ solana-validator
 b. If your validator doesn't have ledger up to slot SLOT_X or if you have deleted your ledger, have it instead download a snapshot with:
 
 ```bash
-solana-validator
+safecoin-validator
   --wait-for-supermajority SLOT_X     # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --expected-bank-hash NEW_BANK_HASH  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --entrypoint entrypoint.testnet.safecoin.org:10015
@@ -68,11 +68,11 @@ solana-validator
   ...                                # <-- your other --identity/--vote-account/etc arguments
 ```
 
-     You can check for which slots your ledger has with: `solana-ledger-tool -l path/to/ledger bounds`
+     You can check for which slots your ledger has with: `safecoin-ledger-tool -l path/to/ledger bounds`
 
 3. 等待80%的质押在线
 
-要确认您已经正确重新启动验证程序并且在等待80%质押： a。 查找八卦日志消息中`可见的N％活跃质押` b. 通过RPC询问它在哪个插槽上：`solana --url http://127.0.0.1:8899 slot`。  它应该返回`SLOT_X`，直到我们获得80％的质押
+要确认您已经正确重新启动验证程序并且在等待80%质押： a。 查找八卦日志消息中`可见的N％活跃质押` b. 通过RPC询问它在哪个插槽上：`safecoin --url http://127.0.0.1:8899 slot`。  它应该返回`SLOT_X`，直到我们获得80％的质押
 
 感谢！
 

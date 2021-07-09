@@ -26,8 +26,8 @@ title: 持久交易随机数（Nonces）
 - 命令
 
 ```bash
-solana-keygen new -o nonce-keypair.json
-solana create-nonce-account nonce-keypair.json 1
+safecoin-keygen new -o nonce-keypair.json
+safecoin create-nonce-account nonce-keypair.json 1
 ```
 
 - 输出
@@ -47,7 +47,7 @@ solana create-nonce-account nonce-keypair.json 1
 - 命令
 
 ```bash
-solana nonce none-non-keypair.json
+safecoin nonce none-non-keypair.json
 ```
 
 - 输出
@@ -65,7 +65,7 @@ solana nonce none-non-keypair.json
 - 命令
 
 ```bash
-solana new-nonce none-non-keypair.json
+safecoin new-nonce none-non-keypair.json
 ```
 
 - 输出
@@ -83,7 +83,7 @@ solana new-nonce none-non-keypair.json
 - 命令
 
 ```bash
-solana non-account non-ceypair.json
+safecoin non-account non-ceypair.json
 ```
 
 - 输出
@@ -103,7 +103,7 @@ nonce: DZar6t2EaCFQTbUP4DHKwZ1wT8gCPW2aRfkVWhydkBvS
 - 命令
 
 ```bash
-solana withdraw-from-nonce-account nonce-keypair.json ~/.config/solana/id.json 0.5
+safecoin withdraw-from-nonce-account nonce-keypair.json ~/.config/solana/id.json 0.5
 ```
 
 - 输出
@@ -123,7 +123,7 @@ solana withdraw-from-nonce-account nonce-keypair.json ~/.config/solana/id.json 0
 - 命令
 
 ```bash
-solana authorize-non-account non-keypair.json nonce-authority.json
+safecoin authorize-non-account non-keypair.json nonce-authority.json
 ```
 
 - 输出
@@ -156,9 +156,9 @@ solana authorize-non-account non-keypair.json nonce-authority.json
 首先，我们需要为Alice、Alice的none和Bob准备一些账户
 
 ```bash
-$ solana-keygen new -o alice.json
-$ solana-keygen new -o nonce.json
-$ solana-keygen new -o bob.json
+$ safecoin-keygen new -o alice.json
+$ safecoin-keygen new -o nonce.json
+$ safecoin-keygen new -o bob.json
 ```
 
 #### - Alice账户充值
@@ -166,7 +166,7 @@ $ solana-keygen new -o bob.json
 Alice 需要一些资产来创建一个 nonce 帐户并发送给 Bob。 空投一些SAFE给她
 
 ```bash
-$ solana airdrop -k alice.json 10
+$ safecoin airdrop -k alice.json 10
 10 SAFE
 ```
 
@@ -177,7 +177,7 @@ $ solana airdrop -k alice.json 10
 > 这里没有单独的 [nonce authority](#nonce-authority) 被使用，所以 `alice.json` 对nonce 帐户拥有完全的权限
 
 ```bash
-$ solana create-nonce-account -k alice.json nonce.json 1
+$ safecoin create-nonce-account -k alice.json nonce.json 1
 3KPZr96BTsL3hqera9up82KAU462Gz31xjqJ6ehuAjF935Yf8i1kmfEbo6SVbNaACKE5z6gySrNjVRvmS8DcPuwV
 ```
 
@@ -186,7 +186,7 @@ $ solana create-nonce-account -k alice.json nonce.json 1
 Alice 试图为支付给 Bob，但签名需要太长时间。 指定的区块哈希已经过期，导致交易失败
 
 ```bash
-$ solana pay -k alice.json --blockhash expiredDTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7 bob.json 1
+$ safecoin pay -k alice.json --blockhash expiredDTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7 bob.json 1
 [2020-01-02T18:48:28.462911000Z ERROR solana_cli::cli] Io(Custom { kind: Other, error: "Transaction \"33gQQaoPc9jWePMvDAeyJpcnSPiGUAdtVg8zREWv4GiKjkcGNufgpcbFyRKRrA25NkgjZySEeKue5rawyeH5TzsV\" failed: None" })
 Error: Io(Custom { kind: Other, error: "Transaction \"33gQQaoPc9jWePMvDAeyJpcnSPiGUAdtVg8zREWv4GiKjkcGNufgpcbFyRKRrA25NkgjZySEeKue5rawyeH5TzsV\" failed: None" })
 ```
@@ -198,14 +198,14 @@ Alice 重试交易，这次指定她的nonce账户和存储在那里的区块哈
 > 记住，`alice.json` 是这个示例中的 [nonce 授权](#nonce-authority)
 
 ```bash
-$ solana nonce-account nonce.json
+$ safecoin nonce-account nonce.json
 balance: 1 SAFE
 minimum balance required: 0.00136416 SAFE
 nonce: F7vmkY3DTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7
 ```
 
 ```bash
-$ solana pay -k alice.json --blockhash F7vmkY3DTaxfagtWjQweib42b6ZHADSx94Tw8gHx3W7 --nonce nonce.json bob.json 1
+$ safecoin pay -k alice.json --blockhash F7vmkY3DTaxfagtWjQweib42b6ZHADSx94Tw8gHx3W7 --nonce nonce.json bob.json 1
 HR1368UKHVZyenmH7yVz5sBAijV6XAPeWbEiXEGVYQorRMcoijeNAbzZqEZiH8cDB8tk65ckeegFjK8dHwNFgQ
 ```
 
@@ -214,12 +214,12 @@ HR1368UKHVZyenmH7yVz5sBAijV6XAPeWbEiXEGVYQorRMcoijeNAbzZqEZiH8cDB8tk65ckeegFjK8d
 交易成功！ Bob 从 Alice 那里收到1个SAFE，并且Alice存储的nonce更新到了一个新的值
 
 ```bash
-$ solana balance -k bob.json
+$ safecoin balance -k bob.json
 1 SAFE
 ```
 
 ```bash
-$ solana nonce-account nonce.json
+$ safecoin nonce-account nonce.json
 balance: 1 SAFE
 minimum balance required: 0.00136416 SAFE
 nonce: 6bjroqDcZgTv6Vavhqf81oBHTv3aMnX19UTB51YhAZnN

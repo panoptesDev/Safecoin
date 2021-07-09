@@ -188,7 +188,7 @@ health-check mechanism for use by load balancers or other network
 infrastructure. This request will always return a HTTP 200 OK response with a body of
 "ok", "behind" or "unknown" based on the following conditions:
 
-1. If one or more `--trusted-validator` arguments are provided to `solana-validator`, "ok" is returned
+1. If one or more `--trusted-validator` arguments are provided to `safecoin-validator`, "ok" is returned
    when the node has within `HEALTH_CHECK_SLOT_DISTANCE` slots of the highest
    trusted validator, otherwise "behind". "unknown" is returned when no slot
    information from trusted validators is not yet available.
@@ -1455,7 +1455,7 @@ Result:
 Returns the current health of the node.
 
 If one or more `--trusted-validator` arguments are provided to
-`solana-validator`, "ok" is returned when the node has within
+`safecoin-validator`, "ok" is returned when the node has within
 `HEALTH_CHECK_SLOT_DISTANCE` slots of the highest trusted validator, otherwise
 an error is returned.  "ok" is always returned if no trusted validators are
 provided.
@@ -3007,7 +3007,7 @@ Result:
 
 ### getVersion
 
-Returns the current solana versions running on the node
+Returns the current safecoin versions running on the node
 
 #### Parameters:
 

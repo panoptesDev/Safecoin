@@ -5,7 +5,7 @@ edition = "2018"
 homepage = "https://solana.com/"
 documentation = "https://docs.rs/"
 license = "Apache-2.0"
-name = "solana-stake-o-matic"
+name = "safecoin-stake-o-matic"
 repository = "https://github.com/solana-labs/stake-o-matic"
 version = "1.6.13"
 

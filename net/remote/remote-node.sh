@@ -105,7 +105,7 @@ cat >> ~/solana/on-reboot <<EOF
   PATH="$HOME"/.cargo/bin:"$PATH"
   export USE_INSTALL=1
 
-  sudo RUST_LOG=info ~solana/.cargo/bin/solana-sys-tuner --user $(whoami) > sys-tuner.log 2>&1 &
+  sudo RUST_LOG=info ~solana/.cargo/bin/safecoin-sys-tuner --user $(whoami) > sys-tuner.log 2>&1 &
   echo \$! > sys-tuner.pid
 
   (
@@ -122,7 +122,7 @@ cat >> ~/solana/on-reboot <<EOF
   echo \$! > system-stats.pid
 
   if ${GPU_CUDA_OK} && [[ -e /dev/nvidia0 ]]; then
-    echo Selecting solana-validator-cuda
+    echo Selecting safecoin-validator-cuda
     export SAFECOIN_CUDA=1
   elif ${GPU_FAIL_IF_NONE} ; then
     echo "Expected GPU, found none!"
@@ -151,17 +151,17 @@ EOF
             cp net/keypairs/"$name".json config/"$name".json
           fi
         else
-          solana-keygen new --no-passphrase -so config/"$name".json
+          safecoin-keygen new --no-passphrase -so config/"$name".json
           if [[ "$name" =~ ^validator-identity- ]]; then
             name="${name//-identity-/-vote-}"
-            solana-keygen new --no-passphrase -so config/"$name".json
+            safecoin-keygen new --no-passphrase -so config/"$name".json
             name="${name//-vote-/-stake-}"
-            solana-keygen new --no-passphrase -so config/"$name".json
+            safecoin-keygen new --no-passphrase -so config/"$name".json
           fi
         fi
         if [[ -n $internalNodesLamports ]]; then
           declare pubkey
-          pubkey="$(solana-keygen pubkey config/"$name".json)"
+          pubkey="$(safecoin-keygen pubkey config/"$name".json)"
           cat >> config/validator-balances.yml <<EOF
 $pubkey:
   balance: $internalNodesLamports
@@ -188,7 +188,7 @@ EOF
 
       for i in $(seq 0 $((numBenchTpsClients-1))); do
         # shellcheck disable=SC2086 # Do not want to quote $benchTpsExtraArgs
-        solana-bench-tps --write-client-keys config/bench-tps"$i".yml \
+        safecoin-bench-tps --write-client-keys config/bench-tps"$i".yml \
           --target-lamports-per-signature "$lamports_per_signature" $benchTpsExtraArgs
         # Skip first line, as it contains header
         tail -n +2 -q config/bench-tps"$i".yml >> config/client-accounts.yml
@@ -196,7 +196,7 @@ EOF
       done
       for i in $(seq 0 $((numBenchExchangeClients-1))); do
         # shellcheck disable=SC2086 # Do not want to quote $benchExchangeExtraArgs
-        solana-bench-exchange --batch-size 1000 --fund-amount 20000 \
+        safecoin-bench-exchange --batch-size 1000 --fund-amount 20000 \
           --write-client-keys config/bench-exchange"$i".yml $benchExchangeExtraArgs
         tail -n +2 -q config/bench-exchange"$i".yml >> config/client-accounts.yml
         echo "" >> config/client-accounts.yml
@@ -233,9 +233,9 @@ EOF
           extraPrimordialStakes=$numNodes
         fi
         for i in $(seq "$extraPrimordialStakes"); do
-          args+=(--bootstrap-validator "$(solana-keygen pubkey "config/validator-identity-$i.json")"
-                                       "$(solana-keygen pubkey "config/validator-vote-$i.json")"
-                                       "$(solana-keygen pubkey "config/validator-stake-$i.json")"
+          args+=(--bootstrap-validator "$(safecoin-keygen pubkey "config/validator-identity-$i.json")"
+                                       "$(safecoin-keygen pubkey "config/validator-vote-$i.json")"
+                                       "$(safecoin-keygen pubkey "config/validator-stake-$i.json")"
           )
         done
       fi
@@ -259,13 +259,13 @@ EOF
 
       if [[ -n "$maybeWarpSlot" ]]; then
         # shellcheck disable=SC2086 # Do not want to quote $maybeWarSlot
-        solana-ledger-tool -l config/bootstrap-validator create-snapshot 0 config/bootstrap-validator $maybeWarpSlot
+        safecoin-ledger-tool -l config/bootstrap-validator create-snapshot 0 config/bootstrap-validator $maybeWarpSlot
       fi
 
-      solana-ledger-tool -l config/bootstrap-validator shred-version --max-genesis-archive-unpacked-size 1073741824 | tee config/shred-version
+      safecoin-ledger-tool -l config/bootstrap-validator shred-version --max-genesis-archive-unpacked-size 1073741824 | tee config/shred-version
 
       if [[ -n "$maybeWaitForSupermajority" ]]; then
-        bankHash=$(solana-ledger-tool -l config/bootstrap-validator bank-hash)
+        bankHash=$(safecoin-ledger-tool -l config/bootstrap-validator bank-hash)
         extraNodeArgs="$extraNodeArgs --expected-bank-hash $bankHash"
         echo "$bankHash" > config/bank-hash
       fi
@@ -350,11 +350,11 @@ EOF
     fi
 
     if [[ ! -f "$SAFECOIN_CONFIG_DIR"/validator-identity.json ]]; then
-      solana-keygen new --no-passphrase -so "$SAFECOIN_CONFIG_DIR"/validator-identity.json
+      safecoin-keygen new --no-passphrase -so "$SAFECOIN_CONFIG_DIR"/validator-identity.json
     fi
     args+=(--identity "$SAFECOIN_CONFIG_DIR"/validator-identity.json)
     if [[ ! -f "$SAFECOIN_CONFIG_DIR"/vote-account.json ]]; then
-      solana-keygen new --no-passphrase -so "$SAFECOIN_CONFIG_DIR"/vote-account.json
+      safecoin-keygen new --no-passphrase -so "$SAFECOIN_CONFIG_DIR"/vote-account.json
     fi
     args+=(--vote-account "$SAFECOIN_CONFIG_DIR"/vote-account.json)
 
@@ -419,7 +419,7 @@ EOF
     if [[ $skipSetup != true && $nodeType != blockstreamer && -z $maybeSkipAccountsCreation ]]; then
       # Wait for the validator to catch up to the bootstrap validator before
       # delegating stake to it
-      solana --url http://"$entrypointIp":8899 catchup config/validator-identity.json
+      safecoin --url http://"$entrypointIp":8899 catchup config/validator-identity.json
 
       args=(
         --url http://"$entrypointIp":8899
