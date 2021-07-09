@@ -24,7 +24,7 @@ fn test_bench_tps_local_cluster(config: Config) {
     const NUM_NODES: usize = 1;
     let cluster = LocalCluster::new(&mut ClusterConfig {
         node_stakes: vec![999_990; NUM_NODES],
-        cluster_lamports: 200_000_000,
+        cluster_lamports: 1_000,
         validator_configs: make_identical_validator_configs(&ValidatorConfig::default(), NUM_NODES),
         native_instruction_processors,
         ..ClusterConfig::default()
