@@ -8,11 +8,11 @@ Safecoin节点使用[JSON-RPC 2.0](https://www.jsonrpc.org/specification)规范�
 
 ## RPC HTTP 端点
 
-**Default port:** 8899 eg. [http://localhost:8899](http://localhost:8899), [http://192.168.1.88:8899](http://192.168.1.88:8899)
+**Default port:** 8328 eg. [http://localhost:8328](http://localhost:8328), [http://192.168.1.88:8328](http://192.168.1.88:8328)
 
 ## RPC PubSub WebSocket 端点
 
-**Default port:** 8900 eg. ws://localhost:8900, [http://192.168.1.88:8900](http://192.168.1.88:8900)
+**Default port:** 8329 eg. ws://localhost:8329, [http://192.168.1.88:8329](http://192.168.1.88:8329)
 
 ## 方法
 
@@ -94,7 +94,7 @@ application/json`的 HTTP POST 请求。 JSON请求数据应包含4个字段：
 使用curl的示例：
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -142,7 +142,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 承诺参数应作为 `params` 数组中的最后一个元素包含：
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -207,7 +207,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -247,7 +247,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例：
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -308,7 +308,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0", "id":1, "method":"getBalance", "params":["83astBRguLMdt2h5U1Tpdq5tjFoJ6noeGwaY3mDLVcri"]}
 '
 ```
@@ -339,7 +339,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getBlockCommitment","params":[5]}
 '
 ```
@@ -377,7 +377,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getBlockTime","params":[5]}
 '
 ```
@@ -409,7 +409,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0", "id":1, "method":"getClusterNodes"}
 '
 ```
@@ -422,7 +422,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
     {
       "gossip": "10.239.6.48:10015",
       "pubkey": "9QzsJf7LPLj8GkXbYT3LFDKqsj2hHG7TA3xinJHu8epQ",
-      "rpc": "10.239.6.48:8899",
+      "rpc": "10.239.6.48:8328",
       "tpu": "10.239.6.48:8856",
       "version": "1.0.0 c375ce1f"
     }
@@ -472,7 +472,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc": "2.0","id":1,"method":"getConfirmedBlock","params":[430, "json"]}
 '
 ```
@@ -554,7 +554,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc": "2.0","id":1,"method":"getConfirmedBlock","params":[430, "base64"]}
 '
 ```
@@ -654,7 +654,7 @@ Safecoin运行时记录在事务处理期间调用的跨程序指令，并使这
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc": "2.0","id":1,"method":"getConfirmedBlocks","params":[5, 10]}
 '
 ```
@@ -681,7 +681,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc": "2.0","id":1,"method":"getConfirmedBlocksWithLimit","params":[5, 3]}
 '
 ```
@@ -715,7 +715,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -764,7 +764,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -824,7 +824,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -905,7 +905,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -977,7 +977,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getEpochInfo"}
 '
 ```
@@ -1019,7 +1019,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getEpochSchedule"}
 '
 ```
@@ -1060,7 +1060,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -1112,7 +1112,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getFeeRateGovernor"}
 '
 ```
@@ -1159,7 +1159,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getFees"}
 '
 ```
@@ -1200,7 +1200,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getFirstAvailableBlock"}
 '
 ```
@@ -1226,7 +1226,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getGenesisHash"}
 '
 ```
@@ -1255,7 +1255,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getHealth"}
 '
 ```
@@ -1311,7 +1311,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getIdentity"}
 '
 ```
@@ -1343,7 +1343,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getInflationGovernor"}
 '
 ```
@@ -1385,7 +1385,7 @@ No translations matched your search
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getInflationRate"}
 '
 ```
@@ -1417,7 +1417,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getLargestAccounts"}
 '
 ```
@@ -1527,7 +1527,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getLeaderSchedule"}
 '
 ```
@@ -1560,7 +1560,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0", "id":1, "method":"getMinimumBalanceForRentExemption", "params":[50]}
 '
 ```
@@ -1601,7 +1601,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -1660,7 +1660,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -1747,7 +1747,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0", "id":1, "method":"getProgramAccounts", "params":["4Nd1mBQtrMJVYVfKf2PJy9NZUZdTAsp7D4xWLs4gDB4T"]}
 '
 ```
@@ -1775,7 +1775,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -1840,7 +1840,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d 'i
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d 'i
   {"jsonrpc":"2.0","id":1, "method":"getRecentBlockhash"}
 '
 ```
@@ -1886,7 +1886,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d 'i
 请求：
 ```bash
 // Request
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0", "id":1, "method":"getRecentPerformanceSamples", "params": [4]}
 '
 ```
@@ -1942,7 +1942,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getSnapshotSlot"}
 '
 ```
@@ -1989,7 +1989,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -2032,7 +2032,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -2088,7 +2088,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getSlot"}
 '
 ```
@@ -2114,7 +2114,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getSlotLeader"}
 '
 ```
@@ -2146,7 +2146,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getStakeActivation", "params": ["CYRJWqiSjLitBAcRxPvWpgX3s5TvmN2SuRY3eEYypFvT"]}
 '
 ```
@@ -2159,7 +2159,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -2208,7 +2208,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0", "id":1, "method":"getSupply"}
 '
 ```
@@ -2258,7 +2258,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0", "id":1, "method":"getTokenAccountBalance", "params": ["7fUAJdStEuGbc3sM84cKRL6yYaaSstyLSU4ve5oovLS7"]}
 '
 ```
@@ -2311,7 +2311,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -2399,7 +2399,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -2478,7 +2478,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例：
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0", "id":1, "method":"getTokenLargestAccounts", "params": ["3wyAj7Rt1TWVPZVteFJPLa26JmLvdb1CAKEFZm3NY75E"]}
 '
 ```
@@ -2530,7 +2530,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例：
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0", "id":1, "method":"getTokenSupply", "params": ["3wyAj7Rt1TWVPZVteFJPLa26JmLvdb1CAKEFZm3NY75E"]}
 '
 ```
@@ -2568,7 +2568,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getTransactionCount"}
 '
 
@@ -2598,7 +2598,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getVersion"}
 '
 ```
@@ -2631,7 +2631,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 请求：
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"getVoteAccounts"}
 '
 ```
@@ -2686,7 +2686,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"minimumLedgerSlot"}
 '
 
@@ -2714,7 +2714,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"requestAirdrop", "params":["83astBRguLMdt2h5U1Tpdq5tjFoJ6noeGwaY3mDLVcri", 50]}
 '
 
@@ -2759,7 +2759,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -2799,7 +2799,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例:
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -2845,7 +2845,7 @@ Result:
 #### 示例:
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"setLogFilter", "params":["solana_core=debug"]}
 '
 ```
@@ -2870,7 +2870,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 #### 示例：:
 
 ```bash
-curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
+curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   {"jsonrpc":"2.0","id":1, "method":"validatorExit"}
 '
 

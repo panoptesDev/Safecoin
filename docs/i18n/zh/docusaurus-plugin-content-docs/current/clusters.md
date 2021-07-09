@@ -43,7 +43,7 @@ $ safecoin-validator \
     --trusted-validator dv1LfzJvDF7S1fBKpFgKoKXK5yoSosmkAdfbxBo1GqJ \
     --no-untrusted-rpc \
     --ledger ~/validator-ledger \
-    --rpc-port 8899 \
+    --rpc-port 8328 \
     --dynamic-port-range 8000-8010 \
     --entrypoint entrypoint.devnet.safecoin.org:10015 \
     --expected-genesis-hash EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG \
@@ -86,7 +86,7 @@ $ safecoin-validator \
     --trusted-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
     --no-untrusted-rpc \
     --ledger ~/validator-ledger \
-    --rpc-port 8899 \
+    --rpc-port 8328 \
     --dynamic-port-range 8000-8010 \
     --entrypoint entrypoint.testnet.safecoin.org:10015 \
     --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
@@ -133,7 +133,7 @@ $ safecoin-validator \
     --trusted-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
     --no-untrusted-rpc \
     --ledger ~/validator-ledger \
-    --rpc-port 8899 \
+    --rpc-port 8328 \
     --private-rpc \
     --dynamic-port-range 8000-8010 \
     --entrypoint entrypoint.mainnet-beta.safecoin.org:10015 \

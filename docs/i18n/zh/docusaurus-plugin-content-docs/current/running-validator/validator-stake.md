@@ -78,7 +78,7 @@ safecoin delegate-stake ~/validator-stake-keypair.json ~/some-other-vote-account
 
 ```bash
   // 请求
-  curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1, "method":"getEpochInfo"}' http://localhost:8899
+  curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1, "method":"getEpochInfo"}' http://localhost:8328
 
   // 结果
   {"jsonrpc":"2.0","result":{"epoch":3,"slotIndex":126,"slotsInEpoch":256},"id":1}

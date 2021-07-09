@@ -25,7 +25,7 @@ safecoin-validator \
   --ledger <LEDGER_PATH> \
   --entrypoint <CLUSTER_ENTRYPOINT> \
   --expected-genesis-hash <EXPECTED_GENESIS_HASH> \
-  --rpc-port 8899 \
+  --rpc-port 8328 \
   --no-voting \
   --enable-rpc-transaction-history \
   --limit-ledger-size \
@@ -94,7 +94,7 @@ Safecoin 帐户不需要任何链上的初始化设置；只要有 SAFE 余额�
 Safecoin 帐户在每个 epoch 都收取一次 [ 租金 ](developing/programming-model/accounts.md#rent)，但如果它们的 SAFE 价值包括两年，就可以免除租金。 想要找到您存款账户的最低免租余额，请查询[`getMinimumBalanceForRentExemption` 端点](developing/clients/jsonrpc-api.md#getminimumbalanceforrentexemption)：
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getMinimumBalanceForRentExemption","params":[0]}' localhost:8899
+curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getMinimumBalanceForRentExemption","params":[0]}' localhost:8328
 
 {"jsonrpc":"2.0","result":890880,"id":1}
 ```
@@ -114,7 +114,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 - 要确定哪些区块处于可用状态，请发送 [`getConfirmedBlocks` request](developing/clients/jsonrpc-api.md#getconfirmedblocks)，通过您已经处理过的最后一个块作为启动槽参数：
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getConfirmedBlocks","params":[5]}' localhost:8899
+curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getConfirmedBlocks","params":[5]}' localhost:8328
 
 {"jsonrpc":"2.0","result":[5,6,8,9,11],"id":1}
 ```
@@ -124,7 +124,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 - 对于每个块，可以通过 [`getConfirmedBlock` request](developing/clients/jsonrpc-api.md#getconfirmedblock) 请求其包含的内容:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getConfirmedBlock","params":[5, "json"]}' localhost:8899
+curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getConfirmedBlock","params":[5, "json"]}' localhost:8328
 
 {
   "jsonrpc": "2.0",
@@ -198,7 +198,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 - 向 api 节点发送 [`getConfirmedSignaturesFors2`](developing/clients/jsonrpc-api.md#getconfirmedsignaturesforaddress2) 请求：
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getConfirmedSignaturesForAddress2","params":["6H94zdiaYfRfPfKjYLjyr2VFBg6JHXygy84r3qhc3NsC", {"limit": 3}]}' localhost:8899
+curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getConfirmedSignaturesForAddress2","params":["6H94zdiaYfRfPfKjYLjyr2VFBg6JHXygy84r3qhc3NsC", {"limit": 3}]}' localhost:8328
 
 {
   "jsonrpc": "2.0",
@@ -229,7 +229,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 - 对于返回的每个签名，发送 [`getConsulmedTransaction`](developing/clients/jsonrpc-api.md#getconfirmedtransaction) 请求来获取交易细节：
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getConfirmedTransaction","params":["dhjhJp2V2ybQGVfELWM1aZy98guVVsxRCB5KhNiXFjCBMK5KEyzV8smhkVvs3xwkAug31KnpzJpiNPtcD5bG1t6", "json"]}' localhost:8899
+curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getConfirmedTransaction","params":["dhjhJp2V2ybQGVfELWM1aZy98guVVsxRCB5KhNiXFjCBMK5KEyzV8smhkVvs3xwkAug31KnpzJpiNPtcD5bG1t6", "json"]}' localhost:8328
 
 // 结果
 {
@@ -297,7 +297,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 Safecoin的命令行工具提供了一个用于生成、提交和确认转账交易的简单命令， `safecoin transfer`。 默认情况下，该方法将等待并跟踪 stderr 的进度，直到集群确认了某笔交易。 如果交易失败，它将报告任何类型的交易错误。
 
 ```bash
-safecoin transfer <USER_ADDRESS> <AMOUNT> --keypair <KEYPAIR> --url http://localhost:8899
+safecoin transfer <USER_ADDRESS> <AMOUNT> --keypair <KEYPAIR> --url http://localhost:8328
 ```
 
 [Safecoin Javascript SDK](https://github.com/solana-labs/solana-web3.js) 为 JS 生态提供了类似的方法。 使用 `SystemProgram` 创造一笔转账交易，然后使用 `sendAndConfirmTransaction` 方法提交。
@@ -311,13 +311,13 @@ safecoin transfer <USER_ADDRESS> <AMOUNT> --keypair <KEYPAIR> --url http://local
 首先，使用 [`getFees` 端点](developing/clients/jsonrpc-api.md#getfees) 或 CLI 命令获取最近的区块哈希：
 
 ```bash
-safecoin fees --url http://localhost:8899
+safecoin fees --url http://localhost:8328
 ```
 
 在命令行工具中，通过 `--no-wait` 参数发送异步传输，使用 `--blockhash` 参数包含您最近的区块哈希：
 
 ```bash
-safecoin transfer <USER_ADDRESS> <AMOUNT> --no-wait --blockhash <RECENT_BLOCKHASH> --keypair <KEYPAIR> --url http://localhost:8899
+safecoin transfer <USER_ADDRESS> <AMOUNT> --no-wait --blockhash <RECENT_BLOCKHASH> --keypair <KEYPAIR> --url http://localhost:8328
 ```
 
 您也可以手动化生成、签名和序列化一笔交易，然后用 JSON-RPC [`发送交易` 端点](developing/clients/jsonrpc-api.md#sendtransaction) 将它关闭到某个集群。
@@ -327,7 +327,7 @@ safecoin transfer <USER_ADDRESS> <AMOUNT> --no-wait --blockhash <RECENT_BLOCKHAS
 使用 [`getSignatureStatuses` JSON-RPC 端点](developing/clients/jsonrpc-api.md#getsignaturestatuses) 获取一批交易的状态。 `确认` 字段报告了自交易处理后，有多少 [已确认区块](../terminology.md#confirmed-block) 。 如果 `confirmations: null`，那么它就是 [已经确认](../terminology.md#finality)。
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0", "id":1, "method":"getSignatureStatuses", "params":[["5VERv8NMvzbJMEkV8xnrLkEaWRtSz9CosKDYjCJjBRnbJLgp8uirBgmQpjKhoR4tjF3ZpRzrFmBV6UjKdiSZkQUW", "5j7s6NiJS3JAkvgkoc18WVAsiSaci2pxB2A6ueCJP4tprA2TFg9wSyTLeYouxPBJEMzJinENTkpA52YStRW5Dia7"]]}' http://localhost:8899
+curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0", "id":1, "method":"getSignatureStatuses", "params":[["5VERv8NMvzbJMEkV8xnrLkEaWRtSz9CosKDYjCJjBRnbJLgp8uirBgmQpjKhoR4tjF3ZpRzrFmBV6UjKdiSZkQUW", "5j7s6NiJS3JAkvgkoc18WVAsiSaci2pxB2A6ueCJP4tprA2TFg9wSyTLeYouxPBJEMzJinENTkpA52YStRW5Dia7"]]}' http://localhost:8328
 
 {
   "jsonrpc": "2.0",

@@ -225,7 +225,7 @@ safecoin-validator \
   --identity ~/validator-keypair.json \
   --vote-account ~/vote-account-keypair.json \
   --ledger ~/validator-ledger \
-  --rpc-port 8899 \
+  --rpc-port 8328 \
   --entrypoint devnet.safecoin.org:10015 \
   --limit-ledger-size \
   --log ~/safecoin-validator.log

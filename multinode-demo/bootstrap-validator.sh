@@ -99,7 +99,7 @@ ledger_dir="$SAFECOIN_CONFIG_DIR"/bootstrap-validator
 args+=(
   --require-tower
   --ledger "$ledger_dir"
-  --rpc-port 8899
+  --rpc-port 8328
   --snapshot-interval-slots 200
   --identity "$identity"
   --vote-account "$vote_account"

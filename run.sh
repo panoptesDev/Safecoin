@@ -97,7 +97,7 @@ args=(
   --vote-account "$validator_vote_account"
   --ledger "$ledgerDir"
   --gossip-port 10015
-  --rpc-port 8899
+  --rpc-port 8328
   --rpc-faucet-address 127.0.0.1:9900
   --log -
   --enable-rpc-transaction-history

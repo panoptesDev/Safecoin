@@ -78,9 +78,9 @@
     "test:cover": "nyc --reporter=lcov mocha './test/**/*.test.js'",
     "test:browser": "TEST_LIVE=1 npm run build:fixtures && npm run build:browser-test && mocha-headless-chrome -f http://localhost:8080/mocha.html --timeout 180000",
     "test:browser-with-server": "start-server-and-test 'http-server -p 8080' 8080 test:browser",
-    "test:browser-with-test-validator": "start-server-and-test 'safecoin-test-validator --reset --quiet' http://localhost:8899/health test:browser-with-server",
+    "test:browser-with-test-validator": "start-server-and-test 'safecoin-test-validator --reset --quiet' http://localhost:8328/health test:browser-with-server",
     "test:live": "TEST_LIVE=1 npm run test",
-    "test:live-with-test-validator": "start-server-and-test 'safecoin-test-validator --reset --quiet' http://localhost:8899/health test:live"
+    "test:live-with-test-validator": "start-server-and-test 'safecoin-test-validator --reset --quiet' http://localhost:8328/health test:live"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
