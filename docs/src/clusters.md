@@ -1,11 +1,11 @@
 ---
-title: Solana Clusters
+title: Safecoin Clusters
 ---
 
-Solana maintains several different clusters with different purposes.
+Safecoin maintains several different clusters with different purposes.
 
 Before you begin make sure you have first
-[installed the Solana command line tools](cli/install-solana-cli-tools.md)
+[installed the Safecoin command line tools](cli/install-solana-cli-tools.md)
 
 Explorers:
 
@@ -14,7 +14,7 @@ Explorers:
 
 ## Devnet
 
-- Devnet serves as a playground for anyone who wants to take Solana for a
+- Devnet serves as a playground for anyone who wants to take Safecoin for a
   test drive, as a user, token holder, app developer, or validator.
 - Application developers should target Devnet.
 - Potential validators should first target Devnet.
@@ -27,7 +27,7 @@ Explorers:
 - Metrics environment variable for Devnet:
 
 ```bash
-export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=devnet,u=scratch_writer,p=topsecret"
+export SAFECOIN_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=devnet,u=scratch_writer,p=topsecret"
 ```
 
 - RPC URL for Devnet: `https://api.devnet.solana.com`
@@ -55,14 +55,14 @@ $ solana-validator \
     --limit-ledger-size
 ```
 
-The `--trusted-validator`s is operated by Solana
+The `--trusted-validator`s is operated by Safecoin
 
 ## Testnet
 
 - Testnet is where we stress test recent release features on a live
   cluster, particularly focused on network performance, stability and validator
   behavior.
-- [Tour de SOL](tour-de-sol.md) initiative runs on Testnet, where we
+- [Tour de SAFE](tour-de-sol.md) initiative runs on Testnet, where we
   encourage malicious behavior and attacks on the network to help us find and
   squash bugs or network vulnerabilities.
 - Testnet tokens are **not real**
@@ -74,7 +74,7 @@ The `--trusted-validator`s is operated by Solana
 - Metrics environment variable for Testnet:
 
 ```bash
-export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
+export SAFECOIN_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
 ```
 
 - RPC URL for Testnet: `https://api.testnet.solana.com`
@@ -119,17 +119,17 @@ The identity of the `--trusted-validator`s are:
 A permissionless, persistent cluster for early token holders and launch partners.
 Currently, rewards and inflation are disabled.
 
-- Tokens that are issued on Mainnet Beta are **real** SOL
+- Tokens that are issued on Mainnet Beta are **real** SAFE
 - If you have paid money to purchase/be issued tokens, such as through our
   CoinList auction, these tokens will be transferred on Mainnet Beta.
   - Note: If you are using a non-command-line wallet such as
-    [Solflare](wallet-guide/solflare.md),
+    [Safeflare](wallet-guide/solflare.md),
     the wallet will always be connecting to Mainnet Beta.
 - Gossip entrypoint for Mainnet Beta: `entrypoint.mainnet-beta.solana.com:8001`
 - Metrics environment variable for Mainnet Beta:
 
 ```bash
-export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password"
+export SAFECOIN_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password"
 ```
 
 - RPC URL for Mainnet Beta: `https://api.mainnet-beta.solana.com`
@@ -165,4 +165,4 @@ $ solana-validator \
     --limit-ledger-size
 ```
 
-All four `--trusted-validator`s are operated by Solana
+All four `--trusted-validator`s are operated by Safecoin

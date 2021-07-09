@@ -1,40 +1,40 @@
 ---
-title: Install the Solana Tool Suite
+title: Install the Safecoin Tool Suite
 ---
 
-There are multiple ways to install the Solana tools on your computer
+There are multiple ways to install the Safecoin tools on your computer
 depending on your preferred workflow:
 
-- [Use Solana's Install Tool (Simplest option)](#use-solanas-install-tool)
+- [Use Safecoin's Install Tool (Simplest option)](#use-solanas-install-tool)
 - [Download Prebuilt Binaries](#download-prebuilt-binaries)
 - [Build from Source](#build-from-source)
 
-## Use Solana's Install Tool
+## Use Safecoin's Install Tool
 
 ### MacOS & Linux
 
 - Open your favorite Terminal application
 
-- Install the Solana release
-  [LATEST_SOLANA_RELEASE_VERSION](https://github.com/solana-labs/solana/releases/tag/LATEST_SOLANA_RELEASE_VERSION) on your
+- Install the Safecoin release
+  [LATEST_SAFECOIN_RELEASE_VERSION](https://github.com/solana-labs/solana/releases/tag/LATEST_SAFECOIN_RELEASE_VERSION) on your
   machine by running:
 
 ```bash
-sh -c "$(curl -sSfL https://release.solana.com/LATEST_SOLANA_RELEASE_VERSION/install)"
+sh -c "$(curl -sSfL https://release.solana.com/LATEST_SAFECOIN_RELEASE_VERSION/install)"
 ```
 
-- You can replace `LATEST_SOLANA_RELEASE_VERSION` with the release tag matching
+- You can replace `LATEST_SAFECOIN_RELEASE_VERSION` with the release tag matching
   the software version of your desired release, or use one of the three symbolic
   channel names: `stable`, `beta`, or `edge`.
 
 - The following output indicates a successful update:
 
 ```text
-downloading LATEST_SOLANA_RELEASE_VERSION installer
+downloading LATEST_SAFECOIN_RELEASE_VERSION installer
 Configuration: /home/solana/.config/solana/install/config.yml
 Active release directory: /home/solana/.local/share/solana/install/active_release
-* Release version: LATEST_SOLANA_RELEASE_VERSION
-* Release URL: https://github.com/solana-labs/solana/releases/download/LATEST_SOLANA_RELEASE_VERSION/solana-release-x86_64-unknown-linux-gnu.tar.bz2
+* Release version: LATEST_SAFECOIN_RELEASE_VERSION
+* Release URL: https://github.com/solana-labs/solana/releases/download/LATEST_SAFECOIN_RELEASE_VERSION/solana-release-x86_64-unknown-linux-gnu.tar.bz2
 Update successful
 ```
 
@@ -54,7 +54,7 @@ solana --version
 ```
 
 - After a successful install, `solana-install update` may be used to easily
-  update the Solana software to a newer version at any time.
+  update the Safecoin software to a newer version at any time.
 
 ---
 
@@ -67,19 +67,19 @@ solana --version
     If you are prompted by a pop-up window asking “Do you want to allow this app to
     make changes to your device?”, click Yes.
 
-- Copy and paste the following command, then press Enter to download the Solana
+- Copy and paste the following command, then press Enter to download the Safecoin
   installer into a temporary directory:
 
 ```bash
-curl https://release.solana.com/LATEST_SOLANA_RELEASE_VERSION/solana-install-init-x86_64-pc-windows-msvc.exe --output C:\solana-install-tmp\solana-install-init.exe --create-dirs
+curl https://release.solana.com/LATEST_SAFECOIN_RELEASE_VERSION/solana-install-init-x86_64-pc-windows-msvc.exe --output C:\solana-install-tmp\solana-install-init.exe --create-dirs
 ```
 
 - Copy and paste the following command, then press Enter to install the latest
-  version of Solana. If you see a security pop-up by your system, please select
+  version of Safecoin. If you see a security pop-up by your system, please select
   to allow the program to run.
 
 ```bash
-C:\solana-install-tmp\solana-install-init.exe LATEST_SOLANA_RELEASE_VERSION
+C:\solana-install-tmp\solana-install-init.exe LATEST_SAFECOIN_RELEASE_VERSION
 ```
 
 - When the installer is finished, press Enter.
@@ -95,7 +95,7 @@ solana --version
 ```
 
 - After a successful install, `solana-install update` may be used to easily
-  update the Solana software to a newer version at any time.
+  update the Safecoin software to a newer version at any time.
 
 ## Download Prebuilt Binaries
 

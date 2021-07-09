@@ -2,7 +2,7 @@
 title: CLI 使用参考
 ---
 
-[solana-cli crate](https://crates.io/crates/solana-cli) 为 Solana 提供了一个命令行界面工具
+[solana-cli crate](https://crates.io/crates/solana-cli) 为 Safecoin 提供了一个命令行界面工具
 
 ## 示例：
 
@@ -16,14 +16,14 @@ $solana-keygen pubkey
 <PUBKEY>
 ```
 
-### 空投 SOL/Lamports
+### 空投 SAFE/Lamports
 
 ```bash
 // 命令
 $ solana airdrop 2
 
 // 返回
-"2.0000000 SOL"
+"2.0000000 SAFE"
 ```
 
 ### 获取余额
@@ -33,7 +33,7 @@ $ solana airdrop 2
 $ solana balance
 
 // 返回
-"3.00050001 SOL"
+"3.00050001 SAFE"
 ```
 
 ### 确认交易

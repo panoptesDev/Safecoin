@@ -1,9 +1,9 @@
 const math = require("remark-math");
 const katex = require("rehype-katex");
 module.exports = {
-  title: "Solana Docs",
+  title: "Safecoin Docs",
   tagline:
-    "Solana is an open source project implementing a new, high-performance, permissionless blockchain.",
+    "Safecoin is an open source project implementing a new, high-performance, permissionless blockchain.",
   url: "https://docs.solana.com",
   baseUrl: "/",
   favicon: "img/favicon.ico",
@@ -26,7 +26,7 @@ module.exports = {
   themeConfig: {
     navbar: {
       logo: {
-        alt: "Solana Logo",
+        alt: "Safecoin Logo",
         src: "img/logo-horizontal.svg",
         srcDark: "img/logo-horizontal-dark.svg",
       },
@@ -89,7 +89,7 @@ module.exports = {
               to: "introduction",
             },
             {
-              label: "Tour de SOL",
+              label: "Tour de SAFE",
               to: "tour-de-sol",
             },
           ],

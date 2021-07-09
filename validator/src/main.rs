@@ -1635,7 +1635,7 @@ pub fn main() {
         .arg(
             Arg::with_name("snapshot_archive_format")
                 .long("snapshot-archive-format")
-                .alias("snapshot-compression") // Legacy name used by Solana v1.5.x and older
+                .alias("snapshot-compression") // Legacy name used by Safecoin v1.5.x and older
                 .possible_values(&["bz2", "gzip", "zstd", "tar", "none"])
                 .default_value("zstd")
                 .value_name("ARCHIVE_TYPE")

@@ -1,8 +1,8 @@
 [package]
 name = "solana-ledger"
 version = "1.6.13"
-description = "Solana ledger"
-authors = ["Solana Maintainers <maintainers@solana.foundation>"]
+description = "Safecoin ledger"
+authors = ["Safecoin Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/solana-labs/solana"
 license = "Apache-2.0"
 homepage = "https://solana.com/"

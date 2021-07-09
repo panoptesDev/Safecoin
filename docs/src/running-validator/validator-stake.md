@@ -25,7 +25,7 @@ your validator and the rest of the cluster.
 ## Create Stake Keypair
 
 If you haven’t already done so, create a staking keypair. If you have completed
-this step, you should see the “validator-stake-keypair.json” in your Solana
+this step, you should see the “validator-stake-keypair.json” in your Safecoin
 runtime directory.
 
 ```bash
@@ -34,7 +34,7 @@ solana-keygen new -o ~/validator-stake-keypair.json
 
 ## Delegate Stake
 
-Now delegate 1 SOL to your validator by first creating your stake account:
+Now delegate 1 SAFE to your validator by first creating your stake account:
 
 ```bash
 solana create-stake-account ~/validator-stake-keypair.json 1
@@ -46,7 +46,7 @@ and then delegating that stake to your validator:
 solana delegate-stake ~/validator-stake-keypair.json ~/vote-account-keypair.json
 ```
 
-> Don’t delegate your remaining SOL, as your validator will use those tokens to vote.
+> Don’t delegate your remaining SAFE, as your validator will use those tokens to vote.
 
 Stakes can be re-delegated to another node at any time with the same command,
 but only one re-delegation is permitted per epoch:
@@ -96,7 +96,7 @@ Monitor a validator's stake during warmup by:
 Confirm your validator becomes a [leader](../terminology.md#leader)
 
 - After your validator is caught up, use the `solana balance` command to monitor the earnings as your validator is selected as leader and collects transaction fees
-- Solana nodes offer a number of useful JSON-RPC methods to return information about the network and your validator's participation. Make a request by using curl \(or another http client of your choosing\), specifying the desired method in JSON-RPC-formatted data. For example:
+- Safecoin nodes offer a number of useful JSON-RPC methods to return information about the network and your validator's participation. Make a request by using curl \(or another http client of your choosing\), specifying the desired method in JSON-RPC-formatted data. For example:
 
 ```bash
   // Request
@@ -109,7 +109,7 @@ Confirm your validator becomes a [leader](../terminology.md#leader)
 Helpful JSON-RPC methods:
 
 - `getEpochInfo`[An epoch](../terminology.md#epoch) is the time, i.e. number of [slots](../terminology.md#slot), for which a [leader schedule](../terminology.md#leader-schedule) is valid. This will tell you what the current epoch is and how far into it the cluster is.
-- `getVoteAccounts` This will tell you how much active stake your validator currently has. A % of the validator's stake is activated on an epoch boundary. You can learn more about staking on Solana [here](../cluster/stake-delegation-and-rewards.md).
+- `getVoteAccounts` This will tell you how much active stake your validator currently has. A % of the validator's stake is activated on an epoch boundary. You can learn more about staking on Safecoin [here](../cluster/stake-delegation-and-rewards.md).
 - `getLeaderSchedule` At any given moment, the network expects only one validator to produce ledger entries. The [validator currently selected to produce ledger entries](../cluster/leader-rotation.md#leader-rotation) is called the “leader”. This will return the complete leader schedule \(on a slot-by-slot basis\) for currently activated stake, the identity pubkey will show up 1 or more times here.
 
 ## Deactivating Stake

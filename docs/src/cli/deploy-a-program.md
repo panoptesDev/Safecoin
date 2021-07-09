@@ -3,13 +3,13 @@ title: Deploy a Program
 ---
 
 Developers can deploy on-chain [programs](terminology.md#program) (often called
-smart contracts elsewhere) with the Solana tools.
+smart contracts elsewhere) with the Safecoin tools.
 
-To learn about developing and executing programs on Solana, start with the
+To learn about developing and executing programs on Safecoin, start with the
 [overview](developing/programming-model/overview.md) and then dig into the
 details of [on-chain programs](developing/on-chain-programs/overview.md).
 
-To deploy a program, use the Solana tools to interact with the on-chain loader
+To deploy a program, use the Safecoin tools to interact with the on-chain loader
 to:
 
 - Initialize a program account
@@ -111,7 +111,7 @@ solana program deploy --max-len 200000 <PROGRAM_FILEPATH>
 
 Note that program accounts are required to be
 [rent-exempt](developing/programming-model/accounts.md#rent-exemption), and the
-`max-len` is fixed after initial deployment, so any SOL in the program accounts
+`max-len` is fixed after initial deployment, so any SAFE in the program accounts
 is locked up permanently.
 
 ### Resuming a failed deploy
@@ -243,7 +243,7 @@ Or anytime after:
 solana program set-upgrade-authority <PROGRAM_ADDRESS> --final
 ```
 
-`solana program deploy ...` utilizes Solana's upgradeable loader, but there is
+`solana program deploy ...` utilizes Safecoin's upgradeable loader, but there is
 another way to deploy immutable programs using the original on-chain loader:
 
 ```bash

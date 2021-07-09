@@ -42,7 +42,7 @@ use {
  */
 const DEFAULT_MAX_LEDGER_SHREDS: u64 = 10_000;
 
-const DEFAULT_FAUCET_SOL: f64 = 1_000_000.;
+const DEFAULT_FAUCET_SAFE: f64 = 1_000_000.;
 
 #[derive(PartialEq)]
 enum Output {
@@ -55,7 +55,7 @@ fn main() {
     let default_rpc_port = rpc_port::DEFAULT_RPC_PORT.to_string();
     let default_faucet_port = FAUCET_PORT.to_string();
     let default_limit_ledger_size = DEFAULT_MAX_LEDGER_SHREDS.to_string();
-    let default_faucet_sol = DEFAULT_FAUCET_SOL.to_string();
+    let default_faucet_sol = DEFAULT_FAUCET_SAFE.to_string();
 
     let matches = App::new("solana-test-validator")
         .about("Test Validator")
@@ -81,7 +81,7 @@ fn main() {
                 .takes_value(true)
                 .validator(is_url_or_moniker)
                 .help(
-                    "URL for Solana's JSON RPC or moniker (or their first letter): \
+                    "URL for Safecoin's JSON RPC or moniker (or their first letter): \
                    [mainnet-beta, testnet, devnet, localhost]",
                 ),
         )
@@ -271,10 +271,10 @@ fn main() {
             Arg::with_name("faucet_sol")
                 .long("faucet-sol")
                 .takes_value(true)
-                .value_name("SOL")
+                .value_name("SAFE")
                 .default_value(default_faucet_sol.as_str())
                 .help(
-                    "Give the faucet address this much SOL in genesis. \
+                    "Give the faucet address this much SAFE in genesis. \
                      If the ledger already exists then this parameter is silently ignored",
                 ),
         )
@@ -493,7 +493,7 @@ fn main() {
     } else if random_mint {
         println_name_value(
             "\nNotice!",
-            "No wallet available. `solana airdrop` localnet SOL after creating one\n",
+            "No wallet available. `solana airdrop` localnet SAFE after creating one\n",
         );
     }
 

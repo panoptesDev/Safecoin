@@ -401,11 +401,11 @@ pub enum CliError {
     ClientError(#[from] ClientError),
     #[error("Command not recognized: {0}")]
     CommandNotRecognized(String),
-    #[error("Account {1} has insufficient funds for fee ({0} SOL)")]
+    #[error("Account {1} has insufficient funds for fee ({0} SAFE)")]
     InsufficientFundsForFee(f64, Pubkey),
-    #[error("Account {1} has insufficient funds for spend ({0} SOL)")]
+    #[error("Account {1} has insufficient funds for spend ({0} SAFE)")]
     InsufficientFundsForSpend(f64, Pubkey),
-    #[error("Account {2} has insufficient funds for spend ({0} SOL) + fee ({1} SOL)")]
+    #[error("Account {2} has insufficient funds for spend ({0} SAFE) + fee ({1} SAFE)")]
     InsufficientFundsForSpendAndFee(f64, f64, Pubkey),
     #[error(transparent)]
     InvalidNonce(nonce_utils::Error),
@@ -1859,7 +1859,7 @@ pub fn process_command(config: &CliConfig) -> ProcessResult {
 
         // Wallet Commands
 
-        // Request an airdrop from Solana Faucet;
+        // Request an airdrop from Safecoin Faucet;
         CliCommand::Airdrop { pubkey, lamports } => {
             process_airdrop(&rpc_client, config, pubkey, *lamports)
         }
@@ -2019,7 +2019,7 @@ pub fn app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> App<'ab, '
                         .takes_value(true)
                         .validator(is_amount)
                         .required(true)
-                        .help("The airdrop amount to request, in SOL"),
+                        .help("The airdrop amount to request, in SAFE"),
                 )
                 .arg(
                     pubkey!(Arg::with_name("to")
@@ -2041,7 +2041,7 @@ pub fn app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> App<'ab, '
                     Arg::with_name("lamports")
                         .long("lamports")
                         .takes_value(false)
-                        .help("Display balance in lamports instead of SOL"),
+                        .help("Display balance in lamports instead of SAFE"),
                 ),
         )
         .subcommand(
@@ -2150,7 +2150,7 @@ pub fn app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> App<'ab, '
                     Arg::with_name("allow_excessive_balance")
                         .long("allow-excessive-deploy-account-balance")
                         .takes_value(false)
-                        .help("Use the designated program id, even if the account already holds a large balance of SOL")
+                        .help("Use the designated program id, even if the account already holds a large balance of SAFE")
                 ),
         )
         .subcommand(
@@ -2184,7 +2184,7 @@ pub fn app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> App<'ab, '
                         .takes_value(true)
                         .validator(is_amount_or_all)
                         .required(true)
-                        .help("The amount to send, in SOL; accepts keyword ALL"),
+                        .help("The amount to send, in SAFE; accepts keyword ALL"),
                 )
                 .arg(
                     pubkey!(Arg::with_name("from")
@@ -2249,7 +2249,7 @@ pub fn app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> App<'ab, '
                     Arg::with_name("lamports")
                         .long("lamports")
                         .takes_value(false)
-                        .help("Display balance in lamports instead of SOL"),
+                        .help("Display balance in lamports instead of SAFE"),
                 ),
         )
         .validator_info_subcommands()
@@ -2598,7 +2598,7 @@ mod tests {
             pubkey: None,
             use_lamports_unit: false,
         };
-        assert_eq!(process_command(&config).unwrap(), "0.00000005 SOL");
+        assert_eq!(process_command(&config).unwrap(), "0.00000005 SAFE");
 
         let good_signature = Signature::new(&bs58::decode(SIGNATURE).into_vec().unwrap());
         config.command = CliCommand::Confirm(good_signature);
@@ -2904,7 +2904,7 @@ mod tests {
         write_keypair_file(&default_keypair, &default_keypair_file).unwrap();
         let default_signer = DefaultSigner::new("", &default_keypair_file);
 
-        //Test Transfer Subcommand, SOL
+        //Test Transfer Subcommand, SAFE
         let from_keypair = keypair_from_seed(&[0u8; 32]).unwrap();
         let from_pubkey = from_keypair.pubkey();
         let from_string = from_pubkey.to_string();

@@ -1,4 +1,4 @@
-//! The `rpc` module implements the Solana RPC interface.
+//! The `rpc` module implements the Safecoin RPC interface.
 
 use crate::{
     cluster_info::ClusterInfo,

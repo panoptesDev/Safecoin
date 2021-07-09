@@ -2,7 +2,7 @@
 title: Starting a Validator
 ---
 
-## Configure Solana CLI
+## Configure Safecoin CLI
 
 The solana cli includes `get` and `set` configuration commands to automatically
 set the `--url` argument for cli commands. For example:
@@ -12,7 +12,7 @@ solana config set --url http://api.devnet.solana.com
 ```
 
 While this section demonstrates how to connect to the Devnet cluster, the steps
-are similar for the other [Solana Clusters](../clusters.md).
+are similar for the other [Safecoin Clusters](../clusters.md).
 
 ## Confirm The Cluster Is Reachable
 
@@ -190,12 +190,12 @@ network. **It is crucial to back-up this information.**
 
 If you don’t back up this information, you WILL NOT BE ABLE TO RECOVER YOUR
 VALIDATOR if you lose access to it. If this happens, YOU WILL LOSE YOUR
-ALLOCATION OF SOL TOO.
+ALLOCATION OF SAFE TOO.
 
 To back-up your validator identify keypair, **back-up your
 "validator-keypair.json” file or your seed phrase to a secure location.**
 
-## More Solana CLI Configuration
+## More Safecoin CLI Configuration
 
 Now that you have a keypair, set the solana configuration to use your validator
 keypair for all following commands:
@@ -216,14 +216,14 @@ Commitment: confirmed
 
 ## Airdrop & Check Validator Balance
 
-Airdrop yourself some SOL to get started:
+Airdrop yourself some SAFE to get started:
 
 ```bash
 solana airdrop 1
 ```
 
 Note that airdrops are only available on Devnet and Testnet. Both are limited
-to 1 SOL per request.
+to 1 SAFE per request.
 
 To view your current balance:
 
@@ -237,13 +237,13 @@ Or to see in finer detail:
 solana balance --lamports
 ```
 
-Read more about the [difference between SOL and lamports here](../introduction.md#what-are-sols).
+Read more about the [difference between SAFE and lamports here](../introduction.md#what-are-sols).
 
 ## Create Vote Account
 
 If you haven’t already done so, create a vote-account keypair and create the
 vote account on the network. If you have completed this step, you should see the
-“vote-account-keypair.json” in your Solana runtime directory:
+“vote-account-keypair.json” in your Safecoin runtime directory:
 
 ```bash
 solana-keygen new -o ~/vote-account-keypair.json
@@ -339,7 +339,7 @@ the following:
 
 ```
 [Unit]
-Description=Solana Validator
+Description=Safecoin Validator
 After=network.target
 Wants=solana-sys-tuner.service
 StartLimitIntervalSec=0

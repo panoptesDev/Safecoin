@@ -2,7 +2,7 @@
 title: "交易"
 ---
 
-程序执行从将[transaction](terminology.md#transaction)提交到集群开始。 Solana运行时将执行一个程序，以按顺序和原子方式处理事务中包含的每个[指令](terminology.md#instruction)。
+程序执行从将[transaction](terminology.md#transaction)提交到集群开始。 Safecoin运行时将执行一个程序，以按顺序和原子方式处理事务中包含的每个[指令](terminology.md#instruction)。
 
 ## 交易剖析
 
@@ -10,7 +10,7 @@ title: "交易"
 
 ### 交易格式
 
-事务包含签名的[compact-array](#compact-array-format)，然后是[message](#message-format)。 签名数组中的每个项目都是给定消息的[数字签名](#signature-format)。 Solana运行时验证签名数是否与[message heade](#message-header-format)的前8位中的数字匹配。 它还验证每个签名是否由与邮件帐户地址数组中相同索引处的公钥相对应的私钥签名。
+事务包含签名的[compact-array](#compact-array-format)，然后是[message](#message-format)。 签名数组中的每个项目都是给定消息的[数字签名](#signature-format)。 Safecoin运行时验证签名数是否与[message heade](#message-header-format)的前8位中的数字匹配。 它还验证每个签名是否由与邮件帐户地址数组中相同索引处的公钥相对应的私钥签名。
 
 #### 签名格式
 
@@ -89,7 +89,7 @@ https://github.com/solana-labs/solana/blob/6606590b8132e56dab9e60b3f7d20ba7412a7
 对于[已部署的BPF程序](developing/on-chain-programs/overview.md)，所有者是BPF加载程序，帐户数据包含BPF字节码。  一旦成功部署，程序帐户便会被加载程序永久标记为可执行文件。 运行时将拒绝指定不可执行程序的事务。
 
 
-与已部署的程序不同，[runtime facilities](developing/runtime-facilities/programs.md)的处理方式有所不同，因为它们直接内置在Solana运行时中。
+与已部署的程序不同，[runtime facilities](developing/runtime-facilities/programs.md)的处理方式有所不同，因为它们直接内置在Safecoin运行时中。
 
 ### 帐户
 
@@ -101,7 +101,7 @@ https://github.com/solana-labs/solana/blob/6606590b8132e56dab9e60b3f7d20ba7412a7
 
 程序可以自由指定如何将信息编码到指令数据字节数组中。 数据编码方式的选择应考虑到解码的开销，因为该步骤是由链上程序执行的。 据观察，一些常见的编码(例如Rust的bincode) 效率很低。
 
-[Solana程序库的代币程序](https://github.com/solana-labs/solana-program-library/tree/master/token)提供了一个示例，说明如何有效地对指令数据进行编码，但是请注意，这种方法仅支持固定大小的类型。 代币利用[Pack](https://github.com/solana-labs/solana/blob/master/sdk/program/src/program_pack.rs)特征来对代币指令和代币的指令数据进行编码/解码帐户状态。
+[Safecoin程序库的代币程序](https://github.com/solana-labs/solana-program-library/tree/master/token)提供了一个示例，说明如何有效地对指令数据进行编码，但是请注意，这种方法仅支持固定大小的类型。 代币利用[Pack](https://github.com/solana-labs/solana/blob/master/sdk/program/src/program_pack.rs)特征来对代币指令和代币的指令数据进行编码/解码帐户状态。
 
 ## 签名
 

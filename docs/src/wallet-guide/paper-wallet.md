@@ -2,15 +2,15 @@
 title: Paper Wallet
 ---
 
-This document describes how to create and use a paper wallet with the Solana CLI
+This document describes how to create and use a paper wallet with the Safecoin CLI
 tools.
 
 > We do not intend to advise on how to _securely_ create or manage paper wallets. Please research the security concerns carefully.
 
 ## Overview
 
-Solana provides a key generation tool to derive keys from BIP39 compliant seed
-phrases. Solana CLI commands for running a validator and staking tokens all
+Safecoin provides a key generation tool to derive keys from BIP39 compliant seed
+phrases. Safecoin CLI commands for running a validator and staking tokens all
 support keypair input via seed phrases.
 
 To learn more about the BIP39 standard, visit the Bitcoin BIPs Github repository
@@ -18,7 +18,7 @@ To learn more about the BIP39 standard, visit the Bitcoin BIPs Github repository
 
 ## Paper Wallet Usage
 
-Solana commands can be run without ever saving a keypair to disk on a machine.
+Safecoin commands can be run without ever saving a keypair to disk on a machine.
 If avoiding writing a private key to disk is a security concern of yours, you've
 come to the right place.
 
@@ -26,7 +26,7 @@ come to the right place.
 
 ## Before You Begin
 
-- [Install the Solana command-line tools](../cli/install-solana-cli-tools.md)
+- [Install the Safecoin command-line tools](../cli/install-solana-cli-tools.md)
 
 ### Check your installation
 
@@ -141,7 +141,7 @@ To use a derivation path other than solana's standard BIP44, you can supply `?fu
 solana-keygen pubkey prompt://?full-path=m/44/2017/0/1
 ```
 
-Because Solana uses Ed25519 keypairs, as per
+Because Safecoin uses Ed25519 keypairs, as per
 [SLIP-0010](https://github.com/satoshilabs/slips/blob/master/slip-0010.md) all
 derivation-path indexes will be promoted to hardened indexes -- eg.
 `?key=0'/0'`, `?full-path=m/44'/2017'/0'/1'` -- regardless of whether ticks are

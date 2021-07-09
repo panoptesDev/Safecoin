@@ -1,8 +1,8 @@
 [package]
 name = "solana-sdk-macro"
 version = "1.6.13"
-description = "Solana SDK Macro"
-authors = ["Solana Maintainers <maintainers@solana.foundation>"]
+description = "Safecoin SDK Macro"
+authors = ["Safecoin Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/solana-labs/solana"
 homepage = "https://solana.com/"
 documentation = "https://docs.rs/solana-sdk-macro"

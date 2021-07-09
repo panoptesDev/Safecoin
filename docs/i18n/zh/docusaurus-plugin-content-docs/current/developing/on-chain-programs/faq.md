@@ -2,9 +2,9 @@
 title: "常见问题解答"
 ---
 
-在编写或与Solana程序进行交互时，经常会遇到一些常见的问题或困难。 以下是有助于回答这些问题的资源。
+在编写或与Safecoin程序进行交互时，经常会遇到一些常见的问题或困难。 以下是有助于回答这些问题的资源。
 
-如果还没有解决您的问题，那么Solana[#developers](https://discord.gg/RxeGBH)Discord频道是一个不错的资源。
+如果还没有解决您的问题，那么Safecoin[#developers](https://discord.gg/RxeGBH)Discord频道是一个不错的资源。
 
 ## `CallDepth`错误
 

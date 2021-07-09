@@ -10,7 +10,7 @@ title: 术语
 
 ## 应用程序（app）
 
-与Solana集群交互的前端应用程序。
+与Safecoin集群交互的前端应用程序。
 
 ## 账户状态（bank state）
 
@@ -116,7 +116,7 @@ title: 术语
 
 ## 通货膨胀（inflation）
 
-随着时间的流逝，代币供应的增加用于资助验证奖励和为Solana的持续发展提供资金。
+随着时间的流逝，代币供应的增加用于资助验证奖励和为Safecoin的持续发展提供资金。
 
 ## 指令（instruction）
 
@@ -224,7 +224,7 @@ R(32字节) 和S(32字节) 的64字节ed25519签名。 要求R为不小于小数
 
 ## sol 代币
 
-由Solana公司认可的[集群](terminology.md#cluster)跟踪的[原生代币](terminology.md#native-token)。
+由Safecoin公司认可的[集群](terminology.md#cluster)跟踪的[原生代币](terminology.md#native-token)。
 
 ## 质押（stake）
 

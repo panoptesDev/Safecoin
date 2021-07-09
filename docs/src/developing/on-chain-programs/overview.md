@@ -2,21 +2,21 @@
 title: "Overview"
 ---
 
-Developers can write and deploy their own programs to the Solana blockchain.
+Developers can write and deploy their own programs to the Safecoin blockchain.
 
 The [Helloworld example](examples.md#helloworld) is a good starting place to see
 how a program is written, built, deployed, and interacted with on-chain.
 
 ## Berkeley Packet Filter (BPF)
 
-Solana on-chain programs are compiled via the [LLVM compiler
+Safecoin on-chain programs are compiled via the [LLVM compiler
 infrastructure](https://llvm.org/) to an [Executable and Linkable Format
 (ELF)](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) containing
 a variation of the [Berkeley Packet Filter
 (BPF)](https://en.wikipedia.org/wiki/Berkeley_Packet_Filter) bytecode.
 
-Because Solana uses the LLVM compiler infrastructure, a program may be written
-in any programming language that can target the LLVM's BPF backend. Solana
+Because Safecoin uses the LLVM compiler infrastructure, a program may be written
+in any programming language that can target the LLVM's BPF backend. Safecoin
 currently supports writing programs in Rust and C/C++.
 
 BPF provides an efficient [instruction
@@ -26,7 +26,7 @@ native instructions.
 
 ## Memory map
 
-The virtual address memory map used by Solana BPF programs is fixed and laid out
+The virtual address memory map used by Safecoin BPF programs is fixed and laid out
 as follows
 
 - Program code starts at 0x100000000
@@ -98,7 +98,7 @@ builtins. Due to be software emulated they consume more compute units than
 integer operations. In general, fixed point operations are recommended where
 possible.
 
-The Solana Program Library math tests will report the performance of some math
+The Safecoin Program Library math tests will report the performance of some math
 operations:
 https://github.com/solana-labs/solana-program-library/tree/master/libraries/math
 

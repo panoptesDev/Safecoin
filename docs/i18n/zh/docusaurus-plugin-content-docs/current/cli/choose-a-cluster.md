@@ -2,11 +2,11 @@
 title: 连接到一个集群
 ---
 
-查看 [Solana 集群](../clusters.md) 获取关于可用集群的通用信息。
+查看 [Safecoin 集群](../clusters.md) 获取关于可用集群的通用信息。
 
 ## 配置命令行工具
 
-您可以通过下述指令来检查集群正在运行的 Solana 命令行工具 (CLI)：
+您可以通过下述指令来检查集群正在运行的 Safecoin 命令行工具 (CLI)：
 
 ```bash
 solana config get

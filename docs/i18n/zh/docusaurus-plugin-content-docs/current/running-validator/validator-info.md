@@ -42,7 +42,7 @@ Validator info from 8WdJvDz6obhADdxpGCiJKZsDYwTLNEDFizayqziDc9ah
 
 ## 密钥库
 
-包括Keybase用户名，客户端应用程序\(例如Solana Network Explorer \) 可以自动引入您的验证节点公共配置文件，包括密码证明，品牌标识等。 要将验证器公钥与Keybase连接：
+包括Keybase用户名，客户端应用程序\(例如Safecoin Network Explorer \) 可以自动引入您的验证节点公共配置文件，包括密码证明，品牌标识等。 要将验证器公钥与Keybase连接：
 
 1. 加入[https://keybase.io/](https://keybase.io/)并填写您的验证节点个人资料
 2. 将您的验证节点**身份pubkey**添加到Keybase：

@@ -2,17 +2,17 @@
 title: 文件系统钱包
 ---
 
-本文档介绍了如何使用 Solana CLI 工具创建和使用文件系统钱包。 文件系统钱包的形式为计算机文件系统上的未加密密钥对文件。
+本文档介绍了如何使用 Safecoin CLI 工具创建和使用文件系统钱包。 文件系统钱包的形式为计算机文件系统上的未加密密钥对文件。
 
-> 文件系统钱包是存储 SOL 代币 **安全性最差**的方法。 我们 **不建议** 在文件系统钱包中存储大量代币。
+> 文件系统钱包是存储 SAFE 代币 **安全性最差**的方法。 我们 **不建议** 在文件系统钱包中存储大量代币。
 
 ## 准备工作
 
-确保您 [已安装Solana命令行工具](../cli/install-solana-cli-tools.md)
+确保您 [已安装Safecoin命令行工具](../cli/install-solana-cli-tools.md)
 
 ## 生成文件系统钱包密钥对
 
-使用 Solana 的命令行工具 `solana-keygen` 来生成密钥对文件。 例如，从命令行 shell 运行下面的命令：
+使用 Safecoin 的命令行工具 `solana-keygen` 来生成密钥对文件。 例如，从命令行 shell 运行下面的命令：
 
 ```bash
 mkdir ~/my-solana-wallet

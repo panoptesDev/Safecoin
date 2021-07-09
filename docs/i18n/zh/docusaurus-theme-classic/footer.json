@@ -15,9 +15,9 @@
     "message": "介绍",
     "description": "The label of footer link with label=Introduction linking to introduction"
   },
-  "link.item.label.Tour de SOL": {
-    "message": "Tour de SOL",
-    "description": "The label of footer link with label=Tour de SOL linking to tour-de-sol"
+  "link.item.label.Tour de SAFE": {
+    "message": "Tour de SAFE",
+    "description": "The label of footer link with label=Tour de SAFE linking to tour-de-sol"
   },
   "link.item.label.Discord": {
     "message": "Discord",

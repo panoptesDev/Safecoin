@@ -1,5 +1,5 @@
 ---
-title: Solana Test Validator
+title: Safecoin Test Validator
 ---
 During early stage development, it is often convenient to target a cluster with
 fewer restrictions and more configuration options than the public offerings
@@ -17,7 +17,7 @@ starts a full-featured, single-node cluster on the developer's workstation.
 - Jump to an arbitrary slot (`--warp-slot ...`)
 
 ## Installation
-The `solana-test-validator` binary ships with the Solana CLI Tool Suite.
+The `solana-test-validator` binary ships with the Safecoin CLI Tool Suite.
 [Install](/cli/install-solana-cli-tools) before continuing.
 
 ## Running
@@ -51,7 +51,7 @@ needed, it can be stopped with ctrl-c.
 
 ## Interacting
 Open a new terminal to interact with a [running](#running) `solana-test-validator`
-instance using other binaries from the Solana CLI Tool Suite or your own client
+instance using other binaries from the Safecoin CLI Tool Suite or your own client
 software.
 
 #### Configure the CLI Tool Suite to target a local cluster by default
@@ -72,7 +72,7 @@ solana balance
 ```
 * **NOTE:** `Error: No such file or directory (os error 2)` means that the default
 wallet does not yet exist. Create it with `solana-keygen new`.
-* **NOTE:** If the wallet has a zero SOL balance, airdrop some localnet SOL with
+* **NOTE:** If the wallet has a zero SAFE balance, airdrop some localnet SAFE with
 `solana airdrop 10`
 
 #### Perform a basic transfer transaction

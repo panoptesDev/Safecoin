@@ -1,8 +1,8 @@
 ---
-title: 使用 Solana CLI 命令
+title: 使用 Safecoin CLI 命令
 ---
 
-在运行 Solana CLI 命令之前，让我们先来熟悉一下所有的命令。 首先，Solana CLI 实际上是你可能会用到操作的命令集合。 您可以通过运行以下操作查看所有可能命令的列表：
+在运行 Safecoin CLI 命令之前，让我们先来熟悉一下所有的命令。 首先，Safecoin CLI 实际上是你可能会用到操作的命令集合。 您可以通过运行以下操作查看所有可能命令的列表：
 
 ```bash
 solana --help

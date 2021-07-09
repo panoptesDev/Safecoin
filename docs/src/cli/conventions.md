@@ -1,9 +1,9 @@
 ---
-title: Using Solana CLI
+title: Using Safecoin CLI
 ---
 
-Before running any Solana CLI commands, let's go over some conventions that
-you will see across all commands. First, the Solana CLI is actually a collection
+Before running any Safecoin CLI commands, let's go over some conventions that
+you will see across all commands. First, the Safecoin CLI is actually a collection
 of different commands for each action you might want to take. You can view the list
 of all possible commands by running:
 

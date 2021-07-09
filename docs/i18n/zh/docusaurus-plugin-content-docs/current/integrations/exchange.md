@@ -1,23 +1,23 @@
 ---
-title: 添加 Solana 到您的交易所
+title: 添加 Safecoin 到您的交易所
 ---
 
-本指南描述了如何将 Solana 的原生代币 SOL 添加到某个加密货币交易所。
+本指南描述了如何将 Safecoin 的原生代币 SAFE 添加到某个加密货币交易所。
 
 ## 节点设置
 
 我们强烈建议在高级计算机/云端设置至少两个节点实例， 立即升级到较新的版本，并随时注意自带的监测工具的服务操作。
 
 这样设置可以让您：
-- 为 Solana mainnet-beta 集群设置一个可信的网关来获取数据和提交取现交易
+- 为 Safecoin mainnet-beta 集群设置一个可信的网关来获取数据和提交取现交易
 - 完全控制保留历史区块数据的多少
 - 即使某个节点失败仍然保持您的服务可用性
 
-Solana 节点需要较高的计算力来处理我们的快速区块和高 TPS 。  关于具体要求，请参阅[硬件建议](../running-validator/validator-reqs.md)。
+Safecoin 节点需要较高的计算力来处理我们的快速区块和高 TPS 。  关于具体要求，请参阅[硬件建议](../running-validator/validator-reqs.md)。
 
 运行一个 api 节点：
 
-1. [安装 Solana 命令行工具](../cli/install-solana-cli-tools.md)
+1. [安装 Safecoin 命令行工具](../cli/install-solana-cli-tools.md)
 2. 启动验证节点时至少使用以下参数：
 
 ```bash
@@ -48,7 +48,7 @@ solana-validator \
 
 ### 自动重启和监测
 
-我们建议将每个节点配置退出时自动重启，以确保尽可能少地丢失数据。 把 Solana 软件运行为一个系统服务是很好的选择。
+我们建议将每个节点配置退出时自动重启，以确保尽可能少地丢失数据。 把 Safecoin 软件运行为一个系统服务是很好的选择。
 
 对于监控，我们提供[`solana-watchtower`](https://github.com/solana-labs/solana/blob/master/watchtower/README.md)，它可以监视您的验证节点，并且通过 `solana-validator` 检测节点是否不健康。 它可以直接配置 Slack、Telegram 、Discord 或 Twillio 来提醒您。 详情请运行 `solana-watchtower --help`。
 
@@ -75,7 +75,7 @@ solana-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
 
 ### 最小化验证节点端口风险
 
-验证节点要求从所有其他的 Solana 验证程序中打开 UDP 和 TCP 端口传入流量。   虽然这是最有效率的操作模式，我们也强烈推荐，但是可以将验证节点限制为只需要从另外一个 Solana 验证节点流量接入。
+验证节点要求从所有其他的 Safecoin 验证程序中打开 UDP 和 TCP 端口传入流量。   虽然这是最有效率的操作模式，我们也强烈推荐，但是可以将验证节点限制为只需要从另外一个 Safecoin 验证节点流量接入。
 
 首先添加 `--restricted-reparir-only-mode` 参数。  这将会让验证节点在受限制的模式下运行，它将不会收到其他验证节点的消息，而是要不断联系其他验证节点获取区块。  验证节点只能使用 *Gossip* 和 *ServeR* ("服务修理") 端口传输 UDP 包到其他验证节点，并且只有在其 *Gossip* 和 *Repair* 端口上接收 UDP 包。
 
@@ -87,11 +87,11 @@ solana-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
 
 ## 设置存款账户
 
-Solana 帐户不需要任何链上的初始化设置；只要有 SOL 余额，它们就自动出现。 您可以使用任何我们的 [钱包工具](../wallet-guide/cli.md) 生成一个 Solana 密钥，来设置一个交易所存款帐户。
+Safecoin 帐户不需要任何链上的初始化设置；只要有 SAFE 余额，它们就自动出现。 您可以使用任何我们的 [钱包工具](../wallet-guide/cli.md) 生成一个 Safecoin 密钥，来设置一个交易所存款帐户。
 
 我们建议您为每个用户配置一个独特的存款帐户。
 
-Solana 帐户在每个 epoch 都收取一次 [ 租金 ](developing/programming-model/accounts.md#rent)，但如果它们的 SOL 价值包括两年，就可以免除租金。 想要找到您存款账户的最低免租余额，请查询[`getMinimumBalanceForRentExemption` 端点](developing/clients/jsonrpc-api.md#getminimumbalanceforrentexemption)：
+Safecoin 帐户在每个 epoch 都收取一次 [ 租金 ](developing/programming-model/accounts.md#rent)，但如果它们的 SAFE 价值包括两年，就可以免除租金。 想要找到您存款账户的最低免租余额，请查询[`getMinimumBalanceForRentExemption` 端点](developing/clients/jsonrpc-api.md#getminimumbalanceforrentexemption)：
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getMinimumBalanceForRentExemption","params":[0]}' localhost:8899
@@ -101,15 +101,15 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 
 ### 离线账户
 
-为了提高的安全性，您可能想离线保存一个或多个收藏账户的密钥。 这时候您需要使用我们的 [ 离线方法](../offline-signing.md) 将 SOL 转移到热钱包。
+为了提高的安全性，您可能想离线保存一个或多个收藏账户的密钥。 这时候您需要使用我们的 [ 离线方法](../offline-signing.md) 将 SAFE 转移到热钱包。
 
 ## 正在等待充值
 
-如果某个用户想 SOL 存入您的交易所，请指示他们发送一笔金额到相应的存款地址。
+如果某个用户想 SAFE 存入您的交易所，请指示他们发送一笔金额到相应的存款地址。
 
 ### 区块投票
 
-您可以使用 Solana API 节点的 JSON-RPC 服务来跟踪交易所的所有存款帐户，对每个确认的区块进行调查或检查感兴趣的地址。
+您可以使用 Safecoin API 节点的 JSON-RPC 服务来跟踪交易所的所有存款帐户，对每个确认的区块进行调查或检查感兴趣的地址。
 
 - 要确定哪些区块处于可用状态，请发送 [`getConfirmedBlocks` request](developing/clients/jsonrpc-api.md#getconfirmedblocks)，通过您已经处理过的最后一个块作为启动槽参数：
 
@@ -187,7 +187,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 }
 ```
 
-` 原先余额 ` 和 ` 交易后余额 ` 字段能让您跟踪余额每个账户中的变动，而无需解析整个交易。 他们将每个账户的最初和交易后余额分别列出在 [ lamports ](../terminology.md#lamport) 中，并索引到 `账户` 列表。 例如，您准备充值的地址是 ` 47Sbuv6jL7CViK9F2NMW51aQGhfdpUu7WNvKyH645Rfi `，它表示一笔 218099990000 - 207099990000 = 11000000000 lamports = 11 SOL 的交易。
+` 原先余额 ` 和 ` 交易后余额 ` 字段能让您跟踪余额每个账户中的变动，而无需解析整个交易。 他们将每个账户的最初和交易后余额分别列出在 [ lamports ](../terminology.md#lamport) 中，并索引到 `账户` 列表。 例如，您准备充值的地址是 ` 47Sbuv6jL7CViK9F2NMW51aQGhfdpUu7WNvKyH645Rfi `，它表示一笔 218099990000 - 207099990000 = 11000000000 lamports = 11 SAFE 的交易。
 
 如果需要更多关于交易类型或其他细节的信息，您可以用二进制格式从 RPC 请求区块，然后使用 [Rust SDK](https://github.com/solana-labs/solana) 或 [Javascript SDK](https://github.com/solana-labs/solana-web3.js) 进行解析。
 
@@ -288,19 +288,19 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 
 ## 发送提现请求
 
-要满足用户的提款请求, 您必须生成一笔 Solana 转账交易，并将其发送到 API 节点来扩散到集群中。
+要满足用户的提款请求, 您必须生成一笔 Safecoin 转账交易，并将其发送到 API 节点来扩散到集群中。
 
 ### 同步
 
-发送同步传输到 Solana 集群可以让您轻松保证转账的成功并由集群确定最终性。
+发送同步传输到 Safecoin 集群可以让您轻松保证转账的成功并由集群确定最终性。
 
-Solana的命令行工具提供了一个用于生成、提交和确认转账交易的简单命令， `solana transfer`。 默认情况下，该方法将等待并跟踪 stderr 的进度，直到集群确认了某笔交易。 如果交易失败，它将报告任何类型的交易错误。
+Safecoin的命令行工具提供了一个用于生成、提交和确认转账交易的简单命令， `solana transfer`。 默认情况下，该方法将等待并跟踪 stderr 的进度，直到集群确认了某笔交易。 如果交易失败，它将报告任何类型的交易错误。
 
 ```bash
 solana transfer <USER_ADDRESS> <AMOUNT> --keypair <KEYPAIR> --url http://localhost:8899
 ```
 
-[Solana Javascript SDK](https://github.com/solana-labs/solana-web3.js) 为 JS 生态提供了类似的方法。 使用 `SystemProgram` 创造一笔转账交易，然后使用 `sendAndConfirmTransaction` 方法提交。
+[Safecoin Javascript SDK](https://github.com/solana-labs/solana-web3.js) 为 JS 生态提供了类似的方法。 使用 `SystemProgram` 创造一笔转账交易，然后使用 `sendAndConfirmTransaction` 方法提交。
 
 ### 异步
 
@@ -368,7 +368,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0", "id":1, "
 
 由于提款是不可逆过程，因此最好在提款确认之前对用户提供的帐户地址进行验证，以防止用户资产意外丢失。
 
-Solana 的普通账户地址是一个 256 位 ed25519 公钥的 Base58 编码字符串。 并非所有位图案都是 ed25519 曲线的有效公共密钥， 这样可以确保用户提供的帐户地址至少是正确的 ed25519 公钥。
+Safecoin 的普通账户地址是一个 256 位 ed25519 公钥的 Base58 编码字符串。 并非所有位图案都是 ed25519 曲线的有效公共密钥， 这样可以确保用户提供的帐户地址至少是正确的 ed25519 公钥。
 
 #### Java
 
@@ -429,9 +429,9 @@ public class PubkeyValidator
 
 ## 支持 SPL 代币标准
 
-[SPL 代币](https://spl.solana.com/token) 是在 Solana 区块链上创建和交易包装/合成代币的标准。
+[SPL 代币](https://spl.solana.com/token) 是在 Safecoin 区块链上创建和交易包装/合成代币的标准。
 
-SPL 代币的工作流程类似于原生 SOL 代币，但本节将讨论它们的几个不同之处。
+SPL 代币的工作流程类似于原生 SAFE 代币，但本节将讨论它们的几个不同之处。
 
 ### 代币铸造
 
@@ -464,7 +464,7 @@ spl-token-cli 2.0.1
 SPL 代币账户包含了本地系统程序账户所不具备的额外要求：
 
 1. 在创建 SPL Token 帐户之前，必须先存入一定数量的代币。   代币帐户可以使用 `spl-token create-account` 命令显式创建， 或者 `spl-token transfer --fund-receiving ...` 命令隐式创建。
-1. 在生效期间，SPL Token 帐户必须保持 [rent-exempt](developing/programming-model/accounts.md#rent-exemption) 状态，因此在创建帐户时需要存入少量的原生 SOL 代币。 对于 SPL Token v2 账户，该数量为 0.00203928 SOL(2 039 280 lamports)。
+1. 在生效期间，SPL Token 帐户必须保持 [rent-exempt](developing/programming-model/accounts.md#rent-exemption) 状态，因此在创建帐户时需要存入少量的原生 SAFE 代币。 对于 SPL Token v2 账户，该数量为 0.00203928 SAFE(2 039 280 lamports)。
 
 #### 命令行
 创建具有以下属性的 SPL 代币帐户：
@@ -531,11 +531,11 @@ $ spl-token transfer 6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN 1 6VzWGL51jLeb
 [Considerations](https://github.com/solana-labs/solana/issues/12318) 正在扩展 `preBalance`和`postBalance` 交易状态元数据字段，来把 SPL代币余额转移包括进去。
 
 ### 提现
-用户提供的提现地址应该是和普通 SOL 提款地址相同。
+用户提供的提现地址应该是和普通 SAFE 提款地址相同。
 
 在执行提款 [transfer](#token-transfers) 之前，交易所应检查地址符合 [上文所述](#validating-user-supplied-account-addresses-for-withdrawals) 的规则。
 
-从提款地址为正确的铸币确定关联的代币帐户，并将转账发送到该帐户。  请注意关联的代币帐户现在还不存在，因此交易所应该代表用户为该账户提供资金。  对于 SPL Token v2 账户，为提款账户提供的资金额为 0.00203928 SOL (2,039 280 lamports)。
+从提款地址为正确的铸币确定关联的代币帐户，并将转账发送到该帐户。  请注意关联的代币帐户现在还不存在，因此交易所应该代表用户为该账户提供资金。  对于 SPL Token v2 账户，为提款账户提供的资金额为 0.00203928 SAFE (2,039 280 lamports)。
 
 用来提现的 `spl-token transfer` 命令模板为：
 ```
@@ -549,4 +549,4 @@ $ spl-token transfer --fund-recipient <exchange token account> <withdrawal amoun
 
 ## 测试集成
 
-请务必先在 Solana devnet 和 testnet [clusters](../clusters.md) 测试完整的工作流，然后再迁移到 mainnet-beta 上。 Devnet 是最开放和最灵活、最理想的初始开发方式，而 testnet 提供了更现实的集群配置。 Devnet 和 testnet 都有一个水龙头，您可以通过运行 `solana airdrop 10` 获取一些用来开发和测试的 devnet 或 testnet 的 SOL 代币。
+请务必先在 Safecoin devnet 和 testnet [clusters](../clusters.md) 测试完整的工作流，然后再迁移到 mainnet-beta 上。 Devnet 是最开放和最灵活、最理想的初始开发方式，而 testnet 提供了更现实的集群配置。 Devnet 和 testnet 都有一个水龙头，您可以通过运行 `solana airdrop 10` 获取一些用来开发和测试的 devnet 或 testnet 的 SAFE 代币。

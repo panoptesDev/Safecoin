@@ -19,8 +19,8 @@
     "message": "🏛 创建一个 SPL 代币",
     "description": "create-spl"
   },
-  "Launch your own SPL Token, Solana's equivalent of ERC-20.": {
-    "message": "启动您自己的 SPL 代币，类似于 Solana 区块链的 ERC-20。",
+  "Launch your own SPL Token, Safecoin's equivalent of ERC-20.": {
+    "message": "启动您自己的 SPL 代币，类似于 Safecoin 区块链的 ERC-20。",
     "description": "erc-20"
   },
   "🏦 Integrate an Exchange": {
@@ -39,12 +39,12 @@
     "message": "创建一个钱包，检查余额，了解钱包选项。",
     "description": "wallet-options"
   },
-  "🤯 Learn How Solana Works": {
-    "message": "🤯 了解 Solana 工作原理",
+  "🤯 Learn How Safecoin Works": {
+    "message": "🤯 了解 Safecoin 工作原理",
     "description": "learn-how"
   },
-  "Get a high-level understanding of Solana's architecture.": {
-    "message": "对 Solana 架构进行深入了解。",
+  "Get a high-level understanding of Safecoin's architecture.": {
+    "message": "对 Safecoin 架构进行深入了解。",
     "description": "high-level"
   }
 }

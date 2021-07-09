@@ -11,7 +11,7 @@ args=(
   --no-poh-speed-test
 )
 airdrops_enabled=1
-node_sol=500 # 500 SOL: number of SOL to airdrop the node for transaction fees and vote account rent exemption (ignored if airdrops_enabled=0)
+node_sol=500 # 500 SAFE: number of SAFE to airdrop the node for transaction fees and vote account rent exemption (ignored if airdrops_enabled=0)
 label=
 identity=
 vote_account=
@@ -35,7 +35,7 @@ OPTIONS:
   --init-complete-file FILE - create this file, if it doesn't already exist, once node initialization is complete
   --label LABEL             - Append the given label to the configuration files, useful when running
                               multiple validators in the same workspace
-  --node-sol SOL            - Number of SOL this node has been funded from the genesis config (default: $node_sol)
+  --node-sol SAFE            - Number of SAFE this node has been funded from the genesis config (default: $node_sol)
   --no-voting               - start node without vote signer
   --rpc-port port           - custom RPC port for this node
   --no-restart              - do not restart the node if it exits
@@ -164,7 +164,7 @@ while [[ -n $1 ]]; do
   fi
 done
 
-if [[ "$SOLANA_GPU_MISSING" -eq 1 ]]; then
+if [[ "$SAFECOIN_GPU_MISSING" -eq 1 ]]; then
   echo "Testnet requires GPUs, but none were found!  Aborting..."
   exit 1
 fi
@@ -177,7 +177,7 @@ if [[ -n $REQUIRE_LEDGER_DIR ]]; then
   if [[ -z $ledger_dir ]]; then
     usage "Error: --ledger not specified"
   fi
-  SOLANA_CONFIG_DIR="$ledger_dir"
+  SAFECOIN_CONFIG_DIR="$ledger_dir"
 fi
 
 if [[ -n $REQUIRE_KEYPAIRS ]]; then
@@ -190,7 +190,7 @@ if [[ -n $REQUIRE_KEYPAIRS ]]; then
 fi
 
 if [[ -z "$ledger_dir" ]]; then
-  ledger_dir="$SOLANA_CONFIG_DIR/validator$label"
+  ledger_dir="$SAFECOIN_CONFIG_DIR/validator$label"
 fi
 mkdir -p "$ledger_dir"
 
@@ -226,7 +226,7 @@ default_arg --ledger "$ledger_dir"
 default_arg --log -
 default_arg --require-tower
 
-if [[ -n $SOLANA_CUDA ]]; then
+if [[ -n $SAFECOIN_CUDA ]]; then
   program=$solana_validator_cuda
 else
   program=$solana_validator
@@ -275,7 +275,7 @@ setup_validator_accounts() {
       (
         set -x
         $solana_cli \
-          --keypair "$SOLANA_CONFIG_DIR/faucet.json" --url "$rpc_url" \
+          --keypair "$SAFECOIN_CONFIG_DIR/faucet.json" --url "$rpc_url" \
           transfer --allow-unfunded-recipient "$identity" "$node_sol"
       ) || return $?
     fi

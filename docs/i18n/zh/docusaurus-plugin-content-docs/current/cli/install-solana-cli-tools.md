@@ -1,42 +1,42 @@
 ---
-title: 安装 Solana 工具包
+title: 安装 Safecoin 工具包
 ---
 
-取决于您喜欢的工作公式，在电脑上安装 Solana 工具的方法有多种：
+取决于您喜欢的工作公式，在电脑上安装 Safecoin 工具的方法有多种：
 
-- [使用 Solana 的安装工具 (最简单的方法)](#use-solanas-install-tool)
+- [使用 Safecoin 的安装工具 (最简单的方法)](#use-solanas-install-tool)
 - [下载预置的二进制文件](#download-prebuilt-binaries)
 - [通过源代码安装](#build-from-source)
 
-## 通过 Solana 安装工具
+## 通过 Safecoin 安装工具
 
 ### MacOS & Linux
 
 - 打开您最喜欢的终端应用
 
-- 通过运行下述指令，安装 Solana 版本[LATEST_SOLANA_RELEASE_VERSION](https://github.com/solana-labs/solana/releases/tag/LATEST_SOLANA_RELEASE_VERSION) 到您的机器：
+- 通过运行下述指令，安装 Safecoin 版本[LATEST_SAFECOIN_RELEASE_VERSION](https://github.com/solana-labs/solana/releases/tag/LATEST_SAFECOIN_RELEASE_VERSION) 到您的机器：
 
 ```bash
-sh -c "$(curl -sSfL https://release.solana.com/LATEST_SOLANA_RELEASE_VERSION/install)"
+sh -c "$(curl -sSfL https://release.solana.com/LATEST_SAFECOIN_RELEASE_VERSION/install)"
 ```
 
-- 您可以用 `LATEST_SOLANA_RELEASE_VERSION` 发布标签替换想要的软件版本，或者使用以下三个通道名称之一： `stable`，`beta` 或 `edge`。
+- 您可以用 `LATEST_SAFECOIN_RELEASE_VERSION` 发布标签替换想要的软件版本，或者使用以下三个通道名称之一： `stable`，`beta` 或 `edge`。
 
 - 以下输出表示更新成功：
 
 ```text
-downloading LATEST_SOLANA_RELEASE_VERSION installer
+downloading LATEST_SAFECOIN_RELEASE_VERSION installer
 Configuration: /home/solana/.config/solana/install/config.yml
 Active release directory: /home/solana/.local/share/solana/install/active_release
-* Release version: LATEST_SOLANA_RELEASE_VERSION
-* Release URL: https://github.com/solana-labs/solana/releases/download/LATEST_SOLANA_RELEASE_VERSION/solana-release-x86_64-unknown-linux-gnu.tar.bz2
+* Release version: LATEST_SAFECOIN_RELEASE_VERSION
+* Release URL: https://github.com/solana-labs/solana/releases/download/LATEST_SAFECOIN_RELEASE_VERSION/solana-release-x86_64-unknown-linux-gnu.tar.bz2
 Update successful
 ```
 
 - 根据您的系统，安装程序消息的结束可能稍有不同
 
 ```bash
-请更新您的 PATH 环境变量来包含 Solana 程序：
+请更新您的 PATH 环境变量来包含 Safecoin 程序：
 ```
 
 - 如果您收到上述消息，复制并粘贴下面的推荐命令来更新 `PATH`
@@ -46,7 +46,7 @@ Update successful
 solana --version
 ```
 
-- 安装成功后，就可以通过 `solana-install update` 随时更新 Solana 软件到新版本。
+- 安装成功后，就可以通过 `solana-install update` 随时更新 Safecoin 软件到新版本。
 
 ---
 
@@ -56,16 +56,16 @@ solana --version
 
   - 在 Windows 搜索栏中搜索命令提示。 当命令提示应用出现后，右键单击并选择“以管理员打开”。 如果弹出窗口请求“允许此应用进行设备更改？”，请点击是。
 
-- 复制并粘贴以下命令，然后按回车下载 Solana 安装程序到临时目录：
+- 复制并粘贴以下命令，然后按回车下载 Safecoin 安装程序到临时目录：
 
 ```bash
-curl https://release.solana.com/LATEST_SOLANA_RELEASE_VERSION/solana-install-init-x86_64-pc-windows-msvc.exe --output C:\solana-install-tmp\solana-install-init.exe --create-dirs
+curl https://release.solana.com/LATEST_SAFECOIN_RELEASE_VERSION/solana-install-init-x86_64-pc-windows-msvc.exe --output C:\solana-install-tmp\solana-install-init.exe --create-dirs
 ```
 
-- 复制并粘贴以下命令，然后按 Enter 安装最新版本的 Solana 软件。 如果系统弹出安全提示窗口，请选择允许程序运行。
+- 复制并粘贴以下命令，然后按 Enter 安装最新版本的 Safecoin 软件。 如果系统弹出安全提示窗口，请选择允许程序运行。
 
 ```bash
-C:\solana-install-tmp\solana-install-init.exe LATEST_SOLANA_RELEASE_VERSION
+C:\solana-install-tmp\solana-install-init.exe LATEST_SAFECOIN_RELEASE_VERSION
 ```
 
 - 安装程序完成后，请按 Enter 键。
@@ -78,7 +78,7 @@ C:\solana-install-tmp\solana-install-init.exe LATEST_SOLANA_RELEASE_VERSION
 solana --version
 ```
 
-- 安装成功后，就可以通过 `solana-install update` 随时更新 Solana 软件到新版本。
+- 安装成功后，就可以通过 `solana-install update` 随时更新 Safecoin 软件到新版本。
 
 ## 下载预置二进制文件
 

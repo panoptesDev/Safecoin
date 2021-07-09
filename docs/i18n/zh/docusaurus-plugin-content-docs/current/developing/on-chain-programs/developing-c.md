@@ -2,7 +2,7 @@
 title: "用 C 语言开发"
 ---
 
-Solana 支持使用 C 和 C++ 语言编写链上的程序。
+Safecoin 支持使用 C 和 C++ 语言编写链上的程序。
 
 ## 项目布局 {#project-layout}
 
@@ -28,7 +28,7 @@ Bpf-sdk可能不在上面指定的确切位置，但是如果您根据[如何开
 
 首先设置环境：
 - 从https://rustup.rs安装最新的Rust稳定版本
-- 从https://docs.solana.com/cli/install-solana-cli-tools安装最新的Solana命令行工具
+- 从https://docs.solana.com/cli/install-solana-cli-tools安装最新的Safecoin命令行工具
 
 然后使用make构建：
 ```bash
@@ -37,14 +37,14 @@ make -C <program directory>
 
 ## 如何测试 {#how-to-test}
 
-Solana 使用 [Criterion](https://github.com/Snaipe/Criterion) 测试框架，并且在每次构建程序时都会执行测试，[如何开发](#how-to-build)。
+Safecoin 使用 [Criterion](https://github.com/Snaipe/Criterion) 测试框架，并且在每次构建程序时都会执行测试，[如何开发](#how-to-build)。
 
 要添加测试，请在源文件`test_<program
 name>.c`旁边创建一个新文件，并使用标准测试用例填充它。  有关示例，请参见[helloworld C测试](https://github.com/solana-labs/example-helloworld/blob/master/src/program-c/src/helloworld/test_helloworld.c)或[Criterion文档](https://criterion.readthedocs.io/en/master)，获取编写测试用例的信息。
 
 ## 程序入口点 {#program-entrypoint}
 
-程序导出一个已知的入口点符号，在调用程序时，Solana运行时将查找并调用该入口点符号。  Solana支持多个[BPF加载程序版本](overview.md#versions)，它们之间的入口点可能会有所不同。 程序必须为相同的加载器编写并部署。  有关更多详细信息，请参见[概览](overview#loaders)。
+程序导出一个已知的入口点符号，在调用程序时，Safecoin运行时将查找并调用该入口点符号。  Safecoin支持多个[BPF加载程序版本](overview.md#versions)，它们之间的入口点可能会有所不同。 程序必须为相同的加载器编写并部署。  有关更多详细信息，请参见[概览](overview#loaders)。
 
 当前有两个受支持的加载器：[BPF加载器](https://github.com/solana-labs/solana/blob/7ddf10e602d2ed87a9e3737aa8c32f1db9f909d8/sdk/program/src/bpf_loader.rs#L17)和[已弃用BFT加载器](https://github.com/solana-labs/solana/blob/7ddf10e602d2ed87a9e3737aa8c32f1db9f909d8/sdk/program/src/bpf_loader_deprecated.rs#L14)。
 
@@ -72,25 +72,25 @@ extern uint64_t entrypoint(const uint8_t *input)
 
 ## 数据类型 {#data-types}
 
-加载程序的反序列化助手函数将填充[SolParameters](https://github.com/solana-labs/solana/blob/8415c22b593f164020adc7afe782e8041d756ddf/sdk/bpf/c/inc/solana_sdk.h#L276)结构：
+加载程序的反序列化助手函数将填充[SafeParameters](https://github.com/solana-labs/solana/blob/8415c22b593f164020adc7afe782e8041d756ddf/sdk/bpf/c/inc/solana_sdk.h#L276)结构：
 
 ```c
 /**
  * 程序进入点输入数据被反序列化的结构。
  */
 typef structt volt_
-  SolAccountInfo* ka; /** 指向SolAccountInfo阵列的指针， 必须已经
-                          指向一个 SolAccountInfos */
-  uint64_t ka_num; /** `ka`中的 SolAccountInfo 条目数 */
+  SafeAccountInfo* ka; /** 指向SafeAccountInfo阵列的指针， 必须已经
+                          指向一个 SafeAccountInfos */
+  uint64_t ka_num; /** `ka`中的 SafeAccountInfo 条目数 */
   const uint8_t *数据； /** 指示数据指针*/
   uint64_t data_len; /** 指令数据字节长度 */
-  const SolPubkey *program_id; /** 当前正在执行的程序 */
-} Solameters;
+  const SafePubkey *program_id; /** 当前正在执行的程序 */
+} Safeameters;
 ```
 
-“ ka”是指令引用帐户的有序数组，并表示为[SolAccountInfo](https://github.com/solana-labs/solana/blob/8415c22b593f164020adc7afe782e8041d756ddf/sdk/bpf/c/inc/solana_sdk.h#L173)结构。  帐户在数组中的位置表示其含义，例如，在转移lamports时，一条指令可以将第一个帐户定义为源，将第二个帐户定义为目的地。
+“ ka”是指令引用帐户的有序数组，并表示为[SafeAccountInfo](https://github.com/solana-labs/solana/blob/8415c22b593f164020adc7afe782e8041d756ddf/sdk/bpf/c/inc/solana_sdk.h#L173)结构。  帐户在数组中的位置表示其含义，例如，在转移lamports时，一条指令可以将第一个帐户定义为源，将第二个帐户定义为目的地。
 
-`AccountInfo`结构的成员是只读的，但`lamports`和`data`除外。  程序都可以根据[runtime执行策略](developing/programming-model/accounts.md#policy)对两者进行修改。  当一条指令多次引用相同的帐户时，数组中可能有重复的`SolAccountInfo`条目，但它们都指向原来的输入字节数组。  程序应谨慎处理这些情况，以避免对同一缓冲区的读/写重叠。  如果程序实现其自己的反序列化功能，则应注意适当地处理重复帐户。
+`AccountInfo`结构的成员是只读的，但`lamports`和`data`除外。  程序都可以根据[runtime执行策略](developing/programming-model/accounts.md#policy)对两者进行修改。  当一条指令多次引用相同的帐户时，数组中可能有重复的`SafeAccountInfo`条目，但它们都指向原来的输入字节数组。  程序应谨慎处理这些情况，以避免对同一缓冲区的读/写重叠。  如果程序实现其自己的反序列化功能，则应注意适当地处理重复帐户。
 
 `数据`是正在处理的[指令的指令数据](developing/programming-model/transactions.md#instruction-data)中的通用字节数组。
 
@@ -128,4 +128,4 @@ $ make dump_<program name>
 
 ## 示例 {#examples}
 
-[Solana 程序库github](https://github.com/solana-labs/solana-program-library/tree/master/examples/c)代码库包含了 C 语言的例子集合。
+[Safecoin 程序库github](https://github.com/solana-labs/solana-program-library/tree/master/examples/c)代码库包含了 C 语言的例子集合。

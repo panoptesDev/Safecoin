@@ -2,11 +2,11 @@
 title: 集群基准
 ---
 
-Solana git 仓库涵盖了配置本地测试网可能用到的所有脚本。 根据实现的目标，您可能想配置一个全新、增强性能的不同版本的多节点测试网，那么它可能比单纯的仅支持 Rust 的单节点测试节点要复杂得多。 如果您正在尝试开发高级功能（例如智能合约），那么利用一些已有的配置，直接使用 Rust 支持的单节点模型就好。 如果您正在对交易流程进行性能优化，请考虑增强的单节点 demo。 如果你在着手共识算法的工作，那么你将至少需要一个 Rust 的多节点 demo。 如果您想要复制 TPS 性能表，请运行强化的多节点 demo。
+Safecoin git 仓库涵盖了配置本地测试网可能用到的所有脚本。 根据实现的目标，您可能想配置一个全新、增强性能的不同版本的多节点测试网，那么它可能比单纯的仅支持 Rust 的单节点测试节点要复杂得多。 如果您正在尝试开发高级功能（例如智能合约），那么利用一些已有的配置，直接使用 Rust 支持的单节点模型就好。 如果您正在对交易流程进行性能优化，请考虑增强的单节点 demo。 如果你在着手共识算法的工作，那么你将至少需要一个 Rust 的多节点 demo。 如果您想要复制 TPS 性能表，请运行强化的多节点 demo。
 
-对于上述的四种变型，您可能需要最新的 Rust 工具链和 Solana 源代码：
+对于上述的四种变型，您可能需要最新的 Rust 工具链和 Safecoin 源代码：
 
-首先，请设置 Solana [README](https://github.com/solana-labs/solana#1-install-rustc-cargo-and-rustfmt) 中提到的 Rust、Cargo 和系统安装包。
+首先，请设置 Safecoin [README](https://github.com/solana-labs/solana#1-install-rustc-cargo-and-rustfmt) 中提到的 Rust、Cargo 和系统安装包。
 
 请检查 github 代码：
 
@@ -70,8 +70,8 @@ NDEBUG=1 ./multinode-demo/validator-x.sh
 
 ```bash
 ./fetch-perf-libs.sh
-NDEBUG=1 SOLANA_CUDA=1 ./multinode-demo/bootstrap-validator.sh
-NDEBUG=1 SOLANA_CUDA=1 ./multinode-demo/validator.sh
+NDEBUG=1 SAFECOIN_CUDA=1 ./multinode-demo/bootstrap-validator.sh
+NDEBUG=1 SAFECOIN_CUDA=1 ./multinode-demo/validator.sh
 ```
 
 ### 测试网客户端演示

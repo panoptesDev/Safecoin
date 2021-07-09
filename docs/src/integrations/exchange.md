@@ -1,8 +1,8 @@
 ---
-title: Add Solana to Your Exchange
+title: Add Safecoin to Your Exchange
 ---
 
-This guide describes how to add Solana's native token SOL to your cryptocurrency
+This guide describes how to add Safecoin's native token SAFE to your cryptocurrency
 exchange.
 
 ## Node Setup
@@ -13,18 +13,18 @@ operations with a bundled monitoring tool.
 
 This setup enables you:
 
-- to have a trusted gateway to the Solana mainnet-beta cluster to get data and
+- to have a trusted gateway to the Safecoin mainnet-beta cluster to get data and
   submit withdrawal transactions
 - to have full control over how much historical block data is retained
 - to maintain your service availability even if one node fails
 
-Solana nodes demand relatively high computing power to handle our fast blocks
+Safecoin nodes demand relatively high computing power to handle our fast blocks
 and high TPS. For specific requirements, please see
 [hardware recommendations](../running-validator/validator-reqs.md).
 
 To run an api node:
 
-1. [Install the Solana command-line tool suite](../cli/install-solana-cli-tools.md)
+1. [Install the Safecoin command-line tool suite](../cli/install-solana-cli-tools.md)
 2. Start the validator with at least the following parameters:
 
 ```bash
@@ -117,9 +117,9 @@ historical ledger data that cannot be filled.
 ### Minimizing Validator Port Exposure
 
 The validator requires that various UDP and TCP ports be open for inbound
-traffic from all other Solana validators. While this is the most efficient mode of
+traffic from all other Safecoin validators. While this is the most efficient mode of
 operation, and is strongly recommended, it is possible to restrict the
-validator to only require inbound traffic from one other Solana validator.
+validator to only require inbound traffic from one other Safecoin validator.
 
 First add the `--restricted-repair-only-mode` argument. This will cause the
 validator to operate in a restricted mode where it will not receive pushes from
@@ -146,15 +146,15 @@ validators and only on the _Gossip_, _Repair_ and _ServeR_ ports.
 
 ## Setting up Deposit Accounts
 
-Solana accounts do not require any on-chain initialization; once they contain
-some SOL, they exist. To set up a deposit account for your exchange, simply
-generate a Solana keypair using any of our [wallet tools](../wallet-guide/cli.md).
+Safecoin accounts do not require any on-chain initialization; once they contain
+some SAFE, they exist. To set up a deposit account for your exchange, simply
+generate a Safecoin keypair using any of our [wallet tools](../wallet-guide/cli.md).
 
 We recommend using a unique deposit account for each of your users.
 
-Solana accounts are charged [rent](developing/programming-model/accounts.md#rent) on creation and once per
+Safecoin accounts are charged [rent](developing/programming-model/accounts.md#rent) on creation and once per
 epoch, but they can be made rent-exempt if they contain 2-years worth of rent in
-SOL. In order to find the minimum rent-exempt balance for your deposit accounts,
+SAFE. In order to find the minimum rent-exempt balance for your deposit accounts,
 query the
 [`getMinimumBalanceForRentExemption` endpoint](developing/clients/jsonrpc-api.md#getminimumbalanceforrentexemption):
 
@@ -167,19 +167,19 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 ### Offline Accounts
 
 You may wish to keep the keys for one or more collection accounts offline for
-greater security. If so, you will need to move SOL to hot accounts using our
+greater security. If so, you will need to move SAFE to hot accounts using our
 [offline methods](../offline-signing.md).
 
 ## Listening for Deposits
 
-When a user wants to deposit SOL into your exchange, instruct them to send a
+When a user wants to deposit SAFE into your exchange, instruct them to send a
 transfer to the appropriate deposit address.
 
 ### Poll for Blocks
 
 To track all the deposit accounts for your exchange, poll for each confirmed
 block and inspect for addresses of interest, using the JSON-RPC service of your
-Solana API node.
+Safecoin API node.
 
 - To identify which blocks are available, send a [`getConfirmedBlocks` request](developing/clients/jsonrpc-api.md#getconfirmedblocks),
   passing the last block you have already processed as the start-slot parameter:
@@ -264,7 +264,7 @@ list the starting and ending balances of each account in
 [lamports](../terminology.md#lamport), indexed to the `accountKeys` list. For
 example, if the deposit address if interest is
 `47Sbuv6jL7CViK9F2NMW51aQGhfdpUu7WNvKyH645Rfi`, this transaction represents a
-transfer of 218099990000 - 207099990000 = 11000000000 lamports = 11 SOL
+transfer of 218099990000 - 207099990000 = 11000000000 lamports = 11 SAFE
 
 If you need more information about the transaction type or other specifics, you
 can request the block from RPC in binary format, and parse it using either our
@@ -373,16 +373,16 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 
 ## Sending Withdrawals
 
-To accommodate a user's request to withdraw SOL, you must generate a Solana
+To accommodate a user's request to withdraw SAFE, you must generate a Safecoin
 transfer transaction, and send it to the api node to be forwarded to your
 cluster.
 
 ### Synchronous
 
-Sending a synchronous transfer to the Solana cluster allows you to easily ensure
+Sending a synchronous transfer to the Safecoin cluster allows you to easily ensure
 that a transfer is successful and finalized by the cluster.
 
-Solana's command-line tool offers a simple command, `solana transfer`, to
+Safecoin's command-line tool offers a simple command, `solana transfer`, to
 generate, submit, and confirm transfer transactions. By default, this method
 will wait and track progress on stderr until the transaction has been finalized
 by the cluster. If the transaction fails, it will report any transaction errors.
@@ -391,7 +391,7 @@ by the cluster. If the transaction fails, it will report any transaction errors.
 solana transfer <USER_ADDRESS> <AMOUNT> --allow-unfunded-recipient --keypair <KEYPAIR> --url http://localhost:8899
 ```
 
-The [Solana Javascript SDK](https://github.com/solana-labs/solana-web3.js)
+The [Safecoin Javascript SDK](https://github.com/solana-labs/solana-web3.js)
 offers a similar approach for the JS ecosystem. Use the `SystemProgram` to build
 a transfer transaction, and submit it using the `sendAndConfirmTransaction`
 method.
@@ -482,14 +482,14 @@ prevent accidental loss of user funds.
 
 #### Basic verfication
 
-Solana addresses a 32-byte array, encoded with the bitcoin base58 alphabet. This
+Safecoin addresses a 32-byte array, encoded with the bitcoin base58 alphabet. This
 results in an ASCII text string matching the following regular expression:
 
 ```
 [1-9A-HJ-NP-Za-km-z]{32,44}
 ```
 
-This check is insufficient on its own as Solana addresses are not checksummed, so
+This check is insufficient on its own as Safecoin addresses are not checksummed, so
 typos cannot be detected. To further validate the user's input, the string can be
 decoded and the resulting byte array's length confirmed to be 32. However, there
 are some addresses that can decode to 32 bytes despite a typo such as a single
@@ -503,7 +503,7 @@ confirm their intentions if a non-zero balance is discovered.
 
 #### Valid ed25519 pubkey check
 
-The address of a normal account in Solana is a Base58-encoded string of a
+The address of a normal account in Safecoin is a Base58-encoded string of a
 256-bit ed25519 public key. Not all bit patterns are valid public keys for the
 ed25519 curve, so it is possible to ensure user-supplied account addresses are
 at least correct ed25519 public keys.
@@ -569,9 +569,9 @@ public class PubkeyValidator
 ## Supporting the SPL Token Standard
 
 [SPL Token](https://spl.solana.com/token) is the standard for wrapped/synthetic
-token creation and exchange on the Solana blockchain.
+token creation and exchange on the Safecoin blockchain.
 
-The SPL Token workflow is similar to that of native SOL tokens, but there are a
+The SPL Token workflow is similar to that of native SAFE tokens, but there are a
 few differences which will be discussed in this section.
 
 ### Token Mints
@@ -619,8 +619,8 @@ accounts do not:
    `spl-token transfer --fund-recipient ...` command.
 1. SPL Token accounts must remain [rent-exempt](developing/programming-model/accounts.md#rent-exemption)
    for the duration of their existence and therefore require a small amount of
-   native SOL tokens be deposited at account creation. For SPL Token v2 accounts,
-   this amount is 0.00203928 SOL (2,039,280 lamports).
+   native SAFE tokens be deposited at account creation. For SPL Token v2 accounts,
+   this amount is 0.00203928 SAFE (2,039,280 lamports).
 
 #### Command Line
 
@@ -713,7 +713,7 @@ fields to include SPL Token balance transfers.
 ### Withdrawing
 
 The withdrawal address a user provides should be the same address used for
-regular SOL withdrawal.
+regular SAFE withdrawal.
 
 Before executing a withdrawal [transfer](#token-transfers),
 the exchange should check the address as
@@ -723,7 +723,7 @@ From the withdrawal address, the associated token account for the correct mint
 determined and the transfer issued to that account. Note that it's possible
 that the associated token account does not yet exist, at which point the
 exchange should fund the account on behalf of the user. For SPL Token v2
-accounts, funding the withdrawal account will require 0.00203928 SOL (2,039,280
+accounts, funding the withdrawal account will require 0.00203928 SAFE (2,039,280
 lamports).
 
 Template `spl-token transfer` command for a withdrawal:
@@ -745,8 +745,8 @@ the SPL Token's mint account.
 
 ## Testing the Integration
 
-Be sure to test your complete workflow on Solana devnet and testnet
+Be sure to test your complete workflow on Safecoin devnet and testnet
 [clusters](../clusters.md) before moving to production on mainnet-beta. Devnet
 is the most open and flexible, and ideal for initial development, while testnet
 offers more realistic cluster configuration. Both devnet and testnet support a faucet,
-run `solana airdrop 1` to obtain some devnet or testnet SOL for developement and testing.
+run `solana airdrop 1` to obtain some devnet or testnet SAFE for developement and testing.

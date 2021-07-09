@@ -14,7 +14,7 @@ _如果您先前已经完成了 SLP 或 TdS 的 KYC/AML，那么同一个实体/
 
 #### 3) 加入我们的Discord
 
-所有 Tour de SOL 验证程序**都需要**加入，因为这是我们的主要通信渠道：https://discord.gg/N3mqAfa
+所有 Tour de SAFE 验证程序**都需要**加入，因为这是我们的主要通信渠道：https://discord.gg/N3mqAfa
 
 ### 下一步
 

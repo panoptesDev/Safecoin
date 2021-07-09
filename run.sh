@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-# Run a minimal Solana cluster.  Ctrl-C to exit.
+# Run a minimal Safecoin cluster.  Ctrl-C to exit.
 #
-# Before running this script ensure standard Solana programs are available
+# Before running this script ensure standard Safecoin programs are available
 # in the PATH, or that `cargo build` ran successfully
 #
 set -e
@@ -34,7 +34,7 @@ export RUST_BACKTRACE=1
 dataDir=$PWD/config/"$(basename "$0" .sh)"
 ledgerDir=$PWD/config/ledger
 
-SOLANA_RUN_SH_CLUSTER_TYPE=${SOLANA_RUN_SH_CLUSTER_TYPE:-development}
+SAFECOIN_RUN_SH_CLUSTER_TYPE=${SAFECOIN_RUN_SH_CLUSTER_TYPE:-development}
 
 set -x
 if ! solana address; then
@@ -77,9 +77,9 @@ else
       "$validator_vote_account" \
       "$validator_stake_account" \
     --ledger "$ledgerDir" \
-    --cluster-type "$SOLANA_RUN_SH_CLUSTER_TYPE" \
+    --cluster-type "$SAFECOIN_RUN_SH_CLUSTER_TYPE" \
     $SPL_GENESIS_ARGS \
-    $SOLANA_RUN_SH_GENESIS_ARGS
+    $SAFECOIN_RUN_SH_GENESIS_ARGS
 fi
 
 abort() {
@@ -108,7 +108,7 @@ args=(
   --no-wait-for-vote-to-start-leader
 )
 # shellcheck disable=SC2086
-solana-validator "${args[@]}" $SOLANA_RUN_SH_VALIDATOR_ARGS &
+solana-validator "${args[@]}" $SAFECOIN_RUN_SH_VALIDATOR_ARGS &
 validator=$!
 
 wait "$validator"

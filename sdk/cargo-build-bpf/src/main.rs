@@ -419,7 +419,7 @@ fn build_bpf(config: Config, manifest_path: Option<PathBuf>) {
 
 fn main() {
     if cfg!(windows) {
-        println!("Solana Rust BPF toolchain is not available on Windows");
+        println!("Safecoin Rust BPF toolchain is not available on Windows");
         exit(1);
     }
     let default_config = Config::default();
@@ -443,7 +443,7 @@ fn main() {
                 .value_name("PATH")
                 .takes_value(true)
                 .default_value(&default_bpf_sdk)
-                .help("Path to the Solana BPF SDK"),
+                .help("Path to the Safecoin BPF SDK"),
         )
         .arg(
             Arg::with_name("dump")

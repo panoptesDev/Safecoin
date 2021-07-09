@@ -149,7 +149,7 @@ function TokenAccountCard({
 
   let unit, balance;
   if (info.isNative) {
-    unit = "SOL";
+    unit = "SAFE";
     balance = (
       <>
         ◎
@@ -215,7 +215,7 @@ function TokenAccountCard({
         )}
         {info.rentExemptReserve && (
           <tr>
-            <td>Rent-exempt reserve (SOL)</td>
+            <td>Rent-exempt reserve (SAFE)</td>
             <td className="text-lg-right">
               <>
                 ◎
