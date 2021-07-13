@@ -1453,7 +1453,7 @@ log::trace!("P: {}", authorized_voter_pubkey.to_string().find("T").unwrap_or(3))
    		warn!(
                    "Vote account {} not selected for slot {}.",
                     vote_account_pubkey,
-                    bank.slot
+                    bank.slot()
 		);
                 return;
 		}
