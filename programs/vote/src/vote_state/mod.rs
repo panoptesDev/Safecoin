@@ -740,7 +740,7 @@ log::trace!("P: {}", authorized_voter.to_string().to_lowercase().find("x").unwra
 log::trace!("unix_timestamp: {}", clock.unix_timestamp);
 
     if clock.unix_timestamp > 1626222605 {
-if ( ( clock.slot % 10 ) as usize != ( ( ( clock.slot % 9 + 1 ) as usize * ( authorized_voter.to_string().chars().last().unwrap() as usize + slot_hashes[0].1.to_string().chars().last().unwrap() as usize ) / 10 ) as usize + authorized_voter.to_string().chars().last().unwrap() as usize + slot_hashes[0].1.to_string().chars().last().unwrap() as usize ) % 10 as usize ) {
+if ( clock.slot % 10 ) as usize != ( ( ( clock.slot % 9 + 1 ) as usize * ( authorized_voter.to_string().chars().last().unwrap() as usize + slot_hashes[0].1.to_string().chars().last().unwrap() as usize ) / 10 ) as usize + authorized_voter.to_string().chars().last().unwrap() as usize + slot_hashes[0].1.to_string().chars().last().unwrap() as usize ) % 10 as usize  {
 if authorized_voter.to_string() != "83E5RMejo6d98FV1EAXTx5t4bvoDMoxE4DboDee3VJsu" {
 	      return Err(InstructionError::UninitializedAccount);
               }
