@@ -18,10 +18,8 @@ pub const MAX_ALLOWABLE_DRIFT_PERCENTAGE_FAST: u32 = 25;
 pub const MAX_ALLOWABLE_DRIFT_PERCENTAGE_SLOW: u32 = 80;
 
 pub enum EstimateType {
-    Bounded(u32), // Value represents max allowable drift percentage
-    Unbounded,    // Deprecated.  Remove in the Safecoin v1.6.0 timeframe
-//    Bounded(MaxAllowableDrift), // Value represents max allowable drift percentage
-//    Unbounded,                  // Deprecated.  Remove in the Solana v1.6.0 timeframe
+    Bounded(MaxAllowableDrift), // Value represents max allowable drift percentage
+    Unbounded,                  // Deprecated.  Remove in the Solana v1.6.0 timeframe
 }
 
 #[derive(Copy, Clone)]
