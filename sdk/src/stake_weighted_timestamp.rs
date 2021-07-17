@@ -11,6 +11,7 @@ use std::{
     time::Duration,
 };
 
+
 pub const MAX_ALLOWABLE_DRIFT_PERCENTAGE: u32 = 50;
 pub const MAX_ALLOWABLE_DRIFT_PERCENTAGE_FAST: u32 = 25;
 pub const MAX_ALLOWABLE_DRIFT_PERCENTAGE_SLOW: u32 = 80;
@@ -19,21 +20,95 @@ pub enum EstimateType {
     Bounded(MaxAllowableDrift), // Value represents max allowable drift percentage
     Unbounded,                  // Deprecated.  Remove in the Safecoin v1.6.0 timeframe
 }
+pub const TIMESTAMP_SLOT_RANGE: usize = 32;
+pub const DEPRECATED_TIMESTAMP_SLOT_RANGE: usize = 16; // Deprecated.  Remove in the Safecoin v1.6.0 timeframe
+pub const DEPRECATED_MAX_ALLOWABLE_DRIFT_PERCENTAGE: u32 = 25;
 
-#[derive(Copy, Clone)]
-pub struct MaxAllowableDrift {
-    pub fast: u32, // Max allowable drift percentage faster than poh estimate
-    pub slow: u32, // Max allowable drift percentage slower than poh estimate
+
+
+pub enum EstimateType {
+    Bounded(u32), // Value represents max allowable drift percentage
+    Unbounded,                  // Deprecated.  Remove in the Solana v1.6.0 timeframe
 }
+
+
 
 pub fn calculate_stake_weighted_timestamp<I, K, V, T>(
     unique_timestamps: I,
     stakes: &HashMap<Pubkey, (u64, T /*Account|ArcVoteAccount*/)>,
     slot: Slot,
     slot_duration: Duration,
+    estimate_type: EstimateType,
     epoch_start_timestamp: Option<(Slot, UnixTimestamp)>,
-    max_allowable_drift: MaxAllowableDrift,
-    fix_estimate_into_u64: bool,
+) -> Option<UnixTimestamp>
+where
+    I: IntoIterator<Item = (K, V)>,
+    K: Borrow<Pubkey>,
+    V: Borrow<(Slot, UnixTimestamp)>,
+{
+    match estimate_type {
+        EstimateType::Bounded(max_allowable_drift) => calculate_bounded_stake_weighted_timestamp(
+            unique_timestamps,
+            stakes,
+            slot,
+            slot_duration,
+            epoch_start_timestamp,
+            max_allowable_drift,
+        ),
+        EstimateType::Unbounded => calculate_unbounded_stake_weighted_timestamp(
+            unique_timestamps,
+            stakes,
+            slot,
+            slot_duration,
+        ),
+    }
+}
+
+fn calculate_unbounded_stake_weighted_timestamp<I, K, V, T>(
+    unique_timestamps: I,
+    stakes: &HashMap<Pubkey, (u64, T /*Account|ArcVoteAccount*/)>,
+    slot: Slot,
+    slot_duration: Duration,
+) -> Option<UnixTimestamp>
+where
+    I: IntoIterator<Item = (K, V)>,
+    K: Borrow<Pubkey>,
+    V: Borrow<(Slot, UnixTimestamp)>,
+{
+    let (stake_weighted_timestamps_sum, total_stake) = unique_timestamps
+        .into_iter()
+        .filter_map(|(vote_pubkey, slot_timestamp)| {
+            let (timestamp_slot, timestamp) = slot_timestamp.borrow();
+            let offset = (slot - timestamp_slot) as u32 * slot_duration;
+            stakes.get(vote_pubkey.borrow()).map(|(stake, _account)| {
+                (
+                    (*timestamp as u128 + offset.as_secs() as u128) * *stake as u128,
+                    stake,
+                )
+            })
+        })
+        .fold((0, 0), |(timestamps, stakes), (timestamp, stake)| {
+            (timestamps + timestamp, stakes + *stake as u128)
+        });
+    if total_stake > 0 {
+        Some((stake_weighted_timestamps_sum / total_stake) as i64)
+    } else {
+        None
+    }
+    }
+#[derive(Copy, Clone)]
+pub struct MaxAllowableDrift {
+    pub fast: u32, // Max allowable drift percentage faster than poh estimate
+    pub slow: u32, // Max allowable drift percentage slower than poh estimate
+}
+
+pub fn calculate_bounded_stake_weighted_timestamp<I, K, V, T>(
+    unique_timestamps: I,
+    stakes: &HashMap<Pubkey, (u64, T /*Account|ArcVoteAccount*/)>,
+    slot: Slot,
+    slot_duration: Duration,
+    epoch_start_timestamp: Option<(Slot, UnixTimestamp)>,
+    max_allowable_drift_percentage: u32,
 ) -> Option<UnixTimestamp>
 where
     I: IntoIterator<Item = (K, V)>,
@@ -174,7 +249,7 @@ pub mod tests {
             slot_duration,
             None,
             max_allowable_drift,
-            true,
+            false,
         )
         .unwrap();
         // With no bounding, timestamp w/ 0.00003% of the stake can shift the timestamp backward 8min
@@ -198,7 +273,7 @@ pub mod tests {
             slot_duration,
             None,
             max_allowable_drift,
-            true,
+            false,
         )
         .unwrap();
         // With no bounding, timestamp w/ 0.00003% of the stake can shift the timestamp forward 97k years!
@@ -222,7 +297,7 @@ pub mod tests {
             slot_duration,
             None,
             max_allowable_drift,
-            true,
+            false,
         )
         .unwrap();
         assert_eq!(bounded, recent_timestamp); // multiple low-staked outliers cannot affect bounded timestamp if they don't shift the median
@@ -271,7 +346,7 @@ pub mod tests {
             slot_duration,
             None,
             max_allowable_drift,
-            true,
+            false,
         )
         .unwrap();
         assert_eq!(bounded, recent_timestamp); // outlier(s) cannot affect bounded timestamp if they don't shift the median
@@ -309,7 +384,7 @@ pub mod tests {
             slot_duration,
             None,
             max_allowable_drift,
-            true,
+            false,
         )
         .unwrap();
         assert_eq!(recent_timestamp - bounded, 1578909061); // outliers > 1/2 of available stake can affect timestamp
