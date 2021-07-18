@@ -148,15 +148,15 @@ where
     if let Some((epoch_start_slot, epoch_start_timestamp)) = epoch_start_timestamp {
         let poh_estimate_offset =
             slot_duration.sol_saturating_mul(slot.saturating_sub(epoch_start_slot) as u32);
-        let estimate_offset = Duration::from_secs(if fix_estimate_into_u64 {
+        let estimate_offset = Duration::from_secs(if false {
             (estimate as u64).saturating_sub(epoch_start_timestamp as u64)
         } else {
             estimate.saturating_sub(epoch_start_timestamp) as u64
         });
         let max_allowable_drift_fast =
-            poh_estimate_offset.sol_saturating_mul(max_allowable_drift.fast) / 100;
+            poh_estimate_offset.sol_saturating_mul(25) / 100;
         let max_allowable_drift_slow =
-            poh_estimate_offset.sol_saturating_mul(max_allowable_drift.slow) / 100;
+            poh_estimate_offset.sol_saturating_mul(80) / 100;
         if estimate_offset > poh_estimate_offset
             && estimate_offset.sol_saturating_sub(poh_estimate_offset) > max_allowable_drift_slow
         {
