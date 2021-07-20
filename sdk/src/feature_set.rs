@@ -282,6 +282,15 @@ pub mod warp_timestamp_again {
     solana_sdk::declare_id!("GvDsGDkH5gyzwpDhxNixx8vtx1kwYHH13RiNAPw27zXb");
 }
 
+pub mod timestamp_correction {
+    solana_sdk::declare_id!("Bki2J33Mr1kZ6ozrqzd7w4j1eK7jeUeSKJBGttDSYwNK");
+}
+
+pub mod timestamp_bounding {
+    solana_sdk::declare_id!("FmFhFzszHFPJYFuqKhGtijwUL7h43d6FrQn7RUrbqYRC");
+}
+
+
 lazy_static! {
     /// Map of feature identifiers to user-visible description
     pub static ref FEATURE_NAMES: HashMap<Pubkey, &'static str> = [

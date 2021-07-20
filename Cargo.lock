@@ -3763,19 +3763,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-log-analyzer"
-version = "1.4.28"
-dependencies = [
- "byte-unit",
- "clap",
- "serde",
- "serde_json",
- "solana-clap-utils",
- "solana-logger 1.4.28",
- "solana-version",
-]
-
-[[package]]
 name = "safecoin-net-shaper"
 version = "1.4.28"
 dependencies = [
@@ -4891,6 +4878,19 @@ dependencies = [
  "solana-vest-program",
  "solana-vote-program",
  "tempfile",
+]
+
+[[package]]
+name = "solana-log-analyzer"
+version = "1.4.28"
+dependencies = [
+ "byte-unit",
+ "clap",
+ "serde",
+ "serde_json",
+ "solana-clap-utils",
+ "solana-logger 1.4.28",
+ "solana-version",
 ]
 
 [[package]]
