@@ -60,7 +60,7 @@ use solana_sdk::{
     slot_hashes::SlotHashes,
     slot_history::SlotHistory,
     stake_weighted_timestamp::{
-        calculate_stake_weighted_timestamp, MaxAllowableDrift, MAX_ALLOWABLE_DRIFT_PERCENTAGE, EstimateType, DEPRECATED_MAX_ALLOWABLE_DRIFT_PERCENTAGE,
+        calculate_stake_weighted_timestamp, MaxAllowableDrift, MAX_ALLOWABLE_DRIFT_PERCENTAGE,
         MAX_ALLOWABLE_DRIFT_PERCENTAGE_FAST, MAX_ALLOWABLE_DRIFT_PERCENTAGE_SLOW,
     },
     system_transaction,
@@ -1288,69 +1288,45 @@ impl Bank {
     }
 
     fn update_clock(&self, parent_epoch: Option<Epoch>) {
-        let mut unix_timestamp = self.unix_timestamp_from_genesis();
-        if self
+        let mut unix_timestamp = self.clock().unix_timestamp;
+        let warp_timestamp_again = self
             .feature_set
-            .is_active(&feature_set::timestamp_correction::id())
-          {
-            let (estimate_type, epoch_start_timestamp) =
-                if let Some(timestamp_bounding_activation_slot) = self
-                    .feature_set
-                    .activated_slot(&feature_set::timestamp_bounding::id())
-                {
-                    // This check avoids a chicken-egg problem with epoch_start_timestamp, which is
-                    // needed for timestamp bounding, but isn't yet corrected for the activation slot
-                    let epoch_start_timestamp = if self.slot() > timestamp_bounding_activation_slot
-                    {
-                        let warp_timestamp = self
-                            .feature_set
-                            .activated_slot(&feature_set::warp_timestamp::id());
-                        if warp_timestamp == Some(self.slot()) {
-                            None
-                        } else {
-                            let epoch = if let Some(epoch) = parent_epoch {
-                                epoch
-                            } else {
-                                self.epoch()
-                            };
-                            let first_slot_in_epoch =
-                                self.epoch_schedule.get_first_slot_in_epoch(epoch);
-                            Some((first_slot_in_epoch, self.clock().epoch_start_timestamp))
-                        }
-                    } else {
-                        None
-                    };
-                    let max_allowable_drift = if self
-                        .feature_set
-                        .is_active(&feature_set::warp_timestamp::id())
-                    {
-                        MAX_ALLOWABLE_DRIFT_PERCENTAGE
-                    } else {
-                        DEPRECATED_MAX_ALLOWABLE_DRIFT_PERCENTAGE
-                    };
-                    (
-                        EstimateType::Bounded(max_allowable_drift),
-                        epoch_start_timestamp,
-                    )
-                } else {
-                    (EstimateType::Unbounded, None)
-                };
+            .activated_slot(&feature_set::warp_timestamp_again::id());
+        let epoch_start_timestamp = if warp_timestamp_again == Some(self.slot()) {
+            None
+        } else {
+            let epoch = if let Some(epoch) = parent_epoch {
+                epoch
+            } else {
+                self.epoch()
+            };
+            let first_slot_in_epoch = self.epoch_schedule.get_first_slot_in_epoch(epoch);
+            Some((first_slot_in_epoch, self.clock().epoch_start_timestamp))
+        };
+        let max_allowable_drift = if self
+            .feature_set
+            .is_active(&feature_set::warp_timestamp_again::id())
+        {
+            MaxAllowableDrift {
+                fast: MAX_ALLOWABLE_DRIFT_PERCENTAGE_FAST,
+                slow: MAX_ALLOWABLE_DRIFT_PERCENTAGE_SLOW,
+            }
+        } else {
+            MaxAllowableDrift {
+                fast: MAX_ALLOWABLE_DRIFT_PERCENTAGE,
+                slow: MAX_ALLOWABLE_DRIFT_PERCENTAGE,
+            }
+        };
 
-            let ancestor_timestamp = self.clock().unix_timestamp;
-            if let Some(timestamp_estimate) =
-                self.get_timestamp_estimate(estimate_type, epoch_start_timestamp)
-            {
-                if timestamp_estimate > unix_timestamp {
-                    unix_timestamp = timestamp_estimate;
-                    if self
-                        .feature_set
-                        .is_active(&feature_set::timestamp_bounding::id())
-                        && timestamp_estimate < ancestor_timestamp
-                    {
-                        unix_timestamp = ancestor_timestamp;
-                    }
-                }
-        }         
+        let ancestor_timestamp = self.clock().unix_timestamp;
+        if let Some(timestamp_estimate) =
+            self.get_timestamp_estimate(max_allowable_drift, epoch_start_timestamp)
+        {
+            unix_timestamp = timestamp_estimate;
+            if timestamp_estimate < ancestor_timestamp {
+                unix_timestamp = ancestor_timestamp;
+            }
+        }
         datapoint_info!(
             "bank-timestamp-correction",
             ("slot", self.slot(), i64),
@@ -1358,7 +1334,6 @@ impl Bank {
             ("corrected", unix_timestamp, i64),
             ("ancestor_timestamp", ancestor_timestamp, i64),
         );
-	}
         let mut epoch_start_timestamp =
             // On epoch boundaries, update epoch_start_timestamp
             if parent_epoch.is_some() && parent_epoch.unwrap() != self.epoch() {
@@ -1853,7 +1828,7 @@ impl Bank {
 
     fn get_timestamp_estimate(
         &self,
-        estimate_type: EstimateType,
+        max_allowable_drift: MaxAllowableDrift,
         epoch_start_timestamp: Option<(Slot, UnixTimestamp)>,
     ) -> Option<UnixTimestamp> {
         let mut get_timestamp_estimate_time = Measure::start("get_timestamp_estimate");
@@ -1885,9 +1860,11 @@ impl Bank {
             stakes,
             self.slot(),
             slot_duration,
-	    estimate_type,
             epoch_start_timestamp,
-           );
+            max_allowable_drift,
+            self.feature_set
+                .is_active(&feature_set::warp_timestamp_again::id()),
+        );
         get_timestamp_estimate_time.stop();
         datapoint_info!(
             "bank-timestamp",
