@@ -10,12 +10,12 @@ use std::{
     time::Duration,
 };
 
-pub const TIMESTAMP_SLOT_RANGE: usize = 32;
-pub const DEPRECATED_TIMESTAMP_SLOT_RANGE: usize = 16; // Deprecated.  Remove in the Safecoin v1.6.0 timeframe
-pub const DEPRECATED_MAX_ALLOWABLE_DRIFT_PERCENTAGE: u32 = 25;
-pub const MAX_ALLOWABLE_DRIFT_PERCENTAGE: u32 = 50;
-pub const MAX_ALLOWABLE_DRIFT_PERCENTAGE_FAST: u32 = 25;
-pub const MAX_ALLOWABLE_DRIFT_PERCENTAGE_SLOW: u32 = 80;
+pub const TIMESTAMP_SLOT_RANGE: usize = 3;
+pub const DEPRECATED_TIMESTAMP_SLOT_RANGE: usize = 3; // Deprecated.  Remove in the Safecoin v1.6.0 timeframe
+pub const DEPRECATED_MAX_ALLOWABLE_DRIFT_PERCENTAGE: u32 = 50;
+pub const MAX_ALLOWABLE_DRIFT_PERCENTAGE: u32 = 0;
+pub const MAX_ALLOWABLE_DRIFT_PERCENTAGE_FAST: u32 = 50;
+pub const MAX_ALLOWABLE_DRIFT_PERCENTAGE_SLOW: u32 = 0;
 
 pub enum EstimateType {
     Bounded(MaxAllowableDrift), // Value represents max allowable drift percentage
