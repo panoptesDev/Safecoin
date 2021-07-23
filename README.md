@@ -34,7 +34,7 @@ $ sudo apt-get install libssl-dev libudev-dev pkg-config zlib1g-dev llvm clang m
 
 ```bash
 $ git clone https://github.com/Fair-Exchange/Safecoin.git
-$ cd solana
+$ cd Safecoin
 ```
 
 ## **3. Build.**
