@@ -17,7 +17,7 @@ solana-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
 solana-cli-config = { path = "../cli-config", version = "=1.6.16" }
 solana-cli-output = { path = "../cli-output", version = "=1.6.16" }
 solana-client = { path = "../client", version = "=1.6.16" }
-solana-logger = { path = "../logger", version = "=1.6.16" }
+safecoin-logger = { path = "../logger", version = "=1.6.16" }
 solana-metrics = { path = "../metrics", version = "=1.6.16" }
 solana-notifier = { path = "../notifier", version = "=1.6.16" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }

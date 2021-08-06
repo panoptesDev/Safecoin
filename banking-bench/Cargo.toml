@@ -19,8 +19,8 @@ solana-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
 solana-streamer = { path = "../streamer", version = "=1.6.16" }
 solana-perf = { path = "../perf", version = "=1.6.16" }
 solana-ledger = { path = "../ledger", version = "=1.6.16" }
-solana-logger = { path = "../logger", version = "=1.6.16" }
-solana-runtime = { path = "../runtime", version = "=1.6.16" }
+safecoin-logger = { path = "../logger", version = "=1.6.16" }
+safecoin-runtime = { path = "../runtime", version = "=1.6.16" }
 solana-measure = { path = "../measure", version = "=1.6.16" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 solana-version = { path = "../version", version = "=1.6.16" }

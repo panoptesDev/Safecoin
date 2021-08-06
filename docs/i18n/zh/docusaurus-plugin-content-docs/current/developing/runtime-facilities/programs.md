@@ -27,14 +27,14 @@ Safecoin包含少量内置程序，这些程序是运行验证程序节点所必
 创建权益账户并将其委托给验证者
 
 - 程序ID：`Stake11111111111111111111111111111111111111`
-- 说明： [StakeInstruction](https://docs.rs/solana-stake-program/VERSION_FOR_DOCS_RS/solana_stake_program/stake_instruction/enum.StakeInstruction.html)
+- 说明： [StakeInstruction](https://docs.rs/safecoin-stake-program/VERSION_FOR_DOCS_RS/solana_stake_program/stake_instruction/enum.StakeInstruction.html)
 
 ## 投票程序
 
 创建投票账户并对区块进行投票
 
 - 程序ID：`Vote111111111111111111111111111111111111111`
-- 说明：[VoteInstruction](https://docs.rs/solana-vote-program/VERSION_FOR_DOCS_RS/solana_vote_program/vote_instruction/enum.VoteInstruction.html)
+- 说明：[VoteInstruction](https://docs.rs/safecoin-vote-program/VERSION_FOR_DOCS_RS/solana_vote_program/vote_instruction/enum.VoteInstruction.html)
 
 ## BPF加载程序
 

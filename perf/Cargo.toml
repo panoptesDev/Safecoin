@@ -21,7 +21,7 @@ log = "0.4.11"
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 solana-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.6.16" }
 solana-budget-program = { path = "../programs/budget", version = "=1.6.16" }
-solana-logger = { path = "../logger", version = "=1.6.16" }
+safecoin-logger = { path = "../logger", version = "=1.6.16" }
 solana-measure = { path = "../measure", version = "=1.6.16" }
 solana-metrics = { path = "../metrics", version = "=1.6.16" }
 curve25519-dalek = { version = "2" }

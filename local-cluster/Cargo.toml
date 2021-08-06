@@ -24,12 +24,12 @@ solana-download-utils = { path = "../download-utils", version = "=1.6.16" }
 safecoin-faucet = { path = "../faucet", version = "=1.6.16" }
 solana-exchange-program = { path = "../programs/exchange", version = "=1.6.16" }
 solana-ledger = { path = "../ledger", version = "=1.6.16" }
-solana-logger = { path = "../logger", version = "=1.6.16" }
-solana-runtime = { path = "../runtime", version = "=1.6.16" }
+safecoin-logger = { path = "../logger", version = "=1.6.16" }
+safecoin-runtime = { path = "../runtime", version = "=1.6.16" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
-solana-stake-program = { path = "../programs/stake", version = "=1.6.16" }
+safecoin-stake-program = { path = "../programs/stake", version = "=1.6.16" }
 solana-vest-program = { path = "../programs/vest", version = "=1.6.16" }
-solana-vote-program = { path = "../programs/vote", version = "=1.6.16" }
+safecoin-vote-program = { path = "../programs/vote", version = "=1.6.16" }
 tempfile = "3.1.0"
 solana-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.6.16" }
 

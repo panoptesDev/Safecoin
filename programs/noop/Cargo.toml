@@ -11,7 +11,7 @@ edition = "2018"
 
 [dependencies]
 log = "0.4.11"
-solana-logger = { path = "../../logger", version = "=1.6.16" }
+safecoin-logger = { path = "../../logger", version = "=1.6.16" }
 safecoin-sdk = { path = "../../sdk", version = "=1.6.16" }
 
 [lib]

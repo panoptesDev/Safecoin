@@ -12,7 +12,7 @@ publish = false
 clap = "2.33.1"
 solana-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
 solana-streamer = { path = "../streamer", version = "=1.6.16" }
-solana-logger = { path = "../logger", version = "=1.6.16" }
+safecoin-logger = { path = "../logger", version = "=1.6.16" }
 solana-net-utils = { path = "../net-utils", version = "=1.6.16" }
 solana-version = { path = "../version", version = "=1.6.16" }
 

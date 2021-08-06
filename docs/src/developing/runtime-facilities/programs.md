@@ -41,14 +41,14 @@ Create and manage accounts representing stake and rewards for delegations to
 validators.
 
 - Program id: `Stake11111111111111111111111111111111111111`
-- Instructions: [StakeInstruction](https://docs.rs/solana-stake-program/VERSION_FOR_DOCS_RS/solana_stake_program/stake_instruction/enum.StakeInstruction.html)
+- Instructions: [StakeInstruction](https://docs.rs/safecoin-stake-program/VERSION_FOR_DOCS_RS/solana_stake_program/stake_instruction/enum.StakeInstruction.html)
 
 ## Vote Program
 
 Create and manage accounts that track validator voting state and rewards.
 
 - Program id: `Vote111111111111111111111111111111111111111`
-- Instructions: [VoteInstruction](https://docs.rs/solana-vote-program/VERSION_FOR_DOCS_RS/solana_vote_program/vote_instruction/enum.VoteInstruction.html)
+- Instructions: [VoteInstruction](https://docs.rs/safecoin-vote-program/VERSION_FOR_DOCS_RS/solana_vote_program/vote_instruction/enum.VoteInstruction.html)
 
 ## BPF Loader
 
