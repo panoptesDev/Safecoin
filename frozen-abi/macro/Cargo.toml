@@ -9,15 +9,15 @@ documentation = "https://docs.rs/safecoin-frozen-abi-macro"
 license = "Apache-2.0"
 edition = "2018"
 
-[lib]
-name = "solana_frozen_abi_macro"
-proc-macro = true
-
 [dependencies]
 proc-macro2 = "1.0"
 quote = "1.0"
 syn = { version = "1.0", features = ["full", "extra-traits"] }
 lazy_static = "1.4.0"
+
+[lib]
+name = "safecoin_frozen_abi_macro"
+proc-macro = true
 
 [build-dependencies]
 rustc_version = "0.2"

@@ -4096,6 +4096,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "safecoin-noop-program"
+version = "1.6.16"
+dependencies = [
+ "log 0.4.14",
+ "safecoin-logger",
+ "safecoin-sdk",
+]
+
+[[package]]
 name = "safecoin-poh-bench"
 version = "1.6.16"
 dependencies = [
@@ -4230,13 +4239,13 @@ dependencies = [
  "safecoin-logger",
  "safecoin-measure",
  "safecoin-metrics",
+ "safecoin-noop-program",
  "safecoin-sdk",
  "safecoin-secp256k1-program",
  "safecoin-stake-program",
  "safecoin-vote-program",
  "serde",
  "serde_derive",
- "safecoin-noop-program",
  "solana-rayon-threadlimit",
  "symlink",
  "tar",
@@ -5456,15 +5465,6 @@ dependencies = [
  "solana-version",
  "tokio 1.9.0",
  "url 2.2.2",
-]
-
-[[package]]
-name = "safecoin-noop-program"
-version = "1.6.16"
-dependencies = [
- "log 0.4.14",
- "safecoin-logger",
- "safecoin-sdk",
 ]
 
 [[package]]
