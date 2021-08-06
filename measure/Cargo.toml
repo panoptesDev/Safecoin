@@ -15,6 +15,9 @@ log = "0.4.11"
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 safecoin-metrics = { path = "../metrics", version = "=1.6.16" }
 
+[lib]
+name="solana_measure"
+
 [target."cfg(unix)".dependencies]
 jemallocator = "0.3.2"
 jemalloc-ctl = "0.3.2"
