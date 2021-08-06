@@ -36,7 +36,7 @@ solana-download-utils = { path = "../download-utils", version = "=1.6.16" }
 safecoin-faucet = { path = "../faucet", version = "=1.6.16" }
 solana-ledger = { path = "../ledger", version = "=1.6.16" }
 safecoin-logger = { path = "../logger", version = "=1.6.16" }
-solana-metrics = { path = "../metrics", version = "=1.6.16" }
+safecoin-metrics = { path = "../metrics", version = "=1.6.16" }
 solana-net-utils = { path = "../net-utils", version = "=1.6.16" }
 solana-perf = { path = "../perf", version = "=1.6.16" }
 safecoin-runtime = { path = "../runtime", version = "=1.6.16" }

@@ -19,7 +19,7 @@ serde_derive = "1.0.103"
 solana-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
 solana-cli-config = { path = "../cli-config", version = "=1.6.16" }
 safecoin-logger = { path = "../logger", version = "=1.6.16" }
-solana-metrics = { path = "../metrics", version = "=1.6.16" }
+safecoin-metrics = { path = "../metrics", version = "=1.6.16" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 solana-version = { path = "../version", version = "=1.6.16" }
 spl-memo = { version = "=3.0.1", features = ["no-entrypoint"] }

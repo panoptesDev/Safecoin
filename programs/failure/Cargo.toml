@@ -1,12 +1,12 @@
 [package]
-name = "solana-failure-program"
+name = "safecoin-failure-program"
 version = "1.6.16"
 description = "Safecoin failure program"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/solana-labs/solana"
 license = "Apache-2.0"
 homepage = "https://solana.com/"
-documentation = "https://docs.rs/solana-failure-program"
+documentation = "https://docs.rs/safecoin-failure-program"
 edition = "2018"
 
 [dependencies]

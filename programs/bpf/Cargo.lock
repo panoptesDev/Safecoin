@@ -2829,7 +2829,7 @@ dependencies = [
  "log",
  "mio 0.7.7",
  "solana-banks-interface",
- "solana-metrics",
+ "safecoin-metrics",
  "safecoin-runtime",
  "safecoin-sdk",
  "tarpc",
@@ -2849,7 +2849,7 @@ dependencies = [
  "num-traits",
  "rand_core 0.6.2",
  "sha3",
- "solana-measure",
+ "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
  "solana_rbpf",
@@ -2870,7 +2870,7 @@ dependencies = [
  "solana-bpf-loader-program",
  "solana-cli-output",
  "safecoin-logger 1.6.16",
- "solana-measure",
+ "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
  "solana-transaction-status",
@@ -3273,7 +3273,7 @@ dependencies = [
  "solana-clap-utils",
  "solana-cli-config",
  "safecoin-logger 1.6.16",
- "solana-metrics",
+ "safecoin-metrics",
  "safecoin-sdk",
  "solana-version",
  "spl-memo",
@@ -3363,18 +3363,18 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-measure"
+name = "safecoin-measure"
 version = "1.6.16"
 dependencies = [
  "jemalloc-ctl",
  "jemallocator",
  "log",
- "solana-metrics",
+ "safecoin-metrics",
  "safecoin-sdk",
 ]
 
 [[package]]
-name = "solana-metrics"
+name = "safecoin-metrics"
 version = "1.6.16"
 dependencies = [
  "env_logger",
@@ -3556,8 +3556,8 @@ dependencies = [
  "solana-frozen-abi 1.6.16",
  "solana-frozen-abi-macro 1.6.16",
  "safecoin-logger 1.6.16",
- "solana-measure",
- "solana-metrics",
+ "safecoin-measure",
+ "safecoin-metrics",
  "solana-rayon-threadlimit",
  "safecoin-sdk",
  "safecoin-secp256k1-program",
@@ -3668,7 +3668,7 @@ dependencies = [
  "safecoin-config-program",
  "solana-frozen-abi 1.6.16",
  "solana-frozen-abi-macro 1.6.16",
- "solana-metrics",
+ "safecoin-metrics",
  "safecoin-sdk",
  "safecoin-vote-program",
  "thiserror",
@@ -3725,7 +3725,7 @@ dependencies = [
  "solana-frozen-abi 1.6.16",
  "solana-frozen-abi-macro 1.6.16",
  "safecoin-logger 1.6.16",
- "solana-metrics",
+ "safecoin-metrics",
  "safecoin-sdk",
  "thiserror",
 ]

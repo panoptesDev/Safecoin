@@ -12,7 +12,7 @@ publish = false
 log = "0.4.11"
 safecoin-logger = { path = "../logger", version = "=1.6.16" }
 safecoin-runtime = { path = "../runtime", version = "=1.6.16" }
-solana-measure = { path = "../measure", version = "=1.6.16" }
+safecoin-measure = { path = "../measure", version = "=1.6.16" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 solana-version = { path = "../version", version = "=1.6.16" }
 clap = "2.33.1"

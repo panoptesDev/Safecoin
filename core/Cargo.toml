@@ -60,8 +60,8 @@ safecoin-faucet = { path = "../faucet", version = "=1.6.16" }
 solana-ledger = { path = "../ledger", version = "=1.6.16" }
 safecoin-logger = { path = "../logger", version = "=1.6.16" }
 solana-merkle-tree = { path = "../merkle-tree", version = "=1.6.16" }
-solana-metrics = { path = "../metrics", version = "=1.6.16" }
-solana-measure = { path = "../measure", version = "=1.6.16" }
+safecoin-metrics = { path = "../metrics", version = "=1.6.16" }
+safecoin-measure = { path = "../measure", version = "=1.6.16" }
 solana-net-utils = { path = "../net-utils", version = "=1.6.16" }
 solana-perf = { path = "../perf", version = "=1.6.16" }
 safecoin-program-test = { path = "../program-test", version = "=1.6.16" }

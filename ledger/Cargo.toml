@@ -39,9 +39,9 @@ solana-frozen-abi = { path = "../frozen-abi", version = "=1.6.16" }
 solana-frozen-abi-macro = { path = "../frozen-abi/macro", version = "=1.6.16" }
 solana-transaction-status = { path = "../transaction-status", version = "=1.6.16" }
 safecoin-logger = { path = "../logger", version = "=1.6.16" }
-solana-measure = { path = "../measure", version = "=1.6.16" }
+safecoin-measure = { path = "../measure", version = "=1.6.16" }
 solana-merkle-tree = { path = "../merkle-tree", version = "=1.6.16" }
-solana-metrics = { path = "../metrics", version = "=1.6.16" }
+safecoin-metrics = { path = "../metrics", version = "=1.6.16" }
 solana-perf = { path = "../perf", version = "=1.6.16" }
 solana-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.6.16" }
 safecoin-runtime = { path = "../runtime", version = "=1.6.16" }
