@@ -43,7 +43,7 @@ solana-logger = { path = "../logger", version = "=1.6.16" }
 solana-measure = { path = "../measure", version = "=1.6.16" }
 solana-metrics = { path = "../metrics", version = "=1.6.16" }
 solana-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.6.16" }
-solana-sdk = { path = "../sdk", version = "=1.6.16" }
+safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 solana-stake-program = { path = "../programs/stake", version = "=1.6.16" }
 solana-vote-program = { path = "../programs/vote", version = "=1.6.16" }
 solana-secp256k1-program = { path = "../programs/secp256k1", version = "=1.6.16" }

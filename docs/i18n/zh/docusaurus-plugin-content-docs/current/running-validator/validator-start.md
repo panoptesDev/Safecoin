@@ -165,7 +165,7 @@ safecoin config set --keypair ~/validator-keypair.json
 您应该看到以下输出：
 
 ```text
-Wallet Config Updated: /home/solana/.config/solana/wallet/config.yml
+Wallet Config Updated: /home/solana/.config/safecoin/wallet/config.yml
 * url: http://api.devnet.safecoin.org
 * keypair: /home/solana/validator-keypair.json
 ```

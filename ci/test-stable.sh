@@ -40,7 +40,7 @@ test-stable-perf)
   _ "$cargo" build --manifest-path=keygen/Cargo.toml
   export PATH="$PWD/target/debug":$PATH
 
-  # BPF solana-sdk legacy compile test
+  # BPF safecoin-sdk legacy compile test
   ./cargo-build-bpf --manifest-path sdk/Cargo.toml
 
   # BPF Program unit tests

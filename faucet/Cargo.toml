@@ -20,7 +20,7 @@ solana-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
 solana-cli-config = { path = "../cli-config", version = "=1.6.16" }
 solana-logger = { path = "../logger", version = "=1.6.16" }
 solana-metrics = { path = "../metrics", version = "=1.6.16" }
-solana-sdk = { path = "../sdk", version = "=1.6.16" }
+safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 solana-version = { path = "../version", version = "=1.6.16" }
 spl-memo = { version = "=3.0.1", features = ["no-entrypoint"] }
 thiserror = "1.0"

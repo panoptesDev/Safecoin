@@ -128,4 +128,4 @@ $ make dump_<program name>
 
 ## 示例 {#examples}
 
-[Safecoin 程序库github](https://github.com/solana-labs/solana-program-library/tree/master/examples/c)代码库包含了 C 语言的例子集合。
+[Safecoin 程序库github](https://github.com/solana-labs/safecoin-program-library/tree/master/examples/c)代码库包含了 C 语言的例子集合。

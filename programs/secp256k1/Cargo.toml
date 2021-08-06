@@ -10,7 +10,7 @@ license = "Apache-2.0"
 edition = "2018"
 
 [dependencies]
-solana-sdk = { path = "../../sdk", version = "=1.6.16" }
+safecoin-sdk = { path = "../../sdk", version = "=1.6.16" }
 libsecp256k1 = "0.3.5"
 sha3 = "0.9.1"
 digest = "0.9.0"

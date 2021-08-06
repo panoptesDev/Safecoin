@@ -207,7 +207,7 @@ safecoin config set --keypair ~/validator-keypair.json
 You should see the following output:
 
 ```text
-Config File: /home/solana/.config/solana/cli/config.yml
+Config File: /home/solana/.config/safecoin/cli/config.yml
 RPC URL: http://api.devnet.safecoin.org
 WebSocket URL: ws://api.devnet.safecoin.org/ (computed)
 Keypair Path: /home/solana/validator-keypair.json

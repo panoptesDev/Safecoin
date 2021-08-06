@@ -10,7 +10,7 @@ documentation = "https://docs.rs/solana-failure-program"
 edition = "2018"
 
 [dependencies]
-solana-sdk = { path = "../../sdk", version = "=1.6.16" }
+safecoin-sdk = { path = "../../sdk", version = "=1.6.16" }
 
 [dev-dependencies]
 solana-runtime = { path = "../../runtime", version = "=1.6.16" }

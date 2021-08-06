@@ -15,7 +15,7 @@ solana-logger = { path = "../../logger", version = "=1.6.16" }
 solana-version = { path = "../../version", version = "=1.6.16" }
 solana-measure = { path = "../../measure", version = "=1.6.16" }
 solana-runtime = { path = "..", version = "=1.6.16" }
-solana-sdk = { path = "../../sdk", version = "=1.6.16" }
+safecoin-sdk = { path = "../../sdk", version = "=1.6.16" }
 clap = "2.33.1"
 
 [package.metadata.docs.rs]

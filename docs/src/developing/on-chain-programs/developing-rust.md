@@ -37,20 +37,20 @@ programs should define an `exclude_entrypoint` feature in `Cargo.toml` and use
 to exclude the entrypoint.
 
 - [Define the
-  feature](https://github.com/solana-labs/solana-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token/program/Cargo.toml#L12)
+  feature](https://github.com/solana-labs/safecoin-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token/program/Cargo.toml#L12)
 - [Exclude the
-  entrypoint](https://github.com/solana-labs/solana-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token/program/src/lib.rs#L12)
+  entrypoint](https://github.com/solana-labs/safecoin-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token/program/src/lib.rs#L12)
 
 Then when other programs include this program as a dependency, they should do so
 using the `exclude_entrypoint` feature.
 
 - [Include without
-  entrypoint](https://github.com/solana-labs/solana-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token-swap/program/Cargo.toml#L19)
+  entrypoint](https://github.com/solana-labs/safecoin-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token-swap/program/Cargo.toml#L19)
 
 ## Project Dependencies
 
 At a minimum, Safecoin Rust programs must pull in the
-[solana-program](https://crates.io/crates/solana-program) crate.
+[safecoin-program](https://crates.io/crates/safecoin-program) crate.
 
 Safecoin BPF programs have some [restrictions](#restrictions) that may prevent the
 inclusion of some crates as dependencies or require special handling.
@@ -97,12 +97,12 @@ exercising program functions directly.
 
 To help facilitate testing in an environment that more closely matches a live
 cluster, developers can use the
-[`program-test`](https://crates.io/crates/solana-program-test) crate. The
+[`program-test`](https://crates.io/crates/safecoin-program-test) crate. The
 `program-test` crate starts up a local instance of the runtime and allows tests
 to send multiple transactions while keeping state for the duration of the test.
 
 For more information the [test in sysvar
-example](https://github.com/solana-labs/solana-program-library/blob/master/examples/rust/sysvar/tests/functional.rs)
+example](https://github.com/solana-labs/safecoin-program-library/blob/master/examples/rust/sysvar/tests/functional.rs)
 shows how an instruction containing syavar account is sent and processed by the
 program.
 
@@ -402,5 +402,5 @@ $ cargo build-bpf --dump
 ## Examples
 
 The [Safecoin Program Library
-github](https://github.com/solana-labs/solana-program-library/tree/master/examples/rust)
+github](https://github.com/solana-labs/safecoin-program-library/tree/master/examples/rust)
 repo contains a collection of Rust examples.

@@ -526,7 +526,7 @@ $ spl-token transfer 6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN 1 6VzWGL51jLeb
 ### 充值
 因为每个 `(user, mint)` 对需要在链上有一个单独的帐户，所以建议交易所提前创建批量代币帐户，并分配给各个用户。 这些账户都由交易所账号密钥所拥有。
 
-存款交易的监控应遵循上面描述的 [block polling](#poll-for-blocks) 方法。 每个新区块应该扫描获得铸造 SPL 代币的成功交易 [Transfer](https://github.com/solana-labs/solana-program-library/blob/096d3d4da51a8f63db5160b126ebc56b26346fc8/token/program/src/instruction.rs#L92) 或 [Transfer2](https://github.com/solana-labs/solana-program-library/blob/096d3d4da51a8f63db5160b126ebc56b26346fc8/token/program/src/instruction.rs#L252) 指令来引用用户帐户，然后查询 [代币账户余额](developing/clients/jsonrpc-api.md#gettokenaccountbalance) 更新。
+存款交易的监控应遵循上面描述的 [block polling](#poll-for-blocks) 方法。 每个新区块应该扫描获得铸造 SPL 代币的成功交易 [Transfer](https://github.com/solana-labs/safecoin-program-library/blob/096d3d4da51a8f63db5160b126ebc56b26346fc8/token/program/src/instruction.rs#L92) 或 [Transfer2](https://github.com/solana-labs/safecoin-program-library/blob/096d3d4da51a8f63db5160b126ebc56b26346fc8/token/program/src/instruction.rs#L252) 指令来引用用户帐户，然后查询 [代币账户余额](developing/clients/jsonrpc-api.md#gettokenaccountbalance) 更新。
 
 [Considerations](https://github.com/solana-labs/solana/issues/12318) 正在扩展 `preBalance`和`postBalance` 交易状态元数据字段，来把 SPL代币余额转移包括进去。
 

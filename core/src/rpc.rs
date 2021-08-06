@@ -2675,7 +2675,7 @@ pub mod rpc_full {
         ) -> Result<RpcResponse<RpcBlockProduction>>;
 
         // SPL Token-specific RPC endpoints
-        // See https://github.com/solana-labs/solana-program-library/releases/tag/token-v2.0.0 for
+        // See https://github.com/solana-labs/safecoin-program-library/releases/tag/token-v2.0.0 for
         // program details
 
         #[rpc(meta, name = "getTokenAccountBalance")]

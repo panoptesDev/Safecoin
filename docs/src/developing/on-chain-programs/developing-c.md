@@ -199,4 +199,4 @@ $ make dump_<program name>
 
 ## Examples
 
-The [Safecoin Program Library github](https://github.com/solana-labs/solana-program-library/tree/master/examples/c) repo contains a collection of C examples
+The [Safecoin Program Library github](https://github.com/solana-labs/safecoin-program-library/tree/master/examples/c) repo contains a collection of C examples
