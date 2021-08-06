@@ -28,7 +28,7 @@ transfer lamports from System Program owned accounts and pay transacation fees.
 Add configuration data to the chain and the list of public keys that are permitted to modify it
 
 - Program id: `Config1111111111111111111111111111111111111`
-- Instructions: [config_instruction](https://docs.rs/solana-config-program/VERSION_FOR_DOCS_RS/solana_config_program/config_instruction/index.html)
+- Instructions: [config_instruction](https://docs.rs/safecoin-config-program/VERSION_FOR_DOCS_RS/solana_config_program/config_instruction/index.html)
 
 Unlike the other programs, the Config program does not define any individual
 instructions. It has just one implicit instruction, a "store" instruction. Its

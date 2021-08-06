@@ -18,7 +18,7 @@ Safecoin包含少量内置程序，这些程序是运行验证程序节点所必
 将配置数据添加到链和允许对其进行修改的公钥列表中
 
 - 程序ID：`Config1111111111111111111111111111111111111111`
-- 说明：[config_instruction](https://docs.rs/solana-config-program/VERSION_FOR_DOCS_RS/solana_config_program/config_instruction/index.html)
+- 说明：[config_instruction](https://docs.rs/safecoin-config-program/VERSION_FOR_DOCS_RS/solana_config_program/config_instruction/index.html)
 
 与其他程序不同，Config程序未定义任何单独的指令。 它只有一条隐式指令，即“存储”指令。 它的指令数据是一组密钥，用于控制对帐户的访问以及存储在其中的数据。
 

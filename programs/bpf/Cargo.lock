@@ -2784,7 +2784,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-config-program",
+ "safecoin-config-program",
  "safecoin-sdk",
  "safecoin-stake-program",
  "safecoin-vote-program",
@@ -3226,7 +3226,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-config-program"
+name = "safecoin-config-program"
 version = "1.6.16"
 dependencies = [
  "bincode",
@@ -3552,7 +3552,7 @@ dependencies = [
  "rustc_version",
  "serde",
  "serde_derive",
- "solana-config-program",
+ "safecoin-config-program",
  "solana-frozen-abi 1.6.16",
  "solana-frozen-abi-macro 1.6.16",
  "safecoin-logger 1.6.16",
@@ -3665,7 +3665,7 @@ dependencies = [
  "rustc_version",
  "serde",
  "serde_derive",
- "solana-config-program",
+ "safecoin-config-program",
  "solana-frozen-abi 1.6.16",
  "solana-frozen-abi-macro 1.6.16",
  "solana-metrics",
