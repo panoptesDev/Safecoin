@@ -3560,7 +3560,7 @@ dependencies = [
  "solana-metrics",
  "solana-rayon-threadlimit",
  "safecoin-sdk",
- "solana-secp256k1-program",
+ "safecoin-secp256k1-program",
  "safecoin-stake-program",
  "safecoin-vote-program",
  "symlink",
@@ -3642,7 +3642,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-secp256k1-program"
+name = "safecoin-secp256k1-program"
 version = "1.6.16"
 dependencies = [
  "bincode",
