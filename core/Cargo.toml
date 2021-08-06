@@ -67,8 +67,8 @@ solana-perf = { path = "../perf", version = "=1.6.16" }
 safecoin-program-test = { path = "../program-test", version = "=1.6.16" }
 safecoin-runtime = { path = "../runtime", version = "=1.6.16" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
-solana-frozen-abi = { path = "../frozen-abi", version = "=1.6.16" }
-solana-frozen-abi-macro = { path = "../frozen-abi/macro", version = "=1.6.16" }
+safecoin-frozen-abi = { path = "../frozen-abi", version = "=1.6.16" }
+safecoin-frozen-abi-macro = { path = "../frozen-abi/macro", version = "=1.6.16" }
 safecoin-stake-program = { path = "../programs/stake", version = "=1.6.16" }
 solana-storage-bigtable = { path = "../storage-bigtable", version = "=1.6.16" }
 solana-streamer = { path = "../streamer", version = "=1.6.16" }

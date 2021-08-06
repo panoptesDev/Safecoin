@@ -1,11 +1,11 @@
 [package]
-name = "solana-frozen-abi-macro"
+name = "safecoin-frozen-abi-macro"
 version = "1.6.16"
 description = "Safecoin Frozen ABI Macro"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/solana-labs/solana"
 homepage = "https://solana.com/"
-documentation = "https://docs.rs/solana-frozen-abi-macro"
+documentation = "https://docs.rs/safecoin-frozen-abi-macro"
 license = "Apache-2.0"
 edition = "2018"
 

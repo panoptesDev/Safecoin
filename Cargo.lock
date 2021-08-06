@@ -3675,9 +3675,9 @@ dependencies = [
  "rand 0.7.3",
  "rayon",
  "safecoin-logger",
+ "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
- "safecoin-measure",
  "solana-version",
 ]
 
@@ -3691,12 +3691,12 @@ dependencies = [
  "rand 0.7.3",
  "rayon",
  "safecoin-logger",
+ "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
  "solana-clap-utils",
  "solana-core",
  "solana-ledger",
- "safecoin-measure",
  "solana-perf",
  "solana-streamer",
  "solana-version",
@@ -3735,6 +3735,7 @@ dependencies = [
  "safecoin-faucet",
  "safecoin-genesis",
  "safecoin-logger",
+ "safecoin-metrics",
  "safecoin-runtime",
  "safecoin-sdk",
  "serde_json",
@@ -3744,7 +3745,6 @@ dependencies = [
  "solana-core",
  "solana-exchange-program",
  "solana-local-cluster",
- "safecoin-metrics",
  "solana-net-utils",
  "solana-version",
 ]
@@ -3772,6 +3772,8 @@ dependencies = [
  "safecoin-faucet",
  "safecoin-genesis",
  "safecoin-logger",
+ "safecoin-measure",
+ "safecoin-metrics",
  "safecoin-runtime",
  "safecoin-sdk",
  "serde_json",
@@ -3781,8 +3783,6 @@ dependencies = [
  "solana-client",
  "solana-core",
  "solana-local-cluster",
- "safecoin-measure",
- "safecoin-metrics",
  "solana-net-utils",
  "solana-version",
 ]
@@ -3838,16 +3838,45 @@ dependencies = [
  "clap",
  "log 0.4.14",
  "safecoin-logger",
+ "safecoin-metrics",
  "safecoin-sdk",
  "serde",
  "serde_derive",
  "solana-clap-utils",
  "solana-cli-config",
- "safecoin-metrics",
  "solana-version",
  "spl-memo",
  "thiserror",
  "tokio 1.9.0",
+]
+
+[[package]]
+name = "safecoin-frozen-abi"
+version = "1.6.16"
+dependencies = [
+ "bs58",
+ "bv",
+ "generic-array 0.14.4",
+ "log 0.4.14",
+ "memmap2",
+ "rustc_version 0.2.3",
+ "safecoin-frozen-abi-macro",
+ "safecoin-logger",
+ "serde",
+ "serde_derive",
+ "sha2 0.9.5",
+ "thiserror",
+]
+
+[[package]]
+name = "safecoin-frozen-abi-macro"
+version = "1.6.16"
+dependencies = [
+ "lazy_static",
+ "proc-macro2 1.0.28",
+ "quote 1.0.9",
+ "rustc_version 0.2.3",
+ "syn 1.0.74",
 ]
 
 [[package]]
@@ -3953,6 +3982,7 @@ dependencies = [
  "log 0.4.14",
  "regex",
  "safecoin-logger",
+ "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
  "safecoin-stake-program",
@@ -3964,7 +3994,6 @@ dependencies = [
  "solana-clap-utils",
  "solana-cli-output",
  "solana-ledger",
- "safecoin-measure",
  "solana-storage-bigtable",
  "solana-transaction-status",
  "solana-version",
@@ -3995,16 +4024,41 @@ dependencies = [
 ]
 
 [[package]]
+name = "safecoin-measure"
+version = "1.6.16"
+dependencies = [
+ "jemalloc-ctl",
+ "jemallocator",
+ "log 0.4.14",
+ "safecoin-metrics",
+ "safecoin-sdk",
+]
+
+[[package]]
 name = "safecoin-merkle-root-bench"
 version = "1.6.16"
 dependencies = [
  "clap",
  "log 0.4.14",
  "safecoin-logger",
+ "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
- "safecoin-measure",
  "solana-version",
+]
+
+[[package]]
+name = "safecoin-metrics"
+version = "1.6.16"
+dependencies = [
+ "env_logger",
+ "gethostname",
+ "lazy_static",
+ "log 0.4.14",
+ "rand 0.7.3",
+ "reqwest",
+ "safecoin-sdk",
+ "serial_test",
 ]
 
 [[package]]
@@ -4028,10 +4082,10 @@ dependencies = [
  "rand 0.7.3",
  "rayon",
  "safecoin-logger",
+ "safecoin-measure",
  "safecoin-sdk",
  "solana-clap-utils",
  "solana-ledger",
- "safecoin-measure",
  "solana-perf",
  "solana-version",
 ]
@@ -4057,6 +4111,8 @@ dependencies = [
  "rand 0.7.3",
  "rustc_version 0.2.3",
  "rustversion",
+ "safecoin-frozen-abi",
+ "safecoin-frozen-abi-macro",
  "safecoin-logger",
  "safecoin-sdk-macro",
  "serde",
@@ -4065,8 +4121,6 @@ dependencies = [
  "serde_json",
  "sha2 0.9.5",
  "sha3",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
  "thiserror",
 ]
 
@@ -4105,6 +4159,7 @@ dependencies = [
  "log 0.4.14",
  "reqwest",
  "safecoin-logger",
+ "safecoin-metrics",
  "safecoin-sdk",
  "safecoin-stake-program",
  "serde",
@@ -4112,7 +4167,6 @@ dependencies = [
  "serde_yaml",
  "solana-client",
  "solana-core",
- "safecoin-metrics",
  "solana-net-utils",
  "solana-notifier",
  "tar",
@@ -4149,17 +4203,17 @@ dependencies = [
  "regex",
  "rustc_version 0.2.3",
  "safecoin-config-program",
+ "safecoin-frozen-abi",
+ "safecoin-frozen-abi-macro",
  "safecoin-logger",
+ "safecoin-measure",
+ "safecoin-metrics",
  "safecoin-sdk",
  "safecoin-secp256k1-program",
  "safecoin-stake-program",
  "safecoin-vote-program",
  "serde",
  "serde_derive",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
- "safecoin-measure",
- "safecoin-metrics",
  "solana-noop-program",
  "solana-rayon-threadlimit",
  "symlink",
@@ -4201,6 +4255,8 @@ dependencies = [
  "rand_core 0.6.3",
  "rustc_version 0.2.3",
  "rustversion",
+ "safecoin-frozen-abi",
+ "safecoin-frozen-abi-macro",
  "safecoin-logger",
  "safecoin-program",
  "safecoin-sdk-macro",
@@ -4211,8 +4267,6 @@ dependencies = [
  "sha2 0.9.5",
  "sha3",
  "solana-crate-features",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
  "thiserror",
  "tiny-bip39 0.7.3",
  "uriparse",
@@ -4264,6 +4318,7 @@ dependencies = [
  "console 0.11.3",
  "log 0.4.14",
  "safecoin-logger",
+ "safecoin-metrics",
  "safecoin-sdk",
  "safecoin-stake-program",
  "serde",
@@ -4274,7 +4329,6 @@ dependencies = [
  "solana-client",
  "solana-core",
  "solana-local-cluster",
- "safecoin-metrics",
  "solana-transaction-status",
  "solana-version",
  "tempfile",
@@ -4288,6 +4342,7 @@ dependencies = [
  "log 0.4.14",
  "reqwest",
  "safecoin-logger",
+ "safecoin-metrics",
  "safecoin-sdk",
  "safecoin-stake-program",
  "semver 0.9.0",
@@ -4298,7 +4353,6 @@ dependencies = [
  "solana-cli-config",
  "solana-cli-output",
  "solana-client",
- "safecoin-metrics",
  "solana-notifier",
  "solana-transaction-status",
  "thiserror",
@@ -4314,14 +4368,14 @@ dependencies = [
  "num-traits",
  "rustc_version 0.2.3",
  "safecoin-config-program",
+ "safecoin-frozen-abi",
+ "safecoin-frozen-abi-macro",
  "safecoin-logger",
+ "safecoin-metrics",
  "safecoin-sdk",
  "safecoin-vote-program",
  "serde",
  "serde_derive",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
- "safecoin-metrics",
  "thiserror",
 ]
 
@@ -4332,9 +4386,9 @@ dependencies = [
  "clap",
  "log 0.4.14",
  "safecoin-logger",
+ "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
- "safecoin-measure",
  "solana-version",
 ]
 
@@ -4392,8 +4446,8 @@ dependencies = [
 name = "safecoin-upload-perf"
 version = "1.6.16"
 dependencies = [
- "serde_json",
  "safecoin-metrics",
+ "serde_json",
 ]
 
 [[package]]
@@ -4419,6 +4473,7 @@ dependencies = [
  "rand 0.7.3",
  "safecoin-faucet",
  "safecoin-logger",
+ "safecoin-metrics",
  "safecoin-runtime",
  "safecoin-sdk",
  "safecoin-vote-program",
@@ -4430,7 +4485,6 @@ dependencies = [
  "solana-core",
  "solana-download-utils",
  "solana-ledger",
- "safecoin-metrics",
  "solana-net-utils",
  "solana-perf",
  "solana-version",
@@ -4447,13 +4501,13 @@ dependencies = [
  "num-derive",
  "num-traits",
  "rustc_version 0.2.3",
+ "safecoin-frozen-abi",
+ "safecoin-frozen-abi-macro",
  "safecoin-logger",
+ "safecoin-metrics",
  "safecoin-sdk",
  "serde",
  "serde_derive",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
- "safecoin-metrics",
  "thiserror",
 ]
 
@@ -4465,12 +4519,12 @@ dependencies = [
  "humantime",
  "log 0.4.14",
  "safecoin-logger",
+ "safecoin-metrics",
  "safecoin-sdk",
  "solana-clap-utils",
  "solana-cli-config",
  "solana-cli-output",
  "solana-client",
- "safecoin-metrics",
  "solana-notifier",
  "solana-version",
 ]
@@ -4877,6 +4931,7 @@ dependencies = [
  "rayon",
  "safecoin-faucet",
  "safecoin-logger",
+ "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
  "solana-account-decoder",
@@ -4884,7 +4939,6 @@ dependencies = [
  "solana-client",
  "solana-core",
  "solana-local-cluster",
- "safecoin-measure",
  "solana-net-utils",
  "solana-transaction-status",
  "solana-version",
@@ -4910,10 +4964,10 @@ dependencies = [
  "futures 0.3.16",
  "log 0.4.14",
  "mio 0.7.13",
+ "safecoin-metrics",
  "safecoin-runtime",
  "safecoin-sdk",
  "solana-banks-interface",
- "safecoin-metrics",
  "tarpc",
  "tokio 1.9.0",
  "tokio-serde",
@@ -4932,10 +4986,10 @@ dependencies = [
  "rand 0.7.3",
  "rand_core 0.6.3",
  "rustversion",
+ "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
  "sha3",
- "safecoin-measure",
  "solana_rbpf",
  "thiserror",
 ]
@@ -5152,7 +5206,11 @@ dependencies = [
  "retain_mut",
  "rustc_version 0.2.3",
  "safecoin-faucet",
+ "safecoin-frozen-abi",
+ "safecoin-frozen-abi-macro",
  "safecoin-logger",
+ "safecoin-measure",
+ "safecoin-metrics",
  "safecoin-program-test",
  "safecoin-runtime",
  "safecoin-sdk",
@@ -5168,12 +5226,8 @@ dependencies = [
  "solana-banks-server",
  "solana-clap-utils",
  "solana-client",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
  "solana-ledger",
- "safecoin-measure",
  "solana-merkle-tree",
- "safecoin-metrics",
  "solana-net-utils",
  "solana-perf",
  "solana-rayon-threadlimit",
@@ -5237,29 +5291,11 @@ dependencies = [
  "num-derive",
  "num-traits",
  "safecoin-logger",
+ "safecoin-metrics",
  "safecoin-runtime",
  "safecoin-sdk",
  "serde",
  "serde_derive",
- "safecoin-metrics",
- "thiserror",
-]
-
-[[package]]
-name = "solana-frozen-abi"
-version = "1.6.16"
-dependencies = [
- "bs58",
- "bv",
- "generic-array 0.14.4",
- "log 0.4.14",
- "memmap2",
- "rustc_version 0.2.3",
- "safecoin-logger",
- "serde",
- "serde_derive",
- "sha2 0.9.5",
- "solana-frozen-abi-macro 1.6.16",
  "thiserror",
 ]
 
@@ -5278,20 +5314,9 @@ dependencies = [
  "serde",
  "serde_derive",
  "sha2 0.9.5",
- "solana-frozen-abi-macro 1.7.9",
+ "solana-frozen-abi-macro",
  "solana-logger",
  "thiserror",
-]
-
-[[package]]
-name = "solana-frozen-abi-macro"
-version = "1.6.16"
-dependencies = [
- "lazy_static",
- "proc-macro2 1.0.28",
- "quote 1.0.9",
- "rustc_version 0.2.3",
- "syn 1.0.74",
 ]
 
 [[package]]
@@ -5335,7 +5360,11 @@ dependencies = [
  "reed-solomon-erasure",
  "rocksdb",
  "rustc_version 0.2.3",
+ "safecoin-frozen-abi",
+ "safecoin-frozen-abi-macro",
  "safecoin-logger",
+ "safecoin-measure",
+ "safecoin-metrics",
  "safecoin-runtime",
  "safecoin-sdk",
  "safecoin-stake-program",
@@ -5346,11 +5375,7 @@ dependencies = [
  "solana-account-decoder",
  "solana-bpf-loader-program",
  "solana-budget-program",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
- "safecoin-measure",
  "solana-merkle-tree",
- "safecoin-metrics",
  "solana-perf",
  "solana-rayon-threadlimit",
  "solana-storage-bigtable",
@@ -5405,17 +5430,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-measure"
-version = "1.6.16"
-dependencies = [
- "jemalloc-ctl",
- "jemallocator",
- "log 0.4.14",
- "safecoin-sdk",
- "safecoin-metrics",
-]
-
-[[package]]
 name = "solana-merkle-tree"
 version = "1.6.16"
 dependencies = [
@@ -5423,20 +5437,6 @@ dependencies = [
  "hex",
  "matches",
  "safecoin-program",
-]
-
-[[package]]
-name = "safecoin-metrics"
-version = "1.6.16"
-dependencies = [
- "env_logger",
- "gethostname",
- "lazy_static",
- "log 0.4.14",
- "rand 0.7.3",
- "reqwest",
- "safecoin-sdk",
- "serial_test",
 ]
 
 [[package]]
@@ -5502,11 +5502,11 @@ dependencies = [
  "rand 0.7.3",
  "rayon",
  "safecoin-logger",
+ "safecoin-measure",
+ "safecoin-metrics",
  "safecoin-sdk",
  "serde",
  "solana-budget-program",
- "safecoin-measure",
- "safecoin-metrics",
  "solana-rayon-threadlimit",
 ]
 
@@ -5538,8 +5538,8 @@ dependencies = [
  "serde_derive",
  "sha2 0.9.5",
  "sha3",
- "solana-frozen-abi 1.7.9",
- "solana-frozen-abi-macro 1.7.9",
+ "solana-frozen-abi",
+ "solana-frozen-abi-macro",
  "solana-logger",
  "solana-sdk-macro",
  "thiserror",
@@ -5642,9 +5642,9 @@ dependencies = [
  "log 0.4.14",
  "nix 0.19.1",
  "safecoin-logger",
- "safecoin-sdk",
  "safecoin-measure",
  "safecoin-metrics",
+ "safecoin-sdk",
  "solana-perf",
  "thiserror",
 ]
@@ -5678,12 +5678,12 @@ version = "1.6.16"
 dependencies = [
  "log 0.4.14",
  "rustc_version 0.2.3",
+ "safecoin-frozen-abi",
+ "safecoin-frozen-abi-macro",
  "safecoin-logger",
  "safecoin-sdk",
  "serde",
  "serde_derive",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
 ]
 
 [[package]]

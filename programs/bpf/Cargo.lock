@@ -3282,7 +3282,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-frozen-abi"
+name = "safecoin-frozen-abi"
 version = "1.6.16"
 dependencies = [
  "bs58",
@@ -3294,13 +3294,13 @@ dependencies = [
  "serde",
  "serde_derive",
  "sha2 0.9.2",
- "solana-frozen-abi-macro 1.6.16",
+ "safecoin-frozen-abi-macro 1.6.16",
  "safecoin-logger 1.6.16",
  "thiserror",
 ]
 
 [[package]]
-name = "solana-frozen-abi"
+name = "safecoin-frozen-abi"
 version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "95c481f0f29753f5b2d382628abae98a1dd87b572ddc7cbe5fe55ca62b6f7f07"
@@ -3314,13 +3314,13 @@ dependencies = [
  "serde",
  "serde_derive",
  "sha2 0.9.2",
- "solana-frozen-abi-macro 1.7.1",
+ "safecoin-frozen-abi-macro 1.7.1",
  "safecoin-logger 1.7.1",
  "thiserror",
 ]
 
 [[package]]
-name = "solana-frozen-abi-macro"
+name = "safecoin-frozen-abi-macro"
 version = "1.6.16"
 dependencies = [
  "lazy_static",
@@ -3331,7 +3331,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-frozen-abi-macro"
+name = "safecoin-frozen-abi-macro"
 version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f2068bcc47160ac9081893439b10a05e4bbe85cc0f6bccb6f1b0815423fbdd0c"
@@ -3429,8 +3429,8 @@ dependencies = [
  "serde_derive",
  "sha2 0.9.2",
  "sha3",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
+ "safecoin-frozen-abi 1.6.16",
+ "safecoin-frozen-abi-macro 1.6.16",
  "safecoin-logger 1.6.16",
  "safecoin-sdk-macro 1.6.16",
  "thiserror",
@@ -3463,8 +3463,8 @@ dependencies = [
  "serde_derive",
  "sha2 0.9.2",
  "sha3",
- "solana-frozen-abi 1.7.1",
- "solana-frozen-abi-macro 1.7.1",
+ "safecoin-frozen-abi 1.7.1",
+ "safecoin-frozen-abi-macro 1.7.1",
  "safecoin-logger 1.7.1",
  "safecoin-sdk-macro 1.7.1",
  "thiserror",
@@ -3553,8 +3553,8 @@ dependencies = [
  "serde",
  "serde_derive",
  "safecoin-config-program",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
+ "safecoin-frozen-abi 1.6.16",
+ "safecoin-frozen-abi-macro 1.6.16",
  "safecoin-logger 1.6.16",
  "safecoin-measure",
  "safecoin-metrics",
@@ -3608,8 +3608,8 @@ dependencies = [
  "sha2 0.9.2",
  "sha3",
  "solana-crate-features",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
+ "safecoin-frozen-abi 1.6.16",
+ "safecoin-frozen-abi-macro 1.6.16",
  "safecoin-logger 1.6.16",
  "safecoin-program 1.6.16",
  "safecoin-sdk-macro 1.6.16",
@@ -3666,8 +3666,8 @@ dependencies = [
  "serde",
  "serde_derive",
  "safecoin-config-program",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
+ "safecoin-frozen-abi 1.6.16",
+ "safecoin-frozen-abi-macro 1.6.16",
  "safecoin-metrics",
  "safecoin-sdk",
  "safecoin-vote-program",
@@ -3705,8 +3705,8 @@ dependencies = [
  "rustc_version",
  "serde",
  "serde_derive",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
+ "safecoin-frozen-abi 1.6.16",
+ "safecoin-frozen-abi-macro 1.6.16",
  "safecoin-logger 1.6.16",
  "safecoin-sdk",
 ]
@@ -3722,8 +3722,8 @@ dependencies = [
  "rustc_version",
  "serde",
  "serde_derive",
- "solana-frozen-abi 1.6.16",
- "solana-frozen-abi-macro 1.6.16",
+ "safecoin-frozen-abi 1.6.16",
+ "safecoin-frozen-abi-macro 1.6.16",
  "safecoin-logger 1.6.16",
  "safecoin-metrics",
  "safecoin-sdk",
