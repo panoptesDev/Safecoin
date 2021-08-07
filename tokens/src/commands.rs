@@ -35,7 +35,7 @@ use solana_stake_program::{
     stake_state::{Authorized, Lockup, StakeAuthorize},
 };
 use safecoin_transaction_status::TransactionStatus;
-use spl_associated_token_account_v1_0::get_associated_token_address;
+use safe_associated_token_account_v1_0::get_associated_token_address;
 use safe_token_v2_0::solana_program::program_error::ProgramError;
 use std::{
     cmp::{self},

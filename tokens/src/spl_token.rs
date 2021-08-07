@@ -10,7 +10,7 @@ use safecoin_account_decoder::parse_token::{
 use safecoin_client::rpc_client::RpcClient;
 use solana_sdk::{instruction::Instruction, native_token::lamports_to_sol};
 use safecoin_transaction_status::parse_token::safe_token_v2_0_instruction;
-use spl_associated_token_account_v1_0::{
+use safe_associated_token_account_v1_0::{
     create_associated_token_account, get_associated_token_address,
 };
 use safe_token_v2_0::{

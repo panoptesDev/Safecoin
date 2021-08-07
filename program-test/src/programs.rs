@@ -13,7 +13,7 @@ mod spl_memo_1_0 {
 mod spl_memo_3_0 {
     solana_sdk::declare_id!("MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr");
 }
-mod spl_associated_token_account {
+mod safe_associated_token_account {
     solana_sdk::declare_id!("PUFQTv9BK3ax6bKPFnyjBTbVa3782mcfvb22TZovvrm");
 }
 
@@ -28,7 +28,7 @@ static SPL_PROGRAMS: &[(Pubkey, &[u8])] = &[
         include_bytes!("programs/spl_memo-3.0.0.so"),
     ),
     (
-        spl_associated_token_account::ID,
+        safe_associated_token_account::ID,
         include_bytes!("programs/spl_associated-token-account-1.0.1.so"),
     ),
 ];

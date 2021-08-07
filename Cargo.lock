@@ -4986,7 +4986,7 @@ dependencies = [
  "safecoin-transaction-status",
  "safecoin-version",
  "serde",
- "spl-associated-token-account",
+ "safe-associated-token-account",
  "safe-token",
  "tempfile",
  "thiserror",
@@ -5009,7 +5009,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "spl-associated-token-account",
+ "safe-associated-token-account",
  "spl-memo",
  "safe-token",
  "thiserror",
@@ -5727,7 +5727,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6e63cff320ae2c57904679ba7cb63280a3dc4613885beafb148ee7bf9aa9042d"
 
 [[package]]
-name = "spl-associated-token-account"
+name = "safe-associated-token-account"
 version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4adc47eebe5d2b662cbaaba1843719c28a67e5ec5d0460bc3ca60900a51f74e2"

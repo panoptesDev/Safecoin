@@ -4,10 +4,10 @@ use crate::parse_instruction::{
 use serde_json::json;
 use solana_sdk::{instruction::CompiledInstruction, pubkey::Pubkey};
 
-// A helper function to convert spl_associated_token_account_v1_0::id() as spl_sdk::pubkey::Pubkey
+// A helper function to convert safe_associated_token_account_v1_0::id() as spl_sdk::pubkey::Pubkey
 // to solana_sdk::pubkey::Pubkey
 pub fn spl_associated_token_id_v1_0() -> Pubkey {
-    Pubkey::new_from_array(spl_associated_token_account_v1_0::id().to_bytes())
+    Pubkey::new_from_array(safe_associated_token_account_v1_0::id().to_bytes())
 }
 
 pub fn parse_associated_token(
@@ -48,7 +48,7 @@ fn check_num_associated_token_accounts(
 #[cfg(test)]
 mod test {
     use super::*;
-    use spl_associated_token_account_v1_0::{
+    use safe_associated_token_account_v1_0::{
         create_associated_token_account,
         solana_program::{
             instruction::CompiledInstruction as SplAssociatedTokenCompiledInstruction,
