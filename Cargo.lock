@@ -3786,6 +3786,7 @@ dependencies = [
  "safecoin-clap-utils",
  "safecoin-client",
  "safecoin-core",
+ "safecoin-exchange-program",
  "safecoin-faucet",
  "safecoin-genesis",
  "safecoin-logger",
@@ -3796,7 +3797,6 @@ dependencies = [
  "safecoin-version",
  "serde_json",
  "serde_yaml",
- "solana-exchange-program",
  "solana-local-cluster",
 ]
 
@@ -3872,6 +3872,18 @@ dependencies = [
  "serde",
  "serde_derive",
  "thiserror",
+]
+
+[[package]]
+name = "safecoin-cargo-build-bpf"
+version = "1.6.16"
+dependencies = [
+ "bzip2",
+ "cargo_metadata",
+ "clap",
+ "safecoin-download-utils",
+ "safecoin-sdk",
+ "tar",
 ]
 
 [[package]]
@@ -4100,6 +4112,37 @@ dependencies = [
 ]
 
 [[package]]
+name = "safecoin-download-utils"
+version = "1.6.16"
+dependencies = [
+ "bzip2",
+ "console 0.11.3",
+ "indicatif",
+ "log 0.4.14",
+ "reqwest",
+ "safecoin-runtime",
+ "safecoin-sdk",
+ "tar",
+]
+
+[[package]]
+name = "safecoin-exchange-program"
+version = "1.6.16"
+dependencies = [
+ "bincode",
+ "log 0.4.14",
+ "num-derive",
+ "num-traits",
+ "safecoin-logger",
+ "safecoin-metrics",
+ "safecoin-runtime",
+ "safecoin-sdk",
+ "serde",
+ "serde_derive",
+ "thiserror",
+]
+
+[[package]]
 name = "safecoin-failure-program"
 version = "1.6.16"
 dependencies = [
@@ -4167,18 +4210,18 @@ dependencies = [
  "safecoin-budget-program",
  "safecoin-clap-utils",
  "safecoin-cli-config",
+ "safecoin-exchange-program",
  "safecoin-ledger",
  "safecoin-logger",
  "safecoin-runtime",
  "safecoin-sdk",
  "safecoin-stake-program",
  "safecoin-version",
+ "safecoin-vest-program",
  "safecoin-vote-program",
  "serde",
  "serde_json",
  "serde_yaml",
- "solana-exchange-program",
- "solana-vest-program",
  "tempfile",
 ]
 
@@ -4447,6 +4490,27 @@ dependencies = [
 ]
 
 [[package]]
+name = "safecoin-notifier"
+version = "1.6.16"
+dependencies = [
+ "log 0.4.14",
+ "reqwest",
+ "serde_json",
+]
+
+[[package]]
+name = "safecoin-ownable"
+version = "1.6.16"
+dependencies = [
+ "bincode",
+ "num-derive",
+ "num-traits",
+ "safecoin-runtime",
+ "safecoin-sdk",
+ "thiserror",
+]
+
+[[package]]
 name = "safecoin-perf"
 version = "1.6.16"
 dependencies = [
@@ -4558,12 +4622,12 @@ dependencies = [
  "safecoin-logger",
  "safecoin-metrics",
  "safecoin-net-utils",
+ "safecoin-notifier",
  "safecoin-sdk",
  "safecoin-stake-program",
  "serde",
  "serde_json",
  "serde_yaml",
- "solana-notifier",
  "tar",
 ]
 
@@ -4643,6 +4707,14 @@ dependencies = [
  "tempfile",
  "thiserror",
  "zstd",
+]
+
+[[package]]
+name = "safecoin-scripts"
+version = "1.6.16"
+dependencies = [
+ "csv",
+ "serde",
 ]
 
 [[package]]
@@ -4769,6 +4841,7 @@ dependencies = [
  "safecoin-client",
  "safecoin-logger",
  "safecoin-metrics",
+ "safecoin-notifier",
  "safecoin-sdk",
  "safecoin-stake-program",
  "safecoin-transaction-status",
@@ -4776,7 +4849,6 @@ dependencies = [
  "serde",
  "serde_json",
  "serde_yaml",
- "solana-notifier",
  "thiserror",
 ]
 
@@ -4976,6 +5048,7 @@ dependencies = [
  "safecoin-cli-config",
  "safecoin-client",
  "safecoin-core",
+ "safecoin-download-utils",
  "safecoin-faucet",
  "safecoin-ledger",
  "safecoin-logger",
@@ -4988,7 +5061,6 @@ dependencies = [
  "safecoin-vote-program",
  "serde",
  "signal-hook",
- "solana-download-utils",
  "symlink",
 ]
 
@@ -5004,6 +5076,22 @@ dependencies = [
  "safecoin-sdk",
  "serde",
  "serde_derive",
+]
+
+[[package]]
+name = "safecoin-vest-program"
+version = "1.6.16"
+dependencies = [
+ "bincode",
+ "chrono",
+ "num-derive",
+ "num-traits",
+ "safecoin-config-program",
+ "safecoin-runtime",
+ "safecoin-sdk",
+ "serde",
+ "serde_derive",
+ "thiserror",
 ]
 
 [[package]]
@@ -5039,9 +5127,9 @@ dependencies = [
  "safecoin-client",
  "safecoin-logger",
  "safecoin-metrics",
+ "safecoin-notifier",
  "safecoin-sdk",
  "safecoin-version",
- "solana-notifier",
 ]
 
 [[package]]
@@ -5439,18 +5527,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-cargo-build-bpf"
-version = "1.6.16"
-dependencies = [
- "bzip2",
- "cargo_metadata",
- "clap",
- "safecoin-sdk",
- "solana-download-utils",
- "tar",
-]
-
-[[package]]
 name = "solana-cargo-test-bpf"
 version = "1.6.16"
 dependencies = [
@@ -5506,37 +5582,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-download-utils"
-version = "1.6.16"
-dependencies = [
- "bzip2",
- "console 0.11.3",
- "indicatif",
- "log 0.4.14",
- "reqwest",
- "safecoin-runtime",
- "safecoin-sdk",
- "tar",
-]
-
-[[package]]
-name = "solana-exchange-program"
-version = "1.6.16"
-dependencies = [
- "bincode",
- "log 0.4.14",
- "num-derive",
- "num-traits",
- "safecoin-logger",
- "safecoin-metrics",
- "safecoin-runtime",
- "safecoin-sdk",
- "serde",
- "serde_derive",
- "thiserror",
-]
-
-[[package]]
 name = "solana-frozen-abi"
 version = "1.7.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5583,6 +5628,8 @@ dependencies = [
  "safecoin-client",
  "safecoin-config-program",
  "safecoin-core",
+ "safecoin-download-utils",
+ "safecoin-exchange-program",
  "safecoin-faucet",
  "safecoin-ledger",
  "safecoin-logger",
@@ -5590,11 +5637,9 @@ dependencies = [
  "safecoin-runtime",
  "safecoin-sdk",
  "safecoin-stake-program",
+ "safecoin-vest-program",
  "safecoin-vote-program",
  "serial_test",
- "solana-download-utils",
- "solana-exchange-program",
- "solana-vest-program",
  "tempfile",
 ]
 
@@ -5607,27 +5652,6 @@ dependencies = [
  "env_logger",
  "lazy_static",
  "log 0.4.14",
-]
-
-[[package]]
-name = "solana-notifier"
-version = "1.6.16"
-dependencies = [
- "log 0.4.14",
- "reqwest",
- "serde_json",
-]
-
-[[package]]
-name = "solana-ownable"
-version = "1.6.16"
-dependencies = [
- "bincode",
- "num-derive",
- "num-traits",
- "safecoin-runtime",
- "safecoin-sdk",
- "thiserror",
 ]
 
 [[package]]
@@ -5666,14 +5690,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-scripts"
-version = "1.6.16"
-dependencies = [
- "csv",
- "serde",
-]
-
-[[package]]
 name = "solana-sdk-macro"
 version = "1.7.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5684,22 +5700,6 @@ dependencies = [
  "quote 1.0.9",
  "rustversion",
  "syn 1.0.74",
-]
-
-[[package]]
-name = "solana-vest-program"
-version = "1.6.16"
-dependencies = [
- "bincode",
- "chrono",
- "num-derive",
- "num-traits",
- "safecoin-config-program",
- "safecoin-runtime",
- "safecoin-sdk",
- "serde",
- "serde_derive",
- "thiserror",
 ]
 
 [[package]]

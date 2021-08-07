@@ -1,12 +1,12 @@
 [package]
-name = "solana-exchange-program"
+name = "safecoin-exchange-program"
 version = "1.6.16"
 description = "Safecoin Exchange program"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/solana-labs/solana"
 license = "Apache-2.0"
 homepage = "https://solana.com/"
-documentation = "https://docs.rs/solana-exchange-program"
+documentation = "https://docs.rs/safecoin-exchange-program"
 edition = "2018"
 
 [dependencies]

@@ -23,7 +23,7 @@ safecoin-cli-config = { path = "../cli-config", version = "=1.6.16" }
 safecoin-cli-output = { path = "../cli-output", version = "=1.6.16" }
 safecoin-logger = { path = "../logger", version = "=1.6.16" }
 safecoin-metrics = { path = "../metrics", version = "=1.6.16" }
-solana-notifier = { path = "../notifier", version = "=1.6.16" }
+safecoin-notifier = { path = "../notifier", version = "=1.6.16" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 safecoin-stake-program = { path = "../programs/stake", version = "=1.6.16" }
 safecoin-transaction-status = { path = "../transaction-status", version = "=1.6.16" }

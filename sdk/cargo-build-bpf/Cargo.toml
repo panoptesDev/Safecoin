@@ -1,5 +1,5 @@
 [package]
-name = "solana-cargo-build-bpf"
+name = "safecoin-cargo-build-bpf"
 version = "1.6.16"
 description = "Compile a local package and all of its dependencies using the Safecoin BPF SDK"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
@@ -13,7 +13,7 @@ publish = false
 bzip2 = "0.3.3"
 clap = "2.33.3"
 cargo_metadata = "0.12.0"
-solana-download-utils = { path = "../../download-utils", version = "=1.6.16" }
+safecoin-download-utils = { path = "../../download-utils", version = "=1.6.16" }
 safecoin-sdk = { path = "..", version = "=1.6.16" }
 tar = "0.4.28"
 

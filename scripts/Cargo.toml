@@ -1,7 +1,7 @@
 [package]
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 edition = "2018"
-name = "solana-scripts"
+name = "safecoin-scripts"
 description = "Safecoin: Enterprise Security for the Community by the Community"
 version = "1.6.16"
 repository = "https://github.com/solana-labs/solana"

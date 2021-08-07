@@ -19,14 +19,14 @@ serde_yaml = "0.8.13"
 safecoin-budget-program = { path = "../programs/budget", version = "=1.6.16" }
 safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
 safecoin-cli-config = { path = "../cli-config", version = "=1.6.16" }
-solana-exchange-program = { path = "../programs/exchange", version = "=1.6.16" }
+safecoin-exchange-program = { path = "../programs/exchange", version = "=1.6.16" }
 safecoin-ledger = { path = "../ledger", version = "=1.6.16" }
 safecoin-logger = { path = "../logger", version = "=1.6.16" }
 safecoin-runtime = { path = "../runtime", version = "=1.6.16" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 safecoin-stake-program = { path = "../programs/stake", version = "=1.6.16" }
 safecoin-version = { path = "../version", version = "=1.6.16" }
-solana-vest-program = { path = "../programs/vest", version = "=1.6.16" }
+safecoin-vest-program = { path = "../programs/vest", version = "=1.6.16" }
 safecoin-vote-program = { path = "../programs/vote", version = "=1.6.16" }
 tempfile = "3.1.0"
 
