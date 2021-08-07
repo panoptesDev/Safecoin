@@ -26,7 +26,7 @@ safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 safecoin-stake-program = { path = "../programs/stake", version = "=1.6.16" }
 safecoin-transaction-status = { path = "../transaction-status", version = "=1.6.16" }
 safecoin-vote-program = { path = "../programs/vote", version = "=1.6.16" }
-spl-memo = { version = "=3.0.1", features = ["no-entrypoint"] }
+safe-memo = { version = "=3.0.1", features = ["no-entrypoint"] }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

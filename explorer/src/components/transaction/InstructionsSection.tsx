@@ -177,7 +177,7 @@ function renderInstructionCard({
         return <SystemDetailsCard {...props} />;
       case "stake":
         return <StakeDetailsCard {...props} />;
-      case "spl-memo":
+      case "safe-memo":
         return <MemoDetailsCard {...props} />;
       case "vote":
         return <VoteDetailsCard {...props} />;

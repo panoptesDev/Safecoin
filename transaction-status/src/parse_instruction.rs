@@ -17,8 +17,8 @@ lazy_static! {
     static ref ASSOCIATED_TOKEN_PROGRAM_ID: Pubkey = spl_associated_token_id_v1_0();
     static ref BPF_LOADER_PROGRAM_ID: Pubkey = solana_sdk::bpf_loader::id();
     static ref BPF_UPGRADEABLE_LOADER_PROGRAM_ID: Pubkey = solana_sdk::bpf_loader_upgradeable::id();
-    static ref MEMO_V1_PROGRAM_ID: Pubkey = Pubkey::new_from_array(spl_memo::v1::id().to_bytes());
-    static ref MEMO_V3_PROGRAM_ID: Pubkey = Pubkey::new_from_array(spl_memo::id().to_bytes());
+    static ref MEMO_V1_PROGRAM_ID: Pubkey = Pubkey::new_from_array(safe_memo::v1::id().to_bytes());
+    static ref MEMO_V3_PROGRAM_ID: Pubkey = Pubkey::new_from_array(safe_memo::id().to_bytes());
     static ref STAKE_PROGRAM_ID: Pubkey = solana_stake_program::id();
     static ref SYSTEM_PROGRAM_ID: Pubkey = system_program::id();
     static ref TOKEN_PROGRAM_ID: Pubkey = safe_token_id_v2_0();
@@ -155,7 +155,7 @@ mod test {
         assert_eq!(
             parse(&MEMO_V1_PROGRAM_ID, &memo_instruction, &[]).unwrap(),
             ParsedInstruction {
-                program: "spl-memo".to_string(),
+                program: "safe-memo".to_string(),
                 program_id: MEMO_V1_PROGRAM_ID.to_string(),
                 parsed: json!("🦖"),
             }
@@ -163,7 +163,7 @@ mod test {
         assert_eq!(
             parse(&MEMO_V3_PROGRAM_ID, &memo_instruction, &[]).unwrap(),
             ParsedInstruction {
-                program: "spl-memo".to_string(),
+                program: "safe-memo".to_string(),
                 program_id: MEMO_V3_PROGRAM_ID.to_string(),
                 parsed: json!("🦖"),
             }

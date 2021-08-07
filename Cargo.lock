@@ -3934,7 +3934,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "spl-memo",
+ "safe-memo",
 ]
 
 [[package]]
@@ -4166,7 +4166,7 @@ dependencies = [
  "safecoin-version",
  "serde",
  "serde_derive",
- "spl-memo",
+ "safe-memo",
  "thiserror",
  "tokio 1.9.0",
 ]
@@ -5010,7 +5010,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "safe-associated-token-account",
- "spl-memo",
+ "safe-memo",
  "safe-token",
  "thiserror",
 ]
@@ -5574,7 +5574,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "solana_rbpf",
- "spl-memo",
+ "safe-memo",
  "tempfile",
  "thiserror",
  "tiny-bip39 0.7.3",
@@ -5737,7 +5737,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "spl-memo"
+name = "safe-memo"
 version = "3.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bd0dc6f70db6bacea7ff25870b016a65ba1d1b6013536f08e4fd79a8f9005325"

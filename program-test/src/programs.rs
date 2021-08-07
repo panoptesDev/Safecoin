@@ -7,10 +7,10 @@ use solana_sdk::{
 mod safe_token {
     solana_sdk::declare_id!("HMGr16f8Ct1Zeb9TGPypt9rPgzCkmhCQB8Not8vwiPW1");
 }
-mod spl_memo_1_0 {
+mod safe_memo_1_0 {
     solana_sdk::declare_id!("4DDUJ1rA8Vd7e6SFWanf4V8JnsfapjCGNutQYw8Vtt45");
 }
-mod spl_memo_3_0 {
+mod safe_memo_3_0 {
     solana_sdk::declare_id!("MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr");
 }
 mod safe_associated_token_account {
@@ -20,12 +20,12 @@ mod safe_associated_token_account {
 static SPL_PROGRAMS: &[(Pubkey, &[u8])] = &[
     (safe_token::ID, include_bytes!("programs/safe_token-3.1.0.so")),
     (
-        spl_memo_1_0::ID,
-        include_bytes!("programs/spl_memo-1.0.0.so"),
+        safe_memo_1_0::ID,
+        include_bytes!("programs/safe_memo-1.0.0.so"),
     ),
     (
-        spl_memo_3_0::ID,
-        include_bytes!("programs/spl_memo-3.0.0.so"),
+        safe_memo_3_0::ID,
+        include_bytes!("programs/safe_memo-3.0.0.so"),
     ),
     (
         safe_associated_token_account::ID,

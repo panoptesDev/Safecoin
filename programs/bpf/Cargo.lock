@@ -3190,7 +3190,7 @@ dependencies = [
  "safecoin-stake-program",
  "safecoin-transaction-status",
  "safecoin-vote-program",
- "spl-memo",
+ "safe-memo",
 ]
 
 [[package]]
@@ -3276,7 +3276,7 @@ dependencies = [
  "safecoin-metrics",
  "safecoin-sdk",
  "safecoin-version",
- "spl-memo",
+ "safe-memo",
  "thiserror",
  "tokio 1.7.1",
 ]
@@ -3692,7 +3692,7 @@ dependencies = [
  "safecoin-stake-program",
  "safecoin-vote-program",
  "safe-associated-token-account",
- "spl-memo",
+ "safe-memo",
  "safe-token",
  "thiserror",
 ]
@@ -3765,7 +3765,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "spl-memo"
+name = "safe-memo"
 version = "3.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bd0dc6f70db6bacea7ff25870b016a65ba1d1b6013536f08e4fd79a8f9005325"
