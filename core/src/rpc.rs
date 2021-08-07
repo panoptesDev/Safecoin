@@ -5827,7 +5827,7 @@ pub mod tests {
         let expected = json!({
             "jsonrpc": "2.0",
             "result": {
-                "solana-core": version.to_string(),
+                "safecoin-core": version.to_string(),
                 "feature-set": version.feature_set,
             },
             "id": 1

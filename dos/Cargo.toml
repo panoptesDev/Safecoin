@@ -15,8 +15,8 @@ log = "0.4.11"
 rand = "0.7.0"
 rayon = "1.5.0"
 safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
-solana-core = { path = "../core", version = "=1.6.16" }
-solana-ledger = { path = "../ledger", version = "=1.6.16" }
+safecoin-core = { path = "../core", version = "=1.6.16" }
+safecoin-ledger = { path = "../ledger", version = "=1.6.16" }
 safecoin-logger = { path = "../logger", version = "=1.6.16" }
 safecoin-net-utils = { path = "../net-utils", version = "=1.6.16" }
 safecoin-runtime = { path = "../runtime", version = "=1.6.16" }

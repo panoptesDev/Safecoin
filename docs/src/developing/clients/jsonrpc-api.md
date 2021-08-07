@@ -3017,7 +3017,7 @@ None
 
 The result field will be a JSON object with the following fields:
 
-- `solana-core`, software version of solana-core
+- `safecoin-core`, software version of safecoin-core
 - `feature-set`, unique identifier of the current software's feature set
 
 #### Example:
@@ -3031,7 +3031,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 Result:
 ```json
-{"jsonrpc":"2.0","result":{"solana-core": "1.6.16"},"id":1}
+{"jsonrpc":"2.0","result":{"safecoin-core": "1.6.16"},"id":1}
 ```
 
 ### getVoteAccounts

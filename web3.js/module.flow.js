@@ -280,7 +280,7 @@ declare module '@solana/web3.js' {
   };
 
   declare export type Version = {
-    'solana-core': string,
+    'safecoin-core': string,
     'feature-set': ?number,
   };
 

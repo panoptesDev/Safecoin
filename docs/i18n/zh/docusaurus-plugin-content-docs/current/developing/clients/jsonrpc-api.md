@@ -2591,7 +2591,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 结果字段将是具有以下字段的JSON对象：
 
-- `solana-core`，solana-core 的软件版本
+- `safecoin-core`，safecoin-core 的软件版本
 - `feature-set`，当前软件功能集的唯一标识符
 
 #### 示例:
@@ -2605,7 +2605,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 结果：
 ```json
-{"jsonrpc":"2.0","result":{"solana-core": "1.6.0"},"id":1}
+{"jsonrpc":"2.0","result":{"safecoin-core": "1.6.0"},"id":1}
 ```
 
 ### getVoteAccounts

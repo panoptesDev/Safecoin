@@ -1492,11 +1492,11 @@ describe('Connection', () => {
     await mockRpcResponse({
       method: 'getVersion',
       params: [],
-      value: {'solana-core': '0.20.4'},
+      value: {'safecoin-core': '0.20.4'},
     });
 
     const version = await connection.getVersion();
-    expect(version['solana-core']).to.be.ok;
+    expect(version['safecoin-core']).to.be.ok;
   });
 
   it('request airdrop', async () => {
@@ -1987,7 +1987,7 @@ describe('Connection', () => {
     it('https request', async () => {
       const connection = new Connection('https://devnet.safecoin.org');
       const version = await connection.getVersion();
-      expect(version['solana-core']).to.be.ok;
+      expect(version['safecoin-core']).to.be.ok;
     });
   }
 });

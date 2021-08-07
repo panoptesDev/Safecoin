@@ -19,7 +19,7 @@ rayon = "1.5.0"
 serde_json = "1.0.56"
 serde_yaml = "0.8.13"
 safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
-solana-core = { path = "../core", version = "=1.6.16" }
+safecoin-core = { path = "../core", version = "=1.6.16" }
 safecoin-genesis = { path = "../genesis", version = "=1.6.16" }
 safecoin-client = { path = "../client", version = "=1.6.16" }
 safecoin-faucet = { path = "../faucet", version = "=1.6.16" }
