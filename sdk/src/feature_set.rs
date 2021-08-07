@@ -43,7 +43,7 @@ pub mod full_inflation {
     }
 }
 
-pub mod spl_token_v2_multisig_fix {
+pub mod safe_token_v2_multisig_fix {
     solana_sdk::declare_id!("EwSWSBRpzYZSEqdZ215WMmnce6WiEsk57rSEB3e7ghh6");
 }
 
@@ -75,7 +75,7 @@ pub mod require_custodian_for_locked_stake_authorize {
     solana_sdk::declare_id!("FKWSvfcXATHSBBNvr5VE6ns4tNsTG3EGzcDw2xVtowZQ");
 }
 
-pub mod spl_token_v2_self_transfer_fix {
+pub mod safe_token_v2_self_transfer_fix {
     solana_sdk::declare_id!("2XDc17ZmSTbpqV3B5fmEGac4CKCYnbJj7vnfASvdzqyN");
 }
 
@@ -163,7 +163,7 @@ lazy_static! {
         (deprecate_rewards_sysvar::id(), "deprecate unused rewards sysvar"),
         (pico_inflation::id(), "pico inflation"),
         (full_inflation::devnet_and_testnet::id(), "full inflation on devnet and testnet"),
-        (spl_token_v2_multisig_fix::id(), "spl-token multisig fix"),
+        (safe_token_v2_multisig_fix::id(), "safe-token multisig fix"),
         (no_overflow_rent_distribution::id(), "no overflow rent distribution"),
         (stake_program_v2::id(), "solana_stake_program v2"),
         (rewrite_stake::id(), "rewrite stake"),
@@ -171,7 +171,7 @@ lazy_static! {
         (bpf_loader_upgradeable_program::id(), "upgradeable bpf loader"),
         (stake_program_v3::id(), "solana_stake_program v3"),
         (require_custodian_for_locked_stake_authorize::id(), "require custodian to authorize withdrawer change for locked stake"),
-        (spl_token_v2_self_transfer_fix::id(), "spl-token self-transfer fix"),
+        (safe_token_v2_self_transfer_fix::id(), "safe-token self-transfer fix"),
         (full_inflation::mainnet::certusone::enable::id(), "full inflation enabled by Certus One"),
         (full_inflation::mainnet::certusone::vote::id(), "community vote allowing Certus One to enable full inflation"),
         (warp_timestamp_again::id(), "warp timestamp again, adjust bounding to 25% fast 80% slow #15204"),

@@ -1,4 +1,4 @@
-// Partial SPL Token v2.0.x declarations inlined to avoid an external dependency on the spl-token crate
+// Partial SPL Token v2.0.x declarations inlined to avoid an external dependency on the safe-token crate
 solana_sdk::declare_id!("HMGr16f8Ct1Zeb9TGPypt9rPgzCkmhCQB8Not8vwiPW1");
 
 pub(crate) mod new_token_program {
@@ -6,7 +6,7 @@ pub(crate) mod new_token_program {
 }
 
 /*
-    spl_token::state::Account {
+    safe_token::state::Account {
         mint: Pubkey,
         owner: Pubkey,
         amount: u64,

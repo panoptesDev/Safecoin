@@ -2758,7 +2758,7 @@ Result:
     "value": [
       {
         "data": {
-          "program": "spl-token",
+          "program": "safe-token",
           "parsed": {
             "accountType": "account",
             "info": {
@@ -2848,7 +2848,7 @@ Result:
     "value": [
       {
         "data": {
-          "program": "spl-token",
+          "program": "safe-token",
           "parsed": {
             "accountType": "account",
             "info": {

@@ -4992,7 +4992,7 @@ pub mod tests {
         accounts_index::RefCount,
         accounts_index::{tests::*, AccountSecondaryIndexesIncludeExclude},
         append_vec::AccountMeta,
-        inline_spl_token_v2_0,
+        inline_safe_token_v2_0,
     };
     use assert_matches::assert_matches;
     use rand::{thread_rng, Rng};
@@ -6019,7 +6019,7 @@ pub mod tests {
         let mut accounts = AccountsDb::new_with_config(
             Vec::new(),
             &ClusterType::Development,
-            spl_token_mint_index_enabled(),
+            safe_token_mint_index_enabled(),
             false,
         );
         let pubkey1 = solana_sdk::pubkey::new_rand();
@@ -6028,14 +6028,14 @@ pub mod tests {
         // Set up account to be added to secondary index
         let mint_key = Pubkey::new_unique();
         let mut account_data_with_mint =
-            vec![0; inline_spl_token_v2_0::state::Account::get_packed_len()];
+            vec![0; inline_safe_token_v2_0::state::Account::get_packed_len()];
         account_data_with_mint[..PUBKEY_BYTES].clone_from_slice(&(mint_key.to_bytes()));
 
         let mut normal_account = AccountSharedData::new(1, 0, &AccountSharedData::default().owner);
-        normal_account.owner = inline_spl_token_v2_0::id();
+        normal_account.owner = inline_safe_token_v2_0::id();
         normal_account.set_data(account_data_with_mint.clone());
         let mut zero_account = AccountSharedData::new(0, 0, &AccountSharedData::default().owner);
-        zero_account.owner = inline_spl_token_v2_0::id();
+        zero_account.owner = inline_safe_token_v2_0::id();
         zero_account.set_data(account_data_with_mint);
 
         //store an account

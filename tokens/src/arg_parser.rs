@@ -201,7 +201,7 @@ where
                 ),
         )
         .subcommand(
-            SubCommand::with_name("distribute-spl-tokens")
+            SubCommand::with_name("distribute-safe-tokens")
                 .about("Distribute SPL tokens")
                 .arg(
                     Arg::with_name("db_path")
@@ -285,7 +285,7 @@ where
                 ),
         )
         .subcommand(
-            SubCommand::with_name("spl-token-balances")
+            SubCommand::with_name("safe-token-balances")
                 .about("Balance of SPL token associated accounts")
                 .arg(
                     Arg::with_name("input_csv")
@@ -358,7 +358,7 @@ fn parse_distribute_tokens_args(
         sender_keypair,
         fee_payer,
         stake_args: None,
-        spl_token_args: None,
+        safe_token_args: None,
         transfer_amount: value_of(matches, "transfer_amount").map(sol_to_lamports),
     })
 }
@@ -436,12 +436,12 @@ fn parse_distribute_stake_args(
         sender_keypair,
         fee_payer,
         stake_args: Some(stake_args),
-        spl_token_args: None,
+        safe_token_args: None,
         transfer_amount: None,
     })
 }
 
-fn parse_distribute_spl_tokens_args(
+fn parse_distribute_safe_tokens_args(
     matches: &ArgMatches<'_>,
 ) -> Result<DistributeTokensArgs, Box<dyn Error>> {
     let mut wallet_manager = maybe_wallet_manager()?;
@@ -479,7 +479,7 @@ fn parse_distribute_spl_tokens_args(
         sender_keypair: token_owner,
         fee_payer,
         stake_args: None,
-        spl_token_args: Some(SplTokenArgs {
+        safe_token_args: Some(SplTokenArgs {
             token_account_address,
             ..SplTokenArgs::default()
         }),
@@ -489,14 +489,14 @@ fn parse_distribute_spl_tokens_args(
 
 fn parse_balances_args(matches: &ArgMatches<'_>) -> Result<BalancesArgs, Box<dyn Error>> {
     let mut wallet_manager = maybe_wallet_manager()?;
-    let spl_token_args =
+    let safe_token_args =
         pubkey_of_signer(matches, "mint_address", &mut wallet_manager)?.map(|mint| SplTokenArgs {
             mint,
             ..SplTokenArgs::default()
         });
     Ok(BalancesArgs {
         input_csv: value_t_or_exit!(matches, "input_csv", String),
-        spl_token_args,
+        safe_token_args,
     })
 }
 
@@ -523,11 +523,11 @@ where
         ("distribute-stake", Some(matches)) => {
             Command::DistributeTokens(parse_distribute_stake_args(matches)?)
         }
-        ("distribute-spl-tokens", Some(matches)) => {
-            Command::DistributeTokens(parse_distribute_spl_tokens_args(matches)?)
+        ("distribute-safe-tokens", Some(matches)) => {
+            Command::DistributeTokens(parse_distribute_safe_tokens_args(matches)?)
         }
         ("balances", Some(matches)) => Command::Balances(parse_balances_args(matches)?),
-        ("spl-token-balances", Some(matches)) => Command::Balances(parse_balances_args(matches)?),
+        ("safe-token-balances", Some(matches)) => Command::Balances(parse_balances_args(matches)?),
         ("transaction-log", Some(matches)) => {
             Command::TransactionLog(parse_transaction_log_args(matches))
         }

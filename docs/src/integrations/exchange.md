@@ -581,31 +581,31 @@ stores metadata describing token features like the supply, number of decimals, a
 various authorities with control over the mint. Each SPL Token account references
 its associated mint and may only interact with SPL Tokens of that type.
 
-### Installing the `spl-token` CLI Tool
+### Installing the `safe-token` CLI Tool
 
-SPL Token accounts are queried and modified using the `spl-token` command line
+SPL Token accounts are queried and modified using the `safe-token` command line
 utility. The examples provided in this section depend upon having it installed
 on the local system.
 
-`spl-token` is distributed from Rust [crates.io](https://crates.io/crates/spl-token)
+`safe-token` is distributed from Rust [crates.io](https://crates.io/crates/safe-token)
 via the Rust `cargo` command line utility. The latest version of `cargo` can be
 installed using a handy one-liner for your platform at [rustup.rs](https://rustup.rs).
-Once `cargo` is installed, `spl-token` can be obtained with the following command:
+Once `cargo` is installed, `safe-token` can be obtained with the following command:
 
 ```
-cargo install spl-token-cli
+cargo install safe-token-cli
 ```
 
 You can then check the installed version to verify
 
 ```
-spl-token --version
+safe-token --version
 ```
 
 Which should result in something like
 
 ```text
-spl-token-cli 2.0.1
+safe-token-cli 2.0.1
 ```
 
 ### Account Creation
@@ -615,8 +615,8 @@ accounts do not:
 
 1. SPL Token accounts must be created before an amount of tokens can be
    deposited. Token accounts can be created explicitly with the
-   `spl-token create-account` command, or implicitly by the
-   `spl-token transfer --fund-recipient ...` command.
+   `safe-token create-account` command, or implicitly by the
+   `safe-token transfer --fund-recipient ...` command.
 1. SPL Token accounts must remain [rent-exempt](developing/programming-model/accounts.md#rent-exemption)
    for the duration of their existence and therefore require a small amount of
    native SAFE tokens be deposited at account creation. For SPL Token v2 accounts,
@@ -630,13 +630,13 @@ To create an SPL Token account with the following properties:
 1. Owned by the funding account's keypair
 
 ```
-spl-token create-account <TOKEN_MINT_ADDRESS>
+safe-token create-account <TOKEN_MINT_ADDRESS>
 ```
 
 #### Example
 
 ```
-$ spl-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir
+$ safe-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir
 Creating account 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
 Signature: 4JsqZEPra2eDTHtHpB4FMWSfk3UgcCVmkKkP7zESZeMrKmFFkDkNd91pKP3vPVVZZPiu5XxyJwS73Vi5WsZL88D7
 ```
@@ -645,7 +645,7 @@ Or to create an SPL Token account with a specific keypair:
 
 ```
 $ safecoin-keygen new -o token-account.json
-$ spl-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir token-account.json
+$ safe-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir token-account.json
 Creating account 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
 Signature: 4JsqZEPra2eDTHtHpB4FMWSfk3UgcCVmkKkP7zESZeMrKmFFkDkNd91pKP3vPVVZZPiu5XxyJwS73Vi5WsZL88D7
 ```
@@ -655,7 +655,7 @@ Signature: 4JsqZEPra2eDTHtHpB4FMWSfk3UgcCVmkKkP7zESZeMrKmFFkDkNd91pKP3vPVVZZPiu5
 #### Command Line
 
 ```
-spl-token balance <TOKEN_ACCOUNT_ADDRESS>
+safe-token balance <TOKEN_ACCOUNT_ADDRESS>
 ```
 
 #### Example
@@ -678,13 +678,13 @@ provided.
 #### Command Line
 
 ```
-spl-token transfer <SENDER_ACCOUNT_ADDRESS> <AMOUNT> <RECIPIENT_WALLET_ADDRESS> --fund-recipient
+safe-token transfer <SENDER_ACCOUNT_ADDRESS> <AMOUNT> <RECIPIENT_WALLET_ADDRESS> --fund-recipient
 ```
 
 #### Example
 
 ```
-$ spl-token transfer 6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN 1 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
+$ safe-token transfer 6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN 1 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
 Transfer 1 tokens
   Sender: 6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN
   Recipient: 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
@@ -726,10 +726,10 @@ exchange should fund the account on behalf of the user. For SPL Token v2
 accounts, funding the withdrawal account will require 0.00203928 SAFE (2,039,280
 lamports).
 
-Template `spl-token transfer` command for a withdrawal:
+Template `safe-token transfer` command for a withdrawal:
 
 ```
-$ spl-token transfer --fund-recipient <exchange token account> <withdrawal amount> <withdrawal address>
+$ safe-token transfer --fund-recipient <exchange token account> <withdrawal amount> <withdrawal address>
 ```
 
 ### Other Considerations

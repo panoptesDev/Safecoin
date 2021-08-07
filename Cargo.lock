@@ -3682,7 +3682,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "spl-token",
+ "safe-token",
  "thiserror",
  "zstd",
 ]
@@ -4058,7 +4058,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "serial_test",
- "spl-token",
+ "safe-token",
  "symlink",
  "systemstat",
  "tempfile",
@@ -4987,7 +4987,7 @@ dependencies = [
  "safecoin-version",
  "serde",
  "spl-associated-token-account",
- "spl-token",
+ "safe-token",
  "tempfile",
  "thiserror",
 ]
@@ -5011,7 +5011,7 @@ dependencies = [
  "serde_json",
  "spl-associated-token-account",
  "spl-memo",
- "spl-token",
+ "safe-token",
  "thiserror",
 ]
 
@@ -5523,7 +5523,7 @@ dependencies = [
  "safecoin-transaction-status",
  "safecoin-version",
  "solana-local-cluster",
- "spl-token",
+ "safe-token",
 ]
 
 [[package]]
@@ -5733,7 +5733,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4adc47eebe5d2b662cbaaba1843719c28a67e5ec5d0460bc3ca60900a51f74e2"
 dependencies = [
  "solana-program",
- "spl-token",
+ "safe-token",
 ]
 
 [[package]]
@@ -5746,7 +5746,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "spl-token"
+name = "safe-token"
 version = "3.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fbfa8fd791aeb4d7ad5fedb7872478de9f4e8b4fcb02dfd9e7f2f9ae3f3ddd73"

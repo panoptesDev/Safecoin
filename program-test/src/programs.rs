@@ -4,7 +4,7 @@ use solana_sdk::{
     rent::Rent,
 };
 
-mod spl_token {
+mod safe_token {
     solana_sdk::declare_id!("HMGr16f8Ct1Zeb9TGPypt9rPgzCkmhCQB8Not8vwiPW1");
 }
 mod spl_memo_1_0 {
@@ -18,7 +18,7 @@ mod spl_associated_token_account {
 }
 
 static SPL_PROGRAMS: &[(Pubkey, &[u8])] = &[
-    (spl_token::ID, include_bytes!("programs/spl_token-3.1.0.so")),
+    (safe_token::ID, include_bytes!("programs/safe_token-3.1.0.so")),
     (
         spl_memo_1_0::ID,
         include_bytes!("programs/spl_memo-1.0.0.so"),

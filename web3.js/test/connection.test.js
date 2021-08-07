@@ -1,7 +1,7 @@
 // @flow
 import bs58 from 'bs58';
 import {Buffer} from 'buffer';
-import {Token, u64} from '@solana/spl-token';
+import {Token, u64} from '@solana/safe-token';
 import {expect, use} from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 
@@ -845,7 +845,7 @@ describe('Connection', () => {
         params: [confirmedTransaction, 'jsonParsed'],
         value: getMockData({
           parsed: {},
-          program: 'spl-token',
+          program: 'safe-token',
           programId: 'HMGr16f8Ct1Zeb9TGPypt9rPgzCkmhCQB8Not8vwiPW1',
         }),
       });
@@ -1231,7 +1231,7 @@ describe('Connection', () => {
         expect(signatures[0]).to.eq(testSignature);
         const ix = message.instructions[0];
         if (ix.parsed) {
-          expect(ix.program).to.eq('spl-token');
+          expect(ix.program).to.eq('safe-token');
           expect(ix.programId).to.eql(TOKEN_PROGRAM_ID);
         } else {
           expect('parsed' in ix).to.be.true;
@@ -1267,7 +1267,7 @@ describe('Connection', () => {
           if (data instanceof Buffer) {
             expect(data instanceof Buffer).to.eq(false);
           } else {
-            expect(data.program).to.eq('spl-token');
+            expect(data.program).to.eq('safe-token');
             expect(data.parsed).to.be.ok;
           }
         }
@@ -1284,7 +1284,7 @@ describe('Connection', () => {
             expect(data instanceof Buffer).to.eq(false);
           } else {
             expect(data.parsed).to.be.ok;
-            expect(data.program).to.eq('spl-token');
+            expect(data.program).to.eq('safe-token');
           }
         });
       });
@@ -1302,7 +1302,7 @@ describe('Connection', () => {
             expect(data instanceof Buffer).to.eq(false);
           } else {
             expect(data.parsed).to.be.ok;
-            expect(data.program).to.eq('spl-token');
+            expect(data.program).to.eq('safe-token');
           }
         });
       });

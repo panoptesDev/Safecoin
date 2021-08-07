@@ -349,5 +349,5 @@ systemctl restart logrotate.service
 随着集群中账户数量的增加，该核算群组的核算数量也在增加， 账户数据 RPC请求扫描整个账户集的时候 -- 例如 [`getProgramAccounts`](developing/clients/jsonrpc-api.md#getprogramaccounts) 和 [SPL-token-specific requests](developing/clients/jsonrpc-api.md#gettokenaccountsbydelegate) -- 效果可能比较差。 如果您的验证节点需要支持这些请求中的任何一个，则可以使用`--account-index`参数来激活一个或多个内存帐户索引，该索引通过按关键字段为帐户建立索引来显着提高RPC性能。 当前支持以下参数值：
 
 - `program-id`: 每个帐户都由其拥有的程序索引; 通过 [`getProgramAccounts`](developing/clients/jsonrpc-api.md#getprogramaccounts)执行
-- `spl-token-mint`: 每个SPL 代币帐户由其代币铸造索引; 通过 [getTokenAccountsByDelegate](developing/clients/jsonrpc-api.md#gettokenaccountsbydelegate)和 [getTokenLargestAccounts](developing/clients/jsonrpc-api.md#gettokenlargestaccounts) 来使用
-- `spl-token-owner`: 每一个 SPL token 帐户按 token-owner 地址索引； 由 [getTokenAccountsByOwner](developing/clients/jsonrpc-api.md#gettokenaccountsbyowner)和 [`getProgramAccounts`](developing/clients/jsonrpc-api.md#getprogramaccounts) 请求包含一个spl-token-owners的过滤器。
+- `safe-token-mint`: 每个SPL 代币帐户由其代币铸造索引; 通过 [getTokenAccountsByDelegate](developing/clients/jsonrpc-api.md#gettokenaccountsbydelegate)和 [getTokenLargestAccounts](developing/clients/jsonrpc-api.md#gettokenlargestaccounts) 来使用
+- `safe-token-owner`: 每一个 SPL token 帐户按 token-owner 地址索引； 由 [getTokenAccountsByOwner](developing/clients/jsonrpc-api.md#gettokenaccountsbyowner)和 [`getProgramAccounts`](developing/clients/jsonrpc-api.md#getprogramaccounts) 请求包含一个safe-token-owners的过滤器。
