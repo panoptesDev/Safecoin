@@ -8,7 +8,7 @@ use crate::{
 };
 use inflector::Inflector;
 use serde_json::Value;
-use safecoin_account_decoder::parse_token::safe_token_id_v2_0;
+use safecoin_account_decoder::parse_token::spl_token_id_v2_0;
 use solana_sdk::{instruction::CompiledInstruction, pubkey::Pubkey, system_program};
 use std::{collections::HashMap, str::from_utf8};
 use thiserror::Error;
@@ -21,7 +21,7 @@ lazy_static! {
     static ref MEMO_V3_PROGRAM_ID: Pubkey = Pubkey::new_from_array(safe_memo::id().to_bytes());
     static ref STAKE_PROGRAM_ID: Pubkey = solana_stake_program::id();
     static ref SYSTEM_PROGRAM_ID: Pubkey = system_program::id();
-    static ref TOKEN_PROGRAM_ID: Pubkey = safe_token_id_v2_0();
+    static ref TOKEN_PROGRAM_ID: Pubkey = spl_token_id_v2_0();
     static ref VOTE_PROGRAM_ID: Pubkey = solana_vote_program::id();
     static ref PARSABLE_PROGRAM_IDS: HashMap<Pubkey, ParsableProgram> = {
         let mut m = HashMap::new();

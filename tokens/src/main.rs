@@ -37,11 +37,11 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     match command_args.command {
         Command::DistributeTokens(mut args) => {
-            safe_token::update_token_args(&client, &mut args.safe_token_args)?;
+            safe_token::update_token_args(&client, &mut args.spl_token_args)?;
             commands::process_allocations(&client, &args, exit)?;
         }
         Command::Balances(mut args) => {
-            safe_token::update_decimals(&client, &mut args.safe_token_args)?;
+            safe_token::update_decimals(&client, &mut args.spl_token_args)?;
             commands::process_balances(&client, &args)?;
         }
         Command::TransactionLog(args) => {

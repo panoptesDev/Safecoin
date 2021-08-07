@@ -358,7 +358,7 @@ fn parse_distribute_tokens_args(
         sender_keypair,
         fee_payer,
         stake_args: None,
-        safe_token_args: None,
+        spl_token_args: None,
         transfer_amount: value_of(matches, "transfer_amount").map(sol_to_lamports),
     })
 }
@@ -436,7 +436,7 @@ fn parse_distribute_stake_args(
         sender_keypair,
         fee_payer,
         stake_args: Some(stake_args),
-        safe_token_args: None,
+        spl_token_args: None,
         transfer_amount: None,
     })
 }
@@ -479,7 +479,7 @@ fn parse_distribute_safe_tokens_args(
         sender_keypair: token_owner,
         fee_payer,
         stake_args: None,
-        safe_token_args: Some(SplTokenArgs {
+        spl_token_args: Some(SplTokenArgs {
             token_account_address,
             ..SplTokenArgs::default()
         }),
@@ -489,14 +489,14 @@ fn parse_distribute_safe_tokens_args(
 
 fn parse_balances_args(matches: &ArgMatches<'_>) -> Result<BalancesArgs, Box<dyn Error>> {
     let mut wallet_manager = maybe_wallet_manager()?;
-    let safe_token_args =
+    let spl_token_args =
         pubkey_of_signer(matches, "mint_address", &mut wallet_manager)?.map(|mint| SplTokenArgs {
             mint,
             ..SplTokenArgs::default()
         });
     Ok(BalancesArgs {
         input_csv: value_t_or_exit!(matches, "input_csv", String),
-        safe_token_args,
+        spl_token_args,
     })
 }
 

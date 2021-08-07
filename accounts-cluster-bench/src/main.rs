@@ -3,13 +3,13 @@ use clap::{crate_description, crate_name, value_t, values_t_or_exit, App, Arg};
 use log::*;
 use rand::{thread_rng, Rng};
 use rayon::prelude::*;
-use safecoin_account_decoder::parse_token::safe_token_v2_0_pubkey;
+use safecoin_account_decoder::parse_token::spl_token_v2_0_pubkey;
 use safecoin_clap_utils::input_parsers::pubkey_of;
 use safecoin_client::rpc_client::RpcClient;
 use solana_core::gossip_service::discover;
 use safecoin_faucet::faucet::{request_airdrop_transaction, FAUCET_PORT};
 use safecoin_measure::measure::Measure;
-use solana_runtime::inline_safe_token_v2_0;
+use solana_runtime::inline_spl_token_v2_0;
 use solana_sdk::{
     commitment_config::CommitmentConfig,
     message::Message,
@@ -20,7 +20,7 @@ use solana_sdk::{
     timing::timestamp,
     transaction::Transaction,
 };
-use safecoin_transaction_status::parse_token::safe_token_v2_0_instruction;
+use safecoin_transaction_status::parse_token::spl_token_v2_0_instruction;
 use std::{
     net::SocketAddr,
     process::exit,
@@ -273,7 +273,7 @@ fn make_create_message(
         .into_iter()
         .map(|_| {
             let program_id = if mint.is_some() {
-                inline_safe_token_v2_0::id()
+                inline_spl_token_v2_0::id()
             } else {
                 system_program::id()
             };
@@ -290,12 +290,12 @@ fn make_create_message(
                 &program_id,
             )];
             if let Some(mint_address) = mint {
-                instructions.push(safe_token_v2_0_instruction(
-                    safe_token_v2_0::instruction::initialize_account(
-                        &safe_token_v2_0::id(),
-                        &safe_token_v2_0_pubkey(&to_pubkey),
-                        &safe_token_v2_0_pubkey(&mint_address),
-                        &safe_token_v2_0_pubkey(&base_keypair.pubkey()),
+                instructions.push(spl_token_v2_0_instruction(
+                    spl_token_v2_0::instruction::initialize_account(
+                        &spl_token_v2_0::id(),
+                        &spl_token_v2_0_pubkey(&to_pubkey),
+                        &spl_token_v2_0_pubkey(&mint_address),
+                        &spl_token_v2_0_pubkey(&base_keypair.pubkey()),
                     )
                     .unwrap(),
                 ));
@@ -321,7 +321,7 @@ fn make_close_message(
         .into_iter()
         .map(|_| {
             let program_id = if safe_token {
-                inline_safe_token_v2_0::id()
+                inline_spl_token_v2_0::id()
             } else {
                 system_program::id()
             };
@@ -329,12 +329,12 @@ fn make_close_message(
             let address =
                 Pubkey::create_with_seed(&base_keypair.pubkey(), &seed, &program_id).unwrap();
             if safe_token {
-                safe_token_v2_0_instruction(
-                    safe_token_v2_0::instruction::close_account(
-                        &safe_token_v2_0::id(),
-                        &safe_token_v2_0_pubkey(&address),
-                        &safe_token_v2_0_pubkey(&keypair.pubkey()),
-                        &safe_token_v2_0_pubkey(&base_keypair.pubkey()),
+                spl_token_v2_0_instruction(
+                    spl_token_v2_0::instruction::close_account(
+                        &spl_token_v2_0::id(),
+                        &spl_token_v2_0_pubkey(&address),
+                        &spl_token_v2_0_pubkey(&keypair.pubkey()),
+                        &spl_token_v2_0_pubkey(&base_keypair.pubkey()),
                         &[],
                     )
                     .unwrap(),

@@ -1,10 +1,10 @@
 use crate::TransactionTokenBalance;
 use safecoin_account_decoder::parse_token::{
-    safe_token_id_v2_0, safe_token_v2_0_native_mint, token_amount_to_ui_amount, UiTokenAmount,
+    spl_token_id_v2_0, spl_token_v2_0_native_mint, token_amount_to_ui_amount, UiTokenAmount,
 };
 use solana_runtime::{bank::Bank, transaction_batch::TransactionBatch};
 use solana_sdk::{account::ReadableAccount, pubkey::Pubkey};
-use safe_token_v2_0::{
+use spl_token_v2_0::{
     solana_program::program_pack::Pack,
     state::{Account as TokenAccount, Mint},
 };
@@ -31,12 +31,12 @@ impl TransactionTokenBalancesSet {
 }
 
 fn is_token_program(program_id: &Pubkey) -> bool {
-    program_id == &safe_token_id_v2_0()
+    program_id == &spl_token_id_v2_0()
 }
 
 fn get_mint_decimals(bank: &Bank, mint: &Pubkey) -> Option<u8> {
-    if mint == &safe_token_v2_0_native_mint() {
-        Some(safe_token_v2_0::native_mint::DECIMALS)
+    if mint == &spl_token_v2_0_native_mint() {
+        Some(spl_token_v2_0::native_mint::DECIMALS)
     } else {
         let mint_account = bank.get_account(mint)?;
 
