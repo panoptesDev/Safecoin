@@ -3,7 +3,7 @@
 use crate::poh_recorder::{PohRecorder, Record};
 use crossbeam_channel::Receiver;
 use solana_ledger::poh::Poh;
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_sdk::poh_config::PohConfig;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
@@ -354,7 +354,7 @@ mod tests {
     use solana_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo};
     use solana_ledger::leader_schedule_cache::LeaderScheduleCache;
     use solana_ledger::{blockstore::Blockstore, get_tmp_ledger_path};
-    use solana_measure::measure::Measure;
+    use safecoin_measure::measure::Measure;
     use solana_perf::test_tx::test_tx;
     use solana_runtime::bank::Bank;
     use solana_sdk::clock;

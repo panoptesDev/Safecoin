@@ -12,7 +12,7 @@ use rayon::{
     ThreadPool,
 };
 use serde::{Deserialize, Serialize};
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_perf::packet::{limited_deserialize, Packet};
 use solana_rayon_threadlimit::get_thread_count;
 use solana_sdk::{

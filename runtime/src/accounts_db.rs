@@ -38,7 +38,7 @@ use log::*;
 use rand::{prelude::SliceRandom, thread_rng, Rng};
 use rayon::{prelude::*, ThreadPool};
 use serde::{Deserialize, Serialize};
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_rayon_threadlimit::get_thread_count;
 use solana_sdk::{
     account::{AccountSharedData, ReadableAccount},

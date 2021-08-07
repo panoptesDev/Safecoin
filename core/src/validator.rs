@@ -43,7 +43,7 @@ use solana_ledger::{
     leader_schedule_cache::LeaderScheduleCache,
     poh::compute_hash_time_ns,
 };
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_metrics::datapoint_info;
 use solana_runtime::{
     accounts_index::AccountSecondaryIndexes,

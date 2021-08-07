@@ -32,7 +32,7 @@ use byteorder::{ByteOrder, LittleEndian};
 use itertools::Itertools;
 use log::*;
 use rayon::ThreadPool;
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_metrics::{datapoint_debug, inc_new_counter_debug, inc_new_counter_info};
 use solana_sdk::{
     account::{

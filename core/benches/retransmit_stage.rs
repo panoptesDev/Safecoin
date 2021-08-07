@@ -12,7 +12,7 @@ use solana_ledger::entry::Entry;
 use solana_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo};
 use solana_ledger::leader_schedule_cache::LeaderScheduleCache;
 use solana_ledger::shred::Shredder;
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_perf::packet::{Packet, Packets};
 use solana_runtime::bank::Bank;
 use solana_runtime::bank_forks::BankForks;

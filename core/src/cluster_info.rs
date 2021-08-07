@@ -39,8 +39,8 @@ use rand::thread_rng;
 use rayon::prelude::*;
 use rayon::{ThreadPool, ThreadPoolBuilder};
 use serde::ser::Serialize;
-use solana_measure::measure::Measure;
-use solana_measure::thread_mem_usage;
+use safecoin_measure::measure::Measure;
+use safecoin_measure::thread_mem_usage;
 use solana_metrics::{inc_new_counter_debug, inc_new_counter_error};
 use solana_net_utils::{
     bind_common, bind_common_in_range, bind_in_range, find_available_port_in_range,

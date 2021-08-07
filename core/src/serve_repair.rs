@@ -10,8 +10,8 @@ use crate::{
 use bincode::serialize;
 use rand::distributions::{Distribution, WeightedIndex};
 use solana_ledger::{blockstore::Blockstore, shred::Nonce};
-use solana_measure::measure::Measure;
-use solana_measure::thread_mem_usage;
+use safecoin_measure::measure::Measure;
+use safecoin_measure::thread_mem_usage;
 use solana_metrics::{datapoint_debug, inc_new_counter_debug};
 use solana_perf::packet::{limited_deserialize, Packets, PacketsRecycler};
 use solana_sdk::{

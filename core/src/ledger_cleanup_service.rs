@@ -3,7 +3,7 @@
 use rand::{thread_rng, Rng};
 use solana_ledger::blockstore::{Blockstore, PurgeType};
 use solana_ledger::blockstore_db::Result as BlockstoreResult;
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_sdk::clock::{Slot, DEFAULT_TICKS_PER_SLOT, TICKS_PER_DAY};
 use std::string::ToString;
 use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};

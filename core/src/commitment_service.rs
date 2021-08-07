@@ -1,5 +1,5 @@
 use crate::{consensus::Stake, rpc_subscriptions::RpcSubscriptions};
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_metrics::datapoint_info;
 use solana_runtime::{
     bank::Bank,

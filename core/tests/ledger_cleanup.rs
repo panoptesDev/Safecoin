@@ -8,7 +8,7 @@ mod tests {
     use solana_ledger::blockstore::{make_many_slot_entries, Blockstore};
     use solana_ledger::get_tmp_ledger_path;
     use solana_ledger::shred::Shred;
-    use solana_measure::measure::Measure;
+    use safecoin_measure::measure::Measure;
     use std::collections::VecDeque;
     use std::str::FromStr;
     use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};

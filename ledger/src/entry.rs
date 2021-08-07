@@ -10,7 +10,7 @@ use rand::{thread_rng, Rng};
 use rayon::prelude::*;
 use rayon::ThreadPool;
 use serde::{Deserialize, Serialize};
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_merkle_tree::MerkleTree;
 use solana_metrics::*;
 use solana_perf::cuda_runtime::PinnedVec;

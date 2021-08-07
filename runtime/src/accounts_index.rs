@@ -5,7 +5,7 @@ use crate::{
 };
 use dashmap::DashSet;
 use ouroboros::self_referencing;
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_sdk::{
     clock::Slot,
     pubkey::{Pubkey, PUBKEY_BYTES},

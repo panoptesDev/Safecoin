@@ -16,7 +16,7 @@ safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 safecoin-metrics = { path = "../metrics", version = "=1.6.16" }
 
 [lib]
-name="solana_measure"
+name = "safecoin_measure"
 
 [target."cfg(unix)".dependencies]
 jemallocator = "0.3.2"

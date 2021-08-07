@@ -3,7 +3,7 @@ use crate::{
     repair_weighted_traversal, serve_repair::RepairType, tree_diff::TreeDiff,
 };
 use solana_ledger::{ancestor_iterator::AncestorIterator, blockstore::Blockstore};
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_runtime::{contains::Contains, epoch_stakes::EpochStakes};
 use solana_sdk::{
     clock::Slot,

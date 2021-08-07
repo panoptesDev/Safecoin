@@ -22,7 +22,7 @@ use rayon::{
     ThreadPool,
 };
 use rocksdb::DBRawIterator;
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_metrics::{datapoint_debug, datapoint_error};
 use solana_rayon_threadlimit::get_thread_count;
 use solana_runtime::hardened_unpack::{unpack_genesis_archive, MAX_GENESIS_ARCHIVE_UNPACKED_SIZE};

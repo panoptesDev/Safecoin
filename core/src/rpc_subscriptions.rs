@@ -19,7 +19,7 @@ use solana_client::{
         RpcLogsResponse, RpcResponseContext, RpcSignatureResult, SlotInfo, SlotUpdate,
     },
 };
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_runtime::{
     bank::{
         Bank, TransactionLogCollectorConfig, TransactionLogCollectorFilter, TransactionLogInfo,

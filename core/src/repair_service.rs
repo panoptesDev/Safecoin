@@ -13,7 +13,7 @@ use solana_ledger::{
     blockstore::{Blockstore, SlotMeta},
     shred::Nonce,
 };
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_runtime::{
     bank::Bank, bank_forks::BankForks, commitment::VOTE_THRESHOLD_SIZE, contains::Contains,
 };

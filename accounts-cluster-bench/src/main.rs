@@ -8,7 +8,7 @@ use solana_clap_utils::input_parsers::pubkey_of;
 use solana_client::rpc_client::RpcClient;
 use solana_core::gossip_service::discover;
 use safecoin_faucet::faucet::{request_airdrop_transaction, FAUCET_PORT};
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_runtime::inline_spl_token_v2_0;
 use solana_sdk::{
     commitment_config::CommitmentConfig,

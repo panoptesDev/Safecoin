@@ -24,7 +24,7 @@ use solana_ledger::{
     blockstore::{Blockstore, CompletedSlotsReceiver},
     leader_schedule_cache::LeaderScheduleCache,
 };
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_metrics::inc_new_counter_error;
 use solana_perf::packet::{Packet, Packets};
 use solana_runtime::{bank::Bank, bank_forks::BankForks};

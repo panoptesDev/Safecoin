@@ -4,7 +4,7 @@ use crate::{
 };
 use chrono::prelude::*;
 use solana_ledger::{ancestor_iterator::AncestorIterator, blockstore::Blockstore, blockstore_db};
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_runtime::{
     bank::Bank, bank_forks::BankForks, commitment::VOTE_THRESHOLD_SIZE,
     vote_account::ArcVoteAccount,

@@ -36,7 +36,7 @@ use solana_ledger::{
     entry::VerifyRecyclers,
     leader_schedule_cache::LeaderScheduleCache,
 };
-use solana_measure::{measure::Measure, thread_mem_usage};
+use safecoin_measure::{measure::Measure, thread_mem_usage};
 use solana_metrics::inc_new_counter_info;
 use solana_runtime::{
     accounts_background_service::AbsRequestSender, bank::Bank, bank_forks::BankForks,
@@ -839,7 +839,7 @@ impl ReplayStage {
     }
 
     fn report_memory(
-        allocated: &solana_measure::thread_mem_usage::Allocatedp,
+        allocated: &safecoin_measure::thread_mem_usage::Allocatedp,
         name: &'static str,
         start: u64,
     ) {

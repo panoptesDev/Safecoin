@@ -18,7 +18,7 @@ use crossbeam_channel::{
     Sender as CrossbeamSender,
 };
 use solana_ledger::{blockstore::Blockstore, shred::Shred};
-use solana_measure::measure::Measure;
+use safecoin_measure::measure::Measure;
 use solana_metrics::{inc_new_counter_error, inc_new_counter_info};
 use solana_runtime::bank::Bank;
 use solana_sdk::timing::timestamp;
