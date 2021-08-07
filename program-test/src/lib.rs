@@ -6,7 +6,7 @@ use {
     chrono_humanize::{Accuracy, HumanTime, Tense},
     log::*,
     solana_banks_client::start_client,
-    solana_banks_server::banks_server::start_local_server,
+    safecoin_banks_server::banks_server::start_local_server,
     solana_runtime::{
         bank::{Bank, Builtin, ExecuteTimings},
         bank_forks::BankForks,

@@ -5,7 +5,7 @@ use crate::{
 };
 use itertools::izip;
 use log::*;
-use solana_client::thin_client::{create_client, ThinClient};
+use safecoin_client::thin_client::{create_client, ThinClient};
 use solana_core::{
     cluster_info::{Node, VALIDATOR_PORT_RANGE},
     contact_info::ContactInfo,

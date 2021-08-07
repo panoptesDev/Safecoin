@@ -8,7 +8,7 @@ use log::*;
 use regex::Regex;
 use serde::Serialize;
 use serde_json::json;
-use solana_clap_utils::{
+use safecoin_clap_utils::{
     input_parsers::{cluster_type_of, pubkey_of, pubkeys_of},
     input_validators::{
         is_parsable, is_pubkey, is_pubkey_or_keypair, is_slot, is_valid_percentage,
@@ -132,7 +132,7 @@ fn output_entry(
                     })
                     .map(|transaction_status| transaction_status.into());
 
-                solana_cli_output::display::println_transaction(
+                safecoin_cli_output::display::println_transaction(
                     &transaction,
                     &transaction_status,
                     "      ",

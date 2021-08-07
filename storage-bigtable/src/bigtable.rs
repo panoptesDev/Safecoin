@@ -663,7 +663,7 @@ mod tests {
     use prost::Message;
     use solana_sdk::{hash::Hash, signature::Keypair, system_transaction};
     use solana_storage_proto::convert::generated;
-    use solana_transaction_status::{
+    use safecoin_transaction_status::{
         ConfirmedBlock, TransactionStatusMeta, TransactionWithStatusMeta,
     };
     use std::convert::TryInto;

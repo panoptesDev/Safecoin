@@ -9,7 +9,7 @@ use crate::{
     spend_utils::{resolve_spend_tx_and_check_account_balances, SpendAmount},
 };
 use clap::{value_t, App, Arg, ArgGroup, ArgMatches, SubCommand};
-use solana_clap_utils::{
+use safecoin_clap_utils::{
     fee_payer::{fee_payer_arg, FEE_PAYER_ARG},
     input_parsers::*,
     input_validators::*,
@@ -19,15 +19,15 @@ use solana_clap_utils::{
     offline::*,
     ArgConstant,
 };
-use solana_cli_output::{
+use safecoin_cli_output::{
     return_signers_with_config, CliEpochReward, CliStakeHistory, CliStakeHistoryEntry,
     CliStakeState, CliStakeType, OutputFormat, ReturnSignersConfig,
 };
-use solana_client::{
+use safecoin_client::{
     blockhash_query::BlockhashQuery, nonce_utils, rpc_client::RpcClient,
     rpc_request::DELINQUENT_VALIDATOR_SLOT_DISTANCE, rpc_response::RpcInflationReward,
 };
-use solana_remote_wallet::remote_wallet::RemoteWalletManager;
+use safecoin_remote_wallet::remote_wallet::RemoteWalletManager;
 use solana_sdk::{
     account::from_account,
     account_utils::StateMut,
@@ -2083,7 +2083,7 @@ pub fn is_stake_program_v2_enabled(
 mod tests {
     use super::*;
     use crate::cli::{app, parse_command};
-    use solana_client::blockhash_query;
+    use safecoin_client::blockhash_query;
     use solana_sdk::{
         hash::Hash,
         signature::{

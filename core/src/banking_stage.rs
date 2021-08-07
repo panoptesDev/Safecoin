@@ -46,7 +46,7 @@ use solana_sdk::{
     timing::{duration_as_ms, timestamp},
     transaction::{self, Transaction, TransactionError},
 };
-use solana_transaction_status::token_balances::{
+use safecoin_transaction_status::token_balances::{
     collect_token_balances, TransactionTokenBalancesSet,
 };
 use std::{
@@ -1457,7 +1457,7 @@ mod tests {
         system_transaction,
         transaction::TransactionError,
     };
-    use solana_transaction_status::TransactionWithStatusMeta;
+    use safecoin_transaction_status::TransactionWithStatusMeta;
     use std::{
         net::SocketAddr,
         path::Path,

@@ -5,7 +5,7 @@ use {
         rpc::JsonRpcConfig,
         validator::{Validator, ValidatorConfig, ValidatorExit, ValidatorStartProgress},
     },
-    solana_client::rpc_client::RpcClient,
+    safecoin_client::rpc_client::RpcClient,
     solana_ledger::{blockstore::create_new_ledger, create_new_tmp_ledger},
     solana_net_utils::PortRange,
     solana_runtime::{

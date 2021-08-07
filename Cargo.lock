@@ -3666,6 +3666,28 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "71d301d4193d031abdd79ff7e3dd721168a9572ef3fe51a1517aba235bd8f86e"
 
 [[package]]
+name = "safecoin-account-decoder"
+version = "1.6.16"
+dependencies = [
+ "Inflector",
+ "base64 0.12.3",
+ "bincode",
+ "bs58",
+ "bv",
+ "lazy_static",
+ "safecoin-config-program",
+ "safecoin-sdk",
+ "safecoin-stake-program",
+ "safecoin-vote-program",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "spl-token",
+ "thiserror",
+ "zstd",
+]
+
+[[package]]
 name = "safecoin-accounts-bench"
 version = "1.6.16"
 dependencies = [
@@ -3678,7 +3700,7 @@ dependencies = [
  "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
- "solana-version",
+ "safecoin-version",
 ]
 
 [[package]]
@@ -3690,16 +3712,16 @@ dependencies = [
  "log 0.4.14",
  "rand 0.7.3",
  "rayon",
+ "safecoin-clap-utils",
  "safecoin-logger",
  "safecoin-measure",
+ "safecoin-perf",
  "safecoin-runtime",
  "safecoin-sdk",
- "solana-clap-utils",
+ "safecoin-streamer",
+ "safecoin-version",
  "solana-core",
  "solana-ledger",
- "solana-perf",
- "solana-streamer",
- "solana-version",
 ]
 
 [[package]]
@@ -3711,14 +3733,43 @@ dependencies = [
  "borsh-derive",
  "futures 0.3.16",
  "mio 0.7.13",
+ "safecoin-banks-interface",
+ "safecoin-banks-server",
  "safecoin-program",
  "safecoin-runtime",
  "safecoin-sdk",
- "solana-banks-interface",
- "solana-banks-server",
  "tarpc",
  "tokio 1.9.0",
  "tokio-serde",
+]
+
+[[package]]
+name = "safecoin-banks-interface"
+version = "1.6.16"
+dependencies = [
+ "mio 0.7.13",
+ "safecoin-sdk",
+ "serde",
+ "tarpc",
+ "tokio 1.9.0",
+]
+
+[[package]]
+name = "safecoin-banks-server"
+version = "1.6.16"
+dependencies = [
+ "bincode",
+ "futures 0.3.16",
+ "log 0.4.14",
+ "mio 0.7.13",
+ "safecoin-banks-interface",
+ "safecoin-metrics",
+ "safecoin-runtime",
+ "safecoin-sdk",
+ "tarpc",
+ "tokio 1.9.0",
+ "tokio-serde",
+ "tokio-stream",
 ]
 
 [[package]]
@@ -3732,21 +3783,21 @@ dependencies = [
  "num-traits",
  "rand 0.7.3",
  "rayon",
+ "safecoin-clap-utils",
+ "safecoin-client",
  "safecoin-faucet",
  "safecoin-genesis",
  "safecoin-logger",
  "safecoin-metrics",
+ "safecoin-net-utils",
  "safecoin-runtime",
  "safecoin-sdk",
+ "safecoin-version",
  "serde_json",
  "serde_yaml",
- "solana-clap-utils",
- "solana-client",
  "solana-core",
  "solana-exchange-program",
  "solana-local-cluster",
- "solana-net-utils",
- "solana-version",
 ]
 
 [[package]]
@@ -3754,11 +3805,11 @@ name = "safecoin-bench-streamer"
 version = "1.6.16"
 dependencies = [
  "clap",
+ "safecoin-clap-utils",
  "safecoin-logger",
- "solana-clap-utils",
- "solana-net-utils",
- "solana-streamer",
- "solana-version",
+ "safecoin-net-utils",
+ "safecoin-streamer",
+ "safecoin-version",
 ]
 
 [[package]]
@@ -3769,22 +3820,144 @@ dependencies = [
  "clap",
  "log 0.4.14",
  "rayon",
+ "safecoin-clap-utils",
+ "safecoin-client",
  "safecoin-faucet",
  "safecoin-genesis",
  "safecoin-logger",
  "safecoin-measure",
  "safecoin-metrics",
+ "safecoin-net-utils",
  "safecoin-runtime",
  "safecoin-sdk",
+ "safecoin-version",
  "serde_json",
  "serde_yaml",
  "serial_test",
- "solana-clap-utils",
- "solana-client",
  "solana-core",
  "solana-local-cluster",
- "solana-net-utils",
- "solana-version",
+]
+
+[[package]]
+name = "safecoin-bpf-loader-program"
+version = "1.6.16"
+dependencies = [
+ "bincode",
+ "byteorder",
+ "log 0.4.14",
+ "num-derive",
+ "num-traits",
+ "rand 0.7.3",
+ "rand_core 0.6.3",
+ "rustversion",
+ "safecoin-measure",
+ "safecoin-runtime",
+ "safecoin-sdk",
+ "sha3",
+ "solana_rbpf",
+ "thiserror",
+]
+
+[[package]]
+name = "safecoin-budget-program"
+version = "1.6.16"
+dependencies = [
+ "bincode",
+ "chrono",
+ "log 0.4.14",
+ "num-derive",
+ "num-traits",
+ "safecoin-runtime",
+ "safecoin-sdk",
+ "serde",
+ "serde_derive",
+ "thiserror",
+]
+
+[[package]]
+name = "safecoin-clap-utils"
+version = "1.6.16"
+dependencies = [
+ "chrono",
+ "clap",
+ "rpassword",
+ "safecoin-remote-wallet",
+ "safecoin-sdk",
+ "tempfile",
+ "thiserror",
+ "tiny-bip39 0.8.0",
+ "uriparse",
+ "url 2.2.2",
+]
+
+[[package]]
+name = "safecoin-cli-config"
+version = "1.6.16"
+dependencies = [
+ "dirs-next",
+ "lazy_static",
+ "serde",
+ "serde_derive",
+ "serde_yaml",
+ "url 2.2.2",
+]
+
+[[package]]
+name = "safecoin-cli-output"
+version = "1.6.16"
+dependencies = [
+ "Inflector",
+ "base64 0.13.0",
+ "chrono",
+ "console 0.11.3",
+ "humantime",
+ "indicatif",
+ "safecoin-account-decoder",
+ "safecoin-clap-utils",
+ "safecoin-client",
+ "safecoin-sdk",
+ "safecoin-stake-program",
+ "safecoin-transaction-status",
+ "safecoin-vote-program",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "spl-memo",
+]
+
+[[package]]
+name = "safecoin-client"
+version = "1.6.16"
+dependencies = [
+ "assert_matches",
+ "base64 0.13.0",
+ "bincode",
+ "bs58",
+ "clap",
+ "indicatif",
+ "jsonrpc-core",
+ "jsonrpc-http-server",
+ "log 0.4.14",
+ "net2",
+ "rayon",
+ "reqwest",
+ "safecoin-account-decoder",
+ "safecoin-clap-utils",
+ "safecoin-faucet",
+ "safecoin-logger",
+ "safecoin-net-utils",
+ "safecoin-sdk",
+ "safecoin-transaction-status",
+ "safecoin-version",
+ "safecoin-vote-program",
+ "semver 0.11.0",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "thiserror",
+ "tokio 1.9.0",
+ "tungstenite",
+ "url 2.2.2",
 ]
 
 [[package]]
@@ -3832,15 +4005,15 @@ dependencies = [
  "log 0.4.14",
  "rand 0.7.3",
  "rayon",
+ "safecoin-clap-utils",
+ "safecoin-client",
  "safecoin-logger",
+ "safecoin-net-utils",
  "safecoin-runtime",
  "safecoin-sdk",
- "solana-clap-utils",
- "solana-client",
+ "safecoin-version",
  "solana-core",
  "solana-ledger",
- "solana-net-utils",
- "solana-version",
 ]
 
 [[package]]
@@ -3859,14 +4032,14 @@ dependencies = [
  "byteorder",
  "clap",
  "log 0.4.14",
+ "safecoin-clap-utils",
+ "safecoin-cli-config",
  "safecoin-logger",
  "safecoin-metrics",
  "safecoin-sdk",
+ "safecoin-version",
  "serde",
  "serde_derive",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-version",
  "spl-memo",
  "thiserror",
  "tokio 1.9.0",
@@ -3908,20 +4081,20 @@ dependencies = [
  "base64 0.12.3",
  "chrono",
  "clap",
+ "safecoin-budget-program",
+ "safecoin-clap-utils",
+ "safecoin-cli-config",
  "safecoin-logger",
  "safecoin-runtime",
  "safecoin-sdk",
  "safecoin-stake-program",
+ "safecoin-version",
  "safecoin-vote-program",
  "serde",
  "serde_json",
  "serde_yaml",
- "solana-budget-program",
- "solana-clap-utils",
- "solana-cli-config",
  "solana-exchange-program",
  "solana-ledger",
- "solana-version",
  "solana-vest-program",
  "tempfile",
 ]
@@ -3931,12 +4104,12 @@ name = "safecoin-gossip"
 version = "1.6.16"
 dependencies = [
  "clap",
+ "safecoin-clap-utils",
  "safecoin-logger",
+ "safecoin-net-utils",
  "safecoin-sdk",
- "solana-clap-utils",
+ "safecoin-version",
  "solana-core",
- "solana-net-utils",
- "solana-version",
 ]
 
 [[package]]
@@ -3955,16 +4128,16 @@ dependencies = [
  "lazy_static",
  "nix 0.19.1",
  "reqwest",
+ "safecoin-clap-utils",
+ "safecoin-client",
  "safecoin-config-program",
  "safecoin-logger",
  "safecoin-sdk",
+ "safecoin-version",
  "semver 0.9.0",
  "serde",
  "serde_json",
  "serde_yaml",
- "solana-clap-utils",
- "solana-client",
- "solana-version",
  "tar",
  "tempfile",
  "url 2.2.2",
@@ -3980,11 +4153,11 @@ dependencies = [
  "clap",
  "dirs-next",
  "num_cpus",
+ "safecoin-clap-utils",
+ "safecoin-cli-config",
+ "safecoin-remote-wallet",
  "safecoin-sdk",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-remote-wallet",
- "solana-version",
+ "safecoin-version",
  "tiny-bip39 0.7.3",
 ]
 
@@ -4003,22 +4176,22 @@ dependencies = [
  "itertools 0.9.0",
  "log 0.4.14",
  "regex",
+ "safecoin-clap-utils",
+ "safecoin-cli-output",
  "safecoin-logger",
  "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
  "safecoin-stake-program",
+ "safecoin-storage-bigtable",
+ "safecoin-transaction-status",
+ "safecoin-version",
  "safecoin-vote-program",
  "serde",
  "serde_json",
  "serde_yaml",
  "signal-hook",
- "solana-clap-utils",
- "solana-cli-output",
  "solana-ledger",
- "solana-storage-bigtable",
- "solana-transaction-status",
- "solana-version",
  "tempfile",
  "tokio 1.9.0",
 ]
@@ -4029,11 +4202,11 @@ version = "1.6.16"
 dependencies = [
  "byte-unit",
  "clap",
+ "safecoin-clap-utils",
  "safecoin-logger",
+ "safecoin-version",
  "serde",
  "serde_json",
- "solana-clap-utils",
- "solana-version",
 ]
 
 [[package]]
@@ -4066,7 +4239,17 @@ dependencies = [
  "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
- "solana-version",
+ "safecoin-version",
+]
+
+[[package]]
+name = "safecoin-merkle-tree"
+version = "1.6.16"
+dependencies = [
+ "fast-math",
+ "hex",
+ "matches",
+ "safecoin-program",
 ]
 
 [[package]]
@@ -4089,10 +4272,29 @@ version = "1.6.16"
 dependencies = [
  "clap",
  "rand 0.7.3",
+ "safecoin-clap-utils",
  "safecoin-logger",
  "serde",
  "serde_json",
- "solana-clap-utils",
+]
+
+[[package]]
+name = "safecoin-net-utils"
+version = "1.6.16"
+dependencies = [
+ "bincode",
+ "clap",
+ "log 0.4.14",
+ "nix 0.19.1",
+ "rand 0.7.3",
+ "safecoin-clap-utils",
+ "safecoin-logger",
+ "safecoin-version",
+ "serde",
+ "serde_derive",
+ "socket2 0.3.19",
+ "tokio 1.9.0",
+ "url 2.2.2",
 ]
 
 [[package]]
@@ -4105,6 +4307,28 @@ dependencies = [
 ]
 
 [[package]]
+name = "safecoin-perf"
+version = "1.6.16"
+dependencies = [
+ "bincode",
+ "curve25519-dalek 2.1.3",
+ "dlopen",
+ "dlopen_derive",
+ "lazy_static",
+ "log 0.4.14",
+ "matches",
+ "rand 0.7.3",
+ "rayon",
+ "safecoin-budget-program",
+ "safecoin-logger",
+ "safecoin-measure",
+ "safecoin-metrics",
+ "safecoin-rayon-threadlimit",
+ "safecoin-sdk",
+ "serde",
+]
+
+[[package]]
 name = "safecoin-poh-bench"
 version = "1.6.16"
 dependencies = [
@@ -4112,13 +4336,13 @@ dependencies = [
  "log 0.4.14",
  "rand 0.7.3",
  "rayon",
+ "safecoin-clap-utils",
  "safecoin-logger",
  "safecoin-measure",
+ "safecoin-perf",
  "safecoin-sdk",
- "solana-clap-utils",
+ "safecoin-version",
  "solana-ledger",
- "solana-perf",
- "solana-version",
 ]
 
 [[package]]
@@ -4168,6 +4392,8 @@ dependencies = [
  "log 0.4.14",
  "mio 0.7.13",
  "safecoin-banks-client",
+ "safecoin-banks-server",
+ "safecoin-bpf-loader-program",
  "safecoin-logger",
  "safecoin-runtime",
  "safecoin-sdk",
@@ -4175,8 +4401,6 @@ dependencies = [
  "safecoin-vote-program",
  "serde",
  "serde_derive",
- "solana-banks-server",
- "solana-bpf-loader-program",
  "thiserror",
  "tokio 1.9.0",
 ]
@@ -4189,18 +4413,45 @@ dependencies = [
  "clap",
  "log 0.4.14",
  "reqwest",
+ "safecoin-client",
  "safecoin-logger",
  "safecoin-metrics",
+ "safecoin-net-utils",
  "safecoin-sdk",
  "safecoin-stake-program",
  "serde",
  "serde_json",
  "serde_yaml",
- "solana-client",
  "solana-core",
- "solana-net-utils",
  "solana-notifier",
  "tar",
+]
+
+[[package]]
+name = "safecoin-rayon-threadlimit"
+version = "1.6.16"
+dependencies = [
+ "lazy_static",
+ "num_cpus",
+]
+
+[[package]]
+name = "safecoin-remote-wallet"
+version = "1.6.16"
+dependencies = [
+ "base32",
+ "console 0.11.3",
+ "dialoguer",
+ "hidapi",
+ "log 0.4.14",
+ "num-derive",
+ "num-traits",
+ "parking_lot 0.10.2",
+ "qstring",
+ "safecoin-sdk",
+ "semver 0.9.0",
+ "thiserror",
+ "uriparse",
 ]
 
 [[package]]
@@ -4240,13 +4491,13 @@ dependencies = [
  "safecoin-measure",
  "safecoin-metrics",
  "safecoin-noop-program",
+ "safecoin-rayon-threadlimit",
  "safecoin-sdk",
  "safecoin-secp256k1-program",
  "safecoin-stake-program",
  "safecoin-vote-program",
  "serde",
  "serde_derive",
- "solana-rayon-threadlimit",
  "symlink",
  "tar",
  "tempfile",
@@ -4332,13 +4583,13 @@ name = "safecoin-stake-accounts"
 version = "1.6.16"
 dependencies = [
  "clap",
+ "safecoin-clap-utils",
+ "safecoin-cli-config",
+ "safecoin-client",
+ "safecoin-remote-wallet",
  "safecoin-runtime",
  "safecoin-sdk",
  "safecoin-stake-program",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-client",
- "solana-remote-wallet",
 ]
 
 [[package]]
@@ -4348,20 +4599,20 @@ dependencies = [
  "clap",
  "console 0.11.3",
  "log 0.4.14",
+ "safecoin-clap-utils",
+ "safecoin-cli-config",
+ "safecoin-client",
  "safecoin-logger",
  "safecoin-metrics",
  "safecoin-sdk",
  "safecoin-stake-program",
+ "safecoin-transaction-status",
+ "safecoin-version",
  "serde",
  "serde_yaml",
  "serial_test",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-client",
  "solana-core",
  "solana-local-cluster",
- "solana-transaction-status",
- "solana-version",
  "tempfile",
 ]
 
@@ -4372,20 +4623,20 @@ dependencies = [
  "clap",
  "log 0.4.14",
  "reqwest",
+ "safecoin-clap-utils",
+ "safecoin-cli-config",
+ "safecoin-cli-output",
+ "safecoin-client",
  "safecoin-logger",
  "safecoin-metrics",
  "safecoin-sdk",
  "safecoin-stake-program",
+ "safecoin-transaction-status",
  "semver 0.9.0",
  "serde",
  "serde_json",
  "serde_yaml",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-cli-output",
- "solana-client",
  "solana-notifier",
- "solana-transaction-status",
  "thiserror",
 ]
 
@@ -4411,6 +4662,47 @@ dependencies = [
 ]
 
 [[package]]
+name = "safecoin-storage-bigtable"
+version = "1.6.16"
+dependencies = [
+ "arc-swap 0.4.8",
+ "backoff",
+ "bincode",
+ "bzip2",
+ "enum-iterator",
+ "flate2",
+ "futures 0.3.16",
+ "goauth",
+ "log 0.4.14",
+ "prost",
+ "prost-types",
+ "rand_core 0.6.3",
+ "safecoin-sdk",
+ "safecoin-storage-proto",
+ "safecoin-transaction-status",
+ "serde",
+ "serde_derive",
+ "smpl_jwt",
+ "thiserror",
+ "tonic",
+ "zstd",
+]
+
+[[package]]
+name = "safecoin-storage-proto"
+version = "1.6.16"
+dependencies = [
+ "bincode",
+ "bs58",
+ "prost",
+ "safecoin-account-decoder",
+ "safecoin-sdk",
+ "safecoin-transaction-status",
+ "serde",
+ "serde_derive",
+]
+
+[[package]]
 name = "safecoin-store-tool"
 version = "1.6.16"
 dependencies = [
@@ -4420,7 +4712,22 @@ dependencies = [
  "safecoin-measure",
  "safecoin-runtime",
  "safecoin-sdk",
- "solana-version",
+ "safecoin-version",
+]
+
+[[package]]
+name = "safecoin-streamer"
+version = "1.6.16"
+dependencies = [
+ "libc",
+ "log 0.4.14",
+ "nix 0.19.1",
+ "safecoin-logger",
+ "safecoin-measure",
+ "safecoin-metrics",
+ "safecoin-perf",
+ "safecoin-sdk",
+ "thiserror",
 ]
 
 [[package]]
@@ -4431,9 +4738,9 @@ dependencies = [
  "libc",
  "log 0.4.14",
  "nix 0.19.1",
+ "safecoin-clap-utils",
  "safecoin-logger",
- "solana-clap-utils",
- "solana-version",
+ "safecoin-version",
  "sysctl",
  "unix_socket2",
  "users",
@@ -4453,23 +4760,46 @@ dependencies = [
  "indexmap",
  "indicatif",
  "pickledb",
+ "safecoin-account-decoder",
+ "safecoin-clap-utils",
+ "safecoin-cli-config",
+ "safecoin-client",
  "safecoin-logger",
  "safecoin-program-test",
+ "safecoin-remote-wallet",
  "safecoin-runtime",
  "safecoin-sdk",
  "safecoin-stake-program",
+ "safecoin-transaction-status",
+ "safecoin-version",
  "serde",
- "solana-account-decoder",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-client",
  "solana-core",
- "solana-remote-wallet",
- "solana-transaction-status",
- "solana-version",
  "spl-associated-token-account",
  "spl-token",
  "tempfile",
+ "thiserror",
+]
+
+[[package]]
+name = "safecoin-transaction-status"
+version = "1.6.16"
+dependencies = [
+ "Inflector",
+ "base64 0.12.3",
+ "bincode",
+ "bs58",
+ "lazy_static",
+ "safecoin-account-decoder",
+ "safecoin-runtime",
+ "safecoin-sdk",
+ "safecoin-stake-program",
+ "safecoin-vote-program",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "spl-associated-token-account",
+ "spl-memo",
+ "spl-token",
  "thiserror",
 ]
 
@@ -4502,24 +4832,38 @@ dependencies = [
  "log 0.4.14",
  "num_cpus",
  "rand 0.7.3",
+ "safecoin-clap-utils",
+ "safecoin-cli-config",
+ "safecoin-client",
  "safecoin-faucet",
  "safecoin-logger",
  "safecoin-metrics",
+ "safecoin-net-utils",
+ "safecoin-perf",
  "safecoin-runtime",
  "safecoin-sdk",
+ "safecoin-version",
  "safecoin-vote-program",
  "serde",
  "signal-hook",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-client",
  "solana-core",
  "solana-download-utils",
  "solana-ledger",
- "solana-net-utils",
- "solana-perf",
- "solana-version",
  "symlink",
+]
+
+[[package]]
+name = "safecoin-version"
+version = "1.6.16"
+dependencies = [
+ "log 0.4.14",
+ "rustc_version 0.2.3",
+ "safecoin-frozen-abi",
+ "safecoin-frozen-abi-macro",
+ "safecoin-logger",
+ "safecoin-sdk",
+ "serde",
+ "serde_derive",
 ]
 
 [[package]]
@@ -4549,15 +4893,15 @@ dependencies = [
  "clap",
  "humantime",
  "log 0.4.14",
+ "safecoin-clap-utils",
+ "safecoin-cli-config",
+ "safecoin-cli-output",
+ "safecoin-client",
  "safecoin-logger",
  "safecoin-metrics",
  "safecoin-sdk",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-cli-output",
- "solana-client",
+ "safecoin-version",
  "solana-notifier",
- "solana-version",
 ]
 
 [[package]]
@@ -4931,28 +5275,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-account-decoder"
-version = "1.6.16"
-dependencies = [
- "Inflector",
- "base64 0.12.3",
- "bincode",
- "bs58",
- "bv",
- "lazy_static",
- "safecoin-config-program",
- "safecoin-sdk",
- "safecoin-stake-program",
- "safecoin-vote-program",
- "serde",
- "serde_derive",
- "serde_json",
- "spl-token",
- "thiserror",
- "zstd",
-]
-
-[[package]]
 name = "solana-accounts-cluster-bench"
 version = "1.6.16"
 dependencies = [
@@ -4960,85 +5282,20 @@ dependencies = [
  "log 0.4.14",
  "rand 0.7.3",
  "rayon",
+ "safecoin-account-decoder",
+ "safecoin-clap-utils",
+ "safecoin-client",
  "safecoin-faucet",
  "safecoin-logger",
  "safecoin-measure",
+ "safecoin-net-utils",
  "safecoin-runtime",
  "safecoin-sdk",
- "solana-account-decoder",
- "solana-clap-utils",
- "solana-client",
+ "safecoin-transaction-status",
+ "safecoin-version",
  "solana-core",
  "solana-local-cluster",
- "solana-net-utils",
- "solana-transaction-status",
- "solana-version",
  "spl-token",
-]
-
-[[package]]
-name = "solana-banks-interface"
-version = "1.6.16"
-dependencies = [
- "mio 0.7.13",
- "safecoin-sdk",
- "serde",
- "tarpc",
- "tokio 1.9.0",
-]
-
-[[package]]
-name = "solana-banks-server"
-version = "1.6.16"
-dependencies = [
- "bincode",
- "futures 0.3.16",
- "log 0.4.14",
- "mio 0.7.13",
- "safecoin-metrics",
- "safecoin-runtime",
- "safecoin-sdk",
- "solana-banks-interface",
- "tarpc",
- "tokio 1.9.0",
- "tokio-serde",
- "tokio-stream",
-]
-
-[[package]]
-name = "solana-bpf-loader-program"
-version = "1.6.16"
-dependencies = [
- "bincode",
- "byteorder",
- "log 0.4.14",
- "num-derive",
- "num-traits",
- "rand 0.7.3",
- "rand_core 0.6.3",
- "rustversion",
- "safecoin-measure",
- "safecoin-runtime",
- "safecoin-sdk",
- "sha3",
- "solana_rbpf",
- "thiserror",
-]
-
-[[package]]
-name = "solana-budget-program"
-version = "1.6.16"
-dependencies = [
- "bincode",
- "chrono",
- "log 0.4.14",
- "num-derive",
- "num-traits",
- "safecoin-runtime",
- "safecoin-sdk",
- "serde",
- "serde_derive",
- "thiserror",
 ]
 
 [[package]]
@@ -5062,22 +5319,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-clap-utils"
-version = "1.6.16"
-dependencies = [
- "chrono",
- "clap",
- "rpassword",
- "safecoin-sdk",
- "solana-remote-wallet",
- "tempfile",
- "thiserror",
- "tiny-bip39 0.8.0",
- "uriparse",
- "url 2.2.2",
-]
-
-[[package]]
 name = "solana-cli"
 version = "1.6.16"
 dependencies = [
@@ -5096,101 +5337,31 @@ dependencies = [
  "num-traits",
  "pretty-hex",
  "reqwest",
+ "safecoin-account-decoder",
+ "safecoin-bpf-loader-program",
+ "safecoin-clap-utils",
+ "safecoin-cli-config",
+ "safecoin-cli-output",
+ "safecoin-client",
  "safecoin-config-program",
  "safecoin-faucet",
  "safecoin-logger",
+ "safecoin-net-utils",
+ "safecoin-remote-wallet",
  "safecoin-sdk",
  "safecoin-stake-program",
+ "safecoin-transaction-status",
+ "safecoin-version",
  "safecoin-vote-program",
  "serde",
  "serde_derive",
  "serde_json",
- "solana-account-decoder",
- "solana-bpf-loader-program",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-cli-output",
- "solana-client",
  "solana-core",
- "solana-net-utils",
- "solana-remote-wallet",
- "solana-transaction-status",
- "solana-version",
  "solana_rbpf",
  "spl-memo",
  "tempfile",
  "thiserror",
  "tiny-bip39 0.7.3",
- "url 2.2.2",
-]
-
-[[package]]
-name = "solana-cli-config"
-version = "1.6.16"
-dependencies = [
- "dirs-next",
- "lazy_static",
- "serde",
- "serde_derive",
- "serde_yaml",
- "url 2.2.2",
-]
-
-[[package]]
-name = "solana-cli-output"
-version = "1.6.16"
-dependencies = [
- "Inflector",
- "base64 0.13.0",
- "chrono",
- "console 0.11.3",
- "humantime",
- "indicatif",
- "safecoin-sdk",
- "safecoin-stake-program",
- "safecoin-vote-program",
- "serde",
- "serde_derive",
- "serde_json",
- "solana-account-decoder",
- "solana-clap-utils",
- "solana-client",
- "solana-transaction-status",
- "spl-memo",
-]
-
-[[package]]
-name = "solana-client"
-version = "1.6.16"
-dependencies = [
- "assert_matches",
- "base64 0.13.0",
- "bincode",
- "bs58",
- "clap",
- "indicatif",
- "jsonrpc-core",
- "jsonrpc-http-server",
- "log 0.4.14",
- "net2",
- "rayon",
- "reqwest",
- "safecoin-faucet",
- "safecoin-logger",
- "safecoin-sdk",
- "safecoin-vote-program",
- "semver 0.11.0",
- "serde",
- "serde_derive",
- "serde_json",
- "solana-account-decoder",
- "solana-clap-utils",
- "solana-net-utils",
- "solana-transaction-status",
- "solana-version",
- "thiserror",
- "tokio 1.9.0",
- "tungstenite",
  "url 2.2.2",
 ]
 
@@ -5236,36 +5407,36 @@ dependencies = [
  "reqwest",
  "retain_mut",
  "rustc_version 0.2.3",
+ "safecoin-account-decoder",
+ "safecoin-banks-server",
+ "safecoin-clap-utils",
+ "safecoin-client",
  "safecoin-faucet",
  "safecoin-frozen-abi",
  "safecoin-frozen-abi-macro",
  "safecoin-logger",
  "safecoin-measure",
+ "safecoin-merkle-tree",
  "safecoin-metrics",
+ "safecoin-net-utils",
+ "safecoin-perf",
  "safecoin-program-test",
+ "safecoin-rayon-threadlimit",
  "safecoin-runtime",
  "safecoin-sdk",
  "safecoin-stake-program",
+ "safecoin-storage-bigtable",
+ "safecoin-streamer",
  "safecoin-sys-tuner",
+ "safecoin-transaction-status",
+ "safecoin-version",
  "safecoin-vote-program",
  "serde",
  "serde_bytes",
  "serde_derive",
  "serde_json",
  "serial_test",
- "solana-account-decoder",
- "solana-banks-server",
- "solana-clap-utils",
- "solana-client",
  "solana-ledger",
- "solana-merkle-tree",
- "solana-net-utils",
- "solana-perf",
- "solana-rayon-threadlimit",
- "solana-storage-bigtable",
- "solana-streamer",
- "solana-transaction-status",
- "solana-version",
  "spl-token",
  "symlink",
  "systemstat",
@@ -5369,27 +5540,27 @@ dependencies = [
  "reed-solomon-erasure",
  "rocksdb",
  "rustc_version 0.2.3",
+ "safecoin-account-decoder",
+ "safecoin-bpf-loader-program",
+ "safecoin-budget-program",
  "safecoin-frozen-abi",
  "safecoin-frozen-abi-macro",
  "safecoin-logger",
  "safecoin-measure",
+ "safecoin-merkle-tree",
  "safecoin-metrics",
+ "safecoin-perf",
+ "safecoin-rayon-threadlimit",
  "safecoin-runtime",
  "safecoin-sdk",
  "safecoin-stake-program",
+ "safecoin-storage-bigtable",
+ "safecoin-storage-proto",
+ "safecoin-transaction-status",
  "safecoin-vote-program",
  "serde",
  "serde_bytes",
  "sha2 0.9.5",
- "solana-account-decoder",
- "solana-bpf-loader-program",
- "solana-budget-program",
- "solana-merkle-tree",
- "solana-perf",
- "solana-rayon-threadlimit",
- "solana-storage-bigtable",
- "solana-storage-proto",
- "solana-transaction-status",
  "tempfile",
  "thiserror",
  "tokio 1.9.0",
@@ -5409,20 +5580,20 @@ dependencies = [
  "log 0.4.14",
  "rand 0.7.3",
  "rayon",
+ "safecoin-client",
  "safecoin-config-program",
  "safecoin-faucet",
  "safecoin-logger",
+ "safecoin-rayon-threadlimit",
  "safecoin-runtime",
  "safecoin-sdk",
  "safecoin-stake-program",
  "safecoin-vote-program",
  "serial_test",
- "solana-client",
  "solana-core",
  "solana-download-utils",
  "solana-exchange-program",
  "solana-ledger",
- "solana-rayon-threadlimit",
  "solana-vest-program",
  "tempfile",
 ]
@@ -5436,35 +5607,6 @@ dependencies = [
  "env_logger",
  "lazy_static",
  "log 0.4.14",
-]
-
-[[package]]
-name = "solana-merkle-tree"
-version = "1.6.16"
-dependencies = [
- "fast-math",
- "hex",
- "matches",
- "safecoin-program",
-]
-
-[[package]]
-name = "solana-net-utils"
-version = "1.6.16"
-dependencies = [
- "bincode",
- "clap",
- "log 0.4.14",
- "nix 0.19.1",
- "rand 0.7.3",
- "safecoin-logger",
- "serde",
- "serde_derive",
- "socket2 0.3.19",
- "solana-clap-utils",
- "solana-version",
- "tokio 1.9.0",
- "url 2.2.2",
 ]
 
 [[package]]
@@ -5486,28 +5628,6 @@ dependencies = [
  "safecoin-runtime",
  "safecoin-sdk",
  "thiserror",
-]
-
-[[package]]
-name = "solana-perf"
-version = "1.6.16"
-dependencies = [
- "bincode",
- "curve25519-dalek 2.1.3",
- "dlopen",
- "dlopen_derive",
- "lazy_static",
- "log 0.4.14",
- "matches",
- "rand 0.7.3",
- "rayon",
- "safecoin-logger",
- "safecoin-measure",
- "safecoin-metrics",
- "safecoin-sdk",
- "serde",
- "solana-budget-program",
- "solana-rayon-threadlimit",
 ]
 
 [[package]]
@@ -5546,33 +5666,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-rayon-threadlimit"
-version = "1.6.16"
-dependencies = [
- "lazy_static",
- "num_cpus",
-]
-
-[[package]]
-name = "solana-remote-wallet"
-version = "1.6.16"
-dependencies = [
- "base32",
- "console 0.11.3",
- "dialoguer",
- "hidapi",
- "log 0.4.14",
- "num-derive",
- "num-traits",
- "parking_lot 0.10.2",
- "qstring",
- "safecoin-sdk",
- "semver 0.9.0",
- "thiserror",
- "uriparse",
-]
-
-[[package]]
 name = "solana-scripts"
 version = "1.6.16"
 dependencies = [
@@ -5591,99 +5684,6 @@ dependencies = [
  "quote 1.0.9",
  "rustversion",
  "syn 1.0.74",
-]
-
-[[package]]
-name = "solana-storage-bigtable"
-version = "1.6.16"
-dependencies = [
- "arc-swap 0.4.8",
- "backoff",
- "bincode",
- "bzip2",
- "enum-iterator",
- "flate2",
- "futures 0.3.16",
- "goauth",
- "log 0.4.14",
- "prost",
- "prost-types",
- "rand_core 0.6.3",
- "safecoin-sdk",
- "serde",
- "serde_derive",
- "smpl_jwt",
- "solana-storage-proto",
- "solana-transaction-status",
- "thiserror",
- "tonic",
- "zstd",
-]
-
-[[package]]
-name = "solana-storage-proto"
-version = "1.6.16"
-dependencies = [
- "bincode",
- "bs58",
- "prost",
- "safecoin-sdk",
- "serde",
- "serde_derive",
- "solana-account-decoder",
- "solana-transaction-status",
-]
-
-[[package]]
-name = "solana-streamer"
-version = "1.6.16"
-dependencies = [
- "libc",
- "log 0.4.14",
- "nix 0.19.1",
- "safecoin-logger",
- "safecoin-measure",
- "safecoin-metrics",
- "safecoin-sdk",
- "solana-perf",
- "thiserror",
-]
-
-[[package]]
-name = "solana-transaction-status"
-version = "1.6.16"
-dependencies = [
- "Inflector",
- "base64 0.12.3",
- "bincode",
- "bs58",
- "lazy_static",
- "safecoin-runtime",
- "safecoin-sdk",
- "safecoin-stake-program",
- "safecoin-vote-program",
- "serde",
- "serde_derive",
- "serde_json",
- "solana-account-decoder",
- "spl-associated-token-account",
- "spl-memo",
- "spl-token",
- "thiserror",
-]
-
-[[package]]
-name = "solana-version"
-version = "1.6.16"
-dependencies = [
- "log 0.4.14",
- "rustc_version 0.2.3",
- "safecoin-frozen-abi",
- "safecoin-frozen-abi-macro",
- "safecoin-logger",
- "safecoin-sdk",
- "serde",
- "serde_derive",
 ]
 
 [[package]]

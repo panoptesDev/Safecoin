@@ -15,7 +15,7 @@ borsh = "0.9.0"
 borsh-derive = "0.9.0"
 futures = "0.3"
 mio = "0.7.6"
-solana-banks-interface = { path = "../banks-interface", version = "=1.6.16" }
+safecoin-banks-interface = { path = "../banks-interface", version = "=1.6.16" }
 safecoin-program = { path = "../sdk/program", version = "=1.6.16" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 tarpc = { version = "0.24.1", features = ["full"] }
@@ -24,7 +24,7 @@ tokio-serde = { version = "0.8", features = ["bincode"] }
 
 [dev-dependencies]
 safecoin-runtime = { path = "../runtime", version = "=1.6.16" }
-solana-banks-server = { path = "../banks-server", version = "=1.6.16" }
+safecoin-banks-server = { path = "../banks-server", version = "=1.6.16" }
 
 [lib]
 crate-type = ["lib"]

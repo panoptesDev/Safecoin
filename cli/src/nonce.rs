@@ -8,16 +8,16 @@ use crate::{
     spend_utils::{resolve_spend_tx_and_check_account_balance, SpendAmount},
 };
 use clap::{App, Arg, ArgMatches, SubCommand};
-use solana_clap_utils::{
+use safecoin_clap_utils::{
     input_parsers::*,
     input_validators::*,
     keypair::{DefaultSigner, SignerIndex},
     memo::MEMO_ARG,
     nonce::*,
 };
-use solana_cli_output::CliNonceAccount;
-use solana_client::{nonce_utils::*, rpc_client::RpcClient};
-use solana_remote_wallet::remote_wallet::RemoteWalletManager;
+use safecoin_cli_output::CliNonceAccount;
+use safecoin_client::{nonce_utils::*, rpc_client::RpcClient};
+use safecoin_remote_wallet::remote_wallet::RemoteWalletManager;
 use solana_sdk::{
     account::Account,
     hash::Hash,

@@ -16,10 +16,10 @@ rayon = "1.5.0"
 safecoin-logger = { path = "../logger", version = "=1.6.16" }
 solana-ledger = { path = "../ledger", version = "=1.6.16" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
-solana-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
+safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
 safecoin-measure = { path = "../measure", version = "=1.6.16" }
-solana-version = { path = "../version", version = "=1.6.16" }
-solana-perf = { path = "../perf", version = "=1.6.16" }
+safecoin-version = { path = "../version", version = "=1.6.16" }
+safecoin-perf = { path = "../perf", version = "=1.6.16" }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

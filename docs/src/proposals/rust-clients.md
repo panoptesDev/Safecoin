@@ -22,7 +22,7 @@ with an implementation of it. That way, all utility functions currently in the
 `Client` trait can move into `ThinClient`. `ThinClient` could then move into
 `safecoin-sdk` since all its network dependencies would be in the implementation
 of `Client`. We would then add a new implementation of `Client`, called
-`ClusterClient`, and that would live in the `solana-client` crate, where
+`ClusterClient`, and that would live in the `safecoin-client` crate, where
 `ThinClient` currently resides.
 
 After this reorg, any code needing a client would be written in terms of

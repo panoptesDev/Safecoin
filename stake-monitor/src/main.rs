@@ -3,11 +3,11 @@ use clap::{
 };
 use console::Emoji;
 use log::*;
-use solana_clap_utils::{
+use safecoin_clap_utils::{
     input_parsers::pubkey_of,
     input_validators::{is_pubkey, is_slot, is_url},
 };
-use solana_client::rpc_client::RpcClient;
+use safecoin_client::rpc_client::RpcClient;
 use solana_metrics::datapoint_error;
 use solana_sdk::{clock::Slot, native_token::lamports_to_sol, pubkey::Pubkey, system_program};
 use safecoin_stake_monitor::*;
@@ -15,8 +15,8 @@ use std::{fs, io, process};
 
 fn load_accounts_info(data_file: &str) -> AccountsInfo {
     let data_file_new = data_file.to_owned() + "new";
-    let accounts_info = solana_cli_config::load_config_file(&data_file_new)
-        .or_else(|_| solana_cli_config::load_config_file(data_file))
+    let accounts_info = safecoin_cli_config::load_config_file(&data_file_new)
+        .or_else(|_| safecoin_cli_config::load_config_file(data_file))
         .unwrap_or_default();
 
     // Ensure `data_file` always exists
@@ -27,7 +27,7 @@ fn load_accounts_info(data_file: &str) -> AccountsInfo {
 
 fn save_accounts_info(data_file: &str, accounts_info: &AccountsInfo) -> io::Result<()> {
     let data_file_new = data_file.to_owned() + "new";
-    solana_cli_config::save_config_file(&accounts_info, &data_file_new)?;
+    safecoin_cli_config::save_config_file(&accounts_info, &data_file_new)?;
     let _ = fs::remove_file(data_file);
     fs::rename(&data_file_new, data_file)
 }
@@ -148,7 +148,7 @@ fn main() {
                 .value_name("PATH")
                 .takes_value(true)
                 .help("Configuration file to use");
-            if let Some(ref config_file) = *solana_cli_config::CONFIG_FILE {
+            if let Some(ref config_file) = *safecoin_cli_config::CONFIG_FILE {
                 arg.default_value(&config_file)
             } else {
                 arg
@@ -204,9 +204,9 @@ fn main() {
     let data_file = value_t_or_exit!(matches, "data_file", String);
     let json_rpc_url = value_t!(matches, "json_rpc_url", String).unwrap_or_else(|_| {
         let config = if let Some(config_file) = matches.value_of("config_file") {
-            solana_cli_config::Config::load(config_file).unwrap_or_default()
+            safecoin_cli_config::Config::load(config_file).unwrap_or_default()
         } else {
-            solana_cli_config::Config::default()
+            safecoin_cli_config::Config::default()
         };
         config.json_rpc_url
     });

@@ -14,7 +14,7 @@ use bincode::{config::Options, serialize};
 use jsonrpc_core::{types::error, Error, Metadata, Result};
 use jsonrpc_derive::rpc;
 use serde::{Deserialize, Serialize};
-use solana_account_decoder::{
+use safecoin_account_decoder::{
     parse_account_data::AccountAdditionalData,
     parse_token::{
         get_token_account_mint, spl_token_id_v2_0, spl_token_v2_0_native_mint,
@@ -22,7 +22,7 @@ use solana_account_decoder::{
     },
     UiAccount, UiAccountData, UiAccountEncoding, UiDataSliceConfig,
 };
-use solana_client::{
+use safecoin_client::{
     rpc_cache::LargestAccountsCache,
     rpc_config::*,
     rpc_custom_error::RpcCustomError,
@@ -70,7 +70,7 @@ use solana_sdk::{
     transaction::{self, Transaction, TransactionError},
 };
 use solana_stake_program::stake_state::StakeState;
-use solana_transaction_status::{
+use safecoin_transaction_status::{
     EncodedConfirmedTransaction, Reward, RewardType, TransactionConfirmationStatus,
     TransactionStatus, UiConfirmedBlock, UiTransactionEncoding,
 };
@@ -3732,7 +3732,7 @@ pub mod tests {
     use bincode::deserialize;
     use jsonrpc_core::{futures, ErrorCode, MetaIoHandler, Output, Response, Value};
     use jsonrpc_core_client::transports::local;
-    use solana_client::rpc_filter::{Memcmp, MemcmpEncodedBytes};
+    use safecoin_client::rpc_filter::{Memcmp, MemcmpEncodedBytes};
     use solana_ledger::{
         blockstore_meta::PerfSample,
         blockstore_processor::fill_blockstore_slot_with_ticks,
@@ -3754,7 +3754,7 @@ pub mod tests {
         timing::slot_duration_from_slots_per_year,
         transaction::{self, TransactionError},
     };
-    use solana_transaction_status::{
+    use safecoin_transaction_status::{
         EncodedConfirmedBlock, EncodedTransaction, EncodedTransactionWithStatusMeta,
         TransactionDetails, UiMessage,
     };

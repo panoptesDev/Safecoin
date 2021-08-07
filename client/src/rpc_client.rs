@@ -13,7 +13,7 @@ use {
     indicatif::{ProgressBar, ProgressStyle},
     log::*,
     serde_json::{json, Value},
-    solana_account_decoder::{
+    safecoin_account_decoder::{
         parse_token::{TokenAccountType, UiTokenAccount, UiTokenAmount},
         UiAccount, UiAccountData, UiAccountEncoding,
     },
@@ -29,7 +29,7 @@ use {
         signature::Signature,
         transaction::{self, uses_durable_nonce, Transaction},
     },
-    solana_transaction_status::{
+    safecoin_transaction_status::{
         EncodedConfirmedBlock, EncodedConfirmedTransaction, TransactionStatus, UiConfirmedBlock,
         UiTransactionEncoding,
     },

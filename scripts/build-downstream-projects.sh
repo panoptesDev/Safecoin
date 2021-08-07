@@ -25,14 +25,14 @@ update_solana_dependencies() {
   sed -i -e "s#\(safecoin-program-test = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
   sed -i -e "s#\(safecoin-sdk = \"\).*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
   sed -i -e "s#\(safecoin-sdk = { version = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
-  sed -i -e "s#\(solana-client = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
-  sed -i -e "s#\(solana-client = { version = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
+  sed -i -e "s#\(safecoin-client = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
+  sed -i -e "s#\(safecoin-client = { version = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
 }
 
 patch_crates_io() {
   cat >> "$1" <<EOF
 [patch.crates-io]
-solana-client = { path = "$solana_dir/client" }
+safecoin-client = { path = "$solana_dir/client" }
 safecoin-program = { path = "$solana_dir/sdk/program" }
 safecoin-program-test = { path = "$solana_dir/program-test" }
 safecoin-sdk = { path = "$solana_dir/sdk" }

@@ -3,13 +3,13 @@ use crate::{
     commands::{Allocation, Error, FundingSource},
 };
 use console::style;
-use solana_account_decoder::parse_token::{
+use safecoin_account_decoder::parse_token::{
     pubkey_from_spl_token_v2_0, real_number_string, real_number_string_trimmed,
     spl_token_v2_0_pubkey,
 };
-use solana_client::rpc_client::RpcClient;
+use safecoin_client::rpc_client::RpcClient;
 use solana_sdk::{instruction::Instruction, native_token::lamports_to_sol};
-use solana_transaction_status::parse_token::spl_token_v2_0_instruction;
+use safecoin_transaction_status::parse_token::spl_token_v2_0_instruction;
 use spl_associated_token_account_v1_0::{
     create_associated_token_account, get_associated_token_address,
 };

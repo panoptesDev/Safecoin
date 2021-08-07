@@ -50,7 +50,7 @@ use solana_perf::packet::{
     limited_deserialize, to_packets_with_destination, Packet, Packets, PacketsRecycler,
     PACKET_DATA_SIZE,
 };
-use solana_rayon_threadlimit::get_thread_count;
+use safecoin_rayon_threadlimit::get_thread_count;
 use solana_runtime::bank_forks::BankForks;
 use solana_sdk::{
     clock::{Slot, DEFAULT_MS_PER_SLOT, DEFAULT_SLOTS_PER_EPOCH},

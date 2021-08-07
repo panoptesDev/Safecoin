@@ -15,7 +15,7 @@ use solana_perf::{
     recycler_cache::RecyclerCache,
     sigverify::{self, batch_size, TxOffset},
 };
-use solana_rayon_threadlimit::get_thread_count;
+use safecoin_rayon_threadlimit::get_thread_count;
 use solana_sdk::{
     clock::Slot,
     pubkey::Pubkey,

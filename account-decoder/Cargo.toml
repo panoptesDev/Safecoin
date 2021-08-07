@@ -1,11 +1,11 @@
 [package]
-name = "solana-account-decoder"
+name = "safecoin-account-decoder"
 version = "1.6.16"
 description = "Safecoin account decoder"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/solana-labs/solana"
 homepage = "https://solana.com/"
-documentation = "https://docs.rs/solana-account-decoder"
+documentation = "https://docs.rs/safecoin-account-decoder"
 license = "Apache-2.0"
 edition = "2018"
 

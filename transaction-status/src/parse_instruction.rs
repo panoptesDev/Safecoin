@@ -8,7 +8,7 @@ use crate::{
 };
 use inflector::Inflector;
 use serde_json::Value;
-use solana_account_decoder::parse_token::spl_token_id_v2_0;
+use safecoin_account_decoder::parse_token::spl_token_id_v2_0;
 use solana_sdk::{instruction::CompiledInstruction, pubkey::Pubkey, system_program};
 use std::{collections::HashMap, str::from_utf8};
 use thiserror::Error;

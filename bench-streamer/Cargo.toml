@@ -10,11 +10,11 @@ publish = false
 
 [dependencies]
 clap = "2.33.1"
-solana-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
-solana-streamer = { path = "../streamer", version = "=1.6.16" }
+safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
+safecoin-streamer = { path = "../streamer", version = "=1.6.16" }
 safecoin-logger = { path = "../logger", version = "=1.6.16" }
-solana-net-utils = { path = "../net-utils", version = "=1.6.16" }
-solana-version = { path = "../version", version = "=1.6.16" }
+safecoin-net-utils = { path = "../net-utils", version = "=1.6.16" }
+safecoin-version = { path = "../version", version = "=1.6.16" }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

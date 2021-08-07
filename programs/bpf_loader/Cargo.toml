@@ -1,12 +1,12 @@
 [package]
-name = "solana-bpf-loader-program"
+name = "safecoin-bpf-loader-program"
 version = "1.6.16"
 description = "Safecoin BPF loader"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/solana-labs/solana"
 license = "Apache-2.0"
 homepage = "https://solana.com/"
-documentation = "https://docs.rs/solana-bpf-loader-program"
+documentation = "https://docs.rs/safecoin-bpf-loader-program"
 edition = "2018"
 
 [dependencies]

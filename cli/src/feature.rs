@@ -5,10 +5,10 @@ use crate::{
 use clap::{App, AppSettings, Arg, ArgMatches, SubCommand};
 use console::style;
 use serde::{Deserialize, Serialize};
-use solana_clap_utils::{input_parsers::*, input_validators::*, keypair::*};
-use solana_cli_output::{QuietDisplay, VerboseDisplay};
-use solana_client::{client_error::ClientError, rpc_client::RpcClient};
-use solana_remote_wallet::remote_wallet::RemoteWalletManager;
+use safecoin_clap_utils::{input_parsers::*, input_validators::*, keypair::*};
+use safecoin_cli_output::{QuietDisplay, VerboseDisplay};
+use safecoin_client::{client_error::ClientError, rpc_client::RpcClient};
+use safecoin_remote_wallet::remote_wallet::RemoteWalletManager;
 use solana_sdk::{
     clock::Slot,
     feature::{self, Feature},

@@ -1,4 +1,4 @@
-use solana_account_decoder::parse_token::real_number_string_trimmed;
+use safecoin_account_decoder::parse_token::real_number_string_trimmed;
 use solana_sdk::native_token::lamports_to_sol;
 use std::{
     fmt::{Debug, Display, Formatter, Result},

@@ -16,7 +16,7 @@ use solana_metrics::*;
 use solana_perf::cuda_runtime::PinnedVec;
 use solana_perf::perf_libs;
 use solana_perf::recycler::Recycler;
-use solana_rayon_threadlimit::get_thread_count;
+use safecoin_rayon_threadlimit::get_thread_count;
 use solana_runtime::hashed_transaction::HashedTransaction;
 use solana_sdk::hash::Hash;
 use solana_sdk::packet::PACKET_DATA_SIZE;

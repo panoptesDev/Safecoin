@@ -10,7 +10,7 @@ use solana_ledger::{
 };
 use solana_runtime::bank::RewardType;
 use solana_sdk::{clock::Slot, pubkey};
-use solana_transaction_status::{Reward, Rewards};
+use safecoin_transaction_status::{Reward, Rewards};
 use std::path::Path;
 use test::Bencher;
 

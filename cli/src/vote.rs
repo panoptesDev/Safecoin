@@ -8,15 +8,15 @@ use crate::{
     spend_utils::{resolve_spend_tx_and_check_account_balance, SpendAmount},
 };
 use clap::{value_t_or_exit, App, Arg, ArgMatches, SubCommand};
-use solana_clap_utils::{
+use safecoin_clap_utils::{
     input_parsers::*,
     input_validators::*,
     keypair::{DefaultSigner, SignerIndex},
     memo::{memo_arg, MEMO_ARG},
 };
-use solana_cli_output::{CliEpochVotingHistory, CliLockout, CliVoteAccount};
-use solana_client::rpc_client::RpcClient;
-use solana_remote_wallet::remote_wallet::RemoteWalletManager;
+use safecoin_cli_output::{CliEpochVotingHistory, CliLockout, CliVoteAccount};
+use safecoin_client::rpc_client::RpcClient;
+use safecoin_remote_wallet::remote_wallet::RemoteWalletManager;
 use solana_sdk::{
     account::Account, commitment_config::CommitmentConfig, message::Message,
     native_token::lamports_to_sol, pubkey::Pubkey, system_instruction::SystemError,

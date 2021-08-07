@@ -15,7 +15,7 @@ safecoin-logger = { path = "../logger", version = "=1.6.16" }
 safecoin-runtime = { path = "../runtime", version = "=1.6.16" }
 safecoin-measure = { path = "../measure", version = "=1.6.16" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
-solana-version = { path = "../version", version = "=1.6.16" }
+safecoin-version = { path = "../version", version = "=1.6.16" }
 rand = "0.7.0"
 clap = "2.33.1"
 crossbeam-channel = "0.4"

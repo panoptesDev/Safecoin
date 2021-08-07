@@ -24,7 +24,7 @@ use solana_ledger::{
 };
 use solana_metrics::{inc_new_counter_debug, inc_new_counter_error};
 use solana_perf::packet::Packets;
-use solana_rayon_threadlimit::get_thread_count;
+use safecoin_rayon_threadlimit::get_thread_count;
 use solana_runtime::{bank::Bank, bank_forks::BankForks};
 use solana_sdk::{clock::Slot, packet::PACKET_DATA_SIZE, pubkey::Pubkey, timing::duration_as_ms};
 use solana_streamer::streamer::PacketSender;

@@ -4,7 +4,7 @@ use clap::{
     crate_description, crate_name, value_t, value_t_or_exit, values_t_or_exit, App, AppSettings,
     Arg, ArgMatches, SubCommand,
 };
-use solana_clap_utils::{
+use safecoin_clap_utils::{
     input_validators::{is_parsable, is_prompt_signer_source},
     keypair::{
         keypair_from_path, keypair_from_seed_phrase, prompt_passphrase, signer_from_path,
@@ -12,8 +12,8 @@ use solana_clap_utils::{
     },
     ArgConstant, DisplayError,
 };
-use solana_cli_config::{Config, CONFIG_FILE};
-use solana_remote_wallet::remote_wallet::RemoteWalletManager;
+use safecoin_cli_config::{Config, CONFIG_FILE};
+use safecoin_remote_wallet::remote_wallet::RemoteWalletManager;
 use solana_sdk::{
     instruction::{AccountMeta, Instruction},
     message::Message,

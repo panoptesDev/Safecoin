@@ -18,7 +18,7 @@ use crate::{
     parse_accounts::{parse_accounts, ParsedAccount},
     parse_instruction::{parse, ParsedInstruction},
 };
-use solana_account_decoder::parse_token::UiTokenAmount;
+use safecoin_account_decoder::parse_token::UiTokenAmount;
 pub use solana_runtime::bank::RewardType;
 use solana_sdk::{
     clock::{Slot, UnixTimestamp},

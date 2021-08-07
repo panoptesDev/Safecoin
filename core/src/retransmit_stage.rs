@@ -18,7 +18,7 @@ use crate::{
 };
 use crossbeam_channel::{Receiver, Sender};
 use lru::LruCache;
-use solana_client::rpc_response::SlotUpdate;
+use safecoin_client::rpc_response::SlotUpdate;
 use solana_ledger::shred::{get_shred_slot_index_type, ShredFetchStats};
 use solana_ledger::{
     blockstore::{Blockstore, CompletedSlotsReceiver},

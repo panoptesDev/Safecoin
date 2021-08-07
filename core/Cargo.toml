@@ -52,29 +52,29 @@ serde = "1.0.122"
 serde_bytes = "0.11"
 serde_derive = "1.0.103"
 serde_json = "1.0.56"
-solana-account-decoder = { path = "../account-decoder", version = "=1.6.16" }
-solana-banks-server = { path = "../banks-server", version = "=1.6.16" }
-solana-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
-solana-client = { path = "../client", version = "=1.6.16" }
+safecoin-account-decoder = { path = "../account-decoder", version = "=1.6.16" }
+safecoin-banks-server = { path = "../banks-server", version = "=1.6.16" }
+safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.16" }
+safecoin-client = { path = "../client", version = "=1.6.16" }
 safecoin-faucet = { path = "../faucet", version = "=1.6.16" }
 solana-ledger = { path = "../ledger", version = "=1.6.16" }
 safecoin-logger = { path = "../logger", version = "=1.6.16" }
-solana-merkle-tree = { path = "../merkle-tree", version = "=1.6.16" }
+safecoin-merkle-tree = { path = "../merkle-tree", version = "=1.6.16" }
 safecoin-metrics = { path = "../metrics", version = "=1.6.16" }
 safecoin-measure = { path = "../measure", version = "=1.6.16" }
-solana-net-utils = { path = "../net-utils", version = "=1.6.16" }
-solana-perf = { path = "../perf", version = "=1.6.16" }
+safecoin-net-utils = { path = "../net-utils", version = "=1.6.16" }
+safecoin-perf = { path = "../perf", version = "=1.6.16" }
 safecoin-program-test = { path = "../program-test", version = "=1.6.16" }
 safecoin-runtime = { path = "../runtime", version = "=1.6.16" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.16" }
 safecoin-frozen-abi = { path = "../frozen-abi", version = "=1.6.16" }
 safecoin-frozen-abi-macro = { path = "../frozen-abi/macro", version = "=1.6.16" }
 safecoin-stake-program = { path = "../programs/stake", version = "=1.6.16" }
-solana-storage-bigtable = { path = "../storage-bigtable", version = "=1.6.16" }
-solana-streamer = { path = "../streamer", version = "=1.6.16" }
+safecoin-storage-bigtable = { path = "../storage-bigtable", version = "=1.6.16" }
+safecoin-streamer = { path = "../streamer", version = "=1.6.16" }
 safecoin-sys-tuner = { path = "../sys-tuner", version = "=1.6.16" }
-solana-transaction-status = { path = "../transaction-status", version = "=1.6.16" }
-solana-version = { path = "../version", version = "=1.6.16" }
+safecoin-transaction-status = { path = "../transaction-status", version = "=1.6.16" }
+safecoin-version = { path = "../version", version = "=1.6.16" }
 safecoin-vote-program = { path = "../programs/vote", version = "=1.6.16" }
 spl-token-v2-0 = { package = "spl-token", version = "=3.1.1", features = ["no-entrypoint"] }
 tempfile = "3.1.0"
@@ -82,7 +82,7 @@ thiserror = "1.0"
 tokio = { version = "1", features = ["full"] }
 tokio_02 = { version = "0.2", package = "tokio", features = ["full"] }
 tokio-util = { version = "0.3", features = ["codec"] } # This crate needs to stay in sync with tokio_02, until that dependency can be removed
-solana-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.6.16" }
+safecoin-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.6.16" }
 trees = "0.2.1"
 
 [dev-dependencies]

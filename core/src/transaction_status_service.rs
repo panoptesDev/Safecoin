@@ -7,7 +7,7 @@ use solana_ledger::{
 use solana_runtime::bank::{
     Bank, InnerInstructionsList, NonceRollbackInfo, TransactionLogMessages,
 };
-use solana_transaction_status::{InnerInstructions, Reward, TransactionStatusMeta};
+use safecoin_transaction_status::{InnerInstructions, Reward, TransactionStatusMeta};
 use std::{
     sync::{
         atomic::{AtomicBool, AtomicU64, Ordering},
@@ -31,7 +31,7 @@ impl TransactionStatusService {
     ) -> Self {
         let exit = exit.clone();
         let thread_hdl = Builder::new()
-            .name("solana-transaction-status-writer".to_string())
+            .name("safecoin-transaction-status-writer".to_string())
             .spawn(move || loop {
                 if exit.load(Ordering::Relaxed) {
                     break;

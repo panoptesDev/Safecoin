@@ -7,7 +7,7 @@ use {
         clock::UnixTimestamp, hash::Hash, message::Message, native_token::lamports_to_sol,
         program_utils::limited_deserialize, pubkey::Pubkey, transaction::Transaction,
     },
-    solana_transaction_status::UiTransactionStatusMeta,
+    safecoin_transaction_status::UiTransactionStatusMeta,
     spl_memo::id as spl_memo_id,
     spl_memo::v1::id as spl_memo_v1_id,
     std::{collections::HashMap, fmt, io},

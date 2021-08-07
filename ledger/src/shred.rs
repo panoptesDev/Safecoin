@@ -14,7 +14,7 @@ use rayon::{
 use serde::{Deserialize, Serialize};
 use safecoin_measure::measure::Measure;
 use solana_perf::packet::{limited_deserialize, Packet};
-use solana_rayon_threadlimit::get_thread_count;
+use safecoin_rayon_threadlimit::get_thread_count;
 use solana_sdk::{
     clock::Slot,
     hash::Hash,

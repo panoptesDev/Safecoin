@@ -28,7 +28,7 @@ use crate::{
     unfrozen_gossip_verified_vote_hashes::UnfrozenGossipVerifiedVoteHashes,
     window_service::DuplicateSlotReceiver,
 };
-use solana_client::rpc_response::SlotUpdate;
+use safecoin_client::rpc_response::SlotUpdate;
 use solana_ledger::{
     block_error::BlockError,
     blockstore::Blockstore,
@@ -2635,7 +2635,7 @@ pub(crate) mod tests {
         system_transaction,
         transaction::TransactionError,
     };
-    use solana_transaction_status::TransactionWithStatusMeta;
+    use safecoin_transaction_status::TransactionWithStatusMeta;
     use solana_vote_program::{
         vote_state::{VoteState, VoteStateVersions},
         vote_transaction,

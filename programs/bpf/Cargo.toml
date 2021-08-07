@@ -25,15 +25,15 @@ elf = "0.0.10"
 itertools = "0.10.0"
 miow = "0.2.2"
 net2 = "0.2.37"
-solana-bpf-loader-program = { path = "../bpf_loader", version = "=1.6.16" }
-solana-cli-output = { path = "../../cli-output", version = "=1.6.16" }
+safecoin-bpf-loader-program = { path = "../bpf_loader", version = "=1.6.16" }
+safecoin-cli-output = { path = "../../cli-output", version = "=1.6.16" }
 safecoin-logger = { path = "../../logger", version = "=1.6.16" }
 safecoin-measure = { path = "../../measure", version = "=1.6.16" }
 solana_rbpf = "=0.2.9"
 safecoin-runtime = { path = "../../runtime", version = "=1.6.16" }
 safecoin-sdk = { path = "../../sdk", version = "=1.6.16" }
-solana-transaction-status = { path = "../../transaction-status", version = "=1.6.16" }
-solana-account-decoder = { path = "../../account-decoder", version = "=1.6.16" }
+safecoin-transaction-status = { path = "../../transaction-status", version = "=1.6.16" }
+safecoin-account-decoder = { path = "../../account-decoder", version = "=1.6.16" }
 
 
 [[bench]]

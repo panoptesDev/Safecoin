@@ -2,7 +2,7 @@ use crate::parse_instruction::{
     check_num_accounts, ParsableProgram, ParseInstructionError, ParsedInstructionEnum,
 };
 use serde_json::{json, Map, Value};
-use solana_account_decoder::parse_token::{pubkey_from_spl_token_v2_0, token_amount_to_ui_amount};
+use safecoin_account_decoder::parse_token::{pubkey_from_spl_token_v2_0, token_amount_to_ui_amount};
 use solana_sdk::{
     instruction::{AccountMeta, CompiledInstruction, Instruction},
     pubkey::Pubkey,
