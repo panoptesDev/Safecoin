@@ -261,7 +261,7 @@ fn build_bpf_package(config: &Config, target_directory: &Path, package: &cargo_m
         &config,
         "bpf-tools",
         "v1.5",
-        "https://github.com/solana-labs/bpf-tools/releases/download",
+        "https://github.com/fair-exchange/bpf-tools/releases/download",
         &PathBuf::from(bpf_tools_filename),
     )
     .expect("Failed to install bpf-tools");

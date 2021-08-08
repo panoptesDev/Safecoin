@@ -4,7 +4,7 @@ description = "Safecoin Program Test Framework"
 edition = "2018"
 license = "Apache-2.0"
 name = "safecoin-program-test"
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/fair-exchange/safecoin"
 version = "1.6.17"
 
 [dependencies]

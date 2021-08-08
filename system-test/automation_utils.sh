@@ -166,13 +166,13 @@ function upload_results_to_slack() {
 
   COMMIT=$(git rev-parse HEAD)
   COMMIT_BUTTON_TEXT="$(echo "$COMMIT" | head -c 8)"
-  COMMIT_URL="https://github.com/solana-labs/solana/commit/${COMMIT}"
+  COMMIT_URL="https://github.com/fair-exchange/safecoin/commit/${COMMIT}"
 
   if [[ -n $BUILDKITE_BUILD_URL ]] ; then
     BUILD_BUTTON_TEXT="Build Kite Job"
   else
     BUILD_BUTTON_TEXT="Build URL not defined"
-    BUILDKITE_BUILD_URL="https://buildkite.com/solana-labs/"
+    BUILDKITE_BUILD_URL="https://buildkite.com/fair-exchange/"
   fi
 
   GRAFANA_URL="https://metrics.safecoin.org:3000/d/monitor-${CHANNEL:-edge}/cluster-telemetry-${CHANNEL:-edge}?var-testnet=${TESTNET_TAG:-testnet-automation}&from=${TESTNET_START_UNIX_MSECS:-0}&to=${TESTNET_FINISH_UNIX_MSECS:-0}"

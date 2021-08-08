@@ -7,7 +7,7 @@ module.exports = {
   url: "https://docs.solana.com",
   baseUrl: "/",
   favicon: "img/favicon.ico",
-  organizationName: "solana-labs", // Usually your GitHub org/user name.
+  organizationName: "fair-exchange", // Usually your GitHub org/user name.
   projectName: "solana", // Usually your repo name.
   onBrokenLinks: "throw",
   stylesheets: [
@@ -66,7 +66,7 @@ module.exports = {
           position: "right",
         },
         {
-          href: "https://github.com/solana-labs/solana",
+          href: "https://github.com/fair-exchange/safecoin",
           label: "GitHub",
           position: "right",
         },
@@ -116,7 +116,7 @@ module.exports = {
           items: [
             {
               label: "GitHub",
-              href: "https://github.com/solana-labs/solana",
+              href: "https://github.com/fair-exchange/safecoin",
             },
           ],
         },

@@ -3,9 +3,9 @@ name = "solana-bpf-rust-panic"
 version = "1.6.17"
 description = "Safecoin BPF test program written in Rust"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
-homepage = "https://solana.com/"
+homepage = "https://safecoin.org/"
 documentation = "https://docs.rs/solana-bpf-rust-panic"
 edition = "2018"
 

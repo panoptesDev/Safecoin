@@ -3,10 +3,10 @@ name = "safecoin-upload-perf"
 version = "1.6.17"
 description = "Metrics Upload Utility"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 edition = "2018"
-homepage = "https://solana.com/"
+homepage = "https://safecoin.org/"
 publish = false
 
 [dependencies]

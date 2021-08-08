@@ -14,7 +14,7 @@ title: 安装 Safecoin 工具包
 
 - 打开您最喜欢的终端应用
 
-- 通过运行下述指令，安装 Safecoin 版本[LATEST_SAFEANA_RELEASE_VERSION](https://github.com/solana-labs/solana/releases/tag/LATEST_SAFEANA_RELEASE_VERSION) 到您的机器：
+- 通过运行下述指令，安装 Safecoin 版本[LATEST_SAFEANA_RELEASE_VERSION](https://github.com/fair-exchange/safecoin/releases/tag/LATEST_SAFEANA_RELEASE_VERSION) 到您的机器：
 
 ```bash
 sh -c "$(curl -sSfL https://release.solana.com/LATEST_SAFEANA_RELEASE_VERSION/install)"
@@ -29,7 +29,7 @@ downloading LATEST_SAFEANA_RELEASE_VERSION installer
 Configuration: /home/solana/.config/safecoin/install/config.yml
 Active release directory: /home/solana/.local/share/solana/install/active_release
 * Release version: LATEST_SAFEANA_RELEASE_VERSION
-* Release URL: https://github.com/solana-labs/solana/releases/download/LATEST_SAFEANA_RELEASE_VERSION/solana-release-x86_64-unknown-linux-gnu.tar.bz2
+* Release URL: https://github.com/fair-exchange/safecoin/releases/download/LATEST_SAFEANA_RELEASE_VERSION/solana-release-x86_64-unknown-linux-gnu.tar.bz2
 Update successful
 ```
 
@@ -86,7 +86,7 @@ safecoin --version
 
 ### Linux 系统
 
-打开 [https://github.com/solana-labs/solana/releases/latest](https://github.com/solana-labs/solana/releases/latest), download **solana-release-x86_64-unknown-linux-msvc.tar.bz2** 地址，下载二进制文件，然后提取文件：
+打开 [https://github.com/fair-exchange/safecoin/releases/latest](https://github.com/fair-exchange/safecoin/releases/latest), download **solana-release-x86_64-unknown-linux-msvc.tar.bz2** 地址，下载二进制文件，然后提取文件：
 
 ```bash
 tar jxf solana-release-x86_64-unknown-linux-gnu.tar.bz2
@@ -96,7 +96,7 @@ export PATH=$PWD/bin:$PATH
 
 ### MacOS 系统
 
-打开 [https://github.com/solana-labs/solana/releases/latest](https://github.com/solana-labs/solana/releases/latest), download **solana-release-x86_64-apple-darwin.tar.bz2** 地址，下载二进制文件，然后提取文件：
+打开 [https://github.com/fair-exchange/safecoin/releases/latest](https://github.com/fair-exchange/safecoin/releases/latest), download **solana-release-x86_64-apple-darwin.tar.bz2** 地址，下载二进制文件，然后提取文件：
 
 ```bash
 tar jxf solana-release-x86_64-apple-darwin.tar.bz2
@@ -106,7 +106,7 @@ export PATH=$PWD/bin:$PATH
 
 ### Windows 系统
 
-- 打开 [https://github.com/solana-labs/solana/releases/latest](https://github.com/solana-labs/solana/releases/latest), download **solana-release-x86_64-pc-windows-msvc.tar.bz2** 地址，下载二进制文件，然后提取文件：
+- 打开 [https://github.com/fair-exchange/safecoin/releases/latest](https://github.com/fair-exchange/safecoin/releases/latest), download **solana-release-x86_64-pc-windows-msvc.tar.bz2** 地址，下载二进制文件，然后提取文件：
 
 - 打开命令提示并导航到提取二进制文件的目录并运行：
 
@@ -117,7 +117,7 @@ set PATH=%cd%/bin;%PATH%
 
 ## 通过源代码安装
 
-如果您无法使用预构建的二进制文件或者想通过源代码安装，请打开 [https://github.com/solana-labs/solana/releases/latest](https://github.com/solana-labs/solana/releases/latest), download **solana-release-x86_64-unknown-linux-msvc.tar.bz2** 地址，下载二进制文件，然后提取文件： 提取代码并生成二进制文件：
+如果您无法使用预构建的二进制文件或者想通过源代码安装，请打开 [https://github.com/fair-exchange/safecoin/releases/latest](https://github.com/fair-exchange/safecoin/releases/latest), download **solana-release-x86_64-unknown-linux-msvc.tar.bz2** 地址，下载二进制文件，然后提取文件： 提取代码并生成二进制文件：
 
 ```bash
 ./scripts/cargo-install-all.sh .

@@ -107,7 +107,7 @@ else
   fi
 
   #XXX: Ensure `safecoin-genesis` is built LAST!
-  # See https://github.com/solana-labs/solana/issues/5826
+  # See https://github.com/fair-exchange/safecoin/issues/5826
   BINS+=(safecoin-genesis)
 fi
 

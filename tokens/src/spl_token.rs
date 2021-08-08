@@ -170,7 +170,7 @@ pub fn print_token_balances(
 mod tests {
     // The following unit tests were written for v1.4 using the ProgramTest framework, passing its
     // BanksClient into the `safecoin-tokens` methods. With the revert to RpcClient in this module
-    // (https://github.com/solana-labs/solana/pull/13623), that approach was no longer viable.
+    // (https://github.com/fair-exchange/safecoin/pull/13623), that approach was no longer viable.
     // These tests were removed rather than rewritten to avoid accruing technical debt. Once a new
     // rpc/client framework is implemented, they should be restored.
     //
@@ -178,5 +178,5 @@ mod tests {
     // async fn test_process_spl_token_transfer_amount_allocations()
     // async fn test_check_spl_token_balances()
     //
-    // https://github.com/solana-labs/solana/blob/5511d52c6284013a24ced10966d11d8f4585799e/tokens/src/spl_token.rs#L490-L685
+    // https://github.com/fair-exchange/safecoin/blob/5511d52c6284013a24ced10966d11d8f4585799e/tokens/src/spl_token.rs#L490-L685
 }

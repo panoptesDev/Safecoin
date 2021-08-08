@@ -19,12 +19,12 @@ The project comprises of:
 First fetch the latest version of the example code:
 
 ```bash
-$ git clone https://github.com/solana-labs/example-helloworld.git
+$ git clone https://github.com/fair-exchange/example-helloworld.git
 $ cd example-helloworld
 ```
 
 Next, follow the steps in the git repository's
-[README](https://github.com/solana-labs/example-helloworld/blob/master/README.md).
+[README](https://github.com/fair-exchange/example-helloworld/blob/master/README.md).
 
 ## Break
 
@@ -48,12 +48,12 @@ transfer the tokens.
 First fetch the latest version of the example code:
 
 ```bash
-$ git clone https://github.com/solana-labs/break.git
+$ git clone https://github.com/fair-exchange/break.git
 $ cd break
 ```
 
 Next, follow the steps in the git repository's
-[README](https://github.com/solana-labs/break/blob/master/README.md).
+[README](https://github.com/fair-exchange/break/blob/master/README.md).
 
 ## Language Specific
 

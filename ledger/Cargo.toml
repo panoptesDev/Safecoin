@@ -3,9 +3,9 @@ name = "safecoin-ledger"
 version = "1.6.17"
 description = "Safecoin ledger"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
-homepage = "https://solana.com/"
+homepage = "https://safecoin.org/"
 documentation = "https://docs.rs/safecoin-ledger"
 edition = "2018"
 

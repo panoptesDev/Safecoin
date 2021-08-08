@@ -16,11 +16,11 @@ Hello World是一个演示项目，展示了如何使用Safecoin Javascript API�
 首先获取示例代码的最新版本：
 
 ```bash
-$ git clone https://github.com/solana-labs/example-helloworld.git
+$ git clone https://github.com/fair-exchange/example-helloworld.git
 $ cd example-helloworld
 ```
 
-接下来，按照git仓库[README](https://github.com/solana-labs/example-helloworld/blob/master/README.md)中的步骤进行操作。
+接下来，按照git仓库[README](https://github.com/fair-exchange/example-helloworld/blob/master/README.md)中的步骤进行操作。
 
 
 ## 中断
@@ -36,11 +36,11 @@ $ cd example-helloworld
 首先获取示例代码的最新版本：
 
 ```bash
-$ git clone https://github.com/solana-labs/break.git
+$ git clone https://github.com/fair-exchange/break.git
 $ cd break
 ```
 
-接下来，按照git仓库的[README](https://github.com/solana-labs/break/blob/master/README.md)中的步骤进行操作。
+接下来，按照git仓库的[README](https://github.com/fair-exchange/break/blob/master/README.md)中的步骤进行操作。
 
 ## 特定语言
 

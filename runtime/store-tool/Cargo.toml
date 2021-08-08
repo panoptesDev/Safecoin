@@ -4,9 +4,9 @@ edition = "2018"
 name = "safecoin-store-tool"
 description = "Tool to inspect append vecs"
 version = "1.6.17"
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
-homepage = "https://solana.com/"
+homepage = "https://safecoin.org/"
 publish = false
 
 [dependencies]

@@ -14,7 +14,7 @@ file in the git branch associated with that channel, and deployed by automation
 running `ci/publish-metrics-dashboard.sh`.
 
 A deploy can be triggered at any time via the `New Build` button of
-https://buildkite.com/solana-labs/publish-metrics-dashboard.
+https://buildkite.com/fair-exchange/publish-metrics-dashboard.
 
 ### Modifying a Dashboard
 

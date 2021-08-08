@@ -2,16 +2,16 @@
 name = "safecoin-core"
 description = "Safecoin: Enterprise Security for the Community by the Community"
 version = "1.6.17"
-homepage = "https://solana.com/"
+homepage = "https://safecoin.org/"
 documentation = "https://docs.rs/safecoin-core"
 readme = "../README.md"
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/fair-exchange/safecoin"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 license = "Apache-2.0"
 edition = "2018"
 
 [badges]
-codecov = { repository = "solana-labs/solana", branch = "master", service = "github" }
+codecov = { repository = "fair-exchange/safecoin", branch = "master", service = "github" }
 
 [dependencies]
 ahash = "0.6.1"

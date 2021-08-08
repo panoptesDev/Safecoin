@@ -66,15 +66,15 @@ In case an incident is discovered or reported, the following process will be
 followed to contain, respond and remediate:
 
 ### 1. Establish a new draft security advisory
-In response to an email to security@solana.com, a member of the `solana-labs/admins` group will
-1. Create a new draft security advisory for the incident at https://github.com/solana-labs/solana/security/advisories
-1. Add the reporter's github user and the `solana-labs/security-incident-response` group to the draft security advisory
+In response to an email to security@solana.com, a member of the `fair-exchange/admins` group will
+1. Create a new draft security advisory for the incident at https://github.com/fair-exchange/safecoin/security/advisories
+1. Add the reporter's github user and the `fair-exchange/security-incident-response` group to the draft security advisory
 1. Create a private fork of the repository (grey button towards the bottom of the page)
 1. Respond to the reporter by email, sharing a link to the draft security advisory
 
 ### 2. Triage
 Within the draft security advisory, discuss and determine the severity of the
-issue. If necessary, members of the `solana-labs/security-incident-response`
+issue. If necessary, members of the `fair-exchange/security-incident-response`
 group may add other github users to the advisory to assist.
 
 If it is determined that this not a critical network issue then the advisory
@@ -94,7 +94,7 @@ core development team.
 
 ### 4. Notify Security Group Validators
 Once an ETA is available for the fix, a member of the
-`solana-labs/security-incident-response` group should notify the validators so
+`fair-exchange/security-incident-response` group should notify the validators so
 they can prepare for an update using the "Safecoin Red Alert" notification system.
 
 The teams are all over the world and it's critical to provide actionable
@@ -103,7 +103,7 @@ information at the right time. Don't be the person that wakes everybody up at
 
 ### 5. Ship the patch
 Once the fix is accepted, a member of the
-`solana-labs/security-incident-response` group should prepare a single patch
+`fair-exchange/security-incident-response` group should prepare a single patch
 file for each affected branch. The commit title for the patch should only
 contain the advisory id, and not disclose any further details about the
 incident.
@@ -111,7 +111,7 @@ incident.
 Copy the patches to https://release.solana.com/ under a subdirectory named after
 the advisory id (example:
 https://release.solana.com/GHSA-hx59-f5g4-jghh/v1.4.patch). Contact a member of
-the `solana-labs/admins` group if you require access to release.solana.com
+the `fair-exchange/admins` group if you require access to release.solana.com
 
 Using the "Safecoin Red Alert" channel:
 1. Notify validators that there's an issue and a patch will be provided in X minutes

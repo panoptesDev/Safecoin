@@ -16,9 +16,9 @@
 { # this ensures the entire script is downloaded #
 
 if [ -z "$SAFEANA_DOWNLOAD_ROOT" ]; then
-    SAFEANA_DOWNLOAD_ROOT="https://github.com/solana-labs/solana/releases/download/"
+    SAFEANA_DOWNLOAD_ROOT="https://github.com/fair-exchange/safecoin/releases/download/"
 fi
-GH_LATEST_RELEASE="https://api.github.com/repos/solana-labs/solana/releases/latest"
+GH_LATEST_RELEASE="https://api.github.com/repos/fair-exchange/safecoin/releases/latest"
 
 set -e
 

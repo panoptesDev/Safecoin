@@ -4,9 +4,9 @@ edition = "2018"
 name = "safecoin-ramp-tps"
 description = "Safecoin Tour de SAFE - TPS ramp up"
 version = "1.6.17"
-repository = "https://github.com/solana-labs/tour-de-sol"
+repository = "https://github.com/fair-exchange/tour-de-sol"
 license = "Apache-2.0"
-homepage = "https://solana.com/"
+homepage = "https://safecoin.org/"
 documentation = "https://docs.rs/safecoin-ramp-tps"
 
 [dependencies]

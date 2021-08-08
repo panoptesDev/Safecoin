@@ -2,10 +2,10 @@
 name = "safecoin-measure"
 description = "Safecoin: Enterprise Security for the Community by the Community"
 version = "1.6.17"
-homepage = "https://solana.com/"
+homepage = "https://safecoin.org/"
 documentation = "https://docs.rs/safecoin-measure"
 readme = "../README.md"
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/fair-exchange/safecoin"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 license = "Apache-2.0"
 edition = "2018"

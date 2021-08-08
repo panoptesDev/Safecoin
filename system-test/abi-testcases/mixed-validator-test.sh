@@ -64,7 +64,7 @@ killSession
 (
   set -x
   if [[ ! -x baseline-run.sh ]]; then
-    curl https://raw.githubusercontent.com/solana-labs/solana/v"$baselineVersion"/run.sh -o baseline-run.sh
+    curl https://raw.githubusercontent.com/fair-exchange/safecoin/v"$baselineVersion"/run.sh -o baseline-run.sh
     chmod +x baseline-run.sh
   fi
   tmux new -s abi -d " \
@@ -99,7 +99,7 @@ done
 
 # Start a validator for each version and look for it
 #
-# Once https://github.com/solana-labs/solana/issues/7738 is resolved, remove
+# Once https://github.com/fair-exchange/safecoin/issues/7738 is resolved, remove
 # `--no-snapshot-fetch` when starting the validators
 #
 nodeCount=1

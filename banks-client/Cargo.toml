@@ -3,9 +3,9 @@ name = "safecoin-banks-client"
 version = "1.6.17"
 description = "Safecoin banks client"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
-homepage = "https://solana.com/"
+homepage = "https://safecoin.org/"
 documentation = "https://docs.rs/safecoin-banks-client"
 edition = "2018"
 

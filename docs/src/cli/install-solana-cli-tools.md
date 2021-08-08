@@ -16,7 +16,7 @@ depending on your preferred workflow:
 - Open your favorite Terminal application
 
 - Install the Safecoin release
-  [LATEST_SAFEANA_RELEASE_VERSION](https://github.com/solana-labs/solana/releases/tag/LATEST_SAFEANA_RELEASE_VERSION) on your
+  [LATEST_SAFEANA_RELEASE_VERSION](https://github.com/fair-exchange/safecoin/releases/tag/LATEST_SAFEANA_RELEASE_VERSION) on your
   machine by running:
 
 ```bash
@@ -34,7 +34,7 @@ downloading LATEST_SAFEANA_RELEASE_VERSION installer
 Configuration: /home/solana/.config/safecoin/install/config.yml
 Active release directory: /home/solana/.local/share/solana/install/active_release
 * Release version: LATEST_SAFEANA_RELEASE_VERSION
-* Release URL: https://github.com/solana-labs/solana/releases/download/LATEST_SAFEANA_RELEASE_VERSION/solana-release-x86_64-unknown-linux-gnu.tar.bz2
+* Release URL: https://github.com/fair-exchange/safecoin/releases/download/LATEST_SAFEANA_RELEASE_VERSION/solana-release-x86_64-unknown-linux-gnu.tar.bz2
 Update successful
 ```
 
@@ -105,7 +105,7 @@ manually download and install the binaries.
 ### Linux
 
 Download the binaries by navigating to
-[https://github.com/solana-labs/solana/releases/latest](https://github.com/solana-labs/solana/releases/latest),
+[https://github.com/fair-exchange/safecoin/releases/latest](https://github.com/fair-exchange/safecoin/releases/latest),
 download **solana-release-x86_64-unknown-linux-msvc.tar.bz2**, then extract the
 archive:
 
@@ -118,7 +118,7 @@ export PATH=$PWD/bin:$PATH
 ### MacOS
 
 Download the binaries by navigating to
-[https://github.com/solana-labs/solana/releases/latest](https://github.com/solana-labs/solana/releases/latest),
+[https://github.com/fair-exchange/safecoin/releases/latest](https://github.com/fair-exchange/safecoin/releases/latest),
 download **solana-release-x86_64-apple-darwin.tar.bz2**, then extract the
 archive:
 
@@ -131,7 +131,7 @@ export PATH=$PWD/bin:$PATH
 ### Windows
 
 - Download the binaries by navigating to
-  [https://github.com/solana-labs/solana/releases/latest](https://github.com/solana-labs/solana/releases/latest),
+  [https://github.com/fair-exchange/safecoin/releases/latest](https://github.com/fair-exchange/safecoin/releases/latest),
   download **solana-release-x86_64-pc-windows-msvc.tar.bz2**, then extract the
   archive using WinZip or similar.
 
@@ -147,7 +147,7 @@ set PATH=%cd%/bin;%PATH%
 
 If you are unable to use the prebuilt binaries or prefer to build it yourself
 from source, navigate to
-[https://github.com/solana-labs/solana/releases/latest](https://github.com/solana-labs/solana/releases/latest),
+[https://github.com/fair-exchange/safecoin/releases/latest](https://github.com/fair-exchange/safecoin/releases/latest),
 and download the **Source Code** archive. Extract the code and build the
 binaries with:
 

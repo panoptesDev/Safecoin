@@ -8,14 +8,14 @@
 [![semantic-release][semantic-release-image]][semantic-release-url]
 [![code-style-prettier][code-style-prettier-image]][code-style-prettier-url]
 
-[travis-image]: https://api.travis-ci.org/solana-labs/solana-web3.js.svg?branch=master
-[travis-url]: https://travis-ci.org/solana-labs/solana-web3.js
-[codecov-image]: https://codecov.io/gh/solana-labs/solana-web3.js/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/solana-labs/solana-web3.js
-[esdoc-image]: https://solana-labs.github.io/solana-web3.js/badge.svg
+[travis-image]: https://api.travis-ci.org/fair-exchange/safecoin-web3.js.svg?branch=master
+[travis-url]: https://travis-ci.org/fair-exchange/safecoin-web3.js
+[codecov-image]: https://codecov.io/gh/fair-exchange/safecoin-web3.js/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/fair-exchange/safecoin-web3.js
+[esdoc-image]: https://fair-exchange.github.io/solana-web3.js/badge.svg
 [npm-image]: https://img.shields.io/npm/v/@safecoin/web3.js.svg?style=flat
 [npm-downloads-image]: https://img.shields.io/npm/dm/@safecoin/web3.js.svg?style=flat
-[esdoc-url]: https://solana-labs.github.io/solana-web3.js/
+[esdoc-url]: https://fair-exchange.github.io/solana-web3.js/
 [npm-url]: https://www.npmjs.com/package/@safecoin/web3.js
 [semantic-release-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 [semantic-release-url]: https://github.com/semantic-release/semantic-release
@@ -26,7 +26,7 @@
 
 This is the Safecoin Javascript API built on the Safecoin [JSON RPC API](https://docs.solana.com/apps/jsonrpc-api)
 
-[Latest API Documentation](https://solana-labs.github.io/solana-web3.js/)
+[Latest API Documentation](https://fair-exchange.github.io/solana-web3.js/)
 
 
 ## Installation
@@ -79,7 +79,7 @@ console.log(solanaWeb3);
 ## Flow
 
 A [Flow library definition](https://flow.org/en/docs/libdefs/) is provided at
-[module.flow.js](https://github.com/solana-labs/solana-web3.js/tree/master/module.flow.js).
+[module.flow.js](https://github.com/fair-exchange/safecoin-web3.js/tree/master/module.flow.js).
 Add the following line under the [libs] section of your project's .flowconfig to
 activate it:
 ```ini
@@ -88,15 +88,15 @@ node_modules/@safecoin/web3.js/module.flow.js
 ```
 
 ## Examples
-See the [examples/](https://github.com/solana-labs/solana-web3.js/tree/master/examples) directory for small snippets.
+See the [examples/](https://github.com/fair-exchange/safecoin-web3.js/tree/master/examples) directory for small snippets.
 
 Standalone examples:
-* Message feed (BPF Rust and C): https://github.com/solana-labs/example-messagefeed
-* Tic-tac-toe (BPF C): https://github.com/solana-labs/example-tictactoe
-* Web wallet: https://github.com/solana-labs/example-webwallet
+* Message feed (BPF Rust and C): https://github.com/fair-exchange/example-messagefeed
+* Tic-tac-toe (BPF C): https://github.com/fair-exchange/example-tictactoe
+* Web wallet: https://github.com/fair-exchange/example-webwallet
 
 ## Releases
-Releases are available on [Github](https://github.com/solana-labs/solana-web3.js/releases)
+Releases are available on [Github](https://github.com/fair-exchange/safecoin-web3.js/releases)
 and [npmjs.com](https://www.npmjs.com/package/@safecoin/web3.js)
 
 Each Github release features a tarball containing API documentation and a
