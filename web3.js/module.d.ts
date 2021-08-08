@@ -1,4 +1,4 @@
-declare module '@solana/web3.js' {
+declare module '@safecoin/web3.js' {
   import {Buffer} from 'buffer';
   import * as BufferLayout from 'buffer-layout';
 

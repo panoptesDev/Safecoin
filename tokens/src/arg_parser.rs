@@ -441,7 +441,7 @@ fn parse_distribute_stake_args(
     })
 }
 
-fn parse_distribute_safe_tokens_args(
+fn parse_distribute_spl_tokens_args(
     matches: &ArgMatches<'_>,
 ) -> Result<DistributeTokensArgs, Box<dyn Error>> {
     let mut wallet_manager = maybe_wallet_manager()?;
@@ -524,7 +524,7 @@ where
             Command::DistributeTokens(parse_distribute_stake_args(matches)?)
         }
         ("distribute-safe-tokens", Some(matches)) => {
-            Command::DistributeTokens(parse_distribute_safe_tokens_args(matches)?)
+            Command::DistributeTokens(parse_distribute_spl_tokens_args(matches)?)
         }
         ("balances", Some(matches)) => Command::Balances(parse_balances_args(matches)?),
         ("safe-token-balances", Some(matches)) => Command::Balances(parse_balances_args(matches)?),

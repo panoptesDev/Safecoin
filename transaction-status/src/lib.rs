@@ -210,7 +210,7 @@ impl Default for TransactionStatusMeta {
 #[serde(rename_all = "camelCase")]
 pub struct UiTransactionStatusMeta {
     pub err: Option<TransactionError>,
-    pub status: Result<()>, // This field is deprecated.  See https://github.com/solana-labs/solana/issues/9302
+    pub status: Result<()>, // This field is deprecated.  See https://github.com/fair-exchange/safecoin/issues/9302
     pub fee: u64,
     pub pre_balances: Vec<u64>,
     pub post_balances: Vec<u64>,
@@ -339,6 +339,7 @@ pub struct Reward {
     pub lamports: i64,
     pub post_balance: u64, // Account balance in lamports after `lamports` was applied
     pub reward_type: Option<RewardType>,
+    pub commission: Option<u8>, // Vote account commission when the reward was credited, only present for voting and staking rewards
 }
 
 pub type Rewards = Vec<Reward>;

@@ -10,10 +10,6 @@ pub mod instructions_sysvar_enabled {
     solana_sdk::declare_id!("7TfFp6Tf2XqXQQfx16qvXbjekXtn68kiQj9pPfXZ5Bua");
 }
 
-pub mod secp256k1_program_enabled {
-    solana_sdk::declare_id!("3tF9nXQrHzTV5jdDqzn6LVWMoJagN1zRgr4APfY6qmpi");
-}
-
 pub mod consistent_recent_blockhashes_sysvar {
     solana_sdk::declare_id!("ApdySrEmykK3PBLExdN2ehGCRPyVT6athFgu4H7H8e9J");
 }
@@ -154,11 +150,26 @@ pub mod dedupe_config_program_signers {
     solana_sdk::declare_id!("8kEuAshXLsgkUEdcFVLqrjCGGHVWFW99ZZpxvAzzMtBp");
 }
 
+pub mod vote_stake_checked_instructions {
+    solana_sdk::declare_id!("BcWknVcgvonN8sL4HE4XFuEVgfcee5MwxWPAgP6ZV89X");
+}
+
+pub mod updated_verify_policy {
+    solana_sdk::declare_id!("k15tVxtkgsmo7dy6iJ56N5hBCxuQAtqRgYwoTDuwbia");
+}
+
+pub mod libsecp256k1_0_5_upgrade_enabled {
+    solana_sdk::declare_id!("DhsYfRjxfnh2g7HKJYSzT79r74Afa1wbHkAgHndrA1oy");
+}
+
+pub mod merge_nonce_error_into_system_error {
+    solana_sdk::declare_id!("21AWDosvp3pBamFW91KB35pNoaoZVTM7ess8nr2nt53B");
+}
+
 lazy_static! {
     /// Map of feature identifiers to user-visible description
     pub static ref FEATURE_NAMES: HashMap<Pubkey, &'static str> = [
         (instructions_sysvar_enabled::id(), "instructions sysvar"),
-        (secp256k1_program_enabled::id(), "secp256k1 program"),
         (consistent_recent_blockhashes_sysvar::id(), "consistent recentblockhashes sysvar"),
         (deprecate_rewards_sysvar::id(), "deprecate unused rewards sysvar"),
         (pico_inflation::id(), "pico inflation"),
@@ -191,6 +202,10 @@ lazy_static! {
         (system_transfer_zero_check::id(), "perform all checks for transfers of 0 lamports"),
         (memory_ops_syscalls::id(), "add syscalls for memory operations"),
         (dedupe_config_program_signers::id(), "dedupe config program signers"),
+        (vote_stake_checked_instructions::id(), "vote/state program checked instructions #18345"),
+        (updated_verify_policy::id(), "Update verify policy"),
+        (libsecp256k1_0_5_upgrade_enabled::id(), "upgrade libsecp256k1 to v0.5.0"),
+        (merge_nonce_error_into_system_error::id(), "merge NonceError into SystemError"),
         /*************** ADD NEW FEATURES HERE ***************/
     ]
     .iter()

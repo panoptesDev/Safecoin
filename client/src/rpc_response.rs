@@ -4,6 +4,7 @@ use {
     solana_sdk::{
         clock::{Epoch, Slot, UnixTimestamp},
         fee_calculator::{FeeCalculator, FeeRateGovernor},
+        hash::Hash,
         inflation::Inflation,
         transaction::{Result, TransactionError},
     },
@@ -55,6 +56,14 @@ pub struct DeprecatedRpcFees {
     pub blockhash: String,
     pub fee_calculator: FeeCalculator,
     pub last_valid_slot: Slot,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug)]
+#[serde(rename_all = "camelCase")]
+pub struct Fees {
+    pub blockhash: Hash,
+    pub fee_calculator: FeeCalculator,
+    pub last_valid_block_height: u64,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -394,8 +403,9 @@ pub struct RpcPerfSample {
 pub struct RpcInflationReward {
     pub epoch: Epoch,
     pub effective_slot: Slot,
-    pub amount: u64,       // lamports
-    pub post_balance: u64, // lamports
+    pub amount: u64,            // lamports
+    pub post_balance: u64,      // lamports
+    pub commission: Option<u8>, // Vote account commission when the reward was credited
 }
 
 impl From<ConfirmedTransactionStatusWithSignature> for RpcConfirmedTransactionStatusWithSignature {

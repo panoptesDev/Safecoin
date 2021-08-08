@@ -27,7 +27,7 @@ if [[ $VERSION != "$(cat target/perf-libs/.version 2> /dev/null)" ]]; then
       cp ~/.cache/safecoin-perf-$PERF_LIBS_VERSION.tgz safecoin-perf.tgz
     else
       curl -L --retry 5 --retry-delay 2 --retry-connrefused -o safecoin-perf.tgz \
-        https://github.com/solana-labs/safecoin-perf-libs/releases/download/$PERF_LIBS_VERSION/safecoin-perf.tgz
+        https://github.com/fair-exchange/safecoin-perf-libs/releases/download/$PERF_LIBS_VERSION/safecoin-perf.tgz
     fi
     tar zxvf safecoin-perf.tgz
 

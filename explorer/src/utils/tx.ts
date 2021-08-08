@@ -14,7 +14,7 @@ import {
   Transaction,
   PartiallyDecodedInstruction,
   ParsedInstruction,
-} from "@solana/web3.js";
+} from "@safecoin/web3.js";
 import { Cluster } from "providers/cluster";
 import { SerumMarketRegistry } from "serumMarketRegistry";
 import { TokenInfoMap } from "@solana/safe-token-registry";
@@ -39,7 +39,7 @@ export enum PROGRAM_NAMES {
 
   // other
   BONFIDA_POOL = "Bonfida Pool Program",
-  BREAK_SAFECOIN = "Break Safecoin Program",
+  BREAK_SAFEANA = "Break Safecoin Program",
   RAYDIUM_LIQUIDITY_1 = "Raydium Liquidity Pool Program v1",
   RAYDIUM_LIQUIDITY_2 = "Raydium Liquidity Pool Program v2",
   RAYDIUM_STAKING = "Raydium Staking Program",
@@ -76,7 +76,7 @@ export const PROGRAM_DEPLOYMENTS = {
 
   // other
   [PROGRAM_NAMES.BONFIDA_POOL]: MAINNET_ONLY,
-  [PROGRAM_NAMES.BREAK_SAFECOIN]: LIVE_CLUSTERS,
+  [PROGRAM_NAMES.BREAK_SAFEANA]: LIVE_CLUSTERS,
   [PROGRAM_NAMES.RAYDIUM_LIQUIDITY_1]: MAINNET_ONLY,
   [PROGRAM_NAMES.RAYDIUM_LIQUIDITY_2]: MAINNET_ONLY,
   [PROGRAM_NAMES.RAYDIUM_STAKING]: MAINNET_ONLY,
@@ -102,7 +102,7 @@ export const PROGRAM_NAME_BY_ID = {
 
   // other
   WvmTNLpGMVbwJVYztYL4Hnsy82cJhQorxjnnXcRm3b6: PROGRAM_NAMES.BONFIDA_POOL,
-  CtY5L6mdBzRUakZFJ3NXkhy8ufGkDteBJvgawdAVgWVv: PROGRAM_NAMES.BREAK_SAFECOIN,
+  CtY5L6mdBzRUakZFJ3NXkhy8ufGkDteBJvgawdAVgWVv: PROGRAM_NAMES.BREAK_SAFEANA,
   RVKd61ztZW9GUwhRbbLoYVRE5Xf1B2tVscKqwZqXgEr:
     PROGRAM_NAMES.RAYDIUM_LIQUIDITY_1,
   "27haf8L6oxUeXrHrgEgsexjSY5hbVUWEmvv9Nyxg8vQv":

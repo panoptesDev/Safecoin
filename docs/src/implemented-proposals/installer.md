@@ -13,7 +13,7 @@ This document proposes an easy to use software install and updater that can be u
 The easiest install method for supported platforms:
 
 ```bash
-$ curl -sSf https://raw.githubusercontent.com/solana-labs/solana/v1.0.0/install/safecoin-install-init.sh | sh
+$ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/safecoin-install-init.sh | sh
 ```
 
 This script will check github for the latest tagged release and download and run the `safecoin-install-init` binary from there.
@@ -22,7 +22,7 @@ If additional arguments need to be specified during the installation, the follow
 
 ```bash
 $ init_args=.... # arguments for `safecoin-install-init ...`
-$ curl -sSf https://raw.githubusercontent.com/solana-labs/solana/v1.0.0/install/safecoin-install-init.sh | sh -s - ${init_args}
+$ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/safecoin-install-init.sh | sh -s - ${init_args}
 ```
 
 ### Fetch and run a pre-built installer from a Github release
@@ -30,7 +30,7 @@ $ curl -sSf https://raw.githubusercontent.com/solana-labs/solana/v1.0.0/install/
 With a well-known release URL, a pre-built binary can be obtained for supported platforms:
 
 ```bash
-$ curl -o safecoin-install-init https://github.com/solana-labs/solana/releases/download/v1.0.0/safecoin-install-init-x86_64-apple-darwin
+$ curl -o safecoin-install-init https://github.com/fair-exchange/safecoin/releases/download/v1.0.0/safecoin-install-init-x86_64-apple-darwin
 $ chmod +x ./safecoin-install-init
 $ ./safecoin-install-init --help
 ```
@@ -40,7 +40,7 @@ $ ./safecoin-install-init --help
 If a pre-built binary is not available for a given platform, building the installer from source is always an option:
 
 ```bash
-$ git clone https://github.com/solana-labs/solana.git
+$ git clone https://github.com/fair-exchange/safecoin.git
 $ cd solana/install
 $ cargo run -- --help
 ```

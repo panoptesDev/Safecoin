@@ -50,7 +50,7 @@ BPF加载程序将其自身标记为它创建的用于存储程序的可执行�
 验证secp256k1公钥恢复操作(ecrecover)。
 
 - 程序ID：`KeccakSecp256k11111111111111111111111111111111`
-- 说明：[new_secp256k1_instruction](https://github.com/solana-labs/solana/blob/c1f3f9d27b5f9534f9a37704bae1d690d4335b6b/programs/secp256k1/src/lib.rs#L18)
+- 说明：[new_secp256k1_instruction](https://github.com/fair-exchange/safecoin/blob/c1f3f9d27b5f9534f9a37704bae1d690d4335b6b/programs/secp256k1/src/lib.rs#L18)
 
 Secp256k1程序处理一条指令，该指令将在指令数据中序列化的以下结构的计数作为第一个字节：
 

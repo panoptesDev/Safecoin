@@ -1,7 +1,7 @@
 use crate::{
     args::{BalancesArgs, DistributeTokensArgs, StakeArgs, TransactionLogArgs},
     db::{self, TransactionInfo},
-    safe_token::*,
+    spl_token::*,
     token_display::Token,
 };
 use chrono::prelude::*;
@@ -509,7 +509,7 @@ pub fn process_allocations(
 
     let starting_total_tokens = allocations.iter().map(|x| x.amount).sum();
     let starting_total_tokens = if let Some(spl_token_args) = &args.spl_token_args {
-        Token::safe_token(starting_total_tokens, spl_token_args.decimals)
+        Token::spl_token(starting_total_tokens, spl_token_args.decimals)
     } else {
         Token::sol(starting_total_tokens)
     };
@@ -537,8 +537,8 @@ pub fn process_allocations(
     let (distributed_tokens, undistributed_tokens) =
         if let Some(spl_token_args) = &args.spl_token_args {
             (
-                Token::safe_token(distributed_tokens, spl_token_args.decimals),
-                Token::safe_token(undistributed_tokens, spl_token_args.decimals),
+                Token::spl_token(distributed_tokens, spl_token_args.decimals),
+                Token::spl_token(undistributed_tokens, spl_token_args.decimals),
             )
         } else {
             (

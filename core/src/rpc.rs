@@ -220,7 +220,7 @@ impl JsonRpcRequestProcessor {
             // BlockCommitmentCache should hold an `Arc<Bank>` everywhere it currently holds
             // a slot.
             //
-            // For more information, see https://github.com/solana-labs/solana/issues/11078
+            // For more information, see https://github.com/fair-exchange/safecoin/issues/11078
             warn!(
                 "Bank with {:?} not found at slot: {:?}",
                 commitment.commitment, slot
@@ -479,6 +479,7 @@ impl JsonRpcRequestProcessor {
                         effective_slot: first_confirmed_block_in_epoch,
                         amount: reward.lamports.abs() as u64,
                         post_balance: reward.post_balance,
+                        commission: reward.commission,
                     });
                 }
                 None
@@ -778,6 +779,9 @@ impl JsonRpcRequestProcessor {
             .epoch_vote_accounts(bank.get_epoch_and_slot_index(bank.slot()).0)
             .ok_or_else(Error::invalid_request)?;
         let default_vote_state = VoteState::default();
+        let delinquent_validator_slot_distance = config
+            .delinquent_slot_distance
+            .unwrap_or(DELINQUENT_VALIDATOR_SLOT_DISTANCE);
         let (current_vote_accounts, delinquent_vote_accounts): (
             Vec<RpcVoteAccountInfo>,
             Vec<RpcVoteAccountInfo>,
@@ -821,22 +825,27 @@ impl JsonRpcRequestProcessor {
                 })
             })
             .partition(|vote_account_info| {
-                if bank.slot() >= DELINQUENT_VALIDATOR_SLOT_DISTANCE as u64 {
+                if bank.slot() >= delinquent_validator_slot_distance as u64 {
                     vote_account_info.last_vote
-                        > bank.slot() - DELINQUENT_VALIDATOR_SLOT_DISTANCE as u64
+                        > bank.slot() - delinquent_validator_slot_distance as u64
                 } else {
                     vote_account_info.last_vote > 0
                 }
             });
 
-        let delinquent_staked_vote_accounts = delinquent_vote_accounts
-            .into_iter()
-            .filter(|vote_account_info| vote_account_info.activated_stake > 0)
-            .collect::<Vec<_>>();
+        let keep_unstaked_delinquents = config.keep_unstaked_delinquents.unwrap_or_default();
+        let delinquent_vote_accounts = if !keep_unstaked_delinquents {
+            delinquent_vote_accounts
+                .into_iter()
+                .filter(|vote_account_info| vote_account_info.activated_stake > 0)
+                .collect::<Vec<_>>()
+        } else {
+            delinquent_vote_accounts
+        };
 
         Ok(RpcVoteAccountStatus {
             current: current_vote_accounts,
-            delinquent: delinquent_staked_vote_accounts,
+            delinquent: delinquent_vote_accounts,
         })
     }
 
@@ -1349,7 +1358,7 @@ impl JsonRpcRequestProcessor {
     ) -> Vec<Signature> {
         if self.config.enable_rpc_transaction_history {
             // TODO: Add bigtable_ledger_storage support as a part of
-            // https://github.com/solana-labs/solana/pull/10928
+            // https://github.com/fair-exchange/safecoin/pull/10928
             let end_slot = min(
                 end_slot,
                 self.block_commitment_cache
@@ -1869,12 +1878,15 @@ impl JsonRpcRequestProcessor {
     }
 }
 
-fn verify_transaction(transaction: &Transaction) -> Result<()> {
+fn verify_transaction(
+    transaction: &Transaction,
+    libsecp256k1_0_5_upgrade_enabled: bool,
+) -> Result<()> {
     if transaction.verify().is_err() {
         return Err(RpcCustomError::TransactionSignatureVerificationFailure.into());
     }
 
-    if let Err(e) = transaction.verify_precompiles() {
+    if let Err(e) = transaction.verify_precompiles(libsecp256k1_0_5_upgrade_enabled) {
         return Err(RpcCustomError::TransactionPrecompileVerificationFailure(e).into());
     }
 
@@ -2675,7 +2687,7 @@ pub mod rpc_full {
         ) -> Result<RpcResponse<RpcBlockProduction>>;
 
         // SPL Token-specific RPC endpoints
-        // See https://github.com/solana-labs/safecoin-program-library/releases/tag/token-v2.0.0 for
+        // See https://github.com/fair-exchange/safecoin-program-library/releases/tag/token-v2.0.0 for
         // program details
 
         #[rpc(meta, name = "getTokenAccountBalance")]
@@ -3137,7 +3149,10 @@ pub mod rpc_full {
             }
 
             if !config.skip_preflight {
-                if let Err(e) = verify_transaction(&transaction) {
+                if let Err(e) = verify_transaction(
+                    &transaction,
+                    preflight_bank.libsecp256k1_0_5_upgrade_enabled(),
+                ) {
                     return Err(e);
                 }
 
@@ -3200,6 +3215,7 @@ pub mod rpc_full {
             let encoding = config.encoding.unwrap_or(UiTransactionEncoding::Base58);
             let (_, mut transaction) = deserialize_transaction(data, encoding)?;
 
+            let bank = &*meta.bank(config.commitment);
             if config.sig_verify {
                 if config.replace_recent_blockhash {
                     return Err(Error::invalid_params(
@@ -3207,11 +3223,12 @@ pub mod rpc_full {
                     ));
                 }
 
-                if let Err(e) = verify_transaction(&transaction) {
+                if let Err(e) =
+                    verify_transaction(&transaction, bank.libsecp256k1_0_5_upgrade_enabled())
+                {
                     return Err(e);
                 }
             }
-            let bank = &*meta.bank(config.commitment);
             if config.replace_recent_blockhash {
                 transaction.message.recent_blockhash = bank.last_blockhash();
             }
@@ -6563,7 +6580,8 @@ pub mod tests {
                 r#"{{"jsonrpc":"2.0","id":1,"method":"getVoteAccounts","params":{}}}"#,
                 json!([RpcGetVoteAccountsConfig {
                     vote_pubkey: Some(leader_vote_keypair.pubkey().to_string()),
-                    commitment: Some(CommitmentConfig::processed())
+                    commitment: Some(CommitmentConfig::processed()),
+                    ..RpcGetVoteAccountsConfig::default()
                 }])
             );
 

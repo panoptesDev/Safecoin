@@ -3299,7 +3299,7 @@ fn find_slot_meta_in_cached_state<'a>(
     }
 }
 
-// Chaining based on latest discussion here: https://github.com/solana-labs/solana/pull/2253
+// Chaining based on latest discussion here: https://github.com/fair-exchange/safecoin/pull/2253
 fn handle_chaining(
     db: &Database,
     write_batch: &mut WriteBatch,
@@ -8183,6 +8183,7 @@ pub mod tests {
                     lamports: 42 + i,
                     post_balance: std::u64::MAX,
                     reward_type: Some(RewardType::Fee),
+                    commission: None,
                 })
                 .collect();
             let protobuf_rewards: generated::Rewards = rewards.into();
@@ -8249,6 +8250,7 @@ pub mod tests {
                     lamports: -42,
                     post_balance: 42,
                     reward_type: Some(RewardType::Rent),
+                    commission: None,
                 }]),
             };
             let deprecated_status: StoredTransactionStatusMeta = status.clone().into();

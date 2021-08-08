@@ -61,7 +61,7 @@ spl() {
   (
     set -x
     rm -rf spl
-    git clone https://github.com/solana-labs/safecoin-program-library.git spl
+    git clone https://github.com/fair-exchange/safecoin-program-library.git spl
     cd spl
 
     ./patch.crates-io.sh "$solana_dir"

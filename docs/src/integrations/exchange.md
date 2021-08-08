@@ -53,7 +53,7 @@ under 500GB. More or less disk usage may be requested by adding an argument to
 `--limit-ledger-size` if desired. Check `safecoin-validator --help` for the
 default limit value used by `--limit-ledger-size`. More information about
 selecting a custom limit value is [available
-here](https://github.com/solana-labs/solana/blob/583cec922b6107e0f85c7e14cb5e642bc7dfb340/core/src/ledger_cleanup_service.rs#L15-L26).
+here](https://github.com/fair-exchange/safecoin/blob/583cec922b6107e0f85c7e14cb5e642bc7dfb340/core/src/ledger_cleanup_service.rs#L15-L26).
 
 Specifying one or more `--trusted-validator` parameters can protect you from booting from a malicious snapshot. [More on the value of booting with trusted validators](../running-validator/validator-start.md#trusted-validators)
 
@@ -69,7 +69,7 @@ ensure you miss as little data as possible. Running the safecoin software as a
 systemd service is one great option.
 
 For monitoring, we provide
-[`safecoin-watchtower`](https://github.com/solana-labs/solana/blob/master/watchtower/README.md),
+[`safecoin-watchtower`](https://github.com/fair-exchange/safecoin/blob/master/watchtower/README.md),
 which can monitor your validator and detect with the `safecoin-validator` process
 is unhealthy. It can directly be configured to alert you via Slack, Telegram,
 Discord, or Twillio. For details, run `safecoin-watchtower --help`.
@@ -268,8 +268,8 @@ transfer of 218099990000 - 207099990000 = 11000000000 lamports = 11 SAFE
 
 If you need more information about the transaction type or other specifics, you
 can request the block from RPC in binary format, and parse it using either our
-[Rust SDK](https://github.com/solana-labs/solana) or
-[Javascript SDK](https://github.com/solana-labs/solana-web3.js).
+[Rust SDK](https://github.com/fair-exchange/safecoin) or
+[Javascript SDK](https://github.com/fair-exchange/safecoin-web3.js).
 
 ### Address History
 
@@ -391,7 +391,7 @@ by the cluster. If the transaction fails, it will report any transaction errors.
 safecoin transfer <USER_ADDRESS> <AMOUNT> --allow-unfunded-recipient --keypair <KEYPAIR> --url http://localhost:8328
 ```
 
-The [Safecoin Javascript SDK](https://github.com/solana-labs/solana-web3.js)
+The [Safecoin Javascript SDK](https://github.com/fair-exchange/safecoin-web3.js)
 offers a similar approach for the JS ecosystem. Use the `SystemProgram` to build
 a transfer transaction, and submit it using the `sendAndConfirmTransaction`
 method.
@@ -700,13 +700,13 @@ keypairs.
 
 Monitoring for deposit transactions should follow the [block polling](#poll-for-blocks)
 method described above. Each new block should be scanned for successful transactions
-issuing SPL Token [Transfer](https://github.com/solana-labs/safecoin-program-library/blob/096d3d4da51a8f63db5160b126ebc56b26346fc8/token/program/src/instruction.rs#L92)
-or [Transfer2](https://github.com/solana-labs/safecoin-program-library/blob/096d3d4da51a8f63db5160b126ebc56b26346fc8/token/program/src/instruction.rs#L252)
+issuing SPL Token [Transfer](https://github.com/fair-exchange/safecoin-program-library/blob/096d3d4da51a8f63db5160b126ebc56b26346fc8/token/program/src/instruction.rs#L92)
+or [Transfer2](https://github.com/fair-exchange/safecoin-program-library/blob/096d3d4da51a8f63db5160b126ebc56b26346fc8/token/program/src/instruction.rs#L252)
 instructions referencing user accounts, then querying the
 [token account balance](developing/clients/jsonrpc-api.md#gettokenaccountbalance)
 updates.
 
-[Considerations](https://github.com/solana-labs/solana/issues/12318) are being
+[Considerations](https://github.com/fair-exchange/safecoin/issues/12318) are being
 made to exend the `preBalance` and `postBalance` transaction status metadata
 fields to include SPL Token balance transfers.
 
