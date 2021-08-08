@@ -76,7 +76,7 @@ safecoin-sys-tuner = { path = "../sys-tuner", version = "=1.6.17" }
 safecoin-transaction-status = { path = "../transaction-status", version = "=1.6.17" }
 safecoin-version = { path = "../version", version = "=1.6.17" }
 safecoin-vote-program = { path = "../programs/vote", version = "=1.6.17" }
-safe-token-v2-0 = { package = "safe-token", version = "=3.1.1", features = ["no-entrypoint"] }
+safe-token-v2-0 = { package = "safe-token", version = "=3.1.2", features = ["no-entrypoint"] }
 tempfile = "3.1.0"
 thiserror = "1.0"
 tokio = { version = "1", features = ["full"] }

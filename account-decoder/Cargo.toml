@@ -23,7 +23,7 @@ safecoin-config-program = { path = "../programs/config", version = "=1.6.17" }
 safecoin-sdk = { path = "../sdk", version = "=1.6.17" }
 safecoin-stake-program = { path = "../programs/stake", version = "=1.6.17" }
 safecoin-vote-program = { path = "../programs/vote", version = "=1.6.17" }
-safe-token-v2-0 = { package = "safe-token", version = "=3.1.1", features = ["no-entrypoint"] }
+safe-token-v2-0 = { package = "safe-token", version = "=3.1.2", features = ["no-entrypoint"] }
 thiserror = "1.0"
 zstd = "0.5.1"
 
