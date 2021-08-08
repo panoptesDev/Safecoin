@@ -6,7 +6,7 @@ pub(crate) mod new_token_program {
 }
 
 /*
-    safe_token::state::Account {
+    spl_token::state::Account {
         mint: Pubkey,
         owner: Pubkey,
         amount: u64,

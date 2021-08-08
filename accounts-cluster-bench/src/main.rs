@@ -315,12 +315,12 @@ fn make_close_message(
     max_closed_seed: Arc<AtomicU64>,
     num_instructions: usize,
     balance: u64,
-    safe_token: bool,
+    spl_token: bool,
 ) -> Message {
     let instructions: Vec<_> = (0..num_instructions)
         .into_iter()
         .map(|_| {
-            let program_id = if safe_token {
+            let program_id = if spl_token {
                 inline_spl_token_v2_0::id()
             } else {
                 system_program::id()
@@ -328,7 +328,7 @@ fn make_close_message(
             let seed = max_closed_seed.fetch_add(1, Ordering::Relaxed).to_string();
             let address =
                 Pubkey::create_with_seed(&base_keypair.pubkey(), &seed, &program_id).unwrap();
-            if safe_token {
+            if spl_token {
                 spl_token_v2_0_instruction(
                     spl_token_v2_0::instruction::close_account(
                         &spl_token_v2_0::id(),
