@@ -10,7 +10,7 @@ documentation = "https://docs.rs/safecoin-merkle-tree"
 edition = "2018"
 
 [dependencies]
-safecoin-program = { path = "../sdk/program", version = "=1.6.18" }
+safecoin-program = { path = "../sdk/program", version = ">=1.6.18" }
 fast-math = "0.1"
 
 # This can go once the BPF toolchain target Rust 1.42.0+

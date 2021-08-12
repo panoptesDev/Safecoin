@@ -10,10 +10,10 @@ documentation = "https://docs.rs/safecoin-failure-program"
 edition = "2018"
 
 [dependencies]
-safecoin-sdk = { path = "../../sdk", version = "=1.6.18" }
+safecoin-sdk = { path = "../../sdk", version = ">=1.6.18" }
 
 [dev-dependencies]
-safecoin-runtime = { path = "../../runtime", version = "=1.6.18" }
+safecoin-runtime = { path = "../../runtime", version = ">=1.6.18" }
 
 [lib]
 crate-type = ["lib", "cdylib"]

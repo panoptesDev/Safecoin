@@ -14,16 +14,16 @@ crossbeam-channel = "0.4"
 log = "0.4.11"
 rand = "0.7.0"
 rayon = "1.5.0"
-safecoin-core = { path = "../core", version = "=1.6.18" }
-safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.18" }
-safecoin-streamer = { path = "../streamer", version = "=1.6.18" }
-safecoin-perf = { path = "../perf", version = "=1.6.18" }
-safecoin-ledger = { path = "../ledger", version = "=1.6.18" }
-safecoin-logger = { path = "../logger", version = "=1.6.18" }
-safecoin-runtime = { path = "../runtime", version = "=1.6.18" }
-safecoin-measure = { path = "../measure", version = "=1.6.18" }
-safecoin-sdk = { path = "../sdk", version = "=1.6.18" }
-safecoin-version = { path = "../version", version = "=1.6.18" }
+safecoin-core = { path = "../core", version = ">=1.6.18" }
+safecoin-clap-utils = { path = "../clap-utils", version = ">=1.6.18" }
+safecoin-streamer = { path = "../streamer", version = ">=1.6.18" }
+safecoin-perf = { path = "../perf", version = ">=1.6.18" }
+safecoin-ledger = { path = "../ledger", version = ">=1.6.18" }
+safecoin-logger = { path = "../logger", version = ">=1.6.18" }
+safecoin-runtime = { path = "../runtime", version = ">=1.6.18" }
+safecoin-measure = { path = "../measure", version = ">=1.6.18" }
+safecoin-sdk = { path = "../sdk", version = ">=1.6.18" }
+safecoin-version = { path = "../version", version = ">=1.6.18" }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

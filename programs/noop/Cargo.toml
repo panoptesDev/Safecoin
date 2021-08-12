@@ -11,8 +11,8 @@ edition = "2018"
 
 [dependencies]
 log = "0.4.11"
-safecoin-logger = { path = "../../logger", version = "=1.6.18" }
-safecoin-sdk = { path = "../../sdk", version = "=1.6.18" }
+safecoin-logger = { path = "../../logger", version = ">=1.6.18" }
+safecoin-sdk = { path = "../../sdk", version = ">=1.6.18" }
 
 [lib]
 crate-type = ["lib", "cdylib"]

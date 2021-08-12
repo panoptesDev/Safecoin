@@ -10,11 +10,11 @@ publish = false
 
 [dependencies]
 clap = "2.33.1"
-safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.18" }
-safecoin-streamer = { path = "../streamer", version = "=1.6.18" }
-safecoin-logger = { path = "../logger", version = "=1.6.18" }
-safecoin-net-utils = { path = "../net-utils", version = "=1.6.18" }
-safecoin-version = { path = "../version", version = "=1.6.18" }
+safecoin-clap-utils = { path = "../clap-utils", version = ">=1.6.18" }
+safecoin-streamer = { path = "../streamer", version = ">=1.6.18" }
+safecoin-logger = { path = "../logger", version = ">=1.6.18" }
+safecoin-net-utils = { path = "../net-utils", version = ">=1.6.18" }
+safecoin-version = { path = "../version", version = ">=1.6.18" }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]
