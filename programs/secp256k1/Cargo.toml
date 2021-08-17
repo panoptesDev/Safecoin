@@ -1,7 +1,7 @@
 [package]
 name = "safecoin-secp256k1-program"
 description = "Safecoin Secp256k1 program"
-version = "1.6.18"
+version = "1.6.19"
 homepage = "https://safecoin.org/"
 documentation = "https://docs.rs/safecoin-secp256k1-program"
 repository = "https://github.com/fair-exchange/safecoin"
