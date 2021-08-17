@@ -5014,8 +5014,8 @@ impl Bank {
         let reconfigure_token2_native_mint = match self.cluster_type() {
             ClusterType::Development => true,
             ClusterType::Devnet => true,
-            ClusterType::Testnet => self.epoch() == 93,
-            ClusterType::MainnetBeta => self.epoch() == 75,
+            ClusterType::Testnet => self.epoch() == 10,
+            ClusterType::MainnetBeta => self.epoch() == 61,
         };
 
         if reconfigure_token2_native_mint {
