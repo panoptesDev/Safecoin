@@ -1,6 +1,6 @@
 [package]
 name = "safecoin-transaction-status"
-version = "1.6.19"
+version = "1.6.21"
 description = "Safecoin transaction status types"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
