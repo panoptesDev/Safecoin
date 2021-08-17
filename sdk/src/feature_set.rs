@@ -143,7 +143,7 @@ pub mod system_transfer_zero_check {
 }
 
 pub mod memory_ops_syscalls {
-    solana_sdk::declare_id!("pubkey: 45aF3i2bmR2e9bPnZNpyRVZexjbaYKyq7f4PG59jhXxg");
+    solana_sdk::declare_id!("45aF3i2bmR2e9bPnZNpyRVZexjbaYKyq7f4PG59jhXxg");
 }
 
 pub mod dedupe_config_program_signers {
