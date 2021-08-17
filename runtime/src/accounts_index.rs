@@ -61,15 +61,15 @@ enum ScanTypes<R: RangeBounds<Pubkey>> {
 #[derive(Debug, Clone, Copy)]
 pub enum IndexKey {
     ProgramId(Pubkey),
-    SplTokenMint(Pubkey),
-    SplTokenOwner(Pubkey),
+    SafeTokenMint(Pubkey),
+    SafeTokenOwner(Pubkey),
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum AccountIndex {
     ProgramId,
-    SplTokenMint,
-    SplTokenOwner,
+    SafeTokenMint,
+    SafeTokenOwner,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -481,7 +481,7 @@ impl<T: 'static + Clone + IsCached + ZeroLamport> AccountsIndex<T> {
                     Some(max_root),
                 );
             }
-            ScanTypes::Indexed(IndexKey::SplTokenMint(mint_key)) => {
+            ScanTypes::Indexed(IndexKey::SafeTokenMint(mint_key)) => {
                 self.do_scan_secondary_index(
                     ancestors,
                     func,
@@ -490,7 +490,7 @@ impl<T: 'static + Clone + IsCached + ZeroLamport> AccountsIndex<T> {
                     Some(max_root),
                 );
             }
-            ScanTypes::Indexed(IndexKey::SplTokenOwner(owner_key)) => {
+            ScanTypes::Indexed(IndexKey::SafeTokenOwner(owner_key)) => {
                 self.do_scan_secondary_index(
                     ancestors,
                     func,
@@ -889,7 +889,7 @@ impl<T: 'static + Clone + IsCached + ZeroLamport> AccountsIndex<T> {
         if *account_owner == inline_spl_token_v2_0::id()
             && account_data.len() == inline_spl_token_v2_0::state::Account::get_packed_len()
         {
-            if account_indexes.contains(&AccountIndex::SplTokenOwner) {
+            if account_indexes.contains(&AccountIndex::SafeTokenOwner) {
                 let owner_key = Pubkey::new(
                     &account_data[SPL_TOKEN_ACCOUNT_OWNER_OFFSET
                         ..SPL_TOKEN_ACCOUNT_OWNER_OFFSET + PUBKEY_BYTES],
@@ -899,7 +899,7 @@ impl<T: 'static + Clone + IsCached + ZeroLamport> AccountsIndex<T> {
                 }
             }
 
-            if account_indexes.contains(&AccountIndex::SplTokenMint) {
+            if account_indexes.contains(&AccountIndex::SafeTokenMint) {
                 let mint_key = Pubkey::new(
                     &account_data[SPL_TOKEN_ACCOUNT_MINT_OFFSET
                         ..SPL_TOKEN_ACCOUNT_MINT_OFFSET + PUBKEY_BYTES],
@@ -1002,11 +1002,11 @@ impl<T: 'static + Clone + IsCached + ZeroLamport> AccountsIndex<T> {
             self.program_id_index.remove_by_inner_key(inner_key);
         }
 
-        if account_indexes.contains(&AccountIndex::SplTokenOwner) {
+        if account_indexes.contains(&AccountIndex::SafeTokenOwner) {
             self.spl_token_owner_index.remove_by_inner_key(inner_key);
         }
 
-        if account_indexes.contains(&AccountIndex::SplTokenMint) {
+        if account_indexes.contains(&AccountIndex::SafeTokenMint) {
             self.spl_token_mint_index.remove_by_inner_key(inner_key);
         }
     }
@@ -1193,7 +1193,7 @@ pub mod tests {
 
     pub fn spl_token_mint_index_enabled() -> AccountSecondaryIndexes {
         let mut account_indexes = HashSet::new();
-        account_indexes.insert(AccountIndex::SplTokenMint);
+        account_indexes.insert(AccountIndex::SafeTokenMint);
         AccountSecondaryIndexes {
             indexes: account_indexes,
             keys: None,
@@ -1202,7 +1202,7 @@ pub mod tests {
 
     pub fn spl_token_owner_index_enabled() -> AccountSecondaryIndexes {
         let mut account_indexes = HashSet::new();
-        account_indexes.insert(AccountIndex::SplTokenOwner);
+        account_indexes.insert(AccountIndex::SafeTokenOwner);
         AccountSecondaryIndexes {
             indexes: account_indexes,
             keys: None,

@@ -1,5 +1,5 @@
 use crate::{
-    args::{DistributeTokensArgs, SplTokenArgs},
+    args::{DistributeTokensArgs, SafeTokenArgs},
     commands::{Allocation, Error, FundingSource},
 };
 use console::style;
@@ -15,23 +15,23 @@ use safe_associated_token_account_v1_0::{
 };
 use spl_token_v2_0::{
     solana_program::program_pack::Pack,
-    state::{Account as SplTokenAccount, Mint},
+    state::{Account as SafeTokenAccount, Mint},
 };
 
-pub fn update_token_args(client: &RpcClient, args: &mut Option<SplTokenArgs>) -> Result<(), Error> {
+pub fn update_token_args(client: &RpcClient, args: &mut Option<SafeTokenArgs>) -> Result<(), Error> {
     if let Some(spl_token_args) = args {
         let sender_account = client
             .get_account(&spl_token_args.token_account_address)
             .unwrap_or_default();
         let mint_address =
-            pubkey_from_spl_token_v2_0(&SplTokenAccount::unpack(&sender_account.data)?.mint);
+            pubkey_from_spl_token_v2_0(&SafeTokenAccount::unpack(&sender_account.data)?.mint);
         spl_token_args.mint = mint_address;
         update_decimals(client, args)?;
     }
     Ok(())
 }
 
-pub fn update_decimals(client: &RpcClient, args: &mut Option<SplTokenArgs>) -> Result<(), Error> {
+pub fn update_decimals(client: &RpcClient, args: &mut Option<SafeTokenArgs>) -> Result<(), Error> {
     if let Some(spl_token_args) = args {
         let mint_account = client.get_account(&spl_token_args.mint).unwrap_or_default();
         let mint = Mint::unpack(&mint_account.data)?;
@@ -104,7 +104,7 @@ pub fn check_spl_token_balances(
         .unwrap();
 
     let token_account_rent_exempt_balance =
-        client.get_minimum_balance_for_rent_exemption(SplTokenAccount::LEN)?;
+        client.get_minimum_balance_for_rent_exemption(SafeTokenAccount::LEN)?;
     let account_creation_amount = created_accounts * token_account_rent_exempt_balance;
     let fee_payer_balance = client.get_balance(&args.fee_payer.pubkey())?;
     if fee_payer_balance < fees + account_creation_amount {
@@ -116,10 +116,10 @@ pub fn check_spl_token_balances(
     let source_token_account = client
         .get_account(&spl_token_args.token_account_address)
         .unwrap_or_default();
-    let source_token = SplTokenAccount::unpack(&source_token_account.data)?;
+    let source_token = SafeTokenAccount::unpack(&source_token_account.data)?;
     if source_token.amount < allocation_amount {
         return Err(Error::InsufficientFunds(
-            vec![FundingSource::SplTokenAccount].into(),
+            vec![FundingSource::SafeTokenAccount].into(),
             real_number_string_trimmed(allocation_amount, spl_token_args.decimals),
         ));
     }
@@ -129,7 +129,7 @@ pub fn check_spl_token_balances(
 pub fn print_token_balances(
     client: &RpcClient,
     allocation: &Allocation,
-    spl_token_args: &SplTokenArgs,
+    spl_token_args: &SafeTokenArgs,
 ) -> Result<(), Error> {
     let address = allocation.recipient.parse().unwrap();
     let expected = allocation.amount;
@@ -141,7 +141,7 @@ pub fn print_token_balances(
         .get_account(&pubkey_from_spl_token_v2_0(&associated_token_address))
         .unwrap_or_default();
     let (actual, difference) = if let Ok(recipient_token) =
-        SplTokenAccount::unpack(&recipient_account.data)
+        SafeTokenAccount::unpack(&recipient_account.data)
     {
         let actual_ui_amount = real_number_string(recipient_token.amount, spl_token_args.decimals);
         let delta_string =

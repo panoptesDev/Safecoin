@@ -10,7 +10,7 @@ const SAFE_SYMBOL: &str = "◎";
 #[derive(PartialEq)]
 pub enum TokenType {
     Safe,
-    SplToken,
+    SafeToken,
 }
 
 pub struct Token {
@@ -26,7 +26,7 @@ impl Token {
                 let amount = lamports_to_sol(self.amount);
                 write!(f, "{}{}", SAFE_SYMBOL, amount)
             }
-            TokenType::SplToken => {
+            TokenType::SafeToken => {
                 let amount = real_number_string_trimmed(self.amount, self.decimals);
                 write!(f, "{} tokens", amount)
             }
@@ -45,7 +45,7 @@ impl Token {
         Self {
             amount,
             decimals,
-            token_type: TokenType::SplToken,
+            token_type: TokenType::SafeToken,
         }
     }
 }

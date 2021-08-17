@@ -58,7 +58,7 @@ pub struct Allocation {
 #[derive(Debug, PartialEq)]
 pub enum FundingSource {
     FeePayer,
-    SplTokenAccount,
+    SafeTokenAccount,
     StakeAccount,
     SystemAccount,
 }

@@ -2539,8 +2539,8 @@ fn process_account_indexes(matches: &ArgMatches) -> AccountSecondaryIndexes {
         .unwrap_or_default()
         .map(|value| match value {
             "program-id" => AccountIndex::ProgramId,
-            "safe-token-mint" => AccountIndex::SplTokenMint,
-            "safe-token-owner" => AccountIndex::SplTokenOwner,
+            "safe-token-mint" => AccountIndex::SafeTokenMint,
+            "safe-token-owner" => AccountIndex::SafeTokenOwner,
             _ => unreachable!(),
         })
         .collect();

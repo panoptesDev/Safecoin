@@ -2,8 +2,8 @@
 #![cfg_attr(RUSTC_WITH_SPECIALIZATION, feature(specialization))]
 #![cfg_attr(RUSTC_NEEDS_PROC_MACRO_HYGIENE, feature(proc_macro_hygiene))]
 
-// Allows macro expansion of `use ::solana_frozen_abi::*` to work within this crate
-extern crate self as solana_frozen_abi;
+// Allows macro expansion of `use ::safecoin_frozen_abi::*` to work within this crate
+extern crate self as safecoin_frozen_abi;
 
 #[cfg(RUSTC_WITH_SPECIALIZATION)]
 pub mod abi_digester;
