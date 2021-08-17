@@ -6,7 +6,7 @@ use crate::{
 use itertools::izip;
 use log::*;
 use safecoin_client::thin_client::{create_client, ThinClient};
-use safecoin_core::{
+use solana_core::{
     cluster_info::{Node, VALIDATOR_PORT_RANGE},
     contact_info::ContactInfo,
     gossip_service::discover_cluster,
@@ -628,7 +628,7 @@ impl Cluster for LocalCluster {
         &mut self,
         pubkey: &Pubkey,
         cluster_validator_info: &mut ClusterValidatorInfo,
-    ) -> (safecoin_core::cluster_info::Node, Option<ContactInfo>) {
+    ) -> (solana_core::cluster_info::Node, Option<ContactInfo>) {
         // Update the stored ContactInfo for this node
         let node = Node::new_localhost_with_pubkey(&pubkey);
         cluster_validator_info.info.contact_info = node.info.clone();

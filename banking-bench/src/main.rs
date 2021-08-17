@@ -4,7 +4,7 @@ use crossbeam_channel::unbounded;
 use log::*;
 use rand::{thread_rng, Rng};
 use rayon::prelude::*;
-use safecoin_core::{
+use solana_core::{
     banking_stage::{create_test_recorder, BankingStage},
     cluster_info::ClusterInfo,
     cluster_info::Node,

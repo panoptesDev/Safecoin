@@ -1,5 +1,5 @@
 use safecoin_client::{pubsub_client::PubsubClient, rpc_client::RpcClient, rpc_response::SlotInfo};
-use safecoin_core::{
+use solana_core::{
     optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
     rpc_pubsub_service::{PubSubConfig, PubSubService},
     rpc_subscriptions::RpcSubscriptions,
@@ -41,7 +41,7 @@ fn test_rpc_client() {
     let client = RpcClient::new(test_validator.rpc_url());
 
     assert_eq!(
-        client.get_version().unwrap().safecoin_core,
+        client.get_version().unwrap().solana_core,
         solana_version::semver!()
     );
 

@@ -11,7 +11,7 @@ use safecoin_client::{
     rpc_response::RpcSignatureResult,
     thin_client::{create_client, ThinClient},
 };
-use safecoin_core::{
+use solana_core::{
     broadcast_stage::BroadcastStageType,
     cluster_info::VALIDATOR_PORT_RANGE,
     consensus::{Tower, SWITCH_FORK_THRESHOLD, VOTE_THRESHOLD_DEPTH},
@@ -65,7 +65,7 @@ use std::{
 use tempfile::TempDir;
 
 const RUST_LOG_FILTER: &str =
-    "error,safecoin_core::replay_stage=warn,solana_local_cluster=info,local_cluster=info";
+    "error,solana_core::replay_stage=warn,solana_local_cluster=info,local_cluster=info";
 
 #[test]
 #[serial]
@@ -1048,7 +1048,7 @@ fn test_mainnet_beta_cluster_type() {
 
     let client = create_client(
         cluster.entry_point_info.client_facing_addr(),
-        safecoin_core::cluster_info::VALIDATOR_PORT_RANGE,
+        solana_core::cluster_info::VALIDATOR_PORT_RANGE,
     );
 
     // Programs that are available at epoch 0

@@ -1,5 +1,5 @@
 #![allow(clippy::integer_arithmetic)]
-pub use safecoin_core::{cluster_info::MINIMUM_VALIDATOR_PORT_RANGE_WIDTH, test_validator};
+pub use solana_core::{cluster_info::MINIMUM_VALIDATOR_PORT_RANGE_WIDTH, test_validator};
 use {
     console::style,
     indicatif::{ProgressDrawTarget, ProgressStyle},

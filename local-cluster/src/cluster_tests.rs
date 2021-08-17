@@ -6,8 +6,8 @@ use log::*;
 use rand::{thread_rng, Rng};
 use rayon::prelude::*;
 use safecoin_client::thin_client::create_client;
-use safecoin_core::validator::ValidatorExit;
-use safecoin_core::{
+use solana_core::validator::ValidatorExit;
+use solana_core::{
     cluster_info::VALIDATOR_PORT_RANGE, consensus::VOTE_THRESHOLD_DEPTH, contact_info::ContactInfo,
     gossip_service::discover_cluster,
 };

@@ -39,7 +39,7 @@ mod tests {
     use crossbeam_channel::unbounded;
     use fs_extra::dir::CopyOptions;
     use itertools::Itertools;
-    use safecoin_core::{
+    use solana_core::{
         cluster_info::ClusterInfo,
         contact_info::ContactInfo,
         snapshot_packager_service::{PendingSnapshotPackage, SnapshotPackagerService},
