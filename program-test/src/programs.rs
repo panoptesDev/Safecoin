@@ -11,7 +11,7 @@ mod safe_memo_1_0 {
     solana_sdk::declare_id!("4DDUJ1rA8Vd7e6SFWanf4V8JnsfapjCGNutQYw8Vtt45");
 }
 mod safe_memo_3_0 {
-    solana_sdk::declare_id!("MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr");
+    solana_sdk::declare_id!("9h7wfE8nxQ6YsRedqNHwroEZbA5bMAmNsh8GdxwBTtaV");
 }
 mod safe_associated_token_account {
     solana_sdk::declare_id!("CWyEp7dp1Cv3334j6gCci2UrrjA8Q98bYa7AwGBpZ6iJ");
