@@ -9,7 +9,7 @@ use {
         },
     },
     safecoin_client::rpc_client::RpcClient,
-    solana_core::rpc::JsonRpcConfig,
+    safecoin_core::rpc::JsonRpcConfig,
     safecoin_faucet::faucet::{run_local_faucet_with_port, FAUCET_PORT},
     solana_sdk::{
         account::AccountSharedData,

@@ -5,7 +5,7 @@ use solana_sdk::{
 };
 
 mod spl_token {
-    solana_sdk::declare_id!("HMGr16f8Ct1Zeb9TGPypt9rPgzCkmhCQB8Not8vwiPW1");
+    solana_sdk::declare_id!("7v5TwK92hUSqduoL3R8NtzTNfNzMA48nJL4mzPYMdDrD");
 }
 mod safe_memo_1_0 {
     solana_sdk::declare_id!("4DDUJ1rA8Vd7e6SFWanf4V8JnsfapjCGNutQYw8Vtt45");
@@ -14,7 +14,7 @@ mod safe_memo_3_0 {
     solana_sdk::declare_id!("MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr");
 }
 mod safe_associated_token_account {
-    solana_sdk::declare_id!("PUFQTv9BK3ax6bKPFnyjBTbVa3782mcfvb22TZovvrm");
+    solana_sdk::declare_id!("CWyEp7dp1Cv3334j6gCci2UrrjA8Q98bYa7AwGBpZ6iJ");
 }
 
 static SPL_PROGRAMS: &[(Pubkey, &[u8])] = &[

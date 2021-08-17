@@ -1,6 +1,6 @@
 use crossbeam_channel::{Receiver, RecvTimeoutError};
 use itertools::izip;
-use solana_ledger::{
+use safecoin_ledger::{
     blockstore::Blockstore,
     blockstore_processor::{TransactionStatusBatch, TransactionStatusMessage},
 };

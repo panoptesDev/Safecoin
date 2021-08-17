@@ -4,7 +4,7 @@ use {
     safecoin_client::{
         client_error, rpc_client::RpcClient, rpc_request, rpc_response::RpcContactInfo,
     },
-    solana_core::validator::ValidatorStartProgress,
+    safecoin_core::validator::ValidatorStartProgress,
     solana_sdk::{
         clock::Slot, commitment_config::CommitmentConfig, native_token::Safe, pubkey::Pubkey,
     },
@@ -31,7 +31,7 @@ impl Dashboard {
     pub fn new(
         ledger_path: &Path,
         log_path: Option<&Path>,
-        validator_exit: Option<&mut solana_core::validator::ValidatorExit>,
+        validator_exit: Option<&mut safecoin_core::validator::ValidatorExit>,
     ) -> Result<Self, io::Error> {
         println_name_value("Ledger location:", &format!("{}", ledger_path.display()));
         if let Some(log_path) = log_path {

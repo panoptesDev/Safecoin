@@ -191,7 +191,7 @@ impl OptimisticallyConfirmedBankTracker {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use solana_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo};
+    use safecoin_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo};
     use solana_runtime::{
         accounts_background_service::AbsRequestSender, commitment::BlockCommitmentCache,
     };

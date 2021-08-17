@@ -6,7 +6,7 @@ use rayon::prelude::*;
 use safecoin_account_decoder::parse_token::spl_token_v2_0_pubkey;
 use safecoin_clap_utils::input_parsers::pubkey_of;
 use safecoin_client::rpc_client::RpcClient;
-use solana_core::gossip_service::discover;
+use safecoin_core::gossip_service::discover;
 use safecoin_faucet::faucet::{request_airdrop_transaction, FAUCET_PORT};
 use safecoin_measure::measure::Measure;
 use solana_runtime::inline_spl_token_v2_0;
@@ -695,7 +695,7 @@ fn main() {
 #[cfg(test)]
 pub mod test {
     use super::*;
-    use solana_core::validator::ValidatorConfig;
+    use safecoin_core::validator::ValidatorConfig;
     use solana_local_cluster::{
         local_cluster::{ClusterConfig, LocalCluster},
         validator_configs::make_identical_validator_configs,

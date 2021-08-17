@@ -5,7 +5,7 @@ use {
     jsonrpc_ipc_server::{RequestContext, ServerBuilder},
     jsonrpc_server_utils::tokio,
     log::*,
-    solana_core::validator::{ValidatorExit, ValidatorStartProgress},
+    safecoin_core::validator::{ValidatorExit, ValidatorStartProgress},
     solana_sdk::signature::{read_keypair_file, Keypair, Signer},
     std::{
         net::SocketAddr,

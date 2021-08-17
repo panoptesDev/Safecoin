@@ -141,7 +141,7 @@ impl RpcSender for MockSender {
             RpcRequest::GetVersion => {
                 let version = Version::default();
                 json!(RpcVersionInfo {
-                    solana_core: version.to_string(),
+                    safecoin_core: version.to_string(),
                     feature_set: Some(version.feature_set),
                 })
             }

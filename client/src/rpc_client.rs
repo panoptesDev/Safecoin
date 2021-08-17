@@ -161,7 +161,7 @@ impl RpcClient {
             let node_version = self.get_version().map_err(|e| {
                 RpcError::RpcRequestError(format!("cluster version query failed: {}", e))
             })?;
-            let node_version = semver::Version::parse(&node_version.solana_core).map_err(|e| {
+            let node_version = semver::Version::parse(&node_version.safecoin_core).map_err(|e| {
                 RpcError::RpcRequestError(format!("failed to parse cluster version: {}", e))
             })?;
             *w_node_version = Some(node_version.clone());

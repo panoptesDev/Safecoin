@@ -1,6 +1,6 @@
 use log::*;
 use safecoin_bench_exchange::bench::{airdrop_lamports, do_bench_exchange, Config};
-use solana_core::{
+use safecoin_core::{
     gossip_service::{discover_cluster, get_multi_client},
     validator::ValidatorConfig,
 };

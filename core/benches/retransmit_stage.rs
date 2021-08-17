@@ -1,17 +1,17 @@
 #![feature(test)]
 
-extern crate solana_core;
+extern crate safecoin_core;
 extern crate test;
 
 use log::*;
-use solana_core::cluster_info::{ClusterInfo, Node};
-use solana_core::contact_info::ContactInfo;
-use solana_core::max_slots::MaxSlots;
-use solana_core::retransmit_stage::retransmitter;
-use solana_ledger::entry::Entry;
-use solana_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo};
-use solana_ledger::leader_schedule_cache::LeaderScheduleCache;
-use solana_ledger::shred::Shredder;
+use safecoin_core::cluster_info::{ClusterInfo, Node};
+use safecoin_core::contact_info::ContactInfo;
+use safecoin_core::max_slots::MaxSlots;
+use safecoin_core::retransmit_stage::retransmitter;
+use safecoin_ledger::entry::Entry;
+use safecoin_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo};
+use safecoin_ledger::leader_schedule_cache::LeaderScheduleCache;
+use safecoin_ledger::shred::Shredder;
 use safecoin_measure::measure::Measure;
 use solana_perf::packet::{Packet, Packets};
 use solana_runtime::bank::Bank;

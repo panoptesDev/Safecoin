@@ -77,7 +77,7 @@ rustc_version = "0.2"
 
 [lib]
 crate-type = ["lib"]
-name = "solana_ledger"
+name = "safecoin_ledger"
 
 [[bench]]
 name = "sigverify_shreds"

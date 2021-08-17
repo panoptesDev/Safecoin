@@ -4,14 +4,14 @@ use crossbeam_channel::unbounded;
 use log::*;
 use rand::{thread_rng, Rng};
 use rayon::prelude::*;
-use solana_core::{
+use safecoin_core::{
     banking_stage::{create_test_recorder, BankingStage},
     cluster_info::ClusterInfo,
     cluster_info::Node,
     poh_recorder::PohRecorder,
     poh_recorder::WorkingBankEntry,
 };
-use solana_ledger::{
+use safecoin_ledger::{
     blockstore::Blockstore,
     genesis_utils::{create_genesis_config, GenesisConfigInfo},
     get_tmp_ledger_path,

@@ -1,4 +1,4 @@
-use solana_core::validator::{ValidatorConfig, ValidatorExit};
+use safecoin_core::validator::{ValidatorConfig, ValidatorExit};
 use std::sync::{Arc, RwLock};
 
 pub fn safe_clone_config(config: &ValidatorConfig) -> ValidatorConfig {

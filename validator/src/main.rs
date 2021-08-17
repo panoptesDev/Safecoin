@@ -20,10 +20,10 @@ use {
         rpc_client::RpcClient, rpc_config::RpcLeaderScheduleConfig,
         rpc_request::MAX_MULTIPLE_ACCOUNTS,
     },
-    solana_core::ledger_cleanup_service::{
+    safecoin_core::ledger_cleanup_service::{
         DEFAULT_MAX_LEDGER_SHREDS, DEFAULT_MIN_MAX_LEDGER_SHREDS,
     },
-    solana_core::{
+    safecoin_core::{
         cluster_info::{ClusterInfo, Node, VALIDATOR_PORT_RANGE},
         contact_info::ContactInfo,
         gossip_service::GossipService,
@@ -36,7 +36,7 @@ use {
         },
     },
     solana_download_utils::{download_genesis_if_missing, download_snapshot},
-    solana_ledger::blockstore_db::BlockstoreRecoveryMode,
+    safecoin_ledger::blockstore_db::BlockstoreRecoveryMode,
     solana_perf::recycler::enable_recycler_warming,
     solana_runtime::{
         accounts_index::{
@@ -866,7 +866,7 @@ fn rpc_bootstrap(
 
         let result = match rpc_client.get_version() {
             Ok(rpc_version) => {
-                info!("RPC node version: {}", rpc_version.solana_core);
+                info!("RPC node version: {}", rpc_version.safecoin_core);
                 Ok(())
             }
             Err(err) => Err(format!("Failed to get RPC node version: {}", err)),
@@ -2481,7 +2481,7 @@ pub fn main() {
         solana_perf::perf_libs::init_cuda();
         enable_recycler_warming();
     }
-    solana_ledger::entry::init_poh();
+    safecoin_ledger::entry::init_poh();
     solana_runtime::snapshot_utils::remove_tmp_snapshot_archives(&snapshot_output_dir);
 
     let should_check_duplicate_instance = !matches.is_present("no_duplicate_instance_check");

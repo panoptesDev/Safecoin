@@ -38,10 +38,10 @@ fetch_program() {
 
 }
 
-fetch_program token 3.1.0 HMGr16f8Ct1Zeb9TGPypt9rPgzCkmhCQB8Not8vwiPW1 BPFLoader2111111111111111111111111111111111
+fetch_program token 3.1.0 7v5TwK92hUSqduoL3R8NtzTNfNzMA48nJL4mzPYMdDrD BPFLoader2111111111111111111111111111111111
 fetch_program memo  1.0.0 4DDUJ1rA8Vd7e6SFWanf4V8JnsfapjCGNutQYw8Vtt45 BPFLoader1111111111111111111111111111111111
 fetch_program memo  3.0.0 MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr BPFLoader2111111111111111111111111111111111
-fetch_program associated-token-account 1.0.1 PUFQTv9BK3ax6bKPFnyjBTbVa3782mcfvb22TZovvrm BPFLoader2111111111111111111111111111111111
+fetch_program associated-token-account 1.0.1 CWyEp7dp1Cv3334j6gCci2UrrjA8Q98bYa7AwGBpZ6iJ BPFLoader2111111111111111111111111111111111
 fetch_program feature-proposal 1.0.0 BKCvVdwmY6zQQyWijdMC2vjtYvCq9Q913yvvNLvjVSMv BPFLoader2111111111111111111111111111111111
 
 echo "${genesis_args[@]}" > spl-genesis-args.sh

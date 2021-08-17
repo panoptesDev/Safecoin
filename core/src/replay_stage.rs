@@ -29,7 +29,7 @@ use crate::{
     window_service::DuplicateSlotReceiver,
 };
 use safecoin_client::rpc_response::SlotUpdate;
-use solana_ledger::{
+use safecoin_ledger::{
     block_error::BlockError,
     blockstore::Blockstore,
     blockstore_processor::{self, BlockstoreProcessorError, TransactionStatusSender},
@@ -2607,7 +2607,7 @@ pub(crate) mod tests {
         transaction_status_service::TransactionStatusService,
     };
     use crossbeam_channel::unbounded;
-    use solana_ledger::{
+    use safecoin_ledger::{
         blockstore::make_slot_entries,
         blockstore::{entries_to_test_shreds, BlockstoreError},
         blockstore_processor, create_new_tmp_ledger,

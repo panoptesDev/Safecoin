@@ -38,7 +38,7 @@ use safecoin_client::{
     rpc_response::*,
 };
 use safecoin_faucet::faucet::request_airdrop_transaction;
-use solana_ledger::{
+use safecoin_ledger::{
     blockstore::Blockstore, blockstore_db::BlockstoreError, get_tmp_ledger_path,
     leader_schedule_cache::LeaderScheduleCache,
 };
@@ -2343,7 +2343,7 @@ pub mod rpc_minimal {
             debug!("get_version rpc request received");
             let version = solana_version::Version::default();
             Ok(RpcVersionInfo {
-                solana_core: version.to_string(),
+                safecoin_core: version.to_string(),
                 feature_set: Some(version.feature_set),
             })
         }
@@ -2385,7 +2385,7 @@ pub mod rpc_minimal {
                 .get_epoch_leader_schedule(epoch)
                 .map(|leader_schedule| {
                     let mut schedule_by_identity =
-                        solana_ledger::leader_schedule_utils::leader_schedule_by_identity(
+                        safecoin_ledger::leader_schedule_utils::leader_schedule_by_identity(
                             leader_schedule.get_slot_leaders().iter().enumerate(),
                         );
                     if let Some(identity) = config.identity {
@@ -3750,7 +3750,7 @@ pub mod tests {
     use jsonrpc_core::{futures, ErrorCode, MetaIoHandler, Output, Response, Value};
     use jsonrpc_core_client::transports::local;
     use safecoin_client::rpc_filter::{Memcmp, MemcmpEncodedBytes};
-    use solana_ledger::{
+    use safecoin_ledger::{
         blockstore_meta::PerfSample,
         blockstore_processor::fill_blockstore_slot_with_ticks,
         genesis_utils::{create_genesis_config, GenesisConfigInfo},
@@ -4442,7 +4442,7 @@ pub mod tests {
 
             assert_eq!(
                 bob_schedule.len(),
-                solana_ledger::leader_schedule_utils::leader_schedule(bank.epoch(), &bank)
+                safecoin_ledger::leader_schedule_utils::leader_schedule(bank.epoch(), &bank)
                     .unwrap()
                     .get_slot_leaders()
                     .len()
@@ -7230,7 +7230,7 @@ pub mod tests {
         let owner = Pubkey::new_unique();
         assert_eq!(
             get_spl_token_owner_filter(
-                &Pubkey::from_str("HMGr16f8Ct1Zeb9TGPypt9rPgzCkmhCQB8Not8vwiPW1").unwrap(),
+                &Pubkey::from_str("7v5TwK92hUSqduoL3R8NtzTNfNzMA48nJL4mzPYMdDrD").unwrap(),
                 &[
                     RpcFilterType::Memcmp(Memcmp {
                         offset: 32,
@@ -7246,7 +7246,7 @@ pub mod tests {
 
         // Filtering on mint instead of owner
         assert!(get_spl_token_owner_filter(
-            &Pubkey::from_str("HMGr16f8Ct1Zeb9TGPypt9rPgzCkmhCQB8Not8vwiPW1").unwrap(),
+            &Pubkey::from_str("7v5TwK92hUSqduoL3R8NtzTNfNzMA48nJL4mzPYMdDrD").unwrap(),
             &[
                 RpcFilterType::Memcmp(Memcmp {
                     offset: 0,

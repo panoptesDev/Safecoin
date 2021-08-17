@@ -2319,7 +2319,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
     "params": [
       "4Nd1mBQtrMJVYVfKf2PJy9NZUZdTAsp7D4xWLs4gDB4T",
       {
-        "programId": "HMGr16f8Ct1Zeb9TGPypt9rPgzCkmhCQB8Not8vwiPW1"
+        "programId": "7v5TwK92hUSqduoL3R8NtzTNfNzMA48nJL4mzPYMdDrD"
       },
       {
         "encoding": "jsonParsed"
@@ -2360,7 +2360,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
         },
         "executable": false,
         "lamports": 1726080,
-        "owner": "HMGr16f8Ct1Zeb9TGPypt9rPgzCkmhCQB8Not8vwiPW1",
+        "owner": "7v5TwK92hUSqduoL3R8NtzTNfNzMA48nJL4mzPYMdDrD",
         "rentEpoch": 4
       }
     ]
@@ -2448,7 +2448,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
         },
         "executable": false,
         "lamports": 1726080,
-        "owner": "HMGr16f8Ct1Zeb9TGPypt9rPgzCkmhCQB8Not8vwiPW1",
+        "owner": "7v5TwK92hUSqduoL3R8NtzTNfNzMA48nJL4mzPYMdDrD",
         "rentEpoch": 4
       }
     ]
@@ -2846,7 +2846,7 @@ Result:
 
 ```bash
 curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
-  {"jsonrpc":"2.0","id":1, "method":"setLogFilter", "params":["solana_core=debug"]}
+  {"jsonrpc":"2.0","id":1, "method":"setLogFilter", "params":["safecoin_core=debug"]}
 '
 ```
 
