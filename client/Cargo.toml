@@ -29,7 +29,7 @@ safecoin-clap-utils = { path = "../clap-utils", version = ">=1.6.18" }
 safecoin-faucet = { path = "../faucet", version = ">=1.6.18" }
 safecoin-net-utils = { path = "../net-utils", version = ">=1.6.18" }
 safecoin-sdk = { path = "../sdk", version = ">=1.6.18" }
-safecoin-transaction-status = { path = "../transaction-status", version = ">=1.6.18" }
+safecoin-transaction-status = { path = "../transaction-status", version = ">=1.6.21" }
 safecoin-version = { path = "../version", version = ">=1.6.18" }
 safecoin-vote-program = { path = "../programs/vote", version = ">=1.6.18" }
 thiserror = "1.0"

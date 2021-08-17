@@ -26,7 +26,7 @@ safecoin-metrics = { path = "../metrics", version = ">=1.6.18" }
 safecoin-notifier = { path = "../notifier", version = ">=1.6.18" }
 safecoin-sdk = { path = "../sdk", version = ">=1.6.18" }
 safecoin-stake-program = { path = "../programs/stake", version = ">=1.6.18" }
-safecoin-transaction-status = { path = "../transaction-status", version = ">=1.6.18" }
+safecoin-transaction-status = { path = "../transaction-status", version = ">=1.6.21" }
 thiserror = "1.0.21"
 
 [package.metadata.docs.rs]

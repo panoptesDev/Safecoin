@@ -17,7 +17,7 @@ serde = "1.0.122"
 serde_derive = "1.0.103"
 safecoin-account-decoder = { path = "../account-decoder", version = ">=1.6.18" }
 safecoin-sdk = { path = "../sdk", version = ">=1.6.18" }
-safecoin-transaction-status = { path = "../transaction-status", version = ">=1.6.18" }
+safecoin-transaction-status = { path = "../transaction-status", version = ">=1.6.21" }
 
 [lib]
 crate-type = ["lib"]

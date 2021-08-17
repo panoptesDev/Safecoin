@@ -37,7 +37,7 @@ sha2 = "0.9.2"
 safecoin-bpf-loader-program = { path = "../programs/bpf_loader", version = ">=1.6.18" }
 safecoin-frozen-abi = { path = "../frozen-abi", version = ">=1.6.18" }
 safecoin-frozen-abi-macro = { path = "../frozen-abi/macro", version = ">=1.6.18" }
-safecoin-transaction-status = { path = "../transaction-status", version = ">=1.6.18" }
+safecoin-transaction-status = { path = "../transaction-status", version = ">=1.6.21" }
 safecoin-logger = { path = "../logger", version = ">=1.6.18" }
 safecoin-measure = { path = "../measure", version = ">=1.6.18" }
 safecoin-merkle-tree = { path = "../merkle-tree", version = ">=1.6.18" }
