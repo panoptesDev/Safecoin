@@ -4425,7 +4425,7 @@ impl Bank {
     }
 
     pub fn calculate_and_verify_capitalization(&self) -> bool {
-        let calculated = self.calculate_capitalization() - 15;
+        let calculated = self.calculate_capitalization();
         let expected = self.capitalization();
         if calculated == expected {
             true
@@ -4471,7 +4471,7 @@ impl Bank {
                 &self.ancestors,
                 Some(self.capitalization()),
             );
-        if total_lamports - 15 != self.capitalization() {
+        if total_lamports != self.capitalization() {
             datapoint_info!(
                 "capitalization_mismatch",
                 ("slot", self.slot(), i64),
@@ -5014,7 +5014,7 @@ impl Bank {
         let reconfigure_token2_native_mint = match self.cluster_type() {
             ClusterType::Development => true,
             ClusterType::Devnet => true,
-            ClusterType::Testnet => self.epoch() == 10,
+            ClusterType::Testnet => self.epoch() == 93,
             ClusterType::MainnetBeta => self.epoch() == 61,
         };
 
