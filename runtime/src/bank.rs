@@ -2702,7 +2702,7 @@ impl Bank {
             ClusterType::Development => false,
             ClusterType::Devnet => false,
             ClusterType::Testnet => false,
-            ClusterType::MainnetBeta => self.epoch == 61,
+            ClusterType::MainnetBeta => false,
         }
     }
 
