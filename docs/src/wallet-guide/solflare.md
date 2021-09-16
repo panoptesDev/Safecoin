@@ -6,9 +6,9 @@ title: SafeFlare Web Wallet
 
 [SafeFlare.com](https://solflare.com/) is a community-created web wallet built
 specifically for Safecoin.
-SafeFlare supports sending and receiving native SAFE tokens as well as sending and
+SafeFlare supports sending and receiving native PANO tokens as well as sending and
 receiving SPL Tokens (Safecoin's ERC-20 equivalent).
-SafeFlare also supports staking of SAFE tokens.
+SafeFlare also supports staking of PANO tokens.
 
 As a _non-custodial_ wallet, your private keys are not stored by the SafeFlare
 site itself, but rather they are stored in an encrypted
@@ -16,7 +16,7 @@ site itself, but rather they are stored in an encrypted
 [Ledger Nano S or X hardware wallet](#using-a-ledger-nano-hardware-wallet).
 
 This guide describes how to set up a wallet using SafeFlare, how to send and
-receive SAFE tokens, and how to create and manage a stake account.
+receive PANO tokens, and how to create and manage a stake account.
 
 ## Getting Started
 
@@ -96,7 +96,7 @@ of the currently selected network at the top of the wallet dashboard, either
 Mainnet, Testnet or Devnet, then click on the name of the network you wish to be
 using.
 
-## Sending and Receiving SAFE Tokens
+## Sending and Receiving PANO Tokens
 
 ### Receiving
 
@@ -110,13 +110,13 @@ on SafeFlare should update within a few seconds.
 ### Sending
 
 Once you have some tokens at your wallet address, you can send them to any other
-wallet address or an exchange deposit address by clicking "Transfer SAFE" in the
-upper-right corner. Enter the recipient address and the amount of SAFE to
+wallet address or an exchange deposit address by clicking "Transfer PANO" in the
+upper-right corner. Enter the recipient address and the amount of PANO to
 transfer and click "Submit". You will be prompted to confirm the details of the
 transaction before you [use your key to sign the transaction](#signing-a-transaction)
 and then it will be submitted to the network.
 
-## Staking SAFE Tokens
+## Staking PANO Tokens
 
 SafeFlare supports creating and managing stake accounts and delegations. To learn
 about how staking on Safecoin works in general, check out our
@@ -124,13 +124,13 @@ about how staking on Safecoin works in general, check out our
 
 ### Create a Stake Account
 
-You can use some of the SAFE tokens in your wallet to create a new stake account.
+You can use some of the PANO tokens in your wallet to create a new stake account.
 From the wallet main page click "Staking" at the top of the page. In the upper-
-right, click "Create Account". Enter the amount of SAFE you want to use to
+right, click "Create Account". Enter the amount of PANO you want to use to
 fund your new stake account. This amount will be withdrawn from your wallet
 and transfered to the stake account. Do not transfer your entire wallet balance
 to a stake account, as the wallet is still used to pay any transaction fees
-associated with your stake account. Consider leaving at least 1 SAFE in your
+associated with your stake account. Consider leaving at least 1 PANO in your
 wallet account.
 
 After you submit and [sign the transaction](#signing-a-transaction) you will see
@@ -171,7 +171,7 @@ account, click the "Undelegate" button and follow the prompts.
 
 You may split an existing stake account into two stake accounts. Click on the
 address of a stake account controlled by your wallet, and under the Actions bar,
-click "Split". Specify the amount of SAFE tokens you want to split. This will be
+click "Split". Specify the amount of PANO tokens you want to split. This will be
 the amount of tokens in your new stake account and your existing stake account
 balance will be reduced by the same amount. Splitting your stake account
 allows you to delegate to multiple different validators with different amounts

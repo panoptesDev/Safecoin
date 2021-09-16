@@ -154,11 +154,11 @@ on the testnet and mainnet-beta clusters. An [epoch](terminology.md#epoch) is
 targeted to be 2 days (For devnet, the rent fee is 0.3608183131797095 lamports
 per byte-epoch with its 54m36s-long epoch).
 
-This value is calculated to target 0.01 SAFE per mebibyte-day (exactly matching
-to 3.56 SAFE per mebibyte-year):
+This value is calculated to target 0.01 PANO per mebibyte-day (exactly matching
+to 3.56 PANO per mebibyte-year):
 
 ```text
-Rent fee: 19.055441478439427 = 10_000_000 (0.01 SAFE) * 365(approx. day in a year) / (1024 * 1024)(1 MiB) / (365.25/2)(epochs in 1 year)
+Rent fee: 19.055441478439427 = 10_000_000 (0.01 PANO) * 365(approx. day in a year) / (1024 * 1024)(1 MiB) / (365.25/2)(epochs in 1 year)
 ```
 
 And rent calculation is done with the `f64` precision and the final result is
@@ -203,7 +203,7 @@ minimum balance for a particular account size. The following calculation is
 illustrative only.
 
 For example, a program executable with the size of 15,000 bytes requires a
-balance of 105,290,880 lamports (=~ 0.105 SAFE) to be rent-exempt:
+balance of 105,290,880 lamports (=~ 0.105 PANO) to be rent-exempt:
 
 ```text
 105,290,880 = 19.055441478439427 (fee rate) * (128 + 15_000)(account size including metadata) * ((365.25/2) * 2)(epochs in 2 years)
@@ -213,9 +213,9 @@ Rent can also be estimated via the [`safecoin rent` CLI subcommand](cli/usage.md
 
 ```text
 $ safecoin rent 15000
-Rent per byte-year: 0.00000348 SAFE
-Rent per epoch: 0.000288276 SAFE
-Rent-exempt minimum: 0.10529088 SAFE
+Rent per byte-year: 0.00000348 PANO
+Rent per epoch: 0.000288276 PANO
+Rent-exempt minimum: 0.10529088 PANO
 ```
 
 Note: Rest assured that, should the storage rent rate need to be increased at some

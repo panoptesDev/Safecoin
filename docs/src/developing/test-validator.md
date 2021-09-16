@@ -72,7 +72,7 @@ safecoin balance
 ```
 * **NOTE:** `Error: No such file or directory (os error 2)` means that the default
 wallet does not yet exist. Create it with `safecoin-keygen new`.
-* **NOTE:** If the wallet has a zero SAFE balance, airdrop some localnet SAFE with
+* **NOTE:** If the wallet has a zero PANO balance, airdrop some localnet PANO with
 `safecoin airdrop 10`
 
 #### Perform a basic transfer transaction

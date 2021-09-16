@@ -67,7 +67,7 @@ export function CreateWithSeedDetailsCard(props: {
       </tr>
 
       <tr>
-        <td>Transfer Amount (SAFE)</td>
+        <td>Transfer Amount (PANO)</td>
         <td className="text-lg-right">{lamportsToSafeString(info.lamports)}</td>
       </tr>
 

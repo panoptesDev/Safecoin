@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { lamportsToSafe, LAMPORTS_PER_SAFE } from "utils";
+import { lamportsToSafe, LAMPORTS_PER_PANO } from "utils";
 import BN from "bn.js";
 
 describe("lamportsToSafe", () => {
@@ -12,9 +12,9 @@ describe("lamportsToSafe", () => {
     expect(lamportsToSafe(new BN(-1))).to.eq(-0.000000001);
   });
 
-  it("1 SAFE", () => {
-    expect(lamportsToSafe(new BN(LAMPORTS_PER_SAFE))).to.eq(1.0);
-    expect(lamportsToSafe(new BN(-LAMPORTS_PER_SAFE))).to.eq(-1.0);
+  it("1 PANO", () => {
+    expect(lamportsToSafe(new BN(LAMPORTS_PER_PANO))).to.eq(1.0);
+    expect(lamportsToSafe(new BN(-LAMPORTS_PER_PANO))).to.eq(-1.0);
   });
 
   it("u64::MAX lamports", () => {

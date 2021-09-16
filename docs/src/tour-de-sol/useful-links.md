@@ -11,5 +11,5 @@ description: Where to go after you've read this guide
 ### Validator Discussions
 
 The Safecoin Discord server is where all the action happens. Join the server by
-visiting https://solana.com/discord. Check out the "Testnet (Tour de SAFE)" channel
+visiting https://solana.com/discord. Check out the "Testnet (Tour de PANO)" channel
 group.

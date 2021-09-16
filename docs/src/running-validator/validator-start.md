@@ -190,7 +190,7 @@ network. **It is crucial to back-up this information.**
 
 If you don’t back up this information, you WILL NOT BE ABLE TO RECOVER YOUR
 VALIDATOR if you lose access to it. If this happens, YOU WILL LOSE YOUR
-ALLOCATION OF SAFE TOO.
+ALLOCATION OF PANO TOO.
 
 To back-up your validator identify keypair, **back-up your
 "validator-keypair.json” file or your seed phrase to a secure location.**
@@ -216,14 +216,14 @@ Commitment: confirmed
 
 ## Airdrop & Check Validator Balance
 
-Airdrop yourself some SAFE to get started:
+Airdrop yourself some PANO to get started:
 
 ```bash
 safecoin airdrop 1
 ```
 
 Note that airdrops are only available on Devnet and Testnet. Both are limited
-to 1 SAFE per request.
+to 1 PANO per request.
 
 To view your current balance:
 
@@ -237,7 +237,7 @@ Or to see in finer detail:
 safecoin balance --lamports
 ```
 
-Read more about the [difference between SAFE and lamports here](../introduction.md#what-are-sols).
+Read more about the [difference between PANO and lamports here](../introduction.md#what-are-sols).
 
 ## Create Vote Account
 

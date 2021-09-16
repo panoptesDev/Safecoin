@@ -23,7 +23,7 @@ Safecoin RPC API、Rust SDK、CLI工具和BPF程序SDK均已更新并随每个Sa
 #### 发布频道
 
 - `edge`软件，其中包含最先进的功能，没有向后兼容策略
-- 在Safecoin Tour de SAFE测试网集群上运行的`beta`软件
+- 在Safecoin Tour de PANO测试网集群上运行的`beta`软件
 - 在Safecoin Mainnet Beta和Devnet集群上运行的`stable`软件
 
 #### 主要版本(x.0.0)
@@ -32,7 +32,7 @@ Safecoin RPC API、Rust SDK、CLI工具和BPF程序SDK均已更新并随每个Sa
 
 #### 次要版本(1.x.0)
 
-新功能和建议实施已添加到_new_版本的`MINOR`版本(例如1.4.0)中，并且首先在Safecoin的Tour de SAFE测试网集群上运行。 在测试网上运行时，`MINOR`版本被认为在`beta`发布渠道中。 在对这些更改进行了修补并证明是可靠的之后，`MINOR`版本将升级到`stable`发布渠道并部署到Mainnet Beta集群。
+新功能和建议实施已添加到_new_版本的`MINOR`版本(例如1.4.0)中，并且首先在Safecoin的Tour de PANO测试网集群上运行。 在测试网上运行时，`MINOR`版本被认为在`beta`发布渠道中。 在对这些更改进行了修补并证明是可靠的之后，`MINOR`版本将升级到`stable`发布渠道并部署到Mainnet Beta集群。
 
 #### 修补程序版本(1.0.x)
 

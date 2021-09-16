@@ -101,14 +101,14 @@ function OverviewCard({
           </td>
         </tr>
         <tr>
-          <td>Balance (SAFE)</td>
+          <td>Balance (PANO)</td>
           <td className="text-lg-right text-uppercase">
             {lamportsToSafeString(account.lamports || 0)}
           </td>
         </tr>
         {stakeAccount.meta && (
           <tr>
-            <td>Rent Reserve (SAFE)</td>
+            <td>Rent Reserve (PANO)</td>
             <td className="text-lg-right">
               {lamportsToSafeString(stakeAccount.meta.rentExemptReserve)}
             </td>
@@ -175,7 +175,7 @@ function DelegationCard({
         {stake && (
           <>
             <tr>
-              <td>Delegated Stake (SAFE)</td>
+              <td>Delegated Stake (PANO)</td>
               <td className="text-lg-right">
                 {lamportsToSafeString(stake.delegation.stake)}
               </td>
@@ -184,14 +184,14 @@ function DelegationCard({
             {activation && (
               <>
                 <tr>
-                  <td>Active Stake (SAFE)</td>
+                  <td>Active Stake (PANO)</td>
                   <td className="text-lg-right">
                     {lamportsToSafeString(activation.active)}
                   </td>
                 </tr>
 
                 <tr>
-                  <td>Inactive Stake (SAFE)</td>
+                  <td>Inactive Stake (PANO)</td>
                   <td className="text-lg-right">
                     {lamportsToSafeString(activation.inactive)}
                   </td>

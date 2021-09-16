@@ -24,9 +24,9 @@ Safecoin文档描述了Safecoin开源项目，这是一个从头开始大规模�
 
 群集是一组可以协同工作的计算机，可以从外部将其视为单个系统。 Safecoin集群是一组相互独立的计算机，这些计算机一起工作(有时互相冲突)，以验证用户提交的不可信程序输出。 只要用户希望及时保留事件的不变记录或这些事件的程序解释，就可以利用Safecoin集群。 一种用途是跟踪哪些计算机做了有意义的工作来保持群集运行。 另一个用途可能是跟踪对现实世界资产的拥有权。 在每种情况下，集群都会生成一个称为账本的事件记录。 它将在群集的整个生命周期内保留。 只要世界上某个地方的某人维护了的副本，其程序的输出\(可能包含谁拥有什么的记录\) 将永远是可复制的，而与发起它的组织无关。
 
-## 什么是SAFE？
+## 什么是PANO？
 
-SAFE是Safecoin原生代币的名称，可以将其传递给Safecoin集群中的节点，以换取运行链上程序或验证其输出。 系统可以执行分数SAFE的微支付，称为_lamports_。 它们的名称是为了纪念Safecoin的最大技术影响力[Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport)。 1 Lamport的值为0.000000001 SAFE。
+PANO是Safecoin原生代币的名称，可以将其传递给Safecoin集群中的节点，以换取运行链上程序或验证其输出。 系统可以执行分数PANO的微支付，称为_lamports_。 它们的名称是为了纪念Safecoin的最大技术影响力[Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport)。 1 Lamport的值为0.000000001 PANO。
 
 ## 免责声明
 

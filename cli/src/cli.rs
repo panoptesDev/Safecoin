@@ -404,11 +404,11 @@ pub enum CliError {
     ClientError(#[from] ClientError),
     #[error("Command not recognized: {0}")]
     CommandNotRecognized(String),
-    #[error("Account {1} has insufficient funds for fee ({0} SAFE)")]
+    #[error("Account {1} has insufficient funds for fee ({0} PANO)")]
     InsufficientFundsForFee(f64, Pubkey),
-    #[error("Account {1} has insufficient funds for spend ({0} SAFE)")]
+    #[error("Account {1} has insufficient funds for spend ({0} PANO)")]
     InsufficientFundsForSpend(f64, Pubkey),
-    #[error("Account {2} has insufficient funds for spend ({0} SAFE) + fee ({1} SAFE)")]
+    #[error("Account {2} has insufficient funds for spend ({0} PANO) + fee ({1} PANO)")]
     InsufficientFundsForSpendAndFee(f64, f64, Pubkey),
     #[error(transparent)]
     InvalidNonce(nonce_utils::Error),
@@ -2028,7 +2028,7 @@ pub fn app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> App<'ab, '
         .stake_subcommands()
         .subcommand(
             SubCommand::with_name("airdrop")
-                .about("Request SAFE from a faucet")
+                .about("Request PANO from a faucet")
                 .arg(
                     Arg::with_name("amount")
                         .index(1)
@@ -2036,7 +2036,7 @@ pub fn app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> App<'ab, '
                         .takes_value(true)
                         .validator(is_amount)
                         .required(true)
-                        .help("The airdrop amount to request, in SAFE"),
+                        .help("The airdrop amount to request, in PANO"),
                 )
                 .arg(
                     pubkey!(Arg::with_name("to")
@@ -2058,7 +2058,7 @@ pub fn app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> App<'ab, '
                     Arg::with_name("lamports")
                         .long("lamports")
                         .takes_value(false)
-                        .help("Display balance in lamports instead of SAFE"),
+                        .help("Display balance in lamports instead of PANO"),
                 ),
         )
         .subcommand(
@@ -2167,7 +2167,7 @@ pub fn app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> App<'ab, '
                     Arg::with_name("allow_excessive_balance")
                         .long("allow-excessive-deploy-account-balance")
                         .takes_value(false)
-                        .help("Use the designated program id, even if the account already holds a large balance of SAFE")
+                        .help("Use the designated program id, even if the account already holds a large balance of PANO")
                 ),
         )
         .subcommand(
@@ -2201,7 +2201,7 @@ pub fn app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> App<'ab, '
                         .takes_value(true)
                         .validator(is_amount_or_all)
                         .required(true)
-                        .help("The amount to send, in SAFE; accepts keyword ALL"),
+                        .help("The amount to send, in PANO; accepts keyword ALL"),
                 )
                 .arg(
                     pubkey!(Arg::with_name("from")
@@ -2266,7 +2266,7 @@ pub fn app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> App<'ab, '
                     Arg::with_name("lamports")
                         .long("lamports")
                         .takes_value(false)
-                        .help("Display balance in lamports instead of SAFE"),
+                        .help("Display balance in lamports instead of PANO"),
                 ),
         )
         .validator_info_subcommands()
@@ -2615,7 +2615,7 @@ mod tests {
             pubkey: None,
             use_lamports_unit: false,
         };
-        assert_eq!(process_command(&config).unwrap(), "0.00000005 SAFE");
+        assert_eq!(process_command(&config).unwrap(), "0.00000005 PANO");
 
         let good_signature = Signature::new(&bs58::decode(SIGNATURE).into_vec().unwrap());
         config.command = CliCommand::Confirm(good_signature);
@@ -2921,7 +2921,7 @@ mod tests {
         write_keypair_file(&default_keypair, &default_keypair_file).unwrap();
         let default_signer = DefaultSigner::new("", &default_keypair_file);
 
-        //Test Transfer Subcommand, SAFE
+        //Test Transfer Subcommand, PANO
         let from_keypair = keypair_from_seed(&[0u8; 32]).unwrap();
         let from_pubkey = from_keypair.pubkey();
         let from_string = from_pubkey.to_string();

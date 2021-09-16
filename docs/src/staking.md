@@ -3,15 +3,15 @@ title: Staking on Safecoin
 ---
 
 _Note before reading: All references to increases in values are in absolute
-terms with regards to balance of SAFE.
-This document makes no suggestion as to the monetary value of SAFE at any time._
+terms with regards to balance of PANO.
+This document makes no suggestion as to the monetary value of PANO at any time._
 
-Staking your SAFE tokens on Safecoin is the best way you can help secure the world's
+Staking your PANO tokens on Safecoin is the best way you can help secure the world's
 highest-performing blockchain network, and
 [earn rewards](implemented-proposals/staking-rewards.md) for doing so!
 
 Safecoin is a Proof-of-Stake (PoS) network with delegations, which means that
-anyone who holds SAFE tokens can choose to delegate some of their SAFE to one or
+anyone who holds PANO tokens can choose to delegate some of their PANO to one or
 more validators, who process transactions and run the network.
 
 Delegating stake is a shared-risk shared-reward financial model that may provide
@@ -50,9 +50,9 @@ It is the goal of the network rewards and slashing to align both validators'
 and token holders' financial incentives, which in turn help keeps the network
 secure, robust and performing at its best.
 
-## How do I stake my SAFE tokens?
+## How do I stake my PANO tokens?
 
-In order to stake tokens on Safecoin, you first will need to transfer some SAFE
+In order to stake tokens on Safecoin, you first will need to transfer some PANO
 into a wallet that supports staking, then follow the steps or instructions
 provided by the wallet to create a stake account and delegate your stake.
 Different wallets will vary slightly in their process for this but the general
@@ -73,8 +73,8 @@ Staking operations are supported by the following wallet solutions:
 #### Create a Stake Account
 
 A stake account is a different type of account from a wallet address
-that is used to simply send and receive SAFE tokens to other addresses. If you
-have received SAFE in a wallet address you control, you can use some of
+that is used to simply send and receive PANO tokens to other addresses. If you
+have received PANO in a wallet address you control, you can use some of
 these tokens to create and fund a new stake account, which will have a different
 address than the wallet you used to create it.
 Depending on which wallet you are using the steps to create a stake account
@@ -83,7 +83,7 @@ may vary slightly. Not all wallets support stake accounts, see
 
 #### Select a Validator
 
-After a stake account is created, you will likely want to delegate the SAFE
+After a stake account is created, you will likely want to delegate the PANO
 to a validator node. Below are a few places where you can get information about
 the validators who are currently participating in running the network.
 The Safecoin Labs team and the Solana Foundation do not recommend any particular

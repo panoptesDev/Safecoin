@@ -2,7 +2,7 @@
 title: 添加 Safecoin 到您的交易所
 ---
 
-本指南描述了如何将 Safecoin 的原生代币 SAFE 添加到某个加密货币交易所。
+本指南描述了如何将 Safecoin 的原生代币 PANO 添加到某个加密货币交易所。
 
 ## 节点设置
 
@@ -87,11 +87,11 @@ safecoin-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
 
 ## 设置存款账户
 
-Safecoin 帐户不需要任何链上的初始化设置；只要有 SAFE 余额，它们就自动出现。 您可以使用任何我们的 [钱包工具](../wallet-guide/cli.md) 生成一个 Safecoin 密钥，来设置一个交易所存款帐户。
+Safecoin 帐户不需要任何链上的初始化设置；只要有 PANO 余额，它们就自动出现。 您可以使用任何我们的 [钱包工具](../wallet-guide/cli.md) 生成一个 Safecoin 密钥，来设置一个交易所存款帐户。
 
 我们建议您为每个用户配置一个独特的存款帐户。
 
-Safecoin 帐户在每个 epoch 都收取一次 [ 租金 ](developing/programming-model/accounts.md#rent)，但如果它们的 SAFE 价值包括两年，就可以免除租金。 想要找到您存款账户的最低免租余额，请查询[`getMinimumBalanceForRentExemption` 端点](developing/clients/jsonrpc-api.md#getminimumbalanceforrentexemption)：
+Safecoin 帐户在每个 epoch 都收取一次 [ 租金 ](developing/programming-model/accounts.md#rent)，但如果它们的 PANO 价值包括两年，就可以免除租金。 想要找到您存款账户的最低免租余额，请查询[`getMinimumBalanceForRentExemption` 端点](developing/clients/jsonrpc-api.md#getminimumbalanceforrentexemption)：
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getMinimumBalanceForRentExemption","params":[0]}' localhost:8328
@@ -101,11 +101,11 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 
 ### 离线账户
 
-为了提高的安全性，您可能想离线保存一个或多个收藏账户的密钥。 这时候您需要使用我们的 [ 离线方法](../offline-signing.md) 将 SAFE 转移到热钱包。
+为了提高的安全性，您可能想离线保存一个或多个收藏账户的密钥。 这时候您需要使用我们的 [ 离线方法](../offline-signing.md) 将 PANO 转移到热钱包。
 
 ## 正在等待充值
 
-如果某个用户想 SAFE 存入您的交易所，请指示他们发送一笔金额到相应的存款地址。
+如果某个用户想 PANO 存入您的交易所，请指示他们发送一笔金额到相应的存款地址。
 
 ### 区块投票
 
@@ -187,7 +187,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 }
 ```
 
-` 原先余额 ` 和 ` 交易后余额 ` 字段能让您跟踪余额每个账户中的变动，而无需解析整个交易。 他们将每个账户的最初和交易后余额分别列出在 [ lamports ](../terminology.md#lamport) 中，并索引到 `账户` 列表。 例如，您准备充值的地址是 ` 47Sbuv6jL7CViK9F2NMW51aQGhfdpUu7WNvKyH645Rfi `，它表示一笔 218099990000 - 207099990000 = 11000000000 lamports = 11 SAFE 的交易。
+` 原先余额 ` 和 ` 交易后余额 ` 字段能让您跟踪余额每个账户中的变动，而无需解析整个交易。 他们将每个账户的最初和交易后余额分别列出在 [ lamports ](../terminology.md#lamport) 中，并索引到 `账户` 列表。 例如，您准备充值的地址是 ` 47Sbuv6jL7CViK9F2NMW51aQGhfdpUu7WNvKyH645Rfi `，它表示一笔 218099990000 - 207099990000 = 11000000000 lamports = 11 PANO 的交易。
 
 如果需要更多关于交易类型或其他细节的信息，您可以用二进制格式从 RPC 请求区块，然后使用 [Rust SDK](https://github.com/fair-exchange/safecoin) 或 [Javascript SDK](https://github.com/fair-exchange/safecoin-web3.js) 进行解析。
 
@@ -431,7 +431,7 @@ public class PubkeyValidator
 
 [SPL 代币](https://spl.solana.com/token) 是在 Safecoin 区块链上创建和交易包装/合成代币的标准。
 
-SPL 代币的工作流程类似于原生 SAFE 代币，但本节将讨论它们的几个不同之处。
+SPL 代币的工作流程类似于原生 PANO 代币，但本节将讨论它们的几个不同之处。
 
 ### 代币铸造
 
@@ -464,7 +464,7 @@ safe-token-cli 2.0.1
 SPL 代币账户包含了本地系统程序账户所不具备的额外要求：
 
 1. 在创建 SPL Token 帐户之前，必须先存入一定数量的代币。   代币帐户可以使用 `safe-token create-account` 命令显式创建， 或者 `safe-token transfer --fund-receiving ...` 命令隐式创建。
-1. 在生效期间，SPL Token 帐户必须保持 [rent-exempt](developing/programming-model/accounts.md#rent-exemption) 状态，因此在创建帐户时需要存入少量的原生 SAFE 代币。 对于 SPL Token v2 账户，该数量为 0.00203928 SAFE(2 039 280 lamports)。
+1. 在生效期间，SPL Token 帐户必须保持 [rent-exempt](developing/programming-model/accounts.md#rent-exemption) 状态，因此在创建帐户时需要存入少量的原生 PANO 代币。 对于 SPL Token v2 账户，该数量为 0.00203928 PANO(2 039 280 lamports)。
 
 #### 命令行
 创建具有以下属性的 SPL 代币帐户：
@@ -531,11 +531,11 @@ $ safe-token transfer 6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN 1 6VzWGL51jLe
 [Considerations](https://github.com/fair-exchange/safecoin/issues/12318) 正在扩展 `preBalance`和`postBalance` 交易状态元数据字段，来把 SPL代币余额转移包括进去。
 
 ### 提现
-用户提供的提现地址应该是和普通 SAFE 提款地址相同。
+用户提供的提现地址应该是和普通 PANO 提款地址相同。
 
 在执行提款 [transfer](#token-transfers) 之前，交易所应检查地址符合 [上文所述](#validating-user-supplied-account-addresses-for-withdrawals) 的规则。
 
-从提款地址为正确的铸币确定关联的代币帐户，并将转账发送到该帐户。  请注意关联的代币帐户现在还不存在，因此交易所应该代表用户为该账户提供资金。  对于 SPL Token v2 账户，为提款账户提供的资金额为 0.00203928 SAFE (2,039 280 lamports)。
+从提款地址为正确的铸币确定关联的代币帐户，并将转账发送到该帐户。  请注意关联的代币帐户现在还不存在，因此交易所应该代表用户为该账户提供资金。  对于 SPL Token v2 账户，为提款账户提供的资金额为 0.00203928 PANO (2,039 280 lamports)。
 
 用来提现的 `safe-token transfer` 命令模板为：
 ```
@@ -549,4 +549,4 @@ $ safe-token transfer --fund-recipient <exchange token account> <withdrawal amou
 
 ## 测试集成
 
-请务必先在 Safecoin devnet 和 testnet [clusters](../clusters.md) 测试完整的工作流，然后再迁移到 mainnet-beta 上。 Devnet 是最开放和最灵活、最理想的初始开发方式，而 testnet 提供了更现实的集群配置。 Devnet 和 testnet 都有一个水龙头，您可以通过运行 `safecoin airdrop 10` 获取一些用来开发和测试的 devnet 或 testnet 的 SAFE 代币。
+请务必先在 Safecoin devnet 和 testnet [clusters](../clusters.md) 测试完整的工作流，然后再迁移到 mainnet-beta 上。 Devnet 是最开放和最灵活、最理想的初始开发方式，而 testnet 提供了更现实的集群配置。 Devnet 和 testnet 都有一个水龙头，您可以通过运行 `safecoin airdrop 10` 获取一些用来开发和测试的 devnet 或 testnet 的 PANO 代币。

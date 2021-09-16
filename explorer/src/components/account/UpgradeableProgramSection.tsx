@@ -52,7 +52,7 @@ export function UpgradeableProgramSection({
           </tr>
         )}
         <tr>
-          <td>Balance (SAFE)</td>
+          <td>Balance (PANO)</td>
           <td className="text-lg-right text-uppercase">
             {lamportsToSafeString(account.lamports || 0)}
           </td>

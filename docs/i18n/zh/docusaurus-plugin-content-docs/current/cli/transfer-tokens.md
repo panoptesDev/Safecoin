@@ -2,7 +2,7 @@
 title: 发送和接收代币
 ---
 
-该网页展示了如何通过命令行钱包，使用命令行工具接收和发送 SAFE代币，例如 [纸钱包](../wallet-guide/paper-wallet.md)， [文件系统钱包](../wallet-guide/file-system-wallet.md), 或[硬件钱包](../wallet-guide/hardware-wallets.md). 在开始之前，请确认您已经创建了一个钱包，并且可以访问其地址 (pubkey) 和签名密钥对。 请查看我们的[约定来输入不同钱包类型的密钥对](../cli/conventions.md#keypair-conventions).
+该网页展示了如何通过命令行钱包，使用命令行工具接收和发送 PANO代币，例如 [纸钱包](../wallet-guide/paper-wallet.md)， [文件系统钱包](../wallet-guide/file-system-wallet.md), 或[硬件钱包](../wallet-guide/hardware-wallets.md). 在开始之前，请确认您已经创建了一个钱包，并且可以访问其地址 (pubkey) 和签名密钥对。 请查看我们的[约定来输入不同钱包类型的密钥对](../cli/conventions.md#keypair-conventions).
 
 ## 测试您的钱包
 
@@ -24,7 +24,7 @@ safecoin airdrop 10 <RECIPIENT_ACCOUNT_ADDRESS> --url https://api.devnet.safecoi
 
 #### 检查钱包余额
 
-通过检查帐户余额确认空投已经成功。 输出值应当为 `10 SAFE`:
+通过检查帐户余额确认空投已经成功。 输出值应当为 `10 PANO`:
 
 ```bash
 safecoin balance <ACCOUNT_ADDRESS> --url https://api.devnet.safecoin.org
@@ -78,12 +78,12 @@ pubkey: DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK                          # 
 width enhance concert vacant ketchup eternal spy craft spy guard tag punch    # 如果这是一个真实的钱包，不要将这次单词分享到网络上！
 ==========================================================================
 
-$ safecoin airdrop 10 DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org  # 空投 10 个 SAFE 到我的钱包地址/公钥
-正在从 35.233.193.70:9900 请求 10 SAFE
-10 SAFE
+$ safecoin airdrop 10 DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org  # 空投 10 个 PANO 到我的钱包地址/公钥
+正在从 35.233.193.70:9900 请求 10 PANO
+10 PANO
 
 $ safecoin balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org # 检查钱包余额
-10 SAFE
+10 PANO
 
 $ safecoin-keygen new --no-outfile  # 创建第二个钱包即纸钱包
 生成新的密钥对
@@ -99,10 +99,10 @@ $ safecoin transfer --from my_solana_wallet.json 7S3P4HxJpyyigGzodYwHtCxZyUQe9Ji
 3gmXvykAd1nCQQ7MjosaHLf69Xyaqyq1qw2eu1mgPyYXd5G4v1rihhg1CiRw35b9fHzcftGKKEu4mbUeXY2pEX2z  # 该笔交易的签名
 
 $ safecoin balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org
-4.999995 SAFE  # 由于需要 0.000005 SAFE 的交易费用，发送金额要稍微小于 5 SAFE
+4.999995 PANO  # 由于需要 0.000005 PANO 的交易费用，发送金额要稍微小于 5 PANO
 
 $ safecoin balance 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv --url https://api.devnet.safecoin.org
-5 SAFE  # 第二个钱包现在已经接收到第一个钱包发送的 5 SAFE
+5 PANO  # 第二个钱包现在已经接收到第一个钱包发送的 5 PANO
 
 ```
 
@@ -112,7 +112,7 @@ $ safecoin balance 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv --url https://ap
 
 ## 发送代币
 
-如果您已经持有 SAFE 并想要向其他人发送代币，您将需要密钥对的路径， 他们的 base58 编码公钥和准备发送的代币。 上述条件准备好了以后，您可以使用 `safecoin transfer` 命令来发送代币：
+如果您已经持有 PANO 并想要向其他人发送代币，您将需要密钥对的路径， 他们的 base58 编码公钥和准备发送的代币。 上述条件准备好了以后，您可以使用 `safecoin transfer` 命令来发送代币：
 
 ```bash
 safecoin transfer --from <KEYPAIR> <RECIPIENT_ACCOUNT_ADDRESS> <AMOUNT> --fee-payer <KEYPAIR>

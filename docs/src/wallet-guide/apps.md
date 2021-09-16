@@ -16,7 +16,7 @@ Exodus includes live charts, a built-in exchange, and 24/7 human support.
 ## Trust Wallet
 
 [Trust Wallet](https://trustwallet.com/) is an app available for iOS and Android
-and can be used to send and receive SAFE tokens.
+and can be used to send and receive PANO tokens.
 
 _Note: Trust Wallet does not support stake accounts or staking operations_
 
@@ -43,6 +43,6 @@ viewed at any later time in the app by following these steps:
 ## Coin98
 
 [Coin98](https://coin98.app/) is an app available for iOS and Android and can
-be used to send and receive SAFE tokens.
+be used to send and receive PANO tokens.
 
 _Note: Coin98 does not support stake accounts or staking operations_

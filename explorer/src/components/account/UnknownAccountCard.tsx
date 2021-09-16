@@ -34,7 +34,7 @@ export function UnknownAccountCard({ account }: { account: Account }) {
           </tr>
         )}
         <tr>
-          <td>Balance (SAFE)</td>
+          <td>Balance (PANO)</td>
           <td className="text-lg-right text-uppercase">
             {lamportsToSafeString(lamports)}
           </td>

@@ -2,12 +2,12 @@
 title: Delegate Stake
 ---
 
-After you have [received SAFE](transfer-tokens.md), you might consider putting
+After you have [received PANO](transfer-tokens.md), you might consider putting
 it to use by delegating _stake_ to a validator. Stake is what we call tokens
 in a _stake account_. Safecoin weights validator votes by the amount of stake
 delegated to them, which gives those validators more influence in determining
 then next valid block of transactions in the blockchain. Safecoin then generates
-new SAFE periodically to reward stakers and validators. You earn more rewards
+new PANO periodically to reward stakers and validators. You earn more rewards
 the more stake you delegate.
 
 ## Create a Stake Account
@@ -55,7 +55,7 @@ safecoin stake-account <STAKE_ACCOUNT_ADDRESS>
 The output will look similar to this:
 
 ```text
-Total Stake: 5000 SAFE
+Total Stake: 5000 PANO
 Stake account is undelegated
 Stake Authority: EXU95vqs93yPeCeAU7mPPu6HbRUmTFPEiGug9oCdvQ5F
 Withdraw Authority: EXU95vqs93yPeCeAU7mPPu6HbRUmTFPEiGug9oCdvQ5F
@@ -141,9 +141,9 @@ You will see new fields "Delegated Stake" and "Delegated Vote Account Address"
 in the output. The output will look similar to this:
 
 ```text
-Total Stake: 5000 SAFE
+Total Stake: 5000 PANO
 Credits Observed: 147462
-Delegated Stake: 4999.99771712 SAFE
+Delegated Stake: 4999.99771712 PANO
 Delegated Vote Account Address: CcaHc2L43ZWjwCHART3oZoJvHLAe9hzT2DJNUpBzoTN1
 Stake activates starting from epoch: 42
 Stake Authority: EXU95vqs93yPeCeAU7mPPu6HbRUmTFPEiGug9oCdvQ5F

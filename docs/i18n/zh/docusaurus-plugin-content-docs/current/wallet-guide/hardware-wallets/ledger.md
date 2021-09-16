@@ -69,9 +69,9 @@ safecoin balance 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri
 
 您也可以在[Explorer](https://explorer.solana.com/accounts)查看任何账户地址的余额，在网页浏览器中将地址粘贴到搜索框来查看余额。
 
-注意：任何余额为 0 SAFE的地址（例如您在 Ledger 新创建的地址），将在浏览器器中显示“未找到”。 Safecoin 对空账户和不存在账户的处理是一样的。 当您的帐户地址中有一些 SAFE 代币的时候才会正确显示。
+注意：任何余额为 0 PANO的地址（例如您在 Ledger 新创建的地址），将在浏览器器中显示“未找到”。 Safecoin 对空账户和不存在账户的处理是一样的。 当您的帐户地址中有一些 PANO 代币的时候才会正确显示。
 
-### 从 Nano 发送 SAFE
+### 从 Nano 发送 PANO
 
 您需要使用该设备来签署交易，完成从 Nano 地址发送代币（通过生成钱包地址的相同密钥对 URL）。 请确保您的 Nano 已插入电脑，通过 PIN 解锁，并且 Ledger Live 处于未运行状态， 同时 Safecoin 应用在设备中打开，显示“应用已准备就绪”。
 
@@ -81,14 +81,14 @@ safecoin balance 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri
 safecoin transfer RECIPIENT_ADDRESS AMOUNT --keypair KEYPAIR_URL_OF_SENDER
 ```
 
-下面是一个完整的实例。 首先，通过某个密钥对 URL 中查看一个地址。 然后检查该地址的余额。 最后，输入一笔交易来发送 `1` SAFE到接收地址 `7cvkjYAkUYs4W8XcXscca7cBrEGFeSUjeZmKoNBvEwyri`。 按下回车键传输命令时，您将看到在 Ledger 设备批准交易细节的提示。 在设备上通过左右键查看交易细节。 如果信息正确，请同时按下"允许"界面的两个按钮，否则请在"拒绝"界面按下这两个按钮。
+下面是一个完整的实例。 首先，通过某个密钥对 URL 中查看一个地址。 然后检查该地址的余额。 最后，输入一笔交易来发送 `1` PANO到接收地址 `7cvkjYAkUYs4W8XcXscca7cBrEGFeSUjeZmKoNBvEwyri`。 按下回车键传输命令时，您将看到在 Ledger 设备批准交易细节的提示。 在设备上通过左右键查看交易细节。 如果信息正确，请同时按下"允许"界面的两个按钮，否则请在"拒绝"界面按下这两个按钮。
 
 ```bash
 ~$ safecoin-keygen pubkey usb://ledger?key=42
 CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
 
 ~$ safecoin balance CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
-1.000005 SAFE
+1.000005 PANO
 
 ~$ safecoin transfer 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri 1 --keypair usb://ledger?key=42
 

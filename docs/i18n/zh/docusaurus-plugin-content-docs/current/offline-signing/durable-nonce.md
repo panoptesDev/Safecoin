@@ -89,8 +89,8 @@ safecoin non-account non-ceypair.json
 - 输出
 
 ```text
-balance: 0.5 SAFE
-minimum balance required: 0.00136416 SAFE
+balance: 0.5 PANO
+minimum balance required: 0.00136416 PANO
 nonce: DZar6t2EaCFQTbUP4DHKwZ1wT8gCPW2aRfkVWhydkBvS
 ```
 
@@ -149,7 +149,7 @@ safecoin authorize-non-account non-keypair.json nonce-authority.json
 
 ### 使用持久Nonce的支付示例
 
-在这里，我们演示了Alice使用持久 nonce 向Bob 1 SAFE支付的费用。 对于支持持久随机数的所有子命令，该过程相同
+在这里，我们演示了Alice使用持久 nonce 向Bob 1 PANO支付的费用。 对于支持持久随机数的所有子命令，该过程相同
 
 #### - 创建帐户
 
@@ -163,11 +163,11 @@ $ safecoin-keygen new -o bob.json
 
 #### - Alice账户充值
 
-Alice 需要一些资产来创建一个 nonce 帐户并发送给 Bob。 空投一些SAFE给她
+Alice 需要一些资产来创建一个 nonce 帐户并发送给 Bob。 空投一些PANO给她
 
 ```bash
 $ safecoin airdrop -k alice.json 10
-10 SAFE
+10 PANO
 ```
 
 #### - 创建 Alice 的 nonce 帐户
@@ -199,8 +199,8 @@ Alice 重试交易，这次指定她的nonce账户和存储在那里的区块哈
 
 ```bash
 $ safecoin nonce-account nonce.json
-balance: 1 SAFE
-minimum balance required: 0.00136416 SAFE
+balance: 1 PANO
+minimum balance required: 0.00136416 PANO
 nonce: F7vmkY3DTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7
 ```
 
@@ -211,16 +211,16 @@ HR1368UKHVZyenmH7yVz5sBAijV6XAPeWbEiXEGVYQorRMcoijeNAbzZqEZiH8cDB8tk65ckeegFjK8d
 
 #### - 成功了！
 
-交易成功！ Bob 从 Alice 那里收到1个SAFE，并且Alice存储的nonce更新到了一个新的值
+交易成功！ Bob 从 Alice 那里收到1个PANO，并且Alice存储的nonce更新到了一个新的值
 
 ```bash
 $ safecoin balance -k bob.json
-1 SAFE
+1 PANO
 ```
 
 ```bash
 $ safecoin nonce-account nonce.json
-balance: 1 SAFE
-minimum balance required: 0.00136416 SAFE
+balance: 1 PANO
+minimum balance required: 0.00136416 PANO
 nonce: 6bjroqDcZgTv6Vavhqf81oBHTv3aMnX19UTB51YhAZnN
 ```

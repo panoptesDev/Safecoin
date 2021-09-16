@@ -288,7 +288,7 @@ function StatusCard({
 
         {fee && (
           <tr>
-            <td>Fee (SAFE)</td>
+            <td>Fee (PANO)</td>
             <td className="text-lg-right">{lamportsToSafeString(fee)}</td>
           </tr>
         )}
@@ -387,8 +387,8 @@ function AccountsCard({
           <thead>
             <tr>
               <th className="text-muted">Address</th>
-              <th className="text-muted">Change (SAFE)</th>
-              <th className="text-muted">Post Balance (SAFE)</th>
+              <th className="text-muted">Change (PANO)</th>
+              <th className="text-muted">Post Balance (PANO)</th>
               <th className="text-muted">Details</th>
             </tr>
           </thead>

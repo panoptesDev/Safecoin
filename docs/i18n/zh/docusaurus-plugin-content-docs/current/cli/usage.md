@@ -16,14 +16,14 @@ $safecoin-keygen pubkey
 <PUBKEY>
 ```
 
-### 空投 SAFE/Lamports
+### 空投 PANO/Lamports
 
 ```bash
 // 命令
 $ safecoin airdrop 2
 
 // 返回
-"2.0000000 SAFE"
+"2.0000000 PANO"
 ```
 
 ### 获取余额
@@ -33,7 +33,7 @@ $ safecoin airdrop 2
 $ safecoin balance
 
 // 返回
-"3.00050001 SAFE"
+"3.00050001 PANO"
 ```
 
 ### 确认交易

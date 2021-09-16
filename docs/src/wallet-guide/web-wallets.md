@@ -21,12 +21,12 @@ Check out our [guide for using SafeFlare](solflare.md).
 
 [sollet.io](https://www.sollet.io/) is a non-custodial web wallet created by the
 [Project Serum](https://projectserum.com/) team. sollet.io can be used to send
-and receive SAFE and any SPL Token.
+and receive PANO and any SPL Token.
 
 ## MathWallet
 
 [MathWallet](https://mathwallet.org/) supports wallet
-addresses for sending and receiving SAFE and SPL Tokens through its
+addresses for sending and receiving PANO and SPL Tokens through its
 browser extension and web wallet interface.
 
-_Note: The MathWallet iOS and Android app do not yet support SAFE and SPL Tokens_
+_Note: The MathWallet iOS and Android app do not yet support PANO and SPL Tokens_

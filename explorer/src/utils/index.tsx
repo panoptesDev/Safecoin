@@ -6,7 +6,7 @@ import {
 } from "humanize-duration-ts";
 
 // Switch to web3 constant when web3 updates superstruct
-export const LAMPORTS_PER_SAFE = 1000000000;
+export const LAMPORTS_PER_PANO = 1000000000;
 
 export const NUM_TICKS_PER_SECOND = 160;
 export const DEFAULT_TICKS_PER_SLOT = 64;
@@ -30,7 +30,7 @@ export function normalizeTokenAmount(
 
 export function lamportsToSafe(lamports: number | BN): number {
   if (typeof lamports === "number") {
-    return Math.abs(lamports) / LAMPORTS_PER_SAFE;
+    return Math.abs(lamports) / LAMPORTS_PER_PANO;
   }
 
   let signMultiplier = 1;

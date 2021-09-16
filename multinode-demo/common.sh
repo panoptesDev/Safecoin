@@ -24,7 +24,7 @@ if [[ $(uname) != Linux ]]; then
   fi
 fi
 
-if [[ -n $USE_INSTALL || ! -f "$SAFECOIN_ROOT"/Cargo.toml ]]; then
+if [[ -n $USE_INSTALL || ! -f "$PANOPTIS_ROOT"/Cargo.toml ]]; then
   solana_program() {
     declare program="$1"
     if [[ -z $program ]]; then

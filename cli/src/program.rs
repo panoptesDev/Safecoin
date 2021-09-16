@@ -171,7 +171,7 @@ impl ProgramSubCommands for App<'_, '_> {
                             Arg::with_name("allow_excessive_balance")
                                 .long("allow-excessive-deploy-account-balance")
                                 .takes_value(false)
-                                .help("Use the designated program id even if the account already holds a large balance of SAFE")
+                                .help("Use the designated program id even if the account already holds a large balance of PANO")
                         ),
                 )
                 .subcommand(
@@ -305,7 +305,7 @@ impl ProgramSubCommands for App<'_, '_> {
                             Arg::with_name("lamports")
                                 .long("lamports")
                                 .takes_value(false)
-                                .help("Display balance in lamports instead of SAFE"),
+                                .help("Display balance in lamports instead of PANO"),
                         ),
                 )
                 .subcommand(
@@ -363,7 +363,7 @@ impl ProgramSubCommands for App<'_, '_> {
                             Arg::with_name("lamports")
                                 .long("lamports")
                                 .takes_value(false)
-                                .help("Display balance in lamports instead of SAFE"),
+                                .help("Display balance in lamports instead of PANO"),
                         ),
                 )
         )

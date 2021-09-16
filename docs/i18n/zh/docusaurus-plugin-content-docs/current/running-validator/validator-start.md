@@ -150,7 +150,7 @@ safecoin-keygen grind --starts-with e1v1s:1
 
 您的验证节点身份密钥独特识别了您在网络中的验证节点。 **备份此信息至关重要。**
 
-如果您不备份此信息，那么如果您无法访问验证节点的话，将无法对其进行恢复。 如果发生这种情况，您将失去SAFE TOO的奖励。
+如果您不备份此信息，那么如果您无法访问验证节点的话，将无法对其进行恢复。 如果发生这种情况，您将失去PANO TOO的奖励。
 
 要备份您的验证节点识别密钥， **请备份您的"validator-keypair.json" 文件或种子短语到一个安全位置。**
 
@@ -172,13 +172,13 @@ Wallet Config Updated: /home/solana/.config/safecoin/wallet/config.yml
 
 ## 空投 & 检查验证节点账户余额
 
-空投自己一些SAFE即可开始使用：
+空投自己一些PANO即可开始使用：
 
 ```bash
 safecoin airdrop 10
 ```
 
-请注意，空投只能在Devnet和Testnet上使用。 每次请求都限制在 10 个 SAFE。
+请注意，空投只能在Devnet和Testnet上使用。 每次请求都限制在 10 个 PANO。
 
 要查看您当前的余额：
 
@@ -192,7 +192,7 @@ safecoin balance
 safecoin balance --lamports
 ```
 
-在这里阅读更多关于 [SAFE与lamports 之间的差异](../introduction.md#what-are-sols)。
+在这里阅读更多关于 [PANO与lamports 之间的差异](../introduction.md#what-are-sols)。
 
 ## 创建一个投票账户
 

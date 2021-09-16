@@ -26,7 +26,7 @@ safecoin-keygen new -o ~/validator-stake-keypair.json
 
 ## 委托您的质押
 
-在首先创建质押帐户之前，现在先把 1 SAFE 委托给您的验证节点：
+在首先创建质押帐户之前，现在先把 1 PANO 委托给您的验证节点：
 
 ```bash
 safecoin create-stake-account ~/validator-stake-keypair.json 1
@@ -38,7 +38,7 @@ safecoin create-stake-account ~/validator-stake-keypair.json 1
 safecoin delegate-stake ~/validator-stake-keypair.json ~/vote-account-keypair.json
 ```
 
-> 不要委托您剩余的 SAFE，因为验证程序需要用这些代币进行投票。
+> 不要委托您剩余的 PANO，因为验证程序需要用这些代币进行投票。
 
 任何时候都可以使用相同的命令将质押重新委托到另一个节点，但每个 epoch 只能够换一次：
 

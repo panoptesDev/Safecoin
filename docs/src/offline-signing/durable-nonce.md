@@ -104,8 +104,8 @@ safecoin nonce-account nonce-keypair.json
 - Output
 
 ```text
-balance: 0.5 SAFE
-minimum balance required: 0.00136416 SAFE
+balance: 0.5 PANO
+minimum balance required: 0.00136416 PANO
 nonce: DZar6t2EaCFQTbUP4DHKwZ1wT8gCPW2aRfkVWhydkBvS
 ```
 
@@ -165,7 +165,7 @@ The following subcommands have received this treatment so far
 
 ### Example Pay Using Durable Nonce
 
-Here we demonstrate Alice paying Bob 1 SAFE using a durable nonce. The procedure
+Here we demonstrate Alice paying Bob 1 PANO using a durable nonce. The procedure
 is the same for all subcommands supporting durable nonces
 
 #### - Create accounts
@@ -181,11 +181,11 @@ $ safecoin-keygen new -o bob.json
 #### - Fund Alice's account
 
 Alice will need some funds to create a nonce account and send to Bob. Airdrop
-her some SAFE
+her some PANO
 
 ```bash
 $ safecoin airdrop -k alice.json 1
-1 SAFE
+1 PANO
 ```
 
 #### - Create Alice's nonce account
@@ -219,8 +219,8 @@ blockhash stored there
 
 ```bash
 $ safecoin nonce-account nonce.json
-balance: 0.1 SAFE
-minimum balance required: 0.00136416 SAFE
+balance: 0.1 PANO
+minimum balance required: 0.00136416 PANO
 nonce: F7vmkY3DTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7
 ```
 
@@ -231,17 +231,17 @@ HR1368UKHVZyenmH7yVz5sBAijV6XAPeWbEiXEGVYQorRMcoijeNAbzZqEZiH8cDB8tk65ckqeegFjK8
 
 #### - Success!
 
-The transaction succeeds! Bob receives 0.01 SAFE from Alice and Alice's stored
+The transaction succeeds! Bob receives 0.01 PANO from Alice and Alice's stored
 nonce advances to a new value
 
 ```bash
 $ safecoin balance -k bob.json
-0.01 SAFE
+0.01 PANO
 ```
 
 ```bash
 $ safecoin nonce-account nonce.json
-balance: 0.1 SAFE
-minimum balance required: 0.00136416 SAFE
+balance: 0.1 PANO
+minimum balance required: 0.00136416 PANO
 nonce: 6bjroqDcZgTv6Vavhqf81oBHTv3aMnX19UTB51YhAZnN
 ```

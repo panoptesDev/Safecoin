@@ -62,7 +62,7 @@ The `--trusted-validator`s is operated by Safecoin
 - Testnet is where we stress test recent release features on a live
   cluster, particularly focused on network performance, stability and validator
   behavior.
-- [Tour de SAFE](tour-de-sol.md) initiative runs on Testnet, where we
+- [Tour de PANO](tour-de-sol.md) initiative runs on Testnet, where we
   encourage malicious behavior and attacks on the network to help us find and
   squash bugs or network vulnerabilities.
 - Testnet tokens are **not real**
@@ -119,7 +119,7 @@ The identity of the `--trusted-validator`s are:
 A permissionless, persistent cluster for early token holders and launch partners.
 Currently, rewards and inflation are disabled.
 
-- Tokens that are issued on Mainnet Beta are **real** SAFE
+- Tokens that are issued on Mainnet Beta are **real** PANO
 - If you have paid money to purchase/be issued tokens, such as through our
   CoinList auction, these tokens will be transferred on Mainnet Beta.
   - Note: If you are using a non-command-line wallet such as

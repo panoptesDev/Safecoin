@@ -56,7 +56,7 @@ $ safecoin-validator \
 ## Testnet（测试网）
 
 - Testnet是我们在实时群集上重点测试最新发布功能的地方，尤其侧重于网络性能，稳定性和验证程序行为。
-- 集群[Tour de SAFE](tour-de-sol.md)计划在Testnet上运行，在该计划中，我们接受恶意行为和对网络的攻击，以帮助我们发现和消除错误或网络漏洞。
+- 集群[Tour de PANO](tour-de-sol.md)计划在Testnet上运行，在该计划中，我们接受恶意行为和对网络的攻击，以帮助我们发现和消除错误或网络漏洞。
 - Testnet代币**不是真实的**
 - Testnet可能会重置账本。
 - Testnet包括用于空投的代币水龙头，用于应用程序测试
@@ -105,7 +105,7 @@ $ safecoin-validator \
 
 适用于早期代币持有者和启动合作伙伴，未经许可的持久集群。 当前，奖励和通货膨胀被禁用。
 
-- 在Mainnet Beta上发行的代币是**真实的**SAFE
+- 在Mainnet Beta上发行的代币是**真实的**PANO
 - 如果您通过我们的硬币清单拍卖等方式支付了购买/发行代币的费用，则这些代币将在Mainnet Beta上转移。
   - 注意：如果您使用的是非命令行钱包，例如集群[Safeflare](wallet-guide/solflare.md)，则该钱包将始终连接到Mainnet Beta。
 - Mainnet Beta 的 Gossip 入口： `entrypoint.mainnet-beta.safecoin.org:10015`

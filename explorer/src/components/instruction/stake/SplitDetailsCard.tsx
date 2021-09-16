@@ -57,7 +57,7 @@ export function SplitDetailsCard(props: {
       </tr>
 
       <tr>
-        <td>Split Amount (SAFE)</td>
+        <td>Split Amount (PANO)</td>
         <td className="text-lg-right">{lamportsToSafeString(info.lamports)}</td>
       </tr>
     </InstructionCard>

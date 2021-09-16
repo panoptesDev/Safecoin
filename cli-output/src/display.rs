@@ -58,7 +58,7 @@ pub fn build_balance_message_with_config(
             let ess = if lamports == 1 { "" } else { "s" };
             format!(" lamport{}", ess)
         } else {
-            " SAFE".to_string()
+            "PANO".to_string()
         }
     } else {
         "".to_string()

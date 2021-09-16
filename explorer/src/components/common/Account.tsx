@@ -39,7 +39,7 @@ export function AccountBalanceRow({ account }: AccountProps) {
   const { lamports } = account;
   return (
     <tr>
-      <td>Balance (SAFE)</td>
+      <td>Balance (PANO)</td>
       <td className="text-lg-right text-uppercase">
         {lamportsToSafeString(lamports)}
       </td>

@@ -16,14 +16,14 @@ $ safecoin-keygen pubkey
 <PUBKEY>
 ```
 
-### Airdrop SAFE/Lamports
+### Airdrop PANO/Lamports
 
 ```bash
 // Command
 $ safecoin airdrop 1
 
 // Return
-"1 SAFE"
+"1 PANO"
 ```
 
 ### Get Balance
@@ -33,7 +33,7 @@ $ safecoin airdrop 1
 $ safecoin balance
 
 // Return
-"3.00050001 SAFE"
+"3.00050001 PANO"
 ```
 
 ### Confirm Transaction

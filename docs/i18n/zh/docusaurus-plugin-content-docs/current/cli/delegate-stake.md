@@ -2,7 +2,7 @@
 title: 委托您的质押
 ---
 
-通过 [ 获取 SAFE ](transfer-tokens.md) 以后，您可以通过 _stake_ 将它委托给一个验证节点。 质押（Stake）就是在 _stake account_ 中的代币。 Safecoin 根据质押权重为验证节点分配投票权重，权重会影响它们在区块链中决定下一个有效交易区块。 然后 Safecoin 会按周期生成新的 SAFE 来奖励质押者和验证节点。 您委托的代币越多，获得的奖励就越高。
+通过 [ 获取 PANO ](transfer-tokens.md) 以后，您可以通过 _stake_ 将它委托给一个验证节点。 质押（Stake）就是在 _stake account_ 中的代币。 Safecoin 根据质押权重为验证节点分配投票权重，权重会影响它们在区块链中决定下一个有效交易区块。 然后 Safecoin 会按周期生成新的 PANO 来奖励质押者和验证节点。 您委托的代币越多，获得的奖励就越高。
 
 ## 创建一个质押账户
 要委托代币，您首先要将代币转入一个质押帐户。 而要创建一个帐户，您需要一个密钥对： 它的公钥将作为 [质押账户地址](../staking/stake-accounts.md#account-address)。 此处无需密码或加密；此密钥对将在创建密钥账户后被丢弃。
@@ -40,7 +40,7 @@ safecoin stake-account <STAKE_ACCOUNT_ADDRESS>
 结果大概呈这样：
 
 ```text
-Total Stake: 5000 SAFE
+Total Stake: 5000 PANO
 Stake account is undelegated
 Stake Authority: EXU95vqs93yPeCeAU7mPPu6HbRUmTFPEiGug9oCdvQ5F
 Withdraw Authority: EXU95vqs93yPeCeAU7mPPu6HbRUmTFPEiGug9oCdvQ5F
@@ -102,9 +102,9 @@ safecoin stake-account <STAKE_ACCOUNT_ADDRESS>
 您将在输出中看到“Delegated Stake”和“Delegated Vote Account Address”两个新字段。 结果大概呈这样：
 
 ```text
-Total Stake: 5000 SAFE
+Total Stake: 5000 PANO
 Credits Observed: 147462
-Delegated Stake: 4999.99771712 SAFE
+Delegated Stake: 4999.99771712 PANO
 Delegated Vote Account Address: CcaHc2L43ZWjwCHART3oZoJvHLAe9hzT2DJNUpBzoTN1
 Stake activates starting from epoch: 42
 Stake Authority: EXU95vqs93yPeCeAU7mPPu6HbRUmTFPEiGug9oCdvQ5F

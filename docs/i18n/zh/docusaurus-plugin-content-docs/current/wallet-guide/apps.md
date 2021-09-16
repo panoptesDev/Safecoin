@@ -5,7 +5,7 @@ title: 移动应用钱包
 Safecoin得到了多个第三方应用的支持，它们为大多数新手或加密钱包用户提供熟悉的体验。
 
 ## Trust Wallet
-[Trust Wallet](https://trustwallet.com/) 是一款适用于iOS和Android的应用，可用于发送和接收SAFE代币。
+[Trust Wallet](https://trustwallet.com/) 是一款适用于iOS和Android的应用，可用于发送和接收PANO代币。
 
 *请注意：Trust Wallet不支持质押帐户或抵押操作*
 
@@ -19,6 +19,6 @@ Trust Wallet中的代币安全性取决于安装该应用的设备。 任何能�
 - 在特定钱包的“选项”菜单下，点击“显示恢复助记词”
 
 ## Coin98
-[Coin98](https://coin98.app/) 一款是 iOS 和 Android 应用，可用于发送和接收 SAFE 代币。
+[Coin98](https://coin98.app/) 一款是 iOS 和 Android 应用，可用于发送和接收 PANO 代币。
 
 *请注意：Coin98 不支持质押账户或质押操作*

@@ -57,7 +57,7 @@ export function WithdrawDetailsCard(props: {
       </tr>
 
       <tr>
-        <td>Withdraw Amount (SAFE)</td>
+        <td>Withdraw Amount (PANO)</td>
         <td className="text-lg-right">{lamportsToSafeString(info.lamports)}</td>
       </tr>
     </InstructionCard>
