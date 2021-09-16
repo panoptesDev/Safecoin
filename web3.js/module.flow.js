@@ -1137,5 +1137,5 @@ declare module '@safecoin/web3.js' {
   ): string;
 
   // === src/index.js ===
-  declare export var LAMPORTS_PER_SAFE: number;
+  declare export var LAMPORTS_PER_PANO: number;
 }

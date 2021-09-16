@@ -13,7 +13,7 @@
 extern uint64_t entrypoint(const uint8_t *input) {
   SafeAccountInfo ka[NUM_KA];
   SafeParameters params = (SafeParameters){.ka = ka};
-  if (!sol_deserialize(input, &params, SAFE_ARRAY_SIZE(ka))) {
+  if (!sol_deserialize(input, &params, PANO_ARRAY_SIZE(ka))) {
     return ERROR_INVALID_ARGUMENT;
   }
   uint8_t *val = (uint8_t *)ka[0].data;
@@ -30,9 +30,9 @@ extern uint64_t entrypoint(const uint8_t *input) {
     // {
     //   uint8_t result[SHA256_RESULT_LENGTH];
     //   uint8_t bytes1[1024];
-    //   const SafeBytes bytes[] = {{bytes1, SAFE_ARRAY_SIZE(bytes1)}};
+    //   const SafeBytes bytes[] = {{bytes1, PANO_ARRAY_SIZE(bytes1)}};
 
-    //   sol_sha256(bytes, SAFE_ARRAY_SIZE(bytes), result);
+    //   sol_sha256(bytes, PANO_ARRAY_SIZE(bytes), result);
     //   *val = result[0];
     // }
 

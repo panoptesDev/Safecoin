@@ -116,22 +116,22 @@ extern uint64_t entrypoint(const uint8_t *input) {
         {accounts[DERIVED_KEY3_INDEX].key, false, true}};
     uint8_t data[] = {VERIFY_NESTED_SIGNERS};
     const SafeInstruction instruction = {accounts[INVOKED_PROGRAM_INDEX].key,
-                                        arguments, SAFE_ARRAY_SIZE(arguments),
-                                        data, SAFE_ARRAY_SIZE(data)};
+                                        arguments, PANO_ARRAY_SIZE(arguments),
+                                        data, PANO_ARRAY_SIZE(data)};
     uint8_t seed1[] = {'L', 'i', 'l', '\''};
     uint8_t seed2[] = {'B', 'i', 't', 's'};
-    const SafeSignerSeed seeds1[] = {{seed1, SAFE_ARRAY_SIZE(seed1)},
-                                    {seed2, SAFE_ARRAY_SIZE(seed2)},
+    const SafeSignerSeed seeds1[] = {{seed1, PANO_ARRAY_SIZE(seed1)},
+                                    {seed2, PANO_ARRAY_SIZE(seed2)},
                                     {&bump_seed2, 1}};
     const SafeSignerSeed seeds2[] = {
         {(uint8_t *)accounts[DERIVED_KEY2_INDEX].key, SIZE_PUBKEY},
         {&bump_seed3, 1}};
-    const SafeSignerSeeds signers_seeds[] = {{seeds1, SAFE_ARRAY_SIZE(seeds1)},
-                                            {seeds2, SAFE_ARRAY_SIZE(seeds2)}};
+    const SafeSignerSeeds signers_seeds[] = {{seeds1, PANO_ARRAY_SIZE(seeds1)},
+                                            {seeds2, PANO_ARRAY_SIZE(seeds2)}};
 
     sol_assert(SUCCESS == sol_invoke_signed(&instruction, accounts,
                                             params.ka_num, signers_seeds,
-                                            SAFE_ARRAY_SIZE(signers_seeds)));
+                                            PANO_ARRAY_SIZE(signers_seeds)));
 
     break;
   }
@@ -183,10 +183,10 @@ extern uint64_t entrypoint(const uint8_t *input) {
         {accounts[INVOKED_ARGUMENT_INDEX].key, true, false}};
     uint8_t data[] = {VERIFY_PRIVILEGE_ESCALATION};
     const SafeInstruction instruction = {accounts[INVOKED_PROGRAM_INDEX].key,
-                                        arguments, SAFE_ARRAY_SIZE(arguments),
-                                        data, SAFE_ARRAY_SIZE(data)};
+                                        arguments, PANO_ARRAY_SIZE(arguments),
+                                        data, PANO_ARRAY_SIZE(data)};
     sol_assert(SUCCESS ==
-               sol_invoke(&instruction, accounts, SAFE_ARRAY_SIZE(accounts)));
+               sol_invoke(&instruction, accounts, PANO_ARRAY_SIZE(accounts)));
     break;
   }
 
@@ -202,10 +202,10 @@ extern uint64_t entrypoint(const uint8_t *input) {
         {accounts[INVOKED_ARGUMENT_INDEX].key, false, true}};
     uint8_t data[] = {VERIFY_PRIVILEGE_ESCALATION};
     const SafeInstruction instruction = {accounts[INVOKED_PROGRAM_INDEX].key,
-                                        arguments, SAFE_ARRAY_SIZE(arguments),
-                                        data, SAFE_ARRAY_SIZE(data)};
+                                        arguments, PANO_ARRAY_SIZE(arguments),
+                                        data, PANO_ARRAY_SIZE(data)};
     sol_assert(SUCCESS ==
-               sol_invoke(&instruction, accounts, SAFE_ARRAY_SIZE(accounts)));
+               sol_invoke(&instruction, accounts, PANO_ARRAY_SIZE(accounts)));
     break;
   }
 
@@ -237,8 +237,8 @@ extern uint64_t entrypoint(const uint8_t *input) {
           {accounts[INVOKED_PROGRAM_INDEX].key, false, false}};
       uint8_t data[] = {NESTED_INVOKE, remaining_invokes - 1};
       const SafeInstruction instruction = {accounts[INVOKED_PROGRAM_INDEX].key,
-                                          arguments, SAFE_ARRAY_SIZE(arguments),
-                                          data, SAFE_ARRAY_SIZE(data)};
+                                          arguments, PANO_ARRAY_SIZE(arguments),
+                                          data, PANO_ARRAY_SIZE(data)};
       sol_assert(SUCCESS == sol_invoke(&instruction, accounts, params.ka_num));
     } else {
       sol_log("Last invoked");

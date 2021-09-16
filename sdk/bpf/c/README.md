@@ -14,7 +14,7 @@ bool entrypoint(const uint8_t *input) {
   uint8_t *data;
   uint64_t data_len;
 
-  if (!sol_deserialize(buf, ka, SAFE_ARRAY_SIZE(ka), NULL, &data, &data_len)) {
+  if (!sol_deserialize(buf, ka, PANO_ARRAY_SIZE(ka), NULL, &data, &data_len)) {
     return false;
   }
   print_params(1, ka, data, data_len);

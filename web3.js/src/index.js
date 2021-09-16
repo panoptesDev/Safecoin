@@ -37,6 +37,6 @@ export {sendAndConfirmRawTransaction} from './util/send-and-confirm-raw-transact
 export {clusterApiUrl} from './util/cluster';
 
 /**
- * There are 1-billion lamports in one SAFE
+ * There are 1-billion lamports in one PANO
  */
-export const LAMPORTS_PER_SAFE = 1000000000;
+export const LAMPORTS_PER_PANO = 1000000000;

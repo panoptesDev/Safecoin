@@ -111,16 +111,16 @@ colo_instance_run_foreach() {
 }
 
 colo_whoami() {
-  declare ME LINE SAFE_USER EOL
+  declare ME LINE PANO_USER EOL
   while read -r LINE; do
     declare IP RC
-    IFS=$'\x1f' read -r IP RC SAFE_USER EOL <<< "${LINE}"
+    IFS=$'\x1f' read -r IP RC PANO_USER EOL <<< "${LINE}"
     if [ "${RC}" -eq 0 ]; then
       [[ "${EOL}" = "EOL" ]] || echo "${FUNCNAME[0]}: Unexpected input \"${LINE}\"" 1>&2
-      if [ -z "${ME}" ] || [ "${ME}" = "${SAFE_USER}" ]; then
-        ME="${SAFE_USER}"
+      if [ -z "${ME}" ] || [ "${ME}" = "${PANO_USER}" ]; then
+        ME="${PANO_USER}"
       else
-        echo "Found conflicting username \"${SAFE_USER}\" on ${IP}, expected \"${ME}\"" 1>&2
+        echo "Found conflicting username \"${PANO_USER}\" on ${IP}, expected \"${ME}\"" 1>&2
       fi
     fi
   done < <(colo_instance_run_foreach "[ -n \"\${PANOPTIS_USER}\" ] && echo -e \"\${PANOPTIS_USER}\\x1fEOL\"")

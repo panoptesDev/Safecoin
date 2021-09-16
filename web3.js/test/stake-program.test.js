@@ -10,7 +10,7 @@ import {
   Lockup,
   PublicKey,
   sendAndConfirmTransaction,
-  LAMPORTS_PER_SAFE,
+  LAMPORTS_PER_PANO,
   StakeAuthorizationLayout,
   StakeInstruction,
   StakeProgram,
@@ -338,14 +338,14 @@ describe('StakeProgram', () => {
       await helpers.airdrop({
         connection,
         address: payer.publicKey,
-        amount: 2 * LAMPORTS_PER_SAFE,
+        amount: 2 * LAMPORTS_PER_PANO,
       });
 
       const authorized = new Account();
       await helpers.airdrop({
         connection,
         address: authorized.publicKey,
-        amount: 2 * LAMPORTS_PER_SAFE,
+        amount: 2 * LAMPORTS_PER_PANO,
       });
 
       const minimumAmount = await connection.getMinimumBalanceForRentExemption(
@@ -353,10 +353,10 @@ describe('StakeProgram', () => {
       );
 
       expect(await connection.getBalance(payer.publicKey)).to.eq(
-        2 * LAMPORTS_PER_SAFE,
+        2 * LAMPORTS_PER_PANO,
       );
       expect(await connection.getBalance(authorized.publicKey)).to.eq(
-        2 * LAMPORTS_PER_SAFE,
+        2 * LAMPORTS_PER_PANO,
       );
 
       {
@@ -496,7 +496,7 @@ describe('StakeProgram', () => {
       const newAuthorized = new Account();
       await connection.requestAirdrop(
         newAuthorized.publicKey,
-        LAMPORTS_PER_SAFE,
+        LAMPORTS_PER_PANO,
       );
 
       let authorize = StakeProgram.authorize({

@@ -5,7 +5,7 @@ use std::{
     ops::Add,
 };
 
-const SAFE_SYMBOL: &str = "◎";
+const PANO_SYMBOL: &str = "◎";
 
 #[derive(PartialEq)]
 pub enum TokenType {
@@ -24,7 +24,7 @@ impl Token {
         match &self.token_type {
             TokenType::Safe => {
                 let amount = lamports_to_sol(self.amount);
-                write!(f, "{}{}", SAFE_SYMBOL, amount)
+                write!(f, "{}{}", PANO_SYMBOL, amount)
             }
             TokenType::SafeToken => {
                 let amount = real_number_string_trimmed(self.amount, self.decimals);

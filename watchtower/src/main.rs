@@ -107,11 +107,11 @@ fn get_config() -> Config {
         .arg(
             Arg::with_name("minimum_validator_identity_balance")
                 .long("minimum-validator-identity-balance")
-                .value_name("SAFE")
+                .value_name("PANO")
                 .takes_value(true)
                 .default_value("10")
                 .validator(is_parsable::<f64>)
-                .help("Alert when the validator identity balance is less than this amount of SAFE")
+                .help("Alert when the validator identity balance is less than this amount of PANO")
         )
         .arg(
             // Deprecated parameter, now always enabled

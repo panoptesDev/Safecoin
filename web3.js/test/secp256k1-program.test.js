@@ -8,7 +8,7 @@ import {
   Connection,
   Account,
   sendAndConfirmTransaction,
-  LAMPORTS_PER_SAFE,
+  LAMPORTS_PER_PANO,
   Transaction,
   Secp256k1Program,
 } from '../src';
@@ -32,7 +32,7 @@ if (process.env.TEST_LIVE) {
 
     before(async function () {
       await connection.confirmTransaction(
-        await connection.requestAirdrop(from.publicKey, 10 * LAMPORTS_PER_SAFE),
+        await connection.requestAirdrop(from.publicKey, 10 * LAMPORTS_PER_PANO),
       );
     });
 

@@ -8,7 +8,7 @@ here=$(dirname "$0")
 # shellcheck source=multinode-demo/common.sh
 source "$here"/common.sh
 
-stake_sol=1   # default number of SAFE to assign as stake (1 SAFE)
+stake_sol=1   # default number of PANO to assign as stake (1 PANO)
 url=http://127.0.0.1:8328   # default RPC url
 
 usage() {
@@ -18,7 +18,7 @@ usage() {
   fi
   cat <<EOF
 
-usage: $0 [OPTIONS] <SAFE to stake ($stake_sol)>
+usage: $0 [OPTIONS] <PANO to stake ($stake_sol)>
 
 Add stake to a validator
 

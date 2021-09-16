@@ -43,7 +43,7 @@ use {
  */
 const DEFAULT_MAX_LEDGER_SHREDS: u64 = 10_000;
 
-const DEFAULT_FAUCET_SAFE: f64 = 1_000_000.;
+const DEFAULT_FAUCET_PANO: f64 = 1_000_000.;
 
 #[derive(PartialEq)]
 enum Output {
@@ -56,7 +56,7 @@ fn main() {
     let default_rpc_port = rpc_port::DEFAULT_RPC_PORT.to_string();
     let default_faucet_port = FAUCET_PORT.to_string();
     let default_limit_ledger_size = DEFAULT_MAX_LEDGER_SHREDS.to_string();
-    let default_faucet_sol = DEFAULT_FAUCET_SAFE.to_string();
+    let default_faucet_sol = DEFAULT_FAUCET_PANO.to_string();
 
     let matches = App::new("safecoin-test-validator")
         .about("Test Validator")
@@ -272,10 +272,10 @@ fn main() {
             Arg::with_name("faucet_sol")
                 .long("faucet-sol")
                 .takes_value(true)
-                .value_name("SAFE")
+                .value_name("PANO")
                 .default_value(default_faucet_sol.as_str())
                 .help(
-                    "Give the faucet address this much SAFE in genesis. \
+                    "Give the faucet address this much PANO in genesis. \
                      If the ledger already exists then this parameter is silently ignored",
                 ),
         )
@@ -494,7 +494,7 @@ fn main() {
     } else if random_mint {
         println_name_value(
             "\nNotice!",
-            "No wallet available. `safecoin airdrop` localnet SAFE after creating one\n",
+            "No wallet available. `safecoin airdrop` localnet PANO after creating one\n",
         );
     }
 

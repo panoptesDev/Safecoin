@@ -11,7 +11,7 @@ import {
   Connection,
   SystemProgram,
   Transaction,
-  LAMPORTS_PER_SAFE,
+  LAMPORTS_PER_PANO,
   Lockup,
   PublicKey,
   StakeProgram,
@@ -111,7 +111,7 @@ describe('Connection', () => {
       await helpers.airdrop({
         connection,
         address: account0.publicKey,
-        amount: LAMPORTS_PER_SAFE,
+        amount: LAMPORTS_PER_PANO,
       });
 
       const transaction = new Transaction().add(
@@ -133,7 +133,7 @@ describe('Connection', () => {
       await helpers.airdrop({
         connection,
         address: account1.publicKey,
-        amount: 0.5 * LAMPORTS_PER_SAFE,
+        amount: 0.5 * LAMPORTS_PER_PANO,
       });
 
       const transaction = new Transaction().add(
@@ -166,7 +166,7 @@ describe('Connection', () => {
             account: {
               data: ['', 'base64'],
               executable: false,
-              lamports: LAMPORTS_PER_SAFE - feeCalculator.lamportsPerSignature,
+              lamports: LAMPORTS_PER_PANO - feeCalculator.lamportsPerSignature,
               owner: programId.publicKey.toBase58(),
               rentEpoch: 20,
             },
@@ -177,7 +177,7 @@ describe('Connection', () => {
               data: ['', 'base64'],
               executable: false,
               lamports:
-                0.5 * LAMPORTS_PER_SAFE - feeCalculator.lamportsPerSignature,
+                0.5 * LAMPORTS_PER_PANO - feeCalculator.lamportsPerSignature,
               owner: programId.publicKey.toBase58(),
               rentEpoch: 20,
             },
@@ -194,12 +194,12 @@ describe('Connection', () => {
       programAccounts.forEach(function (keyedAccount) {
         if (keyedAccount.pubkey.equals(account0.publicKey)) {
           expect(keyedAccount.account.lamports).to.eq(
-            LAMPORTS_PER_SAFE - feeCalculator.lamportsPerSignature,
+            LAMPORTS_PER_PANO - feeCalculator.lamportsPerSignature,
           );
         } else {
           expect(keyedAccount.pubkey).to.eql(account1.publicKey);
           expect(keyedAccount.account.lamports).to.eq(
-            0.5 * LAMPORTS_PER_SAFE - feeCalculator.lamportsPerSignature,
+            0.5 * LAMPORTS_PER_PANO - feeCalculator.lamportsPerSignature,
           );
         }
       });
@@ -217,7 +217,7 @@ describe('Connection', () => {
             account: {
               data: ['', 'base64'],
               executable: false,
-              lamports: LAMPORTS_PER_SAFE - feeCalculator.lamportsPerSignature,
+              lamports: LAMPORTS_PER_PANO - feeCalculator.lamportsPerSignature,
               owner: programId.publicKey.toBase58(),
               rentEpoch: 20,
             },
@@ -228,7 +228,7 @@ describe('Connection', () => {
               data: ['', 'base64'],
               executable: false,
               lamports:
-                0.5 * LAMPORTS_PER_SAFE - feeCalculator.lamportsPerSignature,
+                0.5 * LAMPORTS_PER_PANO - feeCalculator.lamportsPerSignature,
               owner: programId.publicKey.toBase58(),
               rentEpoch: 20,
             },
@@ -246,12 +246,12 @@ describe('Connection', () => {
       programAccounts.forEach(function (element) {
         if (element.pubkey.equals(account0.publicKey)) {
           expect(element.account.lamports).to.eq(
-            LAMPORTS_PER_SAFE - feeCalculator.lamportsPerSignature,
+            LAMPORTS_PER_PANO - feeCalculator.lamportsPerSignature,
           );
         } else {
           expect(element.pubkey).to.eql(account1.publicKey);
           expect(element.account.lamports).to.eq(
-            0.5 * LAMPORTS_PER_SAFE - feeCalculator.lamportsPerSignature,
+            0.5 * LAMPORTS_PER_PANO - feeCalculator.lamportsPerSignature,
           );
         }
       });
@@ -596,7 +596,7 @@ describe('Connection', () => {
     );
     expect(confirmedSignatures.includes(expectedSignature)).to.be.true;
 
-    const badSlot = Number.MAX_SAFE_INTEGER - 1;
+    const badSlot = Number.MAX_PANO_INTEGER - 1;
     await mockRpcResponse({
       method: 'getConfirmedSignaturesForAddress',
       params: [address.toBase58(), badSlot, badSlot + 1],
@@ -986,15 +986,15 @@ describe('Connection', () => {
 
     await mockRpcResponse({
       method: 'getConfirmedBlock',
-      params: [Number.MAX_SAFE_INTEGER],
+      params: [Number.MAX_PANO_INTEGER],
       error: {
-        message: `Block not available for slot ${Number.MAX_SAFE_INTEGER}`,
+        message: `Block not available for slot ${Number.MAX_PANO_INTEGER}`,
       },
     });
     await expect(
-      connection.getConfirmedBlock(Number.MAX_SAFE_INTEGER),
+      connection.getConfirmedBlock(Number.MAX_PANO_INTEGER),
     ).to.be.rejectedWith(
-      `Block not available for slot ${Number.MAX_SAFE_INTEGER}`,
+      `Block not available for slot ${Number.MAX_PANO_INTEGER}`,
     );
   });
 
@@ -1349,14 +1349,14 @@ describe('Connection', () => {
       const recipient = new Account();
       let signature = await connection.requestAirdrop(
         sender.publicKey,
-        2 * LAMPORTS_PER_SAFE,
+        2 * LAMPORTS_PER_PANO,
       );
       await connection.confirmTransaction(signature, 'singleGossip');
       const transaction = new Transaction().add(
         SystemProgram.transfer({
           fromPubkey: sender.publicKey,
           toPubkey: recipient.publicKey,
-          lamports: LAMPORTS_PER_SAFE,
+          lamports: LAMPORTS_PER_PANO,
         }),
       );
       await sendAndConfirmTransaction(connection, transaction, [sender]);
@@ -1400,7 +1400,7 @@ describe('Connection', () => {
       const authorized = new Account();
       let signature = await connection.requestAirdrop(
         authorized.publicKey,
-        2 * LAMPORTS_PER_SAFE,
+        2 * LAMPORTS_PER_PANO,
       );
       await connection.confirmTransaction(signature, 'confirmed');
 
@@ -1505,18 +1505,18 @@ describe('Connection', () => {
     await helpers.airdrop({
       connection,
       address: account.publicKey,
-      amount: LAMPORTS_PER_SAFE,
+      amount: LAMPORTS_PER_PANO,
     });
 
     await mockRpcResponse({
       method: 'getBalance',
       params: [account.publicKey.toBase58(), {commitment: 'confirmed'}],
-      value: LAMPORTS_PER_SAFE,
+      value: LAMPORTS_PER_PANO,
       withContext: true,
     });
 
     const balance = await connection.getBalance(account.publicKey, 'confirmed');
-    expect(balance).to.eq(LAMPORTS_PER_SAFE);
+    expect(balance).to.eq(LAMPORTS_PER_PANO);
 
     await mockRpcResponse({
       method: 'getAccountInfo',
@@ -1526,7 +1526,7 @@ describe('Connection', () => {
       ],
       value: {
         owner: '11111111111111111111111111111111',
-        lamports: LAMPORTS_PER_SAFE,
+        lamports: LAMPORTS_PER_PANO,
         data: ['', 'base64'],
         executable: false,
         rentEpoch: 20,
@@ -1542,7 +1542,7 @@ describe('Connection', () => {
       expect(accountInfo).not.to.be.null;
       return;
     }
-    expect(accountInfo.lamports).to.eq(LAMPORTS_PER_SAFE);
+    expect(accountInfo.lamports).to.eq(LAMPORTS_PER_PANO);
     expect(accountInfo.data).to.have.length(0);
     expect(accountInfo.owner).to.eql(SystemProgram.programId);
 
@@ -1554,7 +1554,7 @@ describe('Connection', () => {
       ],
       value: {
         owner: '11111111111111111111111111111111',
-        lamports: LAMPORTS_PER_SAFE,
+        lamports: LAMPORTS_PER_PANO,
         data: ['', 'base64'],
         executable: false,
         rentEpoch: 20,
@@ -1572,7 +1572,7 @@ describe('Connection', () => {
       expect(parsedAccountInfo.data.parsed).not.to.be.ok;
       return;
     }
-    expect(parsedAccountInfo.lamports).to.eq(LAMPORTS_PER_SAFE);
+    expect(parsedAccountInfo.lamports).to.eq(LAMPORTS_PER_PANO);
     expect(parsedAccountInfo.data).to.have.length(0);
     expect(parsedAccountInfo.owner).to.eql(SystemProgram.programId);
   });
@@ -1583,7 +1583,7 @@ describe('Connection', () => {
     await helpers.airdrop({
       connection,
       address: payer.publicKey,
-      amount: LAMPORTS_PER_SAFE,
+      amount: LAMPORTS_PER_PANO,
     });
 
     const newAccount = new Account();
@@ -1591,7 +1591,7 @@ describe('Connection', () => {
       SystemProgram.createAccount({
         fromPubkey: payer.publicKey,
         newAccountPubkey: newAccount.publicKey,
-        lamports: LAMPORTS_PER_SAFE / 2,
+        lamports: LAMPORTS_PER_PANO / 2,
         space: 0,
         programId: SystemProgram.programId,
       }),
@@ -1748,11 +1748,11 @@ describe('Connection', () => {
 
       let signature = await connection.requestAirdrop(
         accountFrom.publicKey,
-        LAMPORTS_PER_SAFE,
+        LAMPORTS_PER_PANO,
       );
       await connection.confirmTransaction(signature);
       expect(await connection.getBalance(accountFrom.publicKey)).to.eq(
-        LAMPORTS_PER_SAFE,
+        LAMPORTS_PER_PANO,
       );
 
       const minimumAmount = await connection.getMinimumBalanceForRentExemption(
@@ -1801,12 +1801,12 @@ describe('Connection', () => {
         expect(response).not.to.be.null;
       }
 
-      // accountFrom may have less than LAMPORTS_PER_SAFE due to transaction fees
+      // accountFrom may have less than LAMPORTS_PER_PANO due to transaction fees
       expect(
         await connection.getBalance(accountFrom.publicKey),
       ).to.be.greaterThan(0);
       expect(await connection.getBalance(accountFrom.publicKey)).to.be.at.most(
-        LAMPORTS_PER_SAFE,
+        LAMPORTS_PER_PANO,
       );
 
       expect(await connection.getBalance(accountTo.publicKey)).to.eq(
@@ -1839,7 +1839,7 @@ describe('Connection', () => {
 
     //   let signature = await connection.requestAirdrop(
     //     owner.publicKey,
-    //     LAMPORTS_PER_SAFE,
+    //     LAMPORTS_PER_PANO,
     //   );
     //   await connection.confirmTransaction(signature);
     //   try {
@@ -1907,7 +1907,7 @@ describe('Connection', () => {
       await helpers.airdrop({
         connection,
         address: owner.publicKey,
-        amount: LAMPORTS_PER_SAFE,
+        amount: LAMPORTS_PER_PANO,
       });
 
       try {

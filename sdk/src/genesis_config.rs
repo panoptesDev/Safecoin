@@ -167,7 +167,7 @@ impl GenesisConfig {
                 )
             })?;
 
-        //UNSAFE: Required to create a Mmap
+        //UNPANO: Required to create a Mmap
         let mem = unsafe { Mmap::map(&file) }.map_err(|err| {
             std::io::Error::new(
                 std::io::ErrorKind::Other,
@@ -248,7 +248,7 @@ impl fmt::Display for GenesisConfig {
              {:?}\n\
              {:?}\n\
              {:?}\n\
-             Capitalization: {} SAFE in {} accounts\n\
+             Capitalization: {} PANO in {} accounts\n\
              Native instruction processors: {:#?}\n\
              Rewards pool: {:#?}\n\
              ",

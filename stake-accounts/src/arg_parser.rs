@@ -172,7 +172,7 @@ where
                         .takes_value(true)
                         .value_name("AMOUNT")
                         .validator(is_amount)
-                        .help("Amount to move into the new stake accounts, in SAFE"),
+                        .help("Amount to move into the new stake accounts, in PANO"),
                 )
                 .arg(
                     Arg::with_name("stake_authority")

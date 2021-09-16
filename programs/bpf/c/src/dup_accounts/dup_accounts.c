@@ -12,7 +12,7 @@ extern uint64_t entrypoint(const uint8_t *input) {
   SafeAccountInfo accounts[5];
   SafeParameters params = (SafeParameters){.ka = accounts};
 
-  if (!sol_deserialize(input, &params, SAFE_ARRAY_SIZE(accounts))) {
+  if (!sol_deserialize(input, &params, PANO_ARRAY_SIZE(accounts))) {
     return ERROR_INVALID_ARGUMENT;
   }
 
@@ -67,7 +67,7 @@ extern uint64_t entrypoint(const uint8_t *input) {
         uint8_t data[] = {7};
         const SafeInstruction instruction = {
             (SafePubkey *)params.program_id, arguments,
-            SAFE_ARRAY_SIZE(arguments), data, SAFE_ARRAY_SIZE(data)};
+            PANO_ARRAY_SIZE(arguments), data, PANO_ARRAY_SIZE(data)};
         sol_assert(SUCCESS ==
                    sol_invoke(&instruction, accounts, params.ka_num));
       }
@@ -79,7 +79,7 @@ extern uint64_t entrypoint(const uint8_t *input) {
         uint8_t data[] = {3};
         const SafeInstruction instruction = {
             (SafePubkey *)params.program_id, arguments,
-            SAFE_ARRAY_SIZE(arguments), data, SAFE_ARRAY_SIZE(data)};
+            PANO_ARRAY_SIZE(arguments), data, PANO_ARRAY_SIZE(data)};
         sol_assert(SUCCESS ==
                    sol_invoke(&instruction, accounts, params.ka_num));
       }

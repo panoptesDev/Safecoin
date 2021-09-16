@@ -11,7 +11,7 @@ extern uint64_t entrypoint(const uint8_t *input) {
 
   sol_log("Hello World");
 
-  if (!sol_deserialize(input, &params, SAFE_ARRAY_SIZE(ka))) {
+  if (!sol_deserialize(input, &params, PANO_ARRAY_SIZE(ka))) {
     return ERROR_INVALID_ARGUMENT;
   }
   sol_log_params(&params);

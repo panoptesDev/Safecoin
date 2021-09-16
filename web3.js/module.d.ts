@@ -1128,5 +1128,5 @@ declare module '@safecoin/web3.js' {
   export function clusterApiUrl(cluster?: Cluster, tls?: boolean): string;
 
   // === src/index.js ===
-  export const LAMPORTS_PER_SAFE: number;
+  export const LAMPORTS_PER_PANO: number;
 }

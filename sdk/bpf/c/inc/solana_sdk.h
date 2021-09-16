@@ -658,7 +658,7 @@ static void sol_log_params(const SafeParameters *params) {
  */
 uint64_t entrypoint(const uint8_t *input);
 
-#ifdef SAFE_TEST
+#ifdef PANO_TEST
 /**
  * Stub functions when building tests
  */
