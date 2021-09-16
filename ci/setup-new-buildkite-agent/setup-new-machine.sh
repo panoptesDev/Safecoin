@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 HERE="$(dirname "$0")"
-SAFEANA_ROOT="$HERE"/../..
+PANOPTIS_ROOT="$HERE"/../..
 
 # shellcheck source=ci/setup-new-buildkite-agent/utils.sh
 source "$HERE"/utils.sh
@@ -26,21 +26,21 @@ apt install -y build-essential pkg-config clang cmake sysstat linux-tools-common
 gem install ejson ejson2env
 mkdir -p /opt/ejson/keys
 
-"$SAFEANA_ROOT"/net/scripts/install-docker.sh
+"$PANOPTIS_ROOT"/net/scripts/install-docker.sh
 usermod -aG docker "$SETUP_USER"
-"$SAFEANA_ROOT"/net/scripts/install-certbot.sh
+"$PANOPTIS_ROOT"/net/scripts/install-certbot.sh
 "$HERE"/setup-sudoers.sh
 "$HERE"/setup-ssh.sh
 
 "$HERE"/disable-nouveau.sh
 "$HERE"/disable-networkd-wait.sh
 
-"$SAFEANA_ROOT"/net/scripts/install-earlyoom.sh
-"$SAFEANA_ROOT"/net/scripts/install-nodejs.sh
-"$SAFEANA_ROOT"/net/scripts/localtime.sh
-"$SAFEANA_ROOT"/net/scripts/install-redis.sh
-"$SAFEANA_ROOT"/net/scripts/install-rsync.sh
-"$SAFEANA_ROOT"/net/scripts/install-libssl-compatability.sh
+"$PANOPTIS_ROOT"/net/scripts/install-earlyoom.sh
+"$PANOPTIS_ROOT"/net/scripts/install-nodejs.sh
+"$PANOPTIS_ROOT"/net/scripts/localtime.sh
+"$PANOPTIS_ROOT"/net/scripts/install-redis.sh
+"$PANOPTIS_ROOT"/net/scripts/install-rsync.sh
+"$PANOPTIS_ROOT"/net/scripts/install-libssl-compatability.sh
 
 "$HERE"/setup-procfs-knobs.sh
 "$HERE"/setup-limits.sh

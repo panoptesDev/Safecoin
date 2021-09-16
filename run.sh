@@ -34,7 +34,7 @@ export RUST_BACKTRACE=1
 dataDir=$PWD/config/"$(basename "$0" .sh)"
 ledgerDir=$PWD/config/ledger
 
-SAFEANA_RUN_SH_CLUSTER_TYPE=${SAFEANA_RUN_SH_CLUSTER_TYPE:-development}
+PANOPTIS_RUN_SH_CLUSTER_TYPE=${PANOPTIS_RUN_SH_CLUSTER_TYPE:-development}
 
 set -x
 if ! safecoin address; then
@@ -77,9 +77,9 @@ else
       "$validator_vote_account" \
       "$validator_stake_account" \
     --ledger "$ledgerDir" \
-    --cluster-type "$SAFEANA_RUN_SH_CLUSTER_TYPE" \
+    --cluster-type "$PANOPTIS_RUN_SH_CLUSTER_TYPE" \
     $SPL_GENESIS_ARGS \
-    $SAFEANA_RUN_SH_GENESIS_ARGS
+    $PANOPTIS_RUN_SH_GENESIS_ARGS
 fi
 
 abort() {
@@ -108,7 +108,7 @@ args=(
   --no-wait-for-vote-to-start-leader
 )
 # shellcheck disable=SC2086
-safecoin-validator "${args[@]}" $SAFEANA_RUN_SH_VALIDATOR_ARGS &
+safecoin-validator "${args[@]}" $PANOPTIS_RUN_SH_VALIDATOR_ARGS &
 validator=$!
 
 wait "$validator"

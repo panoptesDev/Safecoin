@@ -22,13 +22,13 @@ windows)
   ;;
 esac
 
-SAFEANA_INSTALL_UPDATE_MANIFEST_KEYPAIR="SAFEANA_INSTALL_UPDATE_MANIFEST_KEYPAIR_${TARGET//-/_}"
+PANOPTIS_INSTALL_UPDATE_MANIFEST_KEYPAIR="PANOPTIS_INSTALL_UPDATE_MANIFEST_KEYPAIR_${TARGET//-/_}"
 
 # shellcheck disable=2154 # is referenced but not assigned
-if [[ -z ${!SAFEANA_INSTALL_UPDATE_MANIFEST_KEYPAIR} ]]; then
-  echo "$SAFEANA_INSTALL_UPDATE_MANIFEST_KEYPAIR not defined"
+if [[ -z ${!PANOPTIS_INSTALL_UPDATE_MANIFEST_KEYPAIR} ]]; then
+  echo "$PANOPTIS_INSTALL_UPDATE_MANIFEST_KEYPAIR not defined"
   exit 1
 fi
 
-echo "${!SAFEANA_INSTALL_UPDATE_MANIFEST_KEYPAIR}" > update_manifest_keypair.json
+echo "${!PANOPTIS_INSTALL_UPDATE_MANIFEST_KEYPAIR}" > update_manifest_keypair.json
 ls -l update_manifest_keypair.json

@@ -18,9 +18,9 @@ fi
 if [[ $(uname) != Linux ]]; then
   # Protect against unsupported configurations to prevent non-obvious errors
   # later. Arguably these should be fatal errors but for now prefer tolerance.
-  if [[ -n $SAFEANA_CUDA ]]; then
+  if [[ -n $PANOPTIS_CUDA ]]; then
     echo "Warning: CUDA is not supported on $(uname)"
-    SAFEANA_CUDA=
+    PANOPTIS_CUDA=
   fi
 fi
 

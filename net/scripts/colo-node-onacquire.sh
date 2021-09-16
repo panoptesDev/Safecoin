@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # These variable must be set before the main body is called
-SAFEANA_LOCK_FILE="${SAFEANA_LOCK_FILE:?}"
+PANOPTIS_LOCK_FILE="${PANOPTIS_LOCK_FILE:?}"
 INSTANCE_NAME="${INSTANCE_NAME:?}"
 PREEMPTIBLE="${PREEMPTIBLE:?}"
 SSH_AUTHORIZED_KEYS="${SSH_AUTHORIZED_KEYS:?}"
@@ -10,13 +10,13 @@ SSH_PUBLIC_KEY_TEXT="${SSH_PUBLIC_KEY_TEXT:?}"
 NETWORK_INFO="${NETWORK_INFO:-"Network info unavailable"}"
 CREATION_INFO="${CREATION_INFO:-"Creation info unavailable"}"
 
-if [[ ! -f "${SAFEANA_LOCK_FILE}" ]]; then
-  exec 9>>"${SAFEANA_LOCK_FILE}"
+if [[ ! -f "${PANOPTIS_LOCK_FILE}" ]]; then
+  exec 9>>"${PANOPTIS_LOCK_FILE}"
   flock -x -n 9 || ( echo "Failed to acquire lock!" 1>&2 && exit 1 )
-  SAFEANA_USER="${SAFEANA_USER:?"SAFEANA_USER undefined"}"
+  PANOPTIS_USER="${PANOPTIS_USER:?"PANOPTIS_USER undefined"}"
   {
-    echo "export SAFEANA_LOCK_USER=${SAFEANA_USER}"
-    echo "export SAFEANA_LOCK_INSTANCENAME=${INSTANCE_NAME}"
+    echo "export PANOPTIS_LOCK_USER=${PANOPTIS_USER}"
+    echo "export PANOPTIS_LOCK_INSTANCENAME=${INSTANCE_NAME}"
     echo "export PREEMPTIBLE=${PREEMPTIBLE}"
     echo "[[ -v SSH_TTY && -f \"${HOME}/.solana-motd\" ]] && cat \"${HOME}/.solana-motd\" 1>&2"
   } >&9
@@ -46,7 +46,7 @@ EOF
   touch /solana-scratch/.instance-startup-complete
 else
   # shellcheck disable=SC1090
-  exec 9<"${SAFEANA_LOCK_FILE}" && flock -s 9 && . "${SAFEANA_LOCK_FILE}" && exec 9>&-
-  echo "${INSTANCE_NAME} candidate is already ${SAFEANA_LOCK_INSTANCENAME}" 1>&2
+  exec 9<"${PANOPTIS_LOCK_FILE}" && flock -s 9 && . "${PANOPTIS_LOCK_FILE}" && exec 9>&-
+  echo "${INSTANCE_NAME} candidate is already ${PANOPTIS_LOCK_INSTANCENAME}" 1>&2
   false
 fi
