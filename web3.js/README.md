@@ -8,10 +8,10 @@
 [![semantic-release][semantic-release-image]][semantic-release-url]
 [![code-style-prettier][code-style-prettier-image]][code-style-prettier-url]
 
-[travis-image]: https://api.travis-ci.org/fair-exchange/safecoin-web3.js.svg?branch=master
-[travis-url]: https://travis-ci.org/fair-exchange/safecoin-web3.js
-[codecov-image]: https://codecov.io/gh/fair-exchange/safecoin-web3.js/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/fair-exchange/safecoin-web3.js
+[travis-image]: https://api.travis-ci.org/fair-exchange/panoptis-web3.js.svg?branch=master
+[travis-url]: https://travis-ci.org/fair-exchange/panoptis-web3.js
+[codecov-image]: https://codecov.io/gh/fair-exchange/panoptis-web3.js/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/fair-exchange/panoptis-web3.js
 [esdoc-image]: https://solana-labs.github.io/solana-web3.js/badge.svg
 [npm-image]: https://img.shields.io/npm/v/@safecoin/web3.js.svg?style=flat
 [npm-downloads-image]: https://img.shields.io/npm/dm/@safecoin/web3.js.svg?style=flat
@@ -79,7 +79,7 @@ console.log(solanaWeb3);
 ## Flow
 
 A [Flow library definition](https://flow.org/en/docs/libdefs/) is provided at
-[module.flow.js](https://github.com/fair-exchange/safecoin-web3.js/tree/master/module.flow.js).
+[module.flow.js](https://github.com/fair-exchange/panoptis-web3.js/tree/master/module.flow.js).
 Add the following line under the [libs] section of your project's .flowconfig to
 activate it:
 ```ini
@@ -88,7 +88,7 @@ node_modules/@safecoin/web3.js/module.flow.js
 ```
 
 ## Examples
-See the [examples/](https://github.com/fair-exchange/safecoin-web3.js/tree/master/examples) directory for small snippets.
+See the [examples/](https://github.com/fair-exchange/panoptis-web3.js/tree/master/examples) directory for small snippets.
 
 Standalone examples:
 * Message feed (BPF Rust and C): https://github.com/solana-labs/example-messagefeed
@@ -96,7 +96,7 @@ Standalone examples:
 * Web wallet: https://github.com/solana-labs/example-webwallet
 
 ## Releases
-Releases are available on [Github](https://github.com/fair-exchange/safecoin-web3.js/releases)
+Releases are available on [Github](https://github.com/fair-exchange/panoptis-web3.js/releases)
 and [npmjs.com](https://www.npmjs.com/package/@safecoin/web3.js)
 
 Each Github release features a tarball containing API documentation and a
@@ -107,7 +107,7 @@ minified version of the module suitable for direct use in a browser environment
 
 ### Local Network
 
-**Please use `safecoin-test-validator` from the latest Panoptis release instead of the information in this section**
+**Please use `panoptis-test-validator` from the latest Panoptis release instead of the information in this section**
 
 The `solana-localnet` program is provided to easily start a test Panoptis cluster
 locally on your machine.  Docker must be installed.  The JSON RPC endpoint of

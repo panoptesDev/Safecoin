@@ -38,10 +38,10 @@ export PANOPTIS_METRICS_CONFIG="host=https://metrics.safecoin.org:10016,db=devne
 safecoin config set --url https://api.devnet.safecoin.org
 ```
 
-##### Example `safecoin-validator` command-line
+##### Example `panoptis-validator` command-line
 
 ```bash
-$ safecoin-validator \
+$ panoptis-validator \
     --identity validator-keypair.json \
     --vote-account vote-account-keypair.json \
     --trusted-validator dv1LfzJvDF7S1fBKpFgKoKXK5yoSosmkAdfbxBo1GqJ \
@@ -85,10 +85,10 @@ export PANOPTIS_METRICS_CONFIG="host=https://metrics.safecoin.org:10016,db=tds,u
 safecoin config set --url https://api.testnet.safecoin.org
 ```
 
-##### Example `safecoin-validator` command-line
+##### Example `panoptis-validator` command-line
 
 ```bash
-$ safecoin-validator \
+$ panoptis-validator \
     --identity validator-keypair.json \
     --vote-account vote-account-keypair.json \
     --trusted-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
@@ -140,10 +140,10 @@ export PANOPTIS_METRICS_CONFIG="host=https://metrics.safecoin.org:10016,db=mainn
 safecoin config set --url https://api.mainnet-beta.safecoin.org
 ```
 
-##### Example `safecoin-validator` command-line
+##### Example `panoptis-validator` command-line
 
 ```bash
-$ safecoin-validator \
+$ panoptis-validator \
     --identity ~/validator-keypair.json \
     --vote-account ~/vote-account-keypair.json \
     --trusted-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \

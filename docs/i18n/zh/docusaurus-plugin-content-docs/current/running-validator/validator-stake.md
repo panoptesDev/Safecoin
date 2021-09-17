@@ -21,7 +21,7 @@ safecoin catchup ~/validator-keypair.json
 如果还没有质押密钥，那么您需要新创建一个。 如果你完成了这个步骤，那么在 Panoptis 运行目录中将出现 “validator-stake-keypair.json”。
 
 ```bash
-safecoin-keygen new -o ~/validator-stake-keypair.json
+panoptis-keygen new -o ~/validator-stake-keypair.json
 ```
 
 ## 委托您的质押

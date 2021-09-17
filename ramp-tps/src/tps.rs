@@ -47,7 +47,7 @@ impl Sampler {
         let maxes = self.maxes.clone();
         let client = self.client.clone();
         let handle = Builder::new()
-            .name("safecoin-client-sample".to_string())
+            .name("panoptis-client-sample".to_string())
             .spawn(move || {
                 sample_txs(&exit_signal, &maxes, sample_period, &client);
             })

@@ -11,7 +11,7 @@ title: 管理质押账户
 在质押公钥上创建一个派生的质押帐户并转账进去：
 
 ```bash
-safecoin-stake-accounts new <FUNDING_KEYPAIR> <BASE_KEYPAIR> <AMOUNT> \
+panoptis-stake-accounts new <FUNDING_KEYPAIR> <BASE_KEYPAIR> <AMOUNT> \
     --stake-authority <PUBKEY> --withdraw-authority <PUBKEY> \
     --fee-payer <KEYPAIR>
 ```
@@ -21,7 +21,7 @@ safecoin-stake-accounts new <FUNDING_KEYPAIR> <BASE_KEYPAIR> <AMOUNT> \
 统计派生账户的数量：
 
 ```bash
-safecoin-stake-accounts count <BASE_PUBKEY>
+panoptis-stake-accounts count <BASE_PUBKEY>
 ```
 
 ### 获取质押账户余额
@@ -29,7 +29,7 @@ safecoin-stake-accounts count <BASE_PUBKEY>
 汇总派生抵押账户的余额：
 
 ```bash
-safecoin-stake-accounts balance <BASE_PUBKEY> --num-accounts <NUMBER>
+panoptis-stake-accounts balance <BASE_PUBKEY> --num-accounts <NUMBER>
 ```
 
 ### 获取质押账户地址
@@ -37,7 +37,7 @@ safecoin-stake-accounts balance <BASE_PUBKEY> --num-accounts <NUMBER>
 列出来自给定公钥的每一个质押账户地址：
 
 ```bash
-safecoin-stake-accounts addresses <BASE_PUBKEY> --num-accounts <NUMBER>
+panoptis-stake-accounts addresses <BASE_PUBKEY> --num-accounts <NUMBER>
 ```
 
 ### 设置新权限
@@ -45,7 +45,7 @@ safecoin-stake-accounts addresses <BASE_PUBKEY> --num-accounts <NUMBER>
 为生成的每个抵押帐户设置新权限：
 
 ```bash
-safecoin-stake-accounts authorize <BASE_PUBKEY> \
+panoptis-stake-accounts authorize <BASE_PUBKEY> \
     --stake-authority <KEYPAIR> --withdraw-authority <KEYPAIR> \
     --new-stake-authority <PUBKEY> --new-withdraw-authority <PUBKEY> \
     --num-accounts <NUMBER> --fee-payer <KEYPAIR>
@@ -56,7 +56,7 @@ safecoin-stake-accounts authorize <BASE_PUBKEY> \
 重定向质押账户:
 
 ```bash
-safecoin-stake-accounts rebase <BASE_PUBKEY> <NEW_BASE_KEYPAIR> \
+panoptis-stake-accounts rebase <BASE_PUBKEY> <NEW_BASE_KEYPAIR> \
     --stake-authority <KEYPAIR> --num-accounts <NUMBER> \
     --fee-payer <KEYPAIR>
 ```
@@ -64,7 +64,7 @@ safecoin-stake-accounts rebase <BASE_PUBKEY> <NEW_BASE_KEYPAIR> \
 对每个质押账户进行原子级别重置并授权，请使用 'move' 命令：
 
 ```bash
-safecoin-stake-accounts move <BASE_PUBKEY> <NEW_BASE_KEYPAIR> \
+panoptis-stake-accounts move <BASE_PUBKEY> <NEW_BASE_KEYPAIR> \
     --stake-authority <KEYPAIR> --withdraw-authority <KEYPAIR> \
     --new-stake-authority <PUBKEY> --new-withdraw-authority <PUBKEY> \
     --num-accounts <NUMBER> --fee-payer <KEYPAIR>

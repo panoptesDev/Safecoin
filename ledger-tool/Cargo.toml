@@ -1,13 +1,13 @@
 [package]
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 edition = "2018"
-name = "safecoin-ledger-tool"
+name = "panoptis-ledger-tool"
 description = "Panoptis: Enterprise Security for the Community by the Community"
 version = "1.6.19"
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-ledger-tool"
+documentation = "https://docs.rs/panoptis-ledger-tool"
 
 [dependencies]
 bs58 = "0.3.1"
@@ -23,18 +23,18 @@ regex = "1"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0.56"
 serde_yaml = "0.8.13"
-safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.19" }
-safecoin-cli-output = { path = "../cli-output", version = "=1.6.19" }
-safecoin-ledger = { path = "../ledger", version = "=1.6.19" }
-safecoin-logger = { path = "../logger", version = "=1.6.19" }
-safecoin-measure = { path = "../measure", version = "=1.6.19" }
-safecoin-runtime = { path = "../runtime", version = "=1.6.19" }
-safecoin-sdk = { path = "../sdk", version = "=1.6.19" }
-safecoin-stake-program = { path = "../programs/stake", version = "=1.6.19" }
-safecoin-storage-bigtable = { path = "../storage-bigtable", version = "=1.6.19" }
-safecoin-transaction-status = { path = "../transaction-status", version = "=1.6.19" }
-safecoin-version = { path = "../version", version = "=1.6.19" }
-safecoin-vote-program = { path = "../programs/vote", version = "=1.6.19" }
+panoptis-clap-utils = { path = "../clap-utils", version = "=1.6.19" }
+panoptis-cli-output = { path = "../cli-output", version = "=1.6.19" }
+panoptis-ledger = { path = "../ledger", version = "=1.6.19" }
+panoptis-logger = { path = "../logger", version = "=1.6.19" }
+panoptis-measure = { path = "../measure", version = "=1.6.19" }
+panoptis-runtime = { path = "../runtime", version = "=1.6.19" }
+panoptis-sdk = { path = "../sdk", version = "=1.6.19" }
+panoptis-stake-program = { path = "../programs/stake", version = "=1.6.19" }
+panoptis-storage-bigtable = { path = "../storage-bigtable", version = "=1.6.19" }
+panoptis-transaction-status = { path = "../transaction-status", version = "=1.6.19" }
+panoptis-version = { path = "../version", version = "=1.6.19" }
+panoptis-vote-program = { path = "../programs/vote", version = "=1.6.19" }
 tempfile = "3.1.0"
 tokio = { version = "1", features = ["full"] }
 

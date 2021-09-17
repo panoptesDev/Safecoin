@@ -8,7 +8,7 @@ title: 委托您的质押
 要委托代币，您首先要将代币转入一个质押帐户。 而要创建一个帐户，您需要一个密钥对： 它的公钥将作为 [质押账户地址](../staking/stake-accounts.md#account-address)。 此处无需密码或加密；此密钥对将在创建密钥账户后被丢弃。
 
 ```bash
-safecoin-keygen new --no-passphrase -o stake-account.json
+panoptis-keygen new --no-passphrase -o stake-account.json
 ```
 
 输出结果将在文本 `pubkey:` 后面包括该地址。

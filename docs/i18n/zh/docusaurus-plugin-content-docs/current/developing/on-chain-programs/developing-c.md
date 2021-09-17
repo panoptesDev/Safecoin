@@ -128,4 +128,4 @@ $ make dump_<program name>
 
 ## 示例 {#examples}
 
-[Panoptis 程序库github](https://github.com/fair-exchange/safecoin-program-library/tree/master/examples/c)代码库包含了 C 语言的例子集合。
+[Panoptis 程序库github](https://github.com/fair-exchange/panoptis-program-library/tree/master/examples/c)代码库包含了 C 语言的例子集合。

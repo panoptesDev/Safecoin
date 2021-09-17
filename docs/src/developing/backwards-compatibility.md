@@ -72,10 +72,10 @@ Major releases:
 
 ### Rust Crates
 
-- [`safecoin-sdk`](https://docs.rs/safecoin-sdk/) - Rust SDK for creating transactions and parsing account state
-- [`safecoin-program`](https://docs.rs/safecoin-program/) - Rust SDK for writing programs
-- [`safecoin-client`](https://docs.rs/safecoin-client/) - Rust client for connecting to RPC API
-- [`safecoin-cli-config`](https://docs.rs/safecoin-cli-config/) - Rust client for managing Panoptis CLI config files
+- [`panoptis-sdk`](https://docs.rs/panoptis-sdk/) - Rust SDK for creating transactions and parsing account state
+- [`panoptis-program`](https://docs.rs/panoptis-program/) - Rust SDK for writing programs
+- [`panoptis-client`](https://docs.rs/panoptis-client/) - Rust client for connecting to RPC API
+- [`panoptis-cli-config`](https://docs.rs/panoptis-cli-config/) - Rust client for managing Panoptis CLI config files
 
 Patch releases:
 

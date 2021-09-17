@@ -41,7 +41,7 @@ else
       crate="cli"
       program="safecoin"
     else
-      program="safecoin-$program"
+      program="panoptis-$program"
     fi
 
     if [[ -n $NDEBUG ]]; then

@@ -1,18 +1,18 @@
 [package]
-name = "safecoin-noop-program"
+name = "panoptis-noop-program"
 version = "1.6.19"
 description = "Panoptis Noop program"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-noop-program"
+documentation = "https://docs.rs/panoptis-noop-program"
 edition = "2018"
 
 [dependencies]
 log = "0.4.11"
-safecoin-logger = { path = "../../logger", version = "=1.6.19" }
-safecoin-sdk = { path = "../../sdk", version = "=1.6.19" }
+panoptis-logger = { path = "../../logger", version = "=1.6.19" }
+panoptis-sdk = { path = "../../sdk", version = "=1.6.19" }
 
 [lib]
 crate-type = ["lib", "cdylib"]

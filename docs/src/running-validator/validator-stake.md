@@ -29,7 +29,7 @@ this step, you should see the “validator-stake-keypair.json” in your Panopti
 runtime directory.
 
 ```bash
-safecoin-keygen new -o ~/validator-stake-keypair.json
+panoptis-keygen new -o ~/validator-stake-keypair.json
 ```
 
 ## Delegate Stake

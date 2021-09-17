@@ -64,8 +64,8 @@ local|tar|skip)
   PATH="$HOME"/.cargo/bin:"$PATH"
   export USE_INSTALL=1
   solana_cli=solana
-  safecoin_gossip=safecoin-gossip
-  safecoin_install=safecoin-install
+  safecoin_gossip=panoptis-gossip
+  safecoin_install=panoptis-install
   ;;
 *)
   echo "Unknown deployment method: $deployMethod"
@@ -122,7 +122,7 @@ else
 fi
 
 if $installCheck && [[ -r update_manifest_keypair.json ]]; then
-  echo "--- $sanityTargetIp: safecoin-install test"
+  echo "--- $sanityTargetIp: panoptis-install test"
 
   (
     set -x

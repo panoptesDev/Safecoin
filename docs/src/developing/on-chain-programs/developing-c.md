@@ -199,4 +199,4 @@ $ make dump_<program name>
 
 ## Examples
 
-The [Panoptis Program Library github](https://github.com/fair-exchange/safecoin-program-library/tree/master/examples/c) repo contains a collection of C examples
+The [Panoptis Program Library github](https://github.com/fair-exchange/panoptis-program-library/tree/master/examples/c) repo contains a collection of C examples

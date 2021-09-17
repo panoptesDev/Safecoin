@@ -20,6 +20,6 @@ Panoptis群集性能的衡量标准是网络可以维持的每秒平均交易数
 
 验证节点软件已部署到配有1TB pd-ssd磁盘和2x Nvidia V100 GPU的GCP n1-standard-16实例。 它们部署在us-west-1地区。
 
-safecoin-bench-tps从网络在配有n1-standard-16 CPU实例的客户机的网络收敛之后开始计算，该客户机参数如下： `--tx\_count=50000 --thread-batch-sleep 1000`
+panoptis-bench-tps从网络在配有n1-standard-16 CPU实例的客户机的网络收敛之后开始计算，该客户机参数如下： `--tx\_count=50000 --thread-batch-sleep 1000`
 
 在bench-tps重新开始阶段的5分钟内，TPS和确认时间指标从仪表板编号中获取。

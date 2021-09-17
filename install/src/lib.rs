@@ -279,7 +279,7 @@ pub fn main() -> Result<(), String> {
 pub fn main_init() -> Result<(), String> {
     solana_logger::setup();
 
-    let matches = App::new("safecoin-install-init")
+    let matches = App::new("panoptis-install-init")
         .about("Initializes a new installation")
         .version(solana_version::version!())
         .arg({

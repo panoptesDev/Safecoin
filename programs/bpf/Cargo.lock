@@ -2806,7 +2806,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-account-decoder"
+name = "panoptis-account-decoder"
 version = "1.6.19"
 dependencies = [
  "Inflector",
@@ -2818,17 +2818,17 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "safecoin-config-program",
- "safecoin-sdk",
- "safecoin-stake-program",
- "safecoin-vote-program",
+ "panoptis-config-program",
+ "panoptis-sdk",
+ "panoptis-stake-program",
+ "panoptis-vote-program",
  "safe-token",
  "thiserror",
  "zstd",
 ]
 
 [[package]]
-name = "safecoin-banks-client"
+name = "panoptis-banks-client"
 version = "1.6.19"
 dependencies = [
  "bincode",
@@ -2836,36 +2836,36 @@ dependencies = [
  "borsh-derive 0.9.0",
  "futures 0.3.12",
  "mio 0.7.7",
- "safecoin-banks-interface",
- "safecoin-program 1.6.19",
- "safecoin-sdk",
+ "panoptis-banks-interface",
+ "panoptis-program 1.6.19",
+ "panoptis-sdk",
  "tarpc",
  "tokio 1.8.1",
  "tokio-serde",
 ]
 
 [[package]]
-name = "safecoin-banks-interface"
+name = "panoptis-banks-interface"
 version = "1.6.19"
 dependencies = [
  "mio 0.7.7",
  "serde",
- "safecoin-sdk",
+ "panoptis-sdk",
  "tarpc",
 ]
 
 [[package]]
-name = "safecoin-banks-server"
+name = "panoptis-banks-server"
 version = "1.6.19"
 dependencies = [
  "bincode",
  "futures 0.3.12",
  "log",
  "mio 0.7.7",
- "safecoin-banks-interface",
- "safecoin-metrics",
- "safecoin-runtime",
- "safecoin-sdk",
+ "panoptis-banks-interface",
+ "panoptis-metrics",
+ "panoptis-runtime",
+ "panoptis-sdk",
  "tarpc",
  "tokio 1.8.1",
  "tokio-serde",
@@ -2873,7 +2873,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-bpf-loader-program"
+name = "panoptis-bpf-loader-program"
 version = "1.6.19"
 dependencies = [
  "bincode",
@@ -2883,15 +2883,15 @@ dependencies = [
  "num-traits",
  "rand_core 0.6.2",
  "sha3",
- "safecoin-measure",
- "safecoin-runtime",
- "safecoin-sdk",
+ "panoptis-measure",
+ "panoptis-runtime",
+ "panoptis-sdk",
  "solana_rbpf",
  "thiserror",
 ]
 
 [[package]]
-name = "safecoin-bpf-programs"
+name = "panoptis-bpf-programs"
 version = "1.6.19"
 dependencies = [
  "bincode",
@@ -2900,14 +2900,14 @@ dependencies = [
  "itertools 0.10.0",
  "miow 0.2.2",
  "net2",
- "safecoin-account-decoder",
- "safecoin-bpf-loader-program",
- "safecoin-cli-output",
- "safecoin-logger 1.6.19",
- "safecoin-measure",
- "safecoin-runtime",
- "safecoin-sdk",
- "safecoin-transaction-status",
+ "panoptis-account-decoder",
+ "panoptis-bpf-loader-program",
+ "panoptis-cli-output",
+ "panoptis-logger 1.6.19",
+ "panoptis-measure",
+ "panoptis-runtime",
+ "panoptis-sdk",
+ "panoptis-transaction-status",
  "solana_rbpf",
  "walkdir",
 ]
@@ -2917,42 +2917,42 @@ name = "solana-bpf-rust-128bit"
 version = "1.6.19"
 dependencies = [
  "solana-bpf-rust-128bit-dep",
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-128bit-dep"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-alloc"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-call-depth"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-caller-access"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-custom-heap"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
@@ -2960,21 +2960,21 @@ name = "solana-bpf-rust-dep-crate"
 version = "1.6.19"
 dependencies = [
  "byteorder 1.3.4",
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-deprecated-loader"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-dup-accounts"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
@@ -2983,7 +2983,7 @@ version = "1.6.19"
 dependencies = [
  "num-derive 0.2.5",
  "num-traits",
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
  "thiserror",
 ]
 
@@ -2991,21 +2991,21 @@ dependencies = [
 name = "solana-bpf-rust-external-spend"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-finalize"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-instruction-introspection"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
@@ -3013,42 +3013,42 @@ name = "solana-bpf-rust-invoke"
 version = "1.6.19"
 dependencies = [
  "solana-bpf-rust-invoked",
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-invoke-and-error"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-invoke-and-ok"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-invoke-and-return"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-invoked"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-iter"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
@@ -3056,23 +3056,23 @@ name = "solana-bpf-rust-many-args"
 version = "1.6.19"
 dependencies = [
  "solana-bpf-rust-many-args-dep",
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-many-args-dep"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-mem"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
- "safecoin-program-test",
- "safecoin-sdk",
+ "panoptis-program 1.6.19",
+ "panoptis-program-test",
+ "panoptis-sdk",
 ]
 
 [[package]]
@@ -3080,21 +3080,21 @@ name = "solana-bpf-rust-membuiltins"
 version = "1.6.19"
 dependencies = [
  "solana-bpf-rust-mem",
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-noop"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-panic"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
@@ -3102,14 +3102,14 @@ name = "solana-bpf-rust-param-passing"
 version = "1.6.19"
 dependencies = [
  "solana-bpf-rust-param-passing-dep",
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-param-passing-dep"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
@@ -3118,74 +3118,74 @@ version = "1.6.19"
 dependencies = [
  "getrandom 0.1.14",
  "rand 0.7.3",
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-ro-modify"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-sanity"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-sha"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-spoof1"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-spoof1-system"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-sysvar"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-upgradeable"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
 name = "solana-bpf-rust-upgraded"
 version = "1.6.19"
 dependencies = [
- "safecoin-program 1.6.19",
+ "panoptis-program 1.6.19",
 ]
 
 [[package]]
-name = "safecoin-clap-utils"
+name = "panoptis-clap-utils"
 version = "1.6.19"
 dependencies = [
  "chrono",
  "clap",
  "rpassword",
- "safecoin-remote-wallet",
- "safecoin-sdk",
+ "panoptis-remote-wallet",
+ "panoptis-sdk",
  "thiserror",
  "tiny-bip39",
  "uriparse",
@@ -3193,7 +3193,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-cli-config"
+name = "panoptis-cli-config"
 version = "1.6.19"
 dependencies = [
  "dirs-next",
@@ -3205,7 +3205,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-cli-output"
+name = "panoptis-cli-output"
 version = "1.6.19"
 dependencies = [
  "Inflector",
@@ -3217,18 +3217,18 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "safecoin-account-decoder",
- "safecoin-clap-utils",
- "safecoin-client",
- "safecoin-sdk",
- "safecoin-stake-program",
- "safecoin-transaction-status",
- "safecoin-vote-program",
+ "panoptis-account-decoder",
+ "panoptis-clap-utils",
+ "panoptis-client",
+ "panoptis-sdk",
+ "panoptis-stake-program",
+ "panoptis-transaction-status",
+ "panoptis-vote-program",
  "safe-memo",
 ]
 
 [[package]]
-name = "safecoin-client"
+name = "panoptis-client"
 version = "1.6.19"
 dependencies = [
  "base64 0.13.0",
@@ -3245,14 +3245,14 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "safecoin-account-decoder",
- "safecoin-clap-utils",
- "safecoin-faucet",
- "safecoin-net-utils",
- "safecoin-sdk",
- "safecoin-transaction-status",
- "safecoin-version",
- "safecoin-vote-program",
+ "panoptis-account-decoder",
+ "panoptis-clap-utils",
+ "panoptis-faucet",
+ "panoptis-net-utils",
+ "panoptis-sdk",
+ "panoptis-transaction-status",
+ "panoptis-version",
+ "panoptis-vote-program",
  "thiserror",
  "tokio 1.8.1",
  "tungstenite",
@@ -3260,7 +3260,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-config-program"
+name = "panoptis-config-program"
 version = "1.6.19"
 dependencies = [
  "bincode",
@@ -3269,11 +3269,11 @@ dependencies = [
  "rand_core 0.6.2",
  "serde",
  "serde_derive",
- "safecoin-sdk",
+ "panoptis-sdk",
 ]
 
 [[package]]
-name = "safecoin-crate-features"
+name = "panoptis-crate-features"
 version = "1.6.19"
 dependencies = [
  "backtrace",
@@ -3295,7 +3295,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-faucet"
+name = "panoptis-faucet"
 version = "1.6.19"
 dependencies = [
  "bincode",
@@ -3304,19 +3304,19 @@ dependencies = [
  "log",
  "serde",
  "serde_derive",
- "safecoin-clap-utils",
- "safecoin-cli-config",
- "safecoin-logger 1.6.19",
- "safecoin-metrics",
- "safecoin-sdk",
- "safecoin-version",
+ "panoptis-clap-utils",
+ "panoptis-cli-config",
+ "panoptis-logger 1.6.19",
+ "panoptis-metrics",
+ "panoptis-sdk",
+ "panoptis-version",
  "safe-memo",
  "thiserror",
  "tokio 1.8.1",
 ]
 
 [[package]]
-name = "safecoin-frozen-abi"
+name = "panoptis-frozen-abi"
 version = "1.6.19"
 dependencies = [
  "bs58",
@@ -3328,13 +3328,13 @@ dependencies = [
  "serde",
  "serde_derive",
  "sha2",
- "safecoin-frozen-abi-macro 1.6.19",
- "safecoin-logger 1.6.19",
+ "panoptis-frozen-abi-macro 1.6.19",
+ "panoptis-logger 1.6.19",
  "thiserror",
 ]
 
 [[package]]
-name = "safecoin-frozen-abi"
+name = "panoptis-frozen-abi"
 version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "95c481f0f29753f5b2d382628abae98a1dd87b572ddc7cbe5fe55ca62b6f7f07"
@@ -3348,13 +3348,13 @@ dependencies = [
  "serde",
  "serde_derive",
  "sha2",
- "safecoin-frozen-abi-macro 1.7.1",
- "safecoin-logger 1.7.1",
+ "panoptis-frozen-abi-macro 1.7.1",
+ "panoptis-logger 1.7.1",
  "thiserror",
 ]
 
 [[package]]
-name = "safecoin-frozen-abi-macro"
+name = "panoptis-frozen-abi-macro"
 version = "1.6.19"
 dependencies = [
  "lazy_static",
@@ -3365,7 +3365,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-frozen-abi-macro"
+name = "panoptis-frozen-abi-macro"
 version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f2068bcc47160ac9081893439b10a05e4bbe85cc0f6bccb6f1b0815423fbdd0c"
@@ -3377,7 +3377,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-logger"
+name = "panoptis-logger"
 version = "1.6.19"
 dependencies = [
  "env_logger",
@@ -3386,7 +3386,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-logger"
+name = "panoptis-logger"
 version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7ea5932e186629f47859924b3773cfd8bcb4b8796898ac85c1fa0a6a2024e5c6"
@@ -3397,18 +3397,18 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-measure"
+name = "panoptis-measure"
 version = "1.6.19"
 dependencies = [
  "jemalloc-ctl",
  "jemallocator",
  "log",
- "safecoin-metrics",
- "safecoin-sdk",
+ "panoptis-metrics",
+ "panoptis-sdk",
 ]
 
 [[package]]
-name = "safecoin-metrics"
+name = "panoptis-metrics"
 version = "1.6.19"
 dependencies = [
  "env_logger",
@@ -3416,11 +3416,11 @@ dependencies = [
  "lazy_static",
  "log",
  "reqwest",
- "safecoin-sdk",
+ "panoptis-sdk",
 ]
 
 [[package]]
-name = "safecoin-net-utils"
+name = "panoptis-net-utils"
 version = "1.6.19"
 dependencies = [
  "bincode",
@@ -3431,15 +3431,15 @@ dependencies = [
  "serde",
  "serde_derive",
  "socket2",
- "safecoin-clap-utils",
- "safecoin-logger 1.6.19",
- "safecoin-version",
+ "panoptis-clap-utils",
+ "panoptis-logger 1.6.19",
+ "panoptis-version",
  "tokio 1.8.1",
  "url",
 ]
 
 [[package]]
-name = "safecoin-program"
+name = "panoptis-program"
 version = "1.6.19"
 dependencies = [
  "bincode",
@@ -3463,15 +3463,15 @@ dependencies = [
  "serde_derive",
  "sha2",
  "sha3",
- "safecoin-frozen-abi 1.6.19",
- "safecoin-frozen-abi-macro 1.6.19",
- "safecoin-logger 1.6.19",
- "safecoin-sdk-macro 1.6.19",
+ "panoptis-frozen-abi 1.6.19",
+ "panoptis-frozen-abi-macro 1.6.19",
+ "panoptis-logger 1.6.19",
+ "panoptis-sdk-macro 1.6.19",
  "thiserror",
 ]
 
 [[package]]
-name = "safecoin-program"
+name = "panoptis-program"
 version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7a2df39c63e21c5b58e2012e7675bed5e8dd5100470ffddedcafb78f5a7e3abe"
@@ -3497,15 +3497,15 @@ dependencies = [
  "serde_derive",
  "sha2",
  "sha3",
- "safecoin-frozen-abi 1.7.1",
- "safecoin-frozen-abi-macro 1.7.1",
- "safecoin-logger 1.7.1",
- "safecoin-sdk-macro 1.7.1",
+ "panoptis-frozen-abi 1.7.1",
+ "panoptis-frozen-abi-macro 1.7.1",
+ "panoptis-logger 1.7.1",
+ "panoptis-sdk-macro 1.7.1",
  "thiserror",
 ]
 
 [[package]]
-name = "safecoin-program-test"
+name = "panoptis-program-test"
 version = "1.6.19"
 dependencies = [
  "async-trait",
@@ -3517,19 +3517,19 @@ dependencies = [
  "mio 0.7.7",
  "serde",
  "serde_derive",
- "safecoin-banks-client",
- "safecoin-banks-server",
- "safecoin-bpf-loader-program",
- "safecoin-logger 1.6.19",
- "safecoin-runtime",
- "safecoin-sdk",
- "safecoin-vote-program",
+ "panoptis-banks-client",
+ "panoptis-banks-server",
+ "panoptis-bpf-loader-program",
+ "panoptis-logger 1.6.19",
+ "panoptis-runtime",
+ "panoptis-sdk",
+ "panoptis-vote-program",
  "thiserror",
  "tokio 1.8.1",
 ]
 
 [[package]]
-name = "safecoin-rayon-threadlimit"
+name = "panoptis-rayon-threadlimit"
 version = "1.6.19"
 dependencies = [
  "lazy_static",
@@ -3537,7 +3537,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-remote-wallet"
+name = "panoptis-remote-wallet"
 version = "1.6.19"
 dependencies = [
  "base32",
@@ -3550,13 +3550,13 @@ dependencies = [
  "parking_lot 0.10.2",
  "qstring",
  "semver 0.9.0",
- "safecoin-sdk",
+ "panoptis-sdk",
  "thiserror",
  "uriparse",
 ]
 
 [[package]]
-name = "safecoin-runtime"
+name = "panoptis-runtime"
 version = "1.6.19"
 dependencies = [
  "arrayref",
@@ -3586,17 +3586,17 @@ dependencies = [
  "rustc_version",
  "serde",
  "serde_derive",
- "safecoin-config-program",
- "safecoin-frozen-abi 1.6.19",
- "safecoin-frozen-abi-macro 1.6.19",
- "safecoin-logger 1.6.19",
- "safecoin-measure",
- "safecoin-metrics",
- "safecoin-rayon-threadlimit",
- "safecoin-sdk",
- "safecoin-secp256k1-program",
- "safecoin-stake-program",
- "safecoin-vote-program",
+ "panoptis-config-program",
+ "panoptis-frozen-abi 1.6.19",
+ "panoptis-frozen-abi-macro 1.6.19",
+ "panoptis-logger 1.6.19",
+ "panoptis-measure",
+ "panoptis-metrics",
+ "panoptis-rayon-threadlimit",
+ "panoptis-sdk",
+ "panoptis-secp256k1-program",
+ "panoptis-stake-program",
+ "panoptis-vote-program",
  "symlink",
  "tar",
  "tempfile",
@@ -3605,7 +3605,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-sdk"
+name = "panoptis-sdk"
 version = "1.6.19"
 dependencies = [
  "assert_matches",
@@ -3641,18 +3641,18 @@ dependencies = [
  "serde_json",
  "sha2",
  "sha3",
- "safecoin-crate-features",
- "safecoin-frozen-abi 1.6.19",
- "safecoin-frozen-abi-macro 1.6.19",
- "safecoin-logger 1.6.19",
- "safecoin-program 1.6.19",
- "safecoin-sdk-macro 1.6.19",
+ "panoptis-crate-features",
+ "panoptis-frozen-abi 1.6.19",
+ "panoptis-frozen-abi-macro 1.6.19",
+ "panoptis-logger 1.6.19",
+ "panoptis-program 1.6.19",
+ "panoptis-sdk-macro 1.6.19",
  "thiserror",
  "uriparse",
 ]
 
 [[package]]
-name = "safecoin-sdk-macro"
+name = "panoptis-sdk-macro"
 version = "1.6.19"
 dependencies = [
  "bs58",
@@ -3663,7 +3663,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-sdk-macro"
+name = "panoptis-sdk-macro"
 version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6473d8fa445520564c84e8803320721404d160ffd876a125326a726541f11534"
@@ -3676,7 +3676,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-secp256k1-program"
+name = "panoptis-secp256k1-program"
 version = "1.6.19"
 dependencies = [
  "bincode",
@@ -3684,12 +3684,12 @@ dependencies = [
  "libsecp256k1",
  "rand 0.7.3",
  "sha3",
- "safecoin-logger 1.6.19",
- "safecoin-sdk",
+ "panoptis-logger 1.6.19",
+ "panoptis-sdk",
 ]
 
 [[package]]
-name = "safecoin-stake-program"
+name = "panoptis-stake-program"
 version = "1.6.19"
 dependencies = [
  "bincode",
@@ -3699,17 +3699,17 @@ dependencies = [
  "rustc_version",
  "serde",
  "serde_derive",
- "safecoin-config-program",
- "safecoin-frozen-abi 1.6.19",
- "safecoin-frozen-abi-macro 1.6.19",
- "safecoin-metrics",
- "safecoin-sdk",
- "safecoin-vote-program",
+ "panoptis-config-program",
+ "panoptis-frozen-abi 1.6.19",
+ "panoptis-frozen-abi-macro 1.6.19",
+ "panoptis-metrics",
+ "panoptis-sdk",
+ "panoptis-vote-program",
  "thiserror",
 ]
 
 [[package]]
-name = "safecoin-transaction-status"
+name = "panoptis-transaction-status"
 version = "1.6.19"
 dependencies = [
  "Inflector",
@@ -3720,11 +3720,11 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "safecoin-account-decoder",
- "safecoin-runtime",
- "safecoin-sdk",
- "safecoin-stake-program",
- "safecoin-vote-program",
+ "panoptis-account-decoder",
+ "panoptis-runtime",
+ "panoptis-sdk",
+ "panoptis-stake-program",
+ "panoptis-vote-program",
  "safe-associated-token-account",
  "safe-memo",
  "safe-token",
@@ -3732,21 +3732,21 @@ dependencies = [
 ]
 
 [[package]]
-name = "safecoin-version"
+name = "panoptis-version"
 version = "1.6.19"
 dependencies = [
  "log",
  "rustc_version",
  "serde",
  "serde_derive",
- "safecoin-frozen-abi 1.6.19",
- "safecoin-frozen-abi-macro 1.6.19",
- "safecoin-logger 1.6.19",
- "safecoin-sdk",
+ "panoptis-frozen-abi 1.6.19",
+ "panoptis-frozen-abi-macro 1.6.19",
+ "panoptis-logger 1.6.19",
+ "panoptis-sdk",
 ]
 
 [[package]]
-name = "safecoin-vote-program"
+name = "panoptis-vote-program"
 version = "1.6.19"
 dependencies = [
  "bincode",
@@ -3756,11 +3756,11 @@ dependencies = [
  "rustc_version",
  "serde",
  "serde_derive",
- "safecoin-frozen-abi 1.6.19",
- "safecoin-frozen-abi-macro 1.6.19",
- "safecoin-logger 1.6.19",
- "safecoin-metrics",
- "safecoin-sdk",
+ "panoptis-frozen-abi 1.6.19",
+ "panoptis-frozen-abi-macro 1.6.19",
+ "panoptis-logger 1.6.19",
+ "panoptis-metrics",
+ "panoptis-sdk",
  "thiserror",
 ]
 
@@ -3794,7 +3794,7 @@ version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4adc47eebe5d2b662cbaaba1843719c28a67e5ec5d0460bc3ca60900a51f74e2"
 dependencies = [
- "safecoin-program 1.7.1",
+ "panoptis-program 1.7.1",
  "safe-token",
 ]
 
@@ -3804,7 +3804,7 @@ version = "3.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bd0dc6f70db6bacea7ff25870b016a65ba1d1b6013536f08e4fd79a8f9005325"
 dependencies = [
- "safecoin-program 1.7.1",
+ "panoptis-program 1.7.1",
 ]
 
 [[package]]
@@ -3817,7 +3817,7 @@ dependencies = [
  "num-derive 0.3.0",
  "num-traits",
  "num_enum",
- "safecoin-program 1.7.1",
+ "panoptis-program 1.7.1",
  "thiserror",
 ]
 

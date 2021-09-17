@@ -195,7 +195,7 @@ impl LedgerCleanupService {
             let purge_complete1 = purge_complete.clone();
             let last_compact_slot1 = last_compact_slot.clone();
             let _t_purge = Builder::new()
-                .name("safecoin-ledger-purge".to_string())
+                .name("panoptis-ledger-purge".to_string())
                 .spawn(move || {
                     let mut slot_update_time = Measure::start("slot_update");
                     *blockstore.lowest_cleanup_slot.write().unwrap() = lowest_cleanup_slot;

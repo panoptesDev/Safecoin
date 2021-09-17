@@ -10,7 +10,7 @@
 # except according to those terms.
 
 # This is just a little script that can be downloaded from the internet to
-# install safecoin-install. It just does platform detection, downloads the installer
+# install panoptis-install. It just does platform detection, downloads the installer
 # and runs it.
 
 { # this ensures the entire script is downloaded #
@@ -24,11 +24,11 @@ set -e
 
 usage() {
     cat 1>&2 <<EOF
-safecoin-install-init
+panoptis-install-init
 initializes a new installation
 
 USAGE:
-    safecoin-install-init [FLAGS] [OPTIONS] --data_dir <PATH> --pubkey <PUBKEY>
+    panoptis-install-init [FLAGS] [OPTIONS] --data_dir <PATH> --pubkey <PUBKEY>
 
 FLAGS:
     -h, --help              Prints help information
@@ -74,7 +74,7 @@ main() {
       ;;
     esac
 
-    temp_dir="$(mktemp -d 2>/dev/null || ensure mktemp -d -t safecoin-install-init)"
+    temp_dir="$(mktemp -d 2>/dev/null || ensure mktemp -d -t panoptis-install-init)"
     ensure mkdir -p "$temp_dir"
 
     # Check for PANOPTIS_RELEASE environment variable override.  Otherwise fetch
@@ -94,8 +94,8 @@ main() {
       fi
     fi
 
-    download_url="$PANOPTIS_DOWNLOAD_ROOT/$release/safecoin-install-init-$TARGET"
-    safecoin_install_init="$temp_dir/safecoin-install-init"
+    download_url="$PANOPTIS_DOWNLOAD_ROOT/$release/panoptis-install-init-$TARGET"
+    safecoin_install_init="$temp_dir/panoptis-install-init"
 
     printf 'downloading %s installer\n' "$release" 1>&2
 
@@ -104,7 +104,7 @@ main() {
     ensure chmod u+x "$safecoin_install_init"
     if [ ! -x "$safecoin_install_init" ]; then
         printf '%s\n' "Cannot execute $safecoin_install_init (likely because of mounting /tmp as noexec)." 1>&2
-        printf '%s\n' "Please copy the file to a location where you can execute binaries and run ./safecoin-install-init." 1>&2
+        printf '%s\n' "Please copy the file to a location where you can execute binaries and run ./panoptis-install-init." 1>&2
         exit 1
     fi
 
@@ -123,7 +123,7 @@ main() {
 }
 
 err() {
-    printf 'safecoin-install-init: %s\n' "$1" >&2
+    printf 'panoptis-install-init: %s\n' "$1" >&2
     exit 1
 }
 

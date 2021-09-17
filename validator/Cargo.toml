@@ -1,14 +1,14 @@
 [package]
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 edition = "2018"
-name = "safecoin-validator"
+name = "panoptis-validator"
 description = "Panoptis: Enterprise Security for the Community by the Community"
 version = "1.6.19"
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-validator"
-default-run = "safecoin-validator"
+documentation = "https://docs.rs/panoptis-validator"
+default-run = "panoptis-validator"
 
 [dependencies]
 base64 = "0.12.3"
@@ -28,21 +28,21 @@ log = "0.4.11"
 num_cpus = "1.13.0"
 rand = "0.7.0"
 serde = "1.0.112"
-safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.19" }
-safecoin-cli-config = { path = "../cli-config", version = "=1.6.19" }
-safecoin-client = { path = "../client", version = "=1.6.19" }
-safecoin-core = { path = "../core", version = "=1.6.19" }
-safecoin-download-utils = { path = "../download-utils", version = "=1.6.19" }
-safecoin-faucet = { path = "../faucet", version = "=1.6.19" }
-safecoin-ledger = { path = "../ledger", version = "=1.6.19" }
-safecoin-logger = { path = "../logger", version = "=1.6.19" }
-safecoin-metrics = { path = "../metrics", version = "=1.6.19" }
-safecoin-net-utils = { path = "../net-utils", version = "=1.6.19" }
-safecoin-perf = { path = "../perf", version = "=1.6.19" }
-safecoin-runtime = { path = "../runtime", version = "=1.6.19" }
-safecoin-sdk = { path = "../sdk", version = "=1.6.19" }
-safecoin-version = { path = "../version", version = "=1.6.19" }
-safecoin-vote-program = { path = "../programs/vote", version = "=1.6.19" }
+panoptis-clap-utils = { path = "../clap-utils", version = "=1.6.19" }
+panoptis-cli-config = { path = "../cli-config", version = "=1.6.19" }
+panoptis-client = { path = "../client", version = "=1.6.19" }
+panoptis-core = { path = "../core", version = "=1.6.19" }
+panoptis-download-utils = { path = "../download-utils", version = "=1.6.19" }
+panoptis-faucet = { path = "../faucet", version = "=1.6.19" }
+panoptis-ledger = { path = "../ledger", version = "=1.6.19" }
+panoptis-logger = { path = "../logger", version = "=1.6.19" }
+panoptis-metrics = { path = "../metrics", version = "=1.6.19" }
+panoptis-net-utils = { path = "../net-utils", version = "=1.6.19" }
+panoptis-perf = { path = "../perf", version = "=1.6.19" }
+panoptis-runtime = { path = "../runtime", version = "=1.6.19" }
+panoptis-sdk = { path = "../sdk", version = "=1.6.19" }
+panoptis-version = { path = "../version", version = "=1.6.19" }
+panoptis-vote-program = { path = "../programs/vote", version = "=1.6.19" }
 symlink = "0.1.0"
 
 [target."cfg(unix)".dependencies]

@@ -14,7 +14,7 @@ usage() {
   echo
   echo " Run bench-tps "
   echo
-  echo "   extra args: additional arguments are passed along to safecoin-bench-tps"
+  echo "   extra args: additional arguments are passed along to panoptis-bench-tps"
   echo
   exit 1
 }

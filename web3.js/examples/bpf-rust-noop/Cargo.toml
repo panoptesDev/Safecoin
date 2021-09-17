@@ -12,7 +12,7 @@ edition = "2018"
 [dependencies]
 num-derive = "0.2"
 num-traits = "0.2"
-safecoin-program = "1.4.16"
+panoptis-program = "1.4.16"
 thiserror = "1.0"
 
 [workspace]

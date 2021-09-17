@@ -1,16 +1,16 @@
 [package]
-name = "safecoin-merkle-tree"
+name = "panoptis-merkle-tree"
 version = "1.6.19"
 description = "Panoptis Merkle Tree"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-merkle-tree"
+documentation = "https://docs.rs/panoptis-merkle-tree"
 edition = "2018"
 
 [dependencies]
-safecoin-program = { path = "../sdk/program", version = "=1.6.19" }
+panoptis-program = { path = "../sdk/program", version = "=1.6.19" }
 fast-math = "0.1"
 
 # This can go once the BPF toolchain target Rust 1.42.0+

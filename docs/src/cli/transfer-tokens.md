@@ -48,7 +48,7 @@ We will need a new address to receive our tokens. Create a second
 keypair and record its pubkey:
 
 ```bash
-safecoin-keygen new --no-passphrase --no-outfile
+panoptis-keygen new --no-passphrase --no-outfile
 ```
 
 The output will contain the address after the text `pubkey:`. Copy the
@@ -90,7 +90,7 @@ recipient's public key.
 #### Full example of test transfer
 
 ```bash
-$ safecoin-keygen new --outfile my_solana_wallet.json   # Creating my first wallet, a file system wallet
+$ panoptis-keygen new --outfile my_solana_wallet.json   # Creating my first wallet, a file system wallet
 Generating a new keypair
 For added security, enter a passphrase (empty for no passphrase):
 Wrote new keypair to my_solana_wallet.json
@@ -108,7 +108,7 @@ Requesting airdrop of 1 PANO from 35.233.193.70:9900
 $ safecoin balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org # Check the address's balance
 1 PANO
 
-$ safecoin-keygen new --no-outfile  # Creating a second wallet, a paper wallet
+$ panoptis-keygen new --no-outfile  # Creating a second wallet, a paper wallet
 Generating a new keypair
 For added security, enter a passphrase (empty for no passphrase):
 ====================================================================

@@ -21,24 +21,24 @@ title: Ledger Nano
 在您的计算机运行：
 
 ```bash
-safecoin-keygen pubkey usb://ledger
+panoptis-keygen pubkey usb://ledger
 ```
 
 该步骤确认您的 Ledger 设备已经连接正确，并且能够与 Panoptis CLI 正常交互。 该命令返回你 Ledger 设备唯一的_钱包 ID_. 当有多台 Nano 设备连接到同一台计算机时， 您可以通过钱包 ID 来指定想使用的 Ledger 硬件钱包。 如果您的电脑只使用一个 Nano 设备，那么就无需指明钱包 ID。 关于通过钱包 ID 使用特定 Ledger 的信息，请参阅[管理多个硬件钱包](#manage-multiple-hardware-wallets)。
 
 ### 查看您的钱包地址
 
-您的 Nano 支持任意数量的有效钱包地址和签名者。 要查看任何地址，请使用前面所说的 `safecoin-keygen pubkey` 命令，然后接上一个有效的 [密钥对URL](../hardware-wallets.md#specify-a-keypair-url)。
+您的 Nano 支持任意数量的有效钱包地址和签名者。 要查看任何地址，请使用前面所说的 `panoptis-keygen pubkey` 命令，然后接上一个有效的 [密钥对URL](../hardware-wallets.md#specify-a-keypair-url)。
 
 如果需要在自己帐户之间的传输代币，您可以使用多个钱包地址。或在设备上对某一个抵押账号使用不同的键对作为签名授权。
 
 以下所有的命令将显示不同的地址，关联到给定的密钥对路径。 来试一下吧！
 
 ```bash
-safecoin-keygen pubkey usb://ledger
-safecoin-keygen pubkey usb://ledger?key=0
-safecoin-keygen pubkey usb://ledger?key=1
-safecoin-keygen pubkey usb://ledger?key=2
+panoptis-keygen pubkey usb://ledger
+panoptis-keygen pubkey usb://ledger?key=0
+panoptis-keygen pubkey usb://ledger?key=1
+panoptis-keygen pubkey usb://ledger?key=2
 ```
 
 * 注意：密钥对 URL 参数在 **zsh** &nbsp;[更多解决方案](#troubleshooting)中将被忽视。
@@ -48,7 +48,7 @@ safecoin-keygen pubkey usb://ledger?key=2
 如果您只计划设备上使用一个地址/密钥对， 那么容易记住的一个路径可能是 `key=0` 的地址。 通过该命令查看它的地址：
 
 ```bash
-safecoin-keygen pubkey usb://ledger?key=0
+panoptis-keygen pubkey usb://ledger?key=0
 ```
 
 现在，你已经有一个(或多个) 钱包地址，你可以公开分享其中的任何一个地址作为代币接收地址，并且使用关联的密钥对 URL 作为该地址发起交易的签名人。
@@ -84,7 +84,7 @@ safecoin transfer RECIPIENT_ADDRESS AMOUNT --keypair KEYPAIR_URL_OF_SENDER
 下面是一个完整的实例。 首先，通过某个密钥对 URL 中查看一个地址。 然后检查该地址的余额。 最后，输入一笔交易来发送 `1` PANO到接收地址 `7cvkjYAkUYs4W8XcXscca7cBrEGFeSUjeZmKoNBvEwyri`。 按下回车键传输命令时，您将看到在 Ledger 设备批准交易细节的提示。 在设备上通过左右键查看交易细节。 如果信息正确，请同时按下"允许"界面的两个按钮，否则请在"拒绝"界面按下这两个按钮。
 
 ```bash
-~$ safecoin-keygen pubkey usb://ledger?key=42
+~$ panoptis-keygen pubkey usb://ledger?key=42
 CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
 
 ~$ safecoin balance CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
@@ -141,7 +141,7 @@ source ~/.zshrc
 如果不想禁用 zsh 对问题标记字符的特殊处理，您可以在密钥对 URL 中使用反斜杠专门禁用它。 例如：
 
 ```bash
-safecoin-keygen pubkey usb://ledger\?key=0
+panoptis-keygen pubkey usb://ledger\?key=0
 ```
 
 ## 客服支持

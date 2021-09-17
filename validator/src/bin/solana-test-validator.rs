@@ -39,7 +39,7 @@ use {
 
 /* 10,000 was derived empirically by watching the size
  * of the rocksdb/ directory self-limit itself to the
- * 40MB-150MB range when running `safecoin-test-validator`
+ * 40MB-150MB range when running `panoptis-test-validator`
  */
 const DEFAULT_MAX_LEDGER_SHREDS: u64 = 10_000;
 
@@ -58,7 +58,7 @@ fn main() {
     let default_limit_ledger_size = DEFAULT_MAX_LEDGER_SHREDS.to_string();
     let default_faucet_sol = DEFAULT_FAUCET_PANO.to_string();
 
-    let matches = App::new("safecoin-test-validator")
+    let matches = App::new("panoptis-test-validator")
         .about("Test Validator")
         .version(solana_version::version!())
         .arg({

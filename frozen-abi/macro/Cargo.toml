@@ -1,11 +1,11 @@
 [package]
-name = "safecoin-frozen-abi-macro"
+name = "panoptis-frozen-abi-macro"
 version = "1.6.19"
 description = "Panoptis Frozen ABI Macro"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-frozen-abi-macro"
+documentation = "https://docs.rs/panoptis-frozen-abi-macro"
 license = "Apache-2.0"
 edition = "2018"
 

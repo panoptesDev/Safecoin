@@ -267,7 +267,7 @@ declare module '@safecoin/web3.js' {
   };
 
   export type Version = {
-    'safecoin-core': string;
+    'panoptis-core': string;
     'feature-set'?: number;
   };
 

@@ -53,7 +53,7 @@ Please update your PATH environment variable to include the safecoin programs:
 safecoin --version
 ```
 
-- After a successful install, `safecoin-install update` may be used to easily
+- After a successful install, `panoptis-install update` may be used to easily
   update the Panoptis software to a newer version at any time.
 
 ---
@@ -71,7 +71,7 @@ safecoin --version
   installer into a temporary directory:
 
 ```bash
-curl https://release.solana.com/LATEST_PANOPTIS_RELEASE_VERSION/safecoin-install-init-x86_64-pc-windows-msvc.exe --output C:\safecoin-install-tmp\safecoin-install-init.exe --create-dirs
+curl https://release.solana.com/LATEST_PANOPTIS_RELEASE_VERSION/panoptis-install-init-x86_64-pc-windows-msvc.exe --output C:\panoptis-install-tmp\panoptis-install-init.exe --create-dirs
 ```
 
 - Copy and paste the following command, then press Enter to install the latest
@@ -79,7 +79,7 @@ curl https://release.solana.com/LATEST_PANOPTIS_RELEASE_VERSION/safecoin-install
   to allow the program to run.
 
 ```bash
-C:\safecoin-install-tmp\safecoin-install-init.exe LATEST_PANOPTIS_RELEASE_VERSION
+C:\panoptis-install-tmp\panoptis-install-init.exe LATEST_PANOPTIS_RELEASE_VERSION
 ```
 
 - When the installer is finished, press Enter.
@@ -94,12 +94,12 @@ C:\safecoin-install-tmp\safecoin-install-init.exe LATEST_PANOPTIS_RELEASE_VERSIO
 safecoin --version
 ```
 
-- After a successful install, `safecoin-install update` may be used to easily
+- After a successful install, `panoptis-install update` may be used to easily
   update the Panoptis software to a newer version at any time.
 
 ## Download Prebuilt Binaries
 
-If you would rather not use `safecoin-install` to manage the install, you can
+If you would rather not use `panoptis-install` to manage the install, you can
 manually download and install the binaries.
 
 ### Linux
@@ -160,5 +160,5 @@ You can then run the following command to obtain the same result as with
 prebuilt binaries:
 
 ```bash
-safecoin-install init
+panoptis-install init
 ```

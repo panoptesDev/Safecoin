@@ -3,7 +3,7 @@ title: Panoptis Test Validator
 ---
 During early stage development, it is often convenient to target a cluster with
 fewer restrictions and more configuration options than the public offerings
-provide. This is easily achieved with the `safecoin-test-validator` binary, which
+provide. This is easily achieved with the `panoptis-test-validator` binary, which
 starts a full-featured, single-node cluster on the developer's workstation.
 
 ## Advantages
@@ -17,18 +17,18 @@ starts a full-featured, single-node cluster on the developer's workstation.
 - Jump to an arbitrary slot (`--warp-slot ...`)
 
 ## Installation
-The `safecoin-test-validator` binary ships with the Panoptis CLI Tool Suite.
+The `panoptis-test-validator` binary ships with the Panoptis CLI Tool Suite.
 [Install](/cli/install-solana-cli-tools) before continuing.
 
 ## Running
 First take a look at the configuration options
 ```
-safecoin-test-validator --help
+panoptis-test-validator --help
 ```
 
 Next start the test validator
 ```
-safecoin-test-validator
+panoptis-test-validator
 ```
 
 By default, basic status information is printed while the process is running.
@@ -46,11 +46,11 @@ JSON RPC URL: http://127.0.0.1:8328
 ⠈ 00:36:02 | Processed Slot: 5142 | Confirmed Slot: 5142 | Finalized Slot: 5110 | Snapshot Slot: 5100 | Transactions: 5142 | ◎499.974295000
 ```
 
-Leave `safecoin-test-validator` running in its own terminal. When it is no longer
+Leave `panoptis-test-validator` running in its own terminal. When it is no longer
 needed, it can be stopped with ctrl-c.
 
 ## Interacting
-Open a new terminal to interact with a [running](#running) `safecoin-test-validator`
+Open a new terminal to interact with a [running](#running) `panoptis-test-validator`
 instance using other binaries from the Panoptis CLI Tool Suite or your own client
 software.
 
@@ -64,14 +64,14 @@ safecoin config set --url http://127.0.0.1:8328
 safecoin genesis-hash
 ```
 * **NOTE:** The result should match the `Genesis Hash:` field in the
-`safecoin-test-validator` status output
+`panoptis-test-validator` status output
 
 #### Check the wallet balance
 ```
 safecoin balance
 ```
 * **NOTE:** `Error: No such file or directory (os error 2)` means that the default
-wallet does not yet exist. Create it with `safecoin-keygen new`.
+wallet does not yet exist. Create it with `panoptis-keygen new`.
 * **NOTE:** If the wallet has a zero PANO balance, airdrop some localnet PANO with
 `safecoin airdrop 10`
 

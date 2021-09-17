@@ -29,5 +29,5 @@ doc
 # fixtures
 /test/fixtures
 
-# `safecoin-test-validator` ledger location
+# `panoptis-test-validator` ledger location
 test-ledger/

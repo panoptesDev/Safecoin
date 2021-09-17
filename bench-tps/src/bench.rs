@@ -98,7 +98,7 @@ where
     let maxes = maxes.clone();
     let client = client.clone();
     Builder::new()
-        .name("safecoin-client-sample".to_string())
+        .name("panoptis-client-sample".to_string())
         .spawn(move || {
             sample_txs(&exit_signal, &maxes, sample_period, &client);
         })
@@ -179,7 +179,7 @@ where
             let total_tx_sent_count = total_tx_sent_count.clone();
             let client = client.clone();
             Builder::new()
-                .name("safecoin-client-sender".to_string())
+                .name("panoptis-client-sender".to_string())
                 .spawn(move || {
                     do_tx_transfers(
                         &exit_signal,
@@ -876,7 +876,7 @@ pub fn generate_and_fund_keypairs<T: 'static + Client + Send + Sync>(
     let (mut keypairs, extra) = generate_keypairs(funding_key, keypair_count as u64);
     info!("Get lamports...");
 
-    // Sample the first keypair, to prevent lamport loss on repeated safecoin-bench-tps executions
+    // Sample the first keypair, to prevent lamport loss on repeated panoptis-bench-tps executions
     let first_key = keypairs[0].pubkey();
     let first_keypair_balance = client.get_balance(&first_key).unwrap_or(0);
 

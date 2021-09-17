@@ -106,7 +106,7 @@ export RUST_LOG=solana_bpf_loader=trace
 
 一般来说，我们正在使用 `debug` 处理不经常的调试消息， `trace` 处理可能频繁的消息， `info` 用于与性能相关的记录。
 
-您也可以通过 GDB 附加到一个运行过程。 领导者进程命名为 _safecoin-validator_:
+您也可以通过 GDB 附加到一个运行过程。 领导者进程命名为 _panoptis-validator_:
 
 ```bash
 sudo gdb

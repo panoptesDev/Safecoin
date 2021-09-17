@@ -26,7 +26,7 @@ title: 持久交易随机数（Nonces）
 - 命令
 
 ```bash
-safecoin-keygen new -o nonce-keypair.json
+panoptis-keygen new -o nonce-keypair.json
 safecoin create-nonce-account nonce-keypair.json 1
 ```
 
@@ -156,9 +156,9 @@ safecoin authorize-non-account non-keypair.json nonce-authority.json
 首先，我们需要为Alice、Alice的none和Bob准备一些账户
 
 ```bash
-$ safecoin-keygen new -o alice.json
-$ safecoin-keygen new -o nonce.json
-$ safecoin-keygen new -o bob.json
+$ panoptis-keygen new -o alice.json
+$ panoptis-keygen new -o nonce.json
+$ panoptis-keygen new -o bob.json
 ```
 
 #### - Alice账户充值

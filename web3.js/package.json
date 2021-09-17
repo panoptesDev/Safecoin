@@ -11,10 +11,10 @@
   "homepage": "https://solana.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fair-exchange/safecoin-web3.js.git"
+    "url": "https://github.com/fair-exchange/panoptis-web3.js.git"
   },
   "bugs": {
-    "url": "http://github.com/fair-exchange/safecoin-web3.js.git/issues"
+    "url": "http://github.com/fair-exchange/panoptis-web3.js.git/issues"
   },
   "publishConfig": {
     "access": "public"
@@ -73,14 +73,14 @@
     "prepare": "run-s clean bpf-sdk:install bpf-sdk:remove-symlinks build",
     "pretty": "prettier --check '{,{examples,src,test}/**/}*.{j,t}s'",
     "pretty:fix": "prettier --write '{,{examples,src,test}/**/}*.{j,t}s'",
-    "re": "semantic-release --repository-url git@github.com:fair-exchange/safecoin-web3.js.git",
+    "re": "semantic-release --repository-url git@github.com:fair-exchange/panoptis-web3.js.git",
     "test": "npm run build:fixtures && mocha './test/**/*.test.js'",
     "test:cover": "nyc --reporter=lcov mocha './test/**/*.test.js'",
     "test:browser": "TEST_LIVE=1 npm run build:fixtures && npm run build:browser-test && mocha-headless-chrome -f http://localhost:8080/mocha.html --timeout 180000",
     "test:browser-with-server": "start-server-and-test 'http-server -p 8080' 8080 test:browser",
-    "test:browser-with-test-validator": "start-server-and-test 'safecoin-test-validator --reset --quiet' http://localhost:8328/health test:browser-with-server",
+    "test:browser-with-test-validator": "start-server-and-test 'panoptis-test-validator --reset --quiet' http://localhost:8328/health test:browser-with-server",
     "test:live": "TEST_LIVE=1 npm run test",
-    "test:live-with-test-validator": "start-server-and-test 'safecoin-test-validator --reset --quiet' http://localhost:8328/health test:live"
+    "test:live-with-test-validator": "start-server-and-test 'panoptis-test-validator --reset --quiet' http://localhost:8328/health test:live"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",

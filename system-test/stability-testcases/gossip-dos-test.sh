@@ -19,37 +19,37 @@ solanaInstallGlobalOpts=(
 bootstrapInstall() {
   declare v=$1
   if [[ ! -h $solanaInstallDataDir/active_release ]]; then
-    sh "$PANOPTIS_ROOT"/install/safecoin-install-init.sh "$v" "${solanaInstallGlobalOpts[@]}"
+    sh "$PANOPTIS_ROOT"/install/panoptis-install-init.sh "$v" "${solanaInstallGlobalOpts[@]}"
   fi
   export PATH="$solanaInstallDataDir/active_release/bin/:$PATH"
 }
 
 bootstrapInstall "edge"
-safecoin-install-init --version
-safecoin-install-init edge
-safecoin-gossip --version
-safecoin-dos --version
+panoptis-install-init --version
+panoptis-install-init edge
+panoptis-gossip --version
+panoptis-dos --version
 
-killall safecoin-gossip || true
-safecoin-gossip spy --gossip-port 10015 > "$logDir"/gossip.log 2>&1 &
+killall panoptis-gossip || true
+panoptis-gossip spy --gossip-port 10015 > "$logDir"/gossip.log 2>&1 &
 solanaGossipPid=$!
-echo "safecoin-gossip pid: $solanaGossipPid"
+echo "panoptis-gossip pid: $solanaGossipPid"
 sleep 5
-safecoin-dos --mode gossip --data-type random --data-size 1232 &
+panoptis-dos --mode gossip --data-type random --data-size 1232 &
 dosPid=$!
-echo "safecoin-dos pid: $dosPid"
+echo "panoptis-dos pid: $dosPid"
 
 pass=true
 
 SECONDS=
 while ((SECONDS < 600)); do
   if ! kill -0 $solanaGossipPid; then
-    echo "safecoin-gossip is no longer running after $SECONDS seconds"
+    echo "panoptis-gossip is no longer running after $SECONDS seconds"
     pass=false
     break
   fi
   if ! kill -0 $dosPid; then
-    echo "safecoin-dos is no longer running after $SECONDS seconds"
+    echo "panoptis-dos is no longer running after $SECONDS seconds"
     pass=false
     break
   fi

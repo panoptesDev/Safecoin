@@ -30,14 +30,14 @@ solanaInstallGlobalOpts=(
 bootstrapInstall() {
   declare v=$1
   if [[ ! -h $solanaInstallDataDir/active_release ]]; then
-    sh "$PANOPTIS_ROOT"/install/safecoin-install-init.sh "$v" "${solanaInstallGlobalOpts[@]}"
+    sh "$PANOPTIS_ROOT"/install/panoptis-install-init.sh "$v" "${solanaInstallGlobalOpts[@]}"
   fi
   export PATH="$solanaInstallDataDir/active_release/bin/:$PATH"
 }
 
 bootstrapInstall "$baselineVersion"
 for v in "${otherVersions[@]}"; do
-  safecoin-install-init "${solanaInstallGlobalOpts[@]}" "$v"
+  panoptis-install-init "${solanaInstallGlobalOpts[@]}" "$v"
   safecoin -V
 done
 
@@ -89,7 +89,7 @@ for v in "${otherVersions[@]}"; do
   echo "--- Looking for bootstrap validator on gossip"
   (
     set -x
-    "$PANOPTIS_BIN"/safecoin-gossip spy \
+    "$PANOPTIS_BIN"/panoptis-gossip spy \
       --entrypoint 127.0.0.1:10015 \
       --num-nodes-exactly 1 \
       --timeout 30
@@ -113,13 +113,13 @@ for v in "${otherVersions[@]}"; do
   (
     set -x
     tmux new-window -t abi -n "$v" " \
-      $PANOPTIS_BIN/safecoin-validator \
+      $PANOPTIS_BIN/panoptis-validator \
       --ledger $ledger \
       --no-snapshot-fetch \
       --entrypoint 127.0.0.1:10015 \
       -o - 2>&1 | tee $logDir/$v.log \
     "
-    "$PANOPTIS_BIN"/safecoin-gossip spy \
+    "$PANOPTIS_BIN"/panoptis-gossip spy \
       --entrypoint 127.0.0.1:10015 \
       --num-nodes-exactly $nodeCount \
       --timeout 30

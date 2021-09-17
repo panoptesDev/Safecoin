@@ -28,7 +28,7 @@ To run an api node:
 2. Start the validator with at least the following parameters:
 
 ```bash
-safecoin-validator \
+panoptis-validator \
   --ledger <LEDGER_PATH> \
   --entrypoint <CLUSTER_ENTRYPOINT> \
   --expected-genesis-hash <EXPECTED_GENESIS_HASH> \
@@ -43,14 +43,14 @@ safecoin-validator \
 Customize `--ledger` to your desired ledger storage location, and `--rpc-port` to the port you want to expose.
 
 The `--entrypoint` and `--expected-genesis-hash` parameters are all specific to the cluster you are joining.
-[Current parameters for Mainnet Beta](../clusters.md#example-safecoin-validator-command-line-2)
+[Current parameters for Mainnet Beta](../clusters.md#example-panoptis-validator-command-line-2)
 
 The `--limit-ledger-size` parameter allows you to specify how many ledger
 [shreds](../terminology.md#shred) your node retains on disk. If you do not
 include this parameter, the validator will keep the entire ledger until it runs
 out of disk space. The default value attempts to keep the ledger disk usage
 under 500GB. More or less disk usage may be requested by adding an argument to
-`--limit-ledger-size` if desired. Check `safecoin-validator --help` for the
+`--limit-ledger-size` if desired. Check `panoptis-validator --help` for the
 default limit value used by `--limit-ledger-size`. More information about
 selecting a custom limit value is [available
 here](https://github.com/fair-exchange/safecoin/blob/583cec922b6107e0f85c7e14cb5e642bc7dfb340/core/src/ledger_cleanup_service.rs#L15-L26).
@@ -69,13 +69,13 @@ ensure you miss as little data as possible. Running the safecoin software as a
 systemd service is one great option.
 
 For monitoring, we provide
-[`safecoin-watchtower`](https://github.com/fair-exchange/safecoin/blob/master/watchtower/README.md),
-which can monitor your validator and detect with the `safecoin-validator` process
+[`panoptis-watchtower`](https://github.com/fair-exchange/safecoin/blob/master/watchtower/README.md),
+which can monitor your validator and detect with the `panoptis-validator` process
 is unhealthy. It can directly be configured to alert you via Slack, Telegram,
-Discord, or Twillio. For details, run `safecoin-watchtower --help`.
+Discord, or Twillio. For details, run `panoptis-watchtower --help`.
 
 ```bash
-safecoin-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
+panoptis-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
 ```
 
 #### New Software Release Announcements
@@ -100,7 +100,7 @@ trusted validators. This snapshot reflects the current state of the chain, but
 does not contain the complete historical ledger. If one of your node exits and
 boots from a new snapshot, there may be a gap in the ledger on that node. In
 order to prevent this issue, add the `--no-snapshot-fetch` parameter to your
-`safecoin-validator` command to receive historical ledger data instead of a
+`panoptis-validator` command to receive historical ledger data instead of a
 snapshot.
 
 Do not pass the `--no-snapshot-fetch` parameter on your initial boot as it's not
@@ -269,7 +269,7 @@ transfer of 218099990000 - 207099990000 = 11000000000 lamports = 11 PANO
 If you need more information about the transaction type or other specifics, you
 can request the block from RPC in binary format, and parse it using either our
 [Rust SDK](https://github.com/fair-exchange/safecoin) or
-[Javascript SDK](https://github.com/fair-exchange/safecoin-web3.js).
+[Javascript SDK](https://github.com/fair-exchange/panoptis-web3.js).
 
 ### Address History
 
@@ -391,7 +391,7 @@ by the cluster. If the transaction fails, it will report any transaction errors.
 safecoin transfer <USER_ADDRESS> <AMOUNT> --allow-unfunded-recipient --keypair <KEYPAIR> --url http://localhost:8328
 ```
 
-The [Panoptis Javascript SDK](https://github.com/fair-exchange/safecoin-web3.js)
+The [Panoptis Javascript SDK](https://github.com/fair-exchange/panoptis-web3.js)
 offers a similar approach for the JS ecosystem. Use the `SystemProgram` to build
 a transfer transaction, and submit it using the `sendAndConfirmTransaction`
 method.
@@ -644,7 +644,7 @@ Signature: 4JsqZEPra2eDTHtHpB4FMWSfk3UgcCVmkKkP7zESZeMrKmFFkDkNd91pKP3vPVVZZPiu5
 Or to create an SPL Token account with a specific keypair:
 
 ```
-$ safecoin-keygen new -o token-account.json
+$ panoptis-keygen new -o token-account.json
 $ safe-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir token-account.json
 Creating account 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
 Signature: 4JsqZEPra2eDTHtHpB4FMWSfk3UgcCVmkKkP7zESZeMrKmFFkDkNd91pKP3vPVVZZPiu5XxyJwS73Vi5WsZL88D7
@@ -700,8 +700,8 @@ keypairs.
 
 Monitoring for deposit transactions should follow the [block polling](#poll-for-blocks)
 method described above. Each new block should be scanned for successful transactions
-issuing SPL Token [Transfer](https://github.com/fair-exchange/safecoin-program-library/blob/096d3d4da51a8f63db5160b126ebc56b26346fc8/token/program/src/instruction.rs#L92)
-or [Transfer2](https://github.com/fair-exchange/safecoin-program-library/blob/096d3d4da51a8f63db5160b126ebc56b26346fc8/token/program/src/instruction.rs#L252)
+issuing SPL Token [Transfer](https://github.com/fair-exchange/panoptis-program-library/blob/096d3d4da51a8f63db5160b126ebc56b26346fc8/token/program/src/instruction.rs#L92)
+or [Transfer2](https://github.com/fair-exchange/panoptis-program-library/blob/096d3d4da51a8f63db5160b126ebc56b26346fc8/token/program/src/instruction.rs#L252)
 instructions referencing user accounts, then querying the
 [token account balance](developing/clients/jsonrpc-api.md#gettokenaccountbalance)
 updates.

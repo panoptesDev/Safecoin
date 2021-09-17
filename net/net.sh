@@ -105,7 +105,7 @@ Operate a configured testnet
    --warp-slot WARP_SLOT              - Boot from a snapshot that has warped ahead to WARP_SLOT rather than a slot 0 genesis.
  sanity/start-specific options:
    -F                   - Discard validator nodes that didn't bootup successfully
-   -o noInstallCheck    - Skip safecoin-install sanity
+   -o noInstallCheck    - Skip panoptis-install sanity
    -o rejectExtraNodes  - Require the exact number of nodes
 
  stop-specific options:
@@ -121,7 +121,7 @@ Operate a configured testnet
    --netem-cmd         - Optional command argument to netem. Default is "add". Use "cleanup" to remove rules.
 
  update-specific options:
-   --platform linux|osx|windows       - Deploy the tarball using 'safecoin-install deploy ...' for the
+   --platform linux|osx|windows       - Deploy the tarball using 'panoptis-install deploy ...' for the
                                         given platform (multiple platforms may be specified)
                                         (-t option must be supplied as well)
 
@@ -417,9 +417,9 @@ startClient() {
 startClients() {
   for ((i=0; i < "$numClients" && i < "$numClientsRequested"; i++)) do
     if [[ $i -lt "$numBenchTpsClients" ]]; then
-      startClient "${clientIpList[$i]}" "safecoin-bench-tps" "$i"
+      startClient "${clientIpList[$i]}" "panoptis-bench-tps" "$i"
     elif [[ $i -lt $((numBenchTpsClients + numBenchExchangeClients)) ]]; then
-      startClient "${clientIpList[$i]}" "safecoin-bench-exchange" $((i-numBenchTpsClients))
+      startClient "${clientIpList[$i]}" "panoptis-bench-exchange" $((i-numBenchTpsClients))
     else
       startClient "${clientIpList[$i]}" "idle"
     fi
@@ -475,11 +475,11 @@ deployUpdate() {
   declare bootstrapLeader=${validatorIpList[0]}
 
   for updatePlatform in $updatePlatforms; do
-    echo "--- Deploying safecoin-install update: $updatePlatform"
+    echo "--- Deploying panoptis-install update: $updatePlatform"
     (
       set -x
 
-      scripts/safecoin-install-update-manifest-keypair.sh "$updatePlatform"
+      scripts/panoptis-install-update-manifest-keypair.sh "$updatePlatform"
 
       timeout 30s scp "${sshOptions[@]}" \
         update_manifest_keypair.json "$bootstrapLeader:solana/update_manifest_keypair.json"

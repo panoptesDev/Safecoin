@@ -5,15 +5,15 @@
 set -e
 
 solana_version=edge
-curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/safecoin-install-init.sh \
+curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/panoptis-install-init.sh \
     | sh -s - $solana_version \
         --no-modify-path \
-        --data-dir ./safecoin-install \
-        --config ./safecoin-install/config.yml
+        --data-dir ./panoptis-install \
+        --config ./panoptis-install/config.yml
 
-PATH="$(realpath "$PWD"/safecoin-install/releases/"$solana_version"*/solana-release/bin/):$PATH"
+PATH="$(realpath "$PWD"/panoptis-install/releases/"$solana_version"*/solana-release/bin/):$PATH"
 echo PATH="$PATH"
 
 set -x
 safecoin --version
-exec safecoin-stake-o-matic "$@"
+exec panoptis-stake-o-matic "$@"

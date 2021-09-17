@@ -1,7 +1,7 @@
 [package]
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 edition = "2018"
-name = "safecoin-bench-streamer"
+name = "panoptis-bench-streamer"
 version = "1.6.19"
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
@@ -10,11 +10,11 @@ publish = false
 
 [dependencies]
 clap = "2.33.1"
-safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.19" }
-safecoin-streamer = { path = "../streamer", version = "=1.6.19" }
-safecoin-logger = { path = "../logger", version = "=1.6.19" }
-safecoin-net-utils = { path = "../net-utils", version = "=1.6.19" }
-safecoin-version = { path = "../version", version = "=1.6.19" }
+panoptis-clap-utils = { path = "../clap-utils", version = "=1.6.19" }
+panoptis-streamer = { path = "../streamer", version = "=1.6.19" }
+panoptis-logger = { path = "../logger", version = "=1.6.19" }
+panoptis-net-utils = { path = "../net-utils", version = "=1.6.19" }
+panoptis-version = { path = "../version", version = "=1.6.19" }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

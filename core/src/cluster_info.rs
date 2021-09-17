@@ -1780,7 +1780,7 @@ impl ClusterInfo {
             .build()
             .unwrap();
         Builder::new()
-            .name("safecoin-gossip".to_string())
+            .name("panoptis-gossip".to_string())
             .spawn(move || {
                 let mut last_push = timestamp();
                 let mut last_contact_info_trace = timestamp();
@@ -1798,7 +1798,7 @@ impl ClusterInfo {
                 let mut generate_pull_requests = true;
                 loop {
                     let start = timestamp();
-                    thread_mem_usage::datapoint("safecoin-gossip");
+                    thread_mem_usage::datapoint("panoptis-gossip");
                     if self.contact_debug_interval != 0
                         && start - last_contact_info_trace > self.contact_debug_interval
                     {

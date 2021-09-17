@@ -1,23 +1,23 @@
 [package]
-name = "safecoin-ownable"
+name = "panoptis-ownable"
 version = "1.6.19"
 description = "ownable program"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-ownable"
+documentation = "https://docs.rs/panoptis-ownable"
 edition = "2018"
 
 [dependencies]
 bincode = "1.3.1"
-safecoin-sdk = { path = "../../sdk", version = "=1.6.19" }
+panoptis-sdk = { path = "../../sdk", version = "=1.6.19" }
 num-derive = "0.3"
 num-traits = "0.2"
 thiserror = "1.0"
 
 [dev-dependencies]
-safecoin-runtime = { path = "../../runtime", version = "=1.6.19" }
+panoptis-runtime = { path = "../../runtime", version = "=1.6.19" }
 
 [lib]
 crate-type = ["lib", "cdylib"]

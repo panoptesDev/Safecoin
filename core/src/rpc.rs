@@ -2235,7 +2235,7 @@ pub mod rpc_minimal {
         #[rpc(meta, name = "getVersion")]
         fn get_version(&self, meta: Self::Metadata) -> Result<RpcVersionInfo>;
 
-        // TODO: Refactor `safecoin-validator wait-for-restart-window` to not require this method, so
+        // TODO: Refactor `panoptis-validator wait-for-restart-window` to not require this method, so
         //       it can be removed from rpc_minimal
         #[rpc(meta, name = "getVoteAccounts")]
         fn get_vote_accounts(
@@ -2244,7 +2244,7 @@ pub mod rpc_minimal {
             config: Option<RpcGetVoteAccountsConfig>,
         ) -> Result<RpcVoteAccountStatus>;
 
-        // TODO: Refactor `safecoin-validator wait-for-restart-window` to not require this method, so
+        // TODO: Refactor `panoptis-validator wait-for-restart-window` to not require this method, so
         //       it can be removed from rpc_minimal
         #[rpc(meta, name = "getLeaderSchedule")]
         fn get_leader_schedule(
@@ -2348,7 +2348,7 @@ pub mod rpc_minimal {
             })
         }
 
-        // TODO: Refactor `safecoin-validator wait-for-restart-window` to not require this method, so
+        // TODO: Refactor `panoptis-validator wait-for-restart-window` to not require this method, so
         //       it can be removed from rpc_minimal
         fn get_vote_accounts(
             &self,
@@ -2359,7 +2359,7 @@ pub mod rpc_minimal {
             meta.get_vote_accounts(config)
         }
 
-        // TODO: Refactor `safecoin-validator wait-for-restart-window` to not require this method, so
+        // TODO: Refactor `panoptis-validator wait-for-restart-window` to not require this method, so
         //       it can be removed from rpc_minimal
         fn get_leader_schedule(
             &self,
@@ -2687,7 +2687,7 @@ pub mod rpc_full {
         ) -> Result<RpcResponse<RpcBlockProduction>>;
 
         // SPL Token-specific RPC endpoints
-        // See https://github.com/fair-exchange/safecoin-program-library/releases/tag/token-v2.0.0 for
+        // See https://github.com/fair-exchange/panoptis-program-library/releases/tag/token-v2.0.0 for
         // program details
 
         #[rpc(meta, name = "getTokenAccountBalance")]
@@ -5844,7 +5844,7 @@ pub mod tests {
         let expected = json!({
             "jsonrpc": "2.0",
             "result": {
-                "safecoin-core": version.to_string(),
+                "panoptis-core": version.to_string(),
                 "feature-set": version.feature_set,
             },
             "id": 1

@@ -35,6 +35,6 @@ loadConfigFile
 PATH="$HOME"/.cargo/bin:"$PATH"
 
 set -x
-scripts/safecoin-install-deploy.sh \
+scripts/panoptis-install-deploy.sh \
   --keypair config/faucet.json \
   localhost "$releaseChannel" "$updatePlatform"

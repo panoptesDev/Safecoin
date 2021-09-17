@@ -146,7 +146,7 @@ Verify that all of the build artifacts are present, then the uncheck **"This is 
 
 Build artifacts can take up to 60 minutes after creating the tag before
 appearing.  To check for progress:
-* The `solana-secondary` Buildkite pipeline handles creating the Linux release artifacts and updated crates.  Look for a job under the tag name of the release: https://buildkite.com/fair-exchange/safecoin-secondary.
+* The `solana-secondary` Buildkite pipeline handles creating the Linux release artifacts and updated crates.  Look for a job under the tag name of the release: https://buildkite.com/fair-exchange/panoptis-secondary.
 * The macOS and Windows release artifacts are produced by Travis CI: https://travis-ci.com/github/fair-exchange/safecoin/branches
 
 [Crates.io](https://crates.io/crates/solana) should have an updated Panoptis version.  This can take 2-3 hours, and sometimes fails in the `solana-secondary` job.

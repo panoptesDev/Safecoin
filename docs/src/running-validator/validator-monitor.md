@@ -8,7 +8,7 @@ Confirm the IP address and **identity pubkey** of your validator is visible in
 the gossip network by running:
 
 ```bash
-safecoin-gossip spy --entrypoint devnet.safecoin.org:10015
+panoptis-gossip spy --entrypoint devnet.safecoin.org:10015
 ```
 
 ## Check Your Balance
@@ -36,7 +36,7 @@ There are several useful JSON-RPC endpoints for monitoring your validator on the
 cluster, as well as the health of the cluster:
 
 ```bash
-# Similar to safecoin-gossip, you should see your validator in the list of cluster nodes
+# Similar to panoptis-gossip, you should see your validator in the list of cluster nodes
 curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1, "method":"getClusterNodes"}' http://api.devnet.safecoin.org
 # If your validator is properly voting, it should appear in the list of `current` vote accounts. If staked, `stake` should be > 0
 curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1, "method":"getVoteAccounts"}' http://api.devnet.safecoin.org

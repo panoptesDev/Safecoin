@@ -4,7 +4,7 @@ title: JSON RPC API
 
 Panoptis节点使用[JSON-RPC 2.0](https://www.jsonrpc.org/specification)规范接受HTTP请求。
 
-要与JavaScript应用程序中的Panoptis节点进行交互，请使用[solana-web3.js](https://github.com/fair-exchange/safecoin-web3.js)库，该库为RPC方法提供了方便的接口。
+要与JavaScript应用程序中的Panoptis节点进行交互，请使用[solana-web3.js](https://github.com/fair-exchange/panoptis-web3.js)库，该库为RPC方法提供了方便的接口。
 
 ## RPC HTTP 端点
 
@@ -174,7 +174,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 尽管不是JSON RPC API，但RPC HTTP端点上的`GET / health`提供了一种健康检查机制，供负载平衡器或其他网络基础结构使用。 根据以下条件，此请求将始终返回带有 "ok" 或 "behind" 正文的 HTTP 200 OK 响应：
 
-1. 如果向`safecoin-validator`提供了一个或多个`--trusted-validator`参数，则当节点位于最高可信验证器的`HEALTH_CHECK_SLOT_DISTANCE`插槽内时，返回 "ok"，否则返回 "behind"。
+1. 如果向`panoptis-validator`提供了一个或多个`--trusted-validator`参数，则当节点位于最高可信验证器的`HEALTH_CHECK_SLOT_DISTANCE`插槽内时，返回 "ok"，否则返回 "behind"。
 2. 如果未提供受信任的验证器，则始终返回 "ok"。
 
 ## JSON RPC API 引用
@@ -1240,7 +1240,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 返回节点的当前运行状况。
 
-如果将一个或多个 `--trusted-validator` 参数提供给 `safecoin-validator`，则当节点位于最高可信验证器的 `HEALTH_CHECK_SLOT_DISTANCE` 插槽内时，将返回 "ok"，否则将返回错误。  如果未提供受信任的验证器，则始终返回“ ok”。
+如果将一个或多个 `--trusted-validator` 参数提供给 `panoptis-validator`，则当节点位于最高可信验证器的 `HEALTH_CHECK_SLOT_DISTANCE` 插槽内时，将返回 "ok"，否则将返回错误。  如果未提供受信任的验证器，则始终返回“ ok”。
 
 #### 参数：
 
@@ -2591,7 +2591,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 结果字段将是具有以下字段的JSON对象：
 
-- `safecoin-core`，safecoin-core 的软件版本
+- `panoptis-core`，panoptis-core 的软件版本
 - `feature-set`，当前软件功能集的唯一标识符
 
 #### 示例:
@@ -2605,7 +2605,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 结果：
 ```json
-{"jsonrpc":"2.0","result":{"safecoin-core": "1.6.0"},"id":1}
+{"jsonrpc":"2.0","result":{"panoptis-core": "1.6.0"},"id":1}
 ```
 
 ### getVoteAccounts

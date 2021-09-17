@@ -100,7 +100,7 @@ possible.
 
 The Panoptis Program Library math tests will report the performance of some math
 operations:
-https://github.com/fair-exchange/safecoin-program-library/tree/master/libraries/math
+https://github.com/fair-exchange/panoptis-program-library/tree/master/libraries/math
 
 To run the test, sync the repo, and run:
 

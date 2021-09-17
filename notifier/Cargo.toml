@@ -1,12 +1,12 @@
 [package]
-name = "safecoin-notifier"
+name = "panoptis-notifier"
 version = "1.6.19"
 description = "Panoptis Notifier"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-notifier"
+documentation = "https://docs.rs/panoptis-notifier"
 edition = "2018"
 
 [dependencies]

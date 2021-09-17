@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Fetches the latest SPL programs and produces the safecoin-genesis command-line
+# Fetches the latest SPL programs and produces the panoptis-genesis command-line
 # arguments needed to install them
 #
 
@@ -29,7 +29,7 @@ fetch_program() {
       set -x
       curl -L --retry 5 --retry-delay 2 --retry-connrefused \
         -o "$so" \
-        "https://github.com/fair-exchange/safecoin-program-library/releases/download/$name-v$version/$so_name"
+        "https://github.com/fair-exchange/panoptis-program-library/releases/download/$name-v$version/$so_name"
     )
 
     mkdir -p ~/.cache/solana-spl
@@ -51,5 +51,5 @@ echo "Available SPL programs:"
 ls -l spl_*.so
 
 echo
-echo "safecoin-genesis command-line arguments (spl-genesis-args.sh):"
+echo "panoptis-genesis command-line arguments (spl-genesis-args.sh):"
 cat spl-genesis-args.sh

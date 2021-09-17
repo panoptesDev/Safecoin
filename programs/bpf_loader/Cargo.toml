@@ -1,12 +1,12 @@
 [package]
-name = "safecoin-bpf-loader-program"
+name = "panoptis-bpf-loader-program"
 version = "1.6.19"
 description = "Panoptis BPF loader"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-bpf-loader-program"
+documentation = "https://docs.rs/panoptis-bpf-loader-program"
 edition = "2018"
 
 [dependencies]
@@ -17,9 +17,9 @@ num-derive = "0.3"
 num-traits = "0.2"
 rand_core = "0.6.2"
 sha3 = "0.9.1"
-safecoin-measure = { path = "../../measure", version = "=1.6.19" }
-safecoin-runtime = { path = "../../runtime", version = "=1.6.19" }
-safecoin-sdk = { path = "../../sdk", version = "=1.6.19" }
+panoptis-measure = { path = "../../measure", version = "=1.6.19" }
+panoptis-runtime = { path = "../../runtime", version = "=1.6.19" }
+panoptis-sdk = { path = "../../sdk", version = "=1.6.19" }
 solana_rbpf = "=0.2.9"
 thiserror = "1.0"
 

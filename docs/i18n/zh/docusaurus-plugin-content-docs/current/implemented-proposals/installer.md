@@ -13,7 +13,7 @@ title: 集群软件安装和更新
 支持的平台上最简单的安装方法。
 
 ```bash
-$ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/safecoin-install-init.sh | sh
+$ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/panoptis-install-init.sh | sh
 ```
 
 这个脚本将检查github以获取最新的标签版本，并从那里下载并运行`Panoptis-install-init`二进制文件。
@@ -21,8 +21,8 @@ $ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/inst
 如果在安装过程中需要指定额外的参数，可以使用下面的shell语法。
 
 ```bash
-$ init_args=.... # arguments for `safecoin-install-init ...`
-$ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/safecoin-install-init.sh | sh -s - ${init_args}
+$ init_args=.... # arguments for `panoptis-install-init ...`
+$ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/panoptis-install-init.sh | sh -s - ${init_args}
 ```
 
 ### 从Github发布的版本中获取并运行一个预构建的安装程序。
@@ -30,9 +30,9 @@ $ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/inst
 通过知名的发布URL，可以获得支持平台的预构建二进制文件。
 
 ```bash
-$ curl -o safecoin-install-init https://github.com/fair-exchange/safecoin/releases/download/v1.0.0/safecoin-install-init-x86_64-apple-darwin
-$ chmod +x ./safecoin-install-init
-$ ./safecoin-install-init --help
+$ curl -o panoptis-install-init https://github.com/fair-exchange/safecoin/releases/download/v1.0.0/panoptis-install-init-x86_64-apple-darwin
+$ chmod +x ./panoptis-install-init
+$ ./panoptis-install-init --help
 ```
 
 ### 从源代码构建并运行安装程序。
@@ -50,17 +50,17 @@ $ cargo run -- --help
 如果Panoptis发布的tarball\(由`ci/publish-tarball.sh`创建\) 已经上传到一个可公开访问的URL中，以下命令将部署更新。
 
 ```bash
-$ safecoin-keygen new -o update-manifest.json  # <-- only generated once, the public key is shared with users
-$ safecoin-install deploy http://example.com/path/to/solana-release.tar.bz2 update-manifest.json
+$ panoptis-keygen new -o update-manifest.json  # <-- only generated once, the public key is shared with users
+$ panoptis-install deploy http://example.com/path/to/solana-release.tar.bz2 update-manifest.json
 ```
 
 ### 运行一个自动更新的验证器节点。
 
 ```bash
-$ safecoin-install init --pubkey 92DMonmBYXwEMHJ99c9ceRSpAmk9v6i3RdvDdXaVcrfj  # <-- pubkey is obtained from whoever is deploying the updates
-$ export PATH=~/.local/share/safecoin-install/bin:$PATH
-$ safecoin-keygen ...  # <-- runs the latest safecoin-keygen
-$ safecoin-install run safecoin-validator ...  # <-- runs a validator, restarting it as necesary when an update is applied
+$ panoptis-install init --pubkey 92DMonmBYXwEMHJ99c9ceRSpAmk9v6i3RdvDdXaVcrfj  # <-- pubkey is obtained from whoever is deploying the updates
+$ export PATH=~/.local/share/panoptis-install/bin:$PATH
+$ panoptis-keygen ...  # <-- runs the latest panoptis-keygen
+$ panoptis-install run panoptis-validator ...  # <-- runs a validator, restarting it as necesary when an update is applied
 ```
 
 ## 链上更新清单
@@ -87,9 +87,9 @@ pub struct SignedUpdateManifest {
 }
 ```
 
-请注意，`manifest` 字段本身包含一个相应的签名\(`manifest_signature`\)，以防止 `safecoin-install` 工具和 Panoptis 集群 RPC API 之间的中间人攻击。
+请注意，`manifest` 字段本身包含一个相应的签名\(`manifest_signature`\)，以防止 `panoptis-install` 工具和 Panoptis 集群 RPC API 之间的中间人攻击。
 
-为了防止回滚攻击，`safecoin-install` 将拒绝安装比当前安装的 `timestamp_secs` 更早的更新。
+为了防止回滚攻击，`panoptis-install` 将拒绝安装比当前安装的 `timestamp_secs` 更早的更新。
 
 ## 版本存档内容
 
@@ -101,7 +101,7 @@ pub struct SignedUpdateManifest {
 
 - `/bin/` -- 发行版中包含可用程序的目录。
 
-  `safecoin-install` 会将这个目录以符号链接的方式连接到
+  `panoptis-install` 会将这个目录以符号链接的方式连接到
 
   `~/.local/share/Panoptis-install/bin` 供 `PATH` 环境变量使用。
 
@@ -109,9 +109,9 @@ pub struct SignedUpdateManifest {
 
 - `...` -- 允许有任何其他文件和目录。
 
-## safecoin-install 工具
+## panoptis-install 工具
 
-用户使用 `safecoin-install` 工具来安装和更新他们的集群软件。
+用户使用 `panoptis-install` 工具来安装和更新他们的集群软件。
 
 它在用户的主目录中管理以下文件和目录： ~/. config/Panoptis/install/config. yml -- 用户配置和当前集群软件的信息。
 
@@ -122,11 +122,11 @@ pub struct SignedUpdateManifest {
 ### 命令行界面
 
 ```text
-safecoin-install 0.16.0
+panoptis-install 0.16.0
 The safecoin cluster software installer
 
 USAGE:
-    safecoin-install [OPTIONS] <SUBCOMMAND>
+    panoptis-install [OPTIONS] <SUBCOMMAND>
 
 FLAGS:
     -h, --help       Prints help information
@@ -145,11 +145,11 @@ SUBCOMMANDS:
 ```
 
 ```text
-safecoin-install-init
+panoptis-install-init
 initializes a new installation
 
 USAGE:
-    safecoin-install init [OPTIONS]
+    panoptis-install init [OPTIONS]
 
 FLAGS:
     -h, --help    Prints help information
@@ -161,11 +161,11 @@ OPTIONS:
 ```
 
 ```text
-safecoin-install info
+panoptis-install info
 displays information about the current installation
 
 USAGE:
-    safecoin-install info [FLAGS]
+    panoptis-install info [FLAGS]
 
 FLAGS:
     -h, --help     Prints help information
@@ -173,11 +173,11 @@ FLAGS:
 ```
 
 ```text
-safecoin-install deploy
+panoptis-install deploy
 deploys a new update
 
 USAGE:
-    safecoin-install deploy <download_url> <update_manifest_keypair>
+    panoptis-install deploy <download_url> <update_manifest_keypair>
 
 FLAGS:
     -h, --help    Prints help information
@@ -188,22 +188,22 @@ ARGS:
 ```
 
 ```text
-safecoin-install update
+panoptis-install update
 checks for an update, and if available downloads and applies it
 
 USAGE:
-    safecoin-install update
+    panoptis-install update
 
 FLAGS:
     -h, --help    Prints help information
 ```
 
 ```text
-safecoin-install run
+panoptis-install run
 Runs a program while periodically checking and applying software updates
 
 USAGE:
-    safecoin-install run <program_name> [program_arguments]...
+    panoptis-install run <program_name> [program_arguments]...
 
 FLAGS:
     -h, --help    Prints help information

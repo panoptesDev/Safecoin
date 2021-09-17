@@ -1,5 +1,5 @@
 [package]
-name = "safecoin-tokens"
+name = "panoptis-tokens"
 description = "Panoptis: Enterprise Security for the Community by the Community"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 edition = "2018"
@@ -7,7 +7,7 @@ version = "1.6.19"
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-tokens"
+documentation = "https://docs.rs/panoptis-tokens"
 
 [dependencies]
 chrono = { version = "0.4", features = ["serde"] }
@@ -20,16 +20,16 @@ indexmap = "1.5.1"
 indicatif = "0.15.0"
 pickledb = "0.4.1"
 serde = { version = "1.0", features = ["derive"] }
-safecoin-account-decoder = { path = "../account-decoder", version = "=1.6.19" }
-safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.19" }
-safecoin-cli-config = { path = "../cli-config", version = "=1.6.19" }
-safecoin-client = { path = "../client", version = "=1.6.19" }
-safecoin-remote-wallet = { path = "../remote-wallet", version = "=1.6.19" }
-safecoin-runtime = { path = "../runtime", version = "=1.6.19" }
-safecoin-sdk = { path = "../sdk", version = "=1.6.19" }
-safecoin-stake-program = { path = "../programs/stake", version = "=1.6.19" }
-safecoin-transaction-status = { path = "../transaction-status", version = "=1.6.19" }
-safecoin-version = { path = "../version", version = "=1.6.19" }
+panoptis-account-decoder = { path = "../account-decoder", version = "=1.6.19" }
+panoptis-clap-utils = { path = "../clap-utils", version = "=1.6.19" }
+panoptis-cli-config = { path = "../cli-config", version = "=1.6.19" }
+panoptis-client = { path = "../client", version = "=1.6.19" }
+panoptis-remote-wallet = { path = "../remote-wallet", version = "=1.6.19" }
+panoptis-runtime = { path = "../runtime", version = "=1.6.19" }
+panoptis-sdk = { path = "../sdk", version = "=1.6.19" }
+panoptis-stake-program = { path = "../programs/stake", version = "=1.6.19" }
+panoptis-transaction-status = { path = "../transaction-status", version = "=1.6.19" }
+panoptis-version = { path = "../version", version = "=1.6.19" }
 safe-associated-token-account-v1-0 = { package = "safe-associated-token-account", version = ">=1.0.7" }
 spl-token-v2-0 = { package = "safe-token", version = ">=3.1.6", features = ["no-entrypoint"] }
 tempfile = "3.1.0"
@@ -37,6 +37,6 @@ thiserror = "1.0"
 
 [dev-dependencies]
 bincode = "1.3.1"
-safecoin-core = { path = "../core", version = "=1.6.19" }
-safecoin-logger = { path = "../logger", version = "=1.6.19" }
-safecoin-program-test = { path = "../program-test", version = "=1.6.19" }
+panoptis-core = { path = "../core", version = "=1.6.19" }
+panoptis-logger = { path = "../logger", version = "=1.6.19" }
+panoptis-program-test = { path = "../program-test", version = "=1.6.19" }

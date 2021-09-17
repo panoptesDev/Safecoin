@@ -529,7 +529,7 @@ pub fn init(
     explicit_release: Option<ExplicitRelease>,
 ) -> Result<(), String> {
     let config = {
-        // Write new config file only if different, so that running |safecoin-install init|
+        // Write new config file only if different, so that running |panoptis-install init|
         // repeatedly doesn't unnecessarily re-download
         let mut current_config = Config::load(config_file).unwrap_or_default();
         current_config.current_update_manifest = None;
@@ -862,7 +862,7 @@ fn check_for_newer_github_release(
     let url =
         reqwest::Url::parse("https://api.github.com/repos/fair-exchange/safecoin/releases").unwrap();
     let client = reqwest::blocking::Client::builder()
-        .user_agent("safecoin-install")
+        .user_agent("panoptis-install")
         .build()?;
     let request = client.get(url).build()?;
     let response = client.execute(request)?;

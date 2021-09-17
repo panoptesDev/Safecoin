@@ -13,16 +13,16 @@ This document proposes an easy to use software install and updater that can be u
 The easiest install method for supported platforms:
 
 ```bash
-$ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/safecoin-install-init.sh | sh
+$ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/panoptis-install-init.sh | sh
 ```
 
-This script will check github for the latest tagged release and download and run the `safecoin-install-init` binary from there.
+This script will check github for the latest tagged release and download and run the `panoptis-install-init` binary from there.
 
 If additional arguments need to be specified during the installation, the following shell syntax is used:
 
 ```bash
-$ init_args=.... # arguments for `safecoin-install-init ...`
-$ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/safecoin-install-init.sh | sh -s - ${init_args}
+$ init_args=.... # arguments for `panoptis-install-init ...`
+$ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/panoptis-install-init.sh | sh -s - ${init_args}
 ```
 
 ### Fetch and run a pre-built installer from a Github release
@@ -30,9 +30,9 @@ $ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/inst
 With a well-known release URL, a pre-built binary can be obtained for supported platforms:
 
 ```bash
-$ curl -o safecoin-install-init https://github.com/fair-exchange/safecoin/releases/download/v1.0.0/safecoin-install-init-x86_64-apple-darwin
-$ chmod +x ./safecoin-install-init
-$ ./safecoin-install-init --help
+$ curl -o panoptis-install-init https://github.com/fair-exchange/safecoin/releases/download/v1.0.0/panoptis-install-init-x86_64-apple-darwin
+$ chmod +x ./panoptis-install-init
+$ ./panoptis-install-init --help
 ```
 
 ### Build and run the installer from source
@@ -50,17 +50,17 @@ $ cargo run -- --help
 Given a safecoin release tarball \(as created by `ci/publish-tarball.sh`\) that has already been uploaded to a publicly accessible URL, the following commands will deploy the update:
 
 ```bash
-$ safecoin-keygen new -o update-manifest.json  # <-- only generated once, the public key is shared with users
-$ safecoin-install deploy http://example.com/path/to/solana-release.tar.bz2 update-manifest.json
+$ panoptis-keygen new -o update-manifest.json  # <-- only generated once, the public key is shared with users
+$ panoptis-install deploy http://example.com/path/to/solana-release.tar.bz2 update-manifest.json
 ```
 
 ### Run a validator node that auto updates itself
 
 ```bash
-$ safecoin-install init --pubkey 92DMonmBYXwEMHJ99c9ceRSpAmk9v6i3RdvDdXaVcrfj  # <-- pubkey is obtained from whoever is deploying the updates
-$ export PATH=~/.local/share/safecoin-install/bin:$PATH
-$ safecoin-keygen ...  # <-- runs the latest safecoin-keygen
-$ safecoin-install run safecoin-validator ...  # <-- runs a validator, restarting it as necesary when an update is applied
+$ panoptis-install init --pubkey 92DMonmBYXwEMHJ99c9ceRSpAmk9v6i3RdvDdXaVcrfj  # <-- pubkey is obtained from whoever is deploying the updates
+$ export PATH=~/.local/share/panoptis-install/bin:$PATH
+$ panoptis-keygen ...  # <-- runs the latest panoptis-keygen
+$ panoptis-install run panoptis-validator ...  # <-- runs a validator, restarting it as necesary when an update is applied
 ```
 
 ## On-chain Update Manifest
@@ -87,9 +87,9 @@ pub struct SignedUpdateManifest {
 }
 ```
 
-Note that the `manifest` field itself contains a corresponding signature \(`manifest_signature`\) to guard against man-in-the-middle attacks between the `safecoin-install` tool and the safecoin cluster RPC API.
+Note that the `manifest` field itself contains a corresponding signature \(`manifest_signature`\) to guard against man-in-the-middle attacks between the `panoptis-install` tool and the safecoin cluster RPC API.
 
-To guard against rollback attacks, `safecoin-install` will refuse to install an update with an older `timestamp_secs` than what is currently installed.
+To guard against rollback attacks, `panoptis-install` will refuse to install an update with an older `timestamp_secs` than what is currently installed.
 
 ## Release Archive Contents
 
@@ -101,17 +101,17 @@ A release archive is expected to be a tar file compressed with bzip2 with the fo
 
 - `/bin/` -- directory containing available programs in the release.
 
-  `safecoin-install` will symlink this directory to
+  `panoptis-install` will symlink this directory to
 
-  `~/.local/share/safecoin-install/bin` for use by the `PATH` environment
+  `~/.local/share/panoptis-install/bin` for use by the `PATH` environment
 
   variable.
 
 - `...` -- any additional files and directories are permitted
 
-## safecoin-install Tool
+## panoptis-install Tool
 
-The `safecoin-install` tool is used by the user to install and update their cluster software.
+The `panoptis-install` tool is used by the user to install and update their cluster software.
 
 It manages the following files and directories in the user's home directory:
 
@@ -122,11 +122,11 @@ It manages the following files and directories in the user's home directory:
 ### Command-line Interface
 
 ```text
-safecoin-install 0.16.0
+panoptis-install 0.16.0
 The safecoin cluster software installer
 
 USAGE:
-    safecoin-install [OPTIONS] <SUBCOMMAND>
+    panoptis-install [OPTIONS] <SUBCOMMAND>
 
 FLAGS:
     -h, --help       Prints help information
@@ -145,11 +145,11 @@ SUBCOMMANDS:
 ```
 
 ```text
-safecoin-install-init
+panoptis-install-init
 initializes a new installation
 
 USAGE:
-    safecoin-install init [OPTIONS]
+    panoptis-install init [OPTIONS]
 
 FLAGS:
     -h, --help    Prints help information
@@ -161,11 +161,11 @@ OPTIONS:
 ```
 
 ```text
-safecoin-install info
+panoptis-install info
 displays information about the current installation
 
 USAGE:
-    safecoin-install info [FLAGS]
+    panoptis-install info [FLAGS]
 
 FLAGS:
     -h, --help     Prints help information
@@ -173,11 +173,11 @@ FLAGS:
 ```
 
 ```text
-safecoin-install deploy
+panoptis-install deploy
 deploys a new update
 
 USAGE:
-    safecoin-install deploy <download_url> <update_manifest_keypair>
+    panoptis-install deploy <download_url> <update_manifest_keypair>
 
 FLAGS:
     -h, --help    Prints help information
@@ -188,22 +188,22 @@ ARGS:
 ```
 
 ```text
-safecoin-install update
+panoptis-install update
 checks for an update, and if available downloads and applies it
 
 USAGE:
-    safecoin-install update
+    panoptis-install update
 
 FLAGS:
     -h, --help    Prints help information
 ```
 
 ```text
-safecoin-install run
+panoptis-install run
 Runs a program while periodically checking and applying software updates
 
 USAGE:
-    safecoin-install run <program_name> [program_arguments]...
+    panoptis-install run <program_name> [program_arguments]...
 
 FLAGS:
     -h, --help    Prints help information

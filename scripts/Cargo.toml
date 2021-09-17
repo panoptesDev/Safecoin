@@ -1,7 +1,7 @@
 [package]
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 edition = "2018"
-name = "safecoin-scripts"
+name = "panoptis-scripts"
 description = "Panoptis: Enterprise Security for the Community by the Community"
 version = "1.6.19"
 repository = "https://github.com/fair-exchange/safecoin"
@@ -14,7 +14,7 @@ csv = "1.1"
 serde = { version = "1.0.122", features = ["derive"] }
 
 [[bin]]
-name = "safecoin-csv-to-validator-infos"
+name = "panoptis-csv-to-validator-infos"
 path = "src/csv_to_validator_infos.rs"
 
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Starts an instance of safecoin-faucet
+# Starts an instance of panoptis-faucet
 #
 here=$(dirname "$0")
 

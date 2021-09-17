@@ -53,10 +53,10 @@ Panoptis RPC API、Rust SDK、CLI工具和BPF程序SDK均已更新并随每个Pa
 
 ### Rust Crates
 
-* [`safecoin-sdk`](https://docs.rs/safecoin-sdk/) - 用于创建交易和解析帐户状态的Rust SDK
-* [`safecoin-program`](https://docs.rs/safecoin-program/) - 用于编写程序的Rust SDK
-* [`safecoin-client`](https://docs.rs/safecoin-client/) - 用于连接RPC API的Rust客户端
-* [`safecoin-cli-config`](https://docs.rs/safecoin-cli-config/) - 用于管理Panoptis CLI配置文件的Rust客户端
+* [`panoptis-sdk`](https://docs.rs/panoptis-sdk/) - 用于创建交易和解析帐户状态的Rust SDK
+* [`panoptis-program`](https://docs.rs/panoptis-program/) - 用于编写程序的Rust SDK
+* [`panoptis-client`](https://docs.rs/panoptis-client/) - 用于连接RPC API的Rust客户端
+* [`panoptis-cli-config`](https://docs.rs/panoptis-cli-config/) - 用于管理Panoptis CLI配置文件的Rust客户端
 
 补丁发布：
 - Bug修复

@@ -10,7 +10,7 @@ documentation = "https://docs.rs/solana-bpf-rust-128bit"
 edition = "2018"
 
 [dependencies]
-safecoin-program = { path = "../../../../sdk/program", version = "=1.6.19" }
+panoptis-program = { path = "../../../../sdk/program", version = "=1.6.19" }
 solana-bpf-rust-128bit-dep = { path = "../128bit_dep", version = "=1.6.19" }
 
 [lib]

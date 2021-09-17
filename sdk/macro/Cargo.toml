@@ -1,11 +1,11 @@
 [package]
-name = "safecoin-sdk-macro"
+name = "panoptis-sdk-macro"
 version = "1.6.19"
 description = "Panoptis SDK Macro"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-sdk-macro"
+documentation = "https://docs.rs/panoptis-sdk-macro"
 license = "Apache-2.0"
 edition = "2018"
 

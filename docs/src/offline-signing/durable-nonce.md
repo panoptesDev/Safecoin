@@ -38,7 +38,7 @@ A nonce account is created by first generating a new keypair, then create the ac
 - Command
 
 ```bash
-safecoin-keygen new -o nonce-keypair.json
+panoptis-keygen new -o nonce-keypair.json
 safecoin create-nonce-account nonce-keypair.json 1
 ```
 
@@ -173,9 +173,9 @@ is the same for all subcommands supporting durable nonces
 First we need some accounts for Alice, Alice's nonce and Bob
 
 ```bash
-$ safecoin-keygen new -o alice.json
-$ safecoin-keygen new -o nonce.json
-$ safecoin-keygen new -o bob.json
+$ panoptis-keygen new -o alice.json
+$ panoptis-keygen new -o nonce.json
+$ panoptis-keygen new -o bob.json
 ```
 
 #### - Fund Alice's account

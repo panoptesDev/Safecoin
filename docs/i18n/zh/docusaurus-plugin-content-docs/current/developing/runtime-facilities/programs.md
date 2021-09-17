@@ -11,14 +11,14 @@ Panoptis包含少量内置程序，这些程序是运行验证程序节点所必
 创建帐户并在它们之间转移Lamport
 
 - 程序ID：`11111111111111111111111111111111`
-- 说明：[SystemInstruction](https://docs.rs/safecoin-sdk/VERSION_FOR_DOCS_RS/solana_sdk/system_instruction/enum.SystemInstruction.html)
+- 说明：[SystemInstruction](https://docs.rs/panoptis-sdk/VERSION_FOR_DOCS_RS/solana_sdk/system_instruction/enum.SystemInstruction.html)
 
 ## 配置程序
 
 将配置数据添加到链和允许对其进行修改的公钥列表中
 
 - 程序ID：`Config1111111111111111111111111111111111111111`
-- 说明：[config_instruction](https://docs.rs/safecoin-config-program/VERSION_FOR_DOCS_RS/solana_config_program/config_instruction/index.html)
+- 说明：[config_instruction](https://docs.rs/panoptis-config-program/VERSION_FOR_DOCS_RS/solana_config_program/config_instruction/index.html)
 
 与其他程序不同，Config程序未定义任何单独的指令。 它只有一条隐式指令，即“存储”指令。 它的指令数据是一组密钥，用于控制对帐户的访问以及存储在其中的数据。
 
@@ -27,21 +27,21 @@ Panoptis包含少量内置程序，这些程序是运行验证程序节点所必
 创建权益账户并将其委托给验证者
 
 - 程序ID：`Stake11111111111111111111111111111111111111`
-- 说明： [StakeInstruction](https://docs.rs/safecoin-stake-program/VERSION_FOR_DOCS_RS/solana_stake_program/stake_instruction/enum.StakeInstruction.html)
+- 说明： [StakeInstruction](https://docs.rs/panoptis-stake-program/VERSION_FOR_DOCS_RS/solana_stake_program/stake_instruction/enum.StakeInstruction.html)
 
 ## 投票程序
 
 创建投票账户并对区块进行投票
 
 - 程序ID：`Vote111111111111111111111111111111111111111`
-- 说明：[VoteInstruction](https://docs.rs/safecoin-vote-program/VERSION_FOR_DOCS_RS/solana_vote_program/vote_instruction/enum.VoteInstruction.html)
+- 说明：[VoteInstruction](https://docs.rs/panoptis-vote-program/VERSION_FOR_DOCS_RS/solana_vote_program/vote_instruction/enum.VoteInstruction.html)
 
 ## BPF加载程序
 
 将程序添加到链中并执行它们。
 
 - 程序ID：`BPFLoader11111111111111111111111111111111111`
-- 说明：[LoaderInstruction](https://docs.rs/safecoin-sdk/VERSION_FOR_DOCS_RS/solana_sdk/loader_instruction/enum.LoaderInstruction.html)
+- 说明：[LoaderInstruction](https://docs.rs/panoptis-sdk/VERSION_FOR_DOCS_RS/solana_sdk/loader_instruction/enum.LoaderInstruction.html)
 
 BPF加载程序将其自身标记为它创建的用于存储程序的可执行帐户的“所有者”。 当用户通过程序ID调用指令时，Panoptis运行时将同时加载您的可执行帐户及其所有者BPF Loader。 然后，运行时将您的程序传递给BPF加载程序以处理指令。
 

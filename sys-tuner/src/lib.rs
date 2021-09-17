@@ -1,6 +1,6 @@
 use log::*;
 
-pub const PANOPTIS_SYS_TUNER_PATH: &str = "/tmp/safecoin-sys-tuner";
+pub const PANOPTIS_SYS_TUNER_PATH: &str = "/tmp/panoptis-sys-tuner";
 
 #[cfg(unix)]
 pub fn request_realtime_poh() {
@@ -9,7 +9,7 @@ pub fn request_realtime_poh() {
     match status {
         Ok(_) => info!("Successfully sent tuning request"),
         Err(err) => warn!(
-            "Failed to send tuning request, is `safecoin-sys-tuner` running? {:?}",
+            "Failed to send tuning request, is `panoptis-sys-tuner` running? {:?}",
             err
         ),
     }

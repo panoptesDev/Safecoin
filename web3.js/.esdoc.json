@@ -15,7 +15,7 @@
         "typeInference": {"enable": true},
         "brand": {
           "title": "Panoptis Javascript API",
-          "repository": "https://github.com/fair-exchange/safecoin-web3.js",
+          "repository": "https://github.com/fair-exchange/panoptis-web3.js",
           "site": "https://solana.com"
         }
       }

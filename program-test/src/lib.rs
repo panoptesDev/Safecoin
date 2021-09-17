@@ -1,4 +1,4 @@
-//! The safecoin-program-test provides a BanksClient-based test framework BPF programs
+//! The panoptis-program-test provides a BanksClient-based test framework BPF programs
 #![allow(clippy::integer_arithmetic)]
 
 use {
@@ -160,7 +160,7 @@ pub fn builtin_process_instruction(
     Ok(())
 }
 
-/// Converts a `safecoin-program`-style entrypoint into the runtime's entrypoint style, for
+/// Converts a `panoptis-program`-style entrypoint into the runtime's entrypoint style, for
 /// use with `ProgramTest::add_program`
 #[macro_export]
 macro_rules! processor {

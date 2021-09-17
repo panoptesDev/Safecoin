@@ -26,15 +26,15 @@ features = []
 
 Panoptis Rust 程序可能会直接依赖于对方，以便在进行 [交叉程序调用](developing/programming-model/calling-between-programs.md#cross-program-invocations)时获得指令协助。 这样做时，重要的是不要拉入依赖程序的入口点符号，因为它们可能与程序本身的符号冲突。  为避免这种情况，程序应在 `Cargo.toml` 中定义一个 ` exclude_entrypoint `功能，并使用它来排除入口点。
 
-- [定义特性](https://github.com/fair-exchange/safecoin-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token/program/Cargo.toml#L12)
-- [排除入口点](https://github.com/fair-exchange/safecoin-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token/program/src/lib.rs#L12)
+- [定义特性](https://github.com/fair-exchange/panoptis-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token/program/Cargo.toml#L12)
+- [排除入口点](https://github.com/fair-exchange/panoptis-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token/program/src/lib.rs#L12)
 
 然后，当其他程序将此程序作为依赖项包括在内时，它们应该使用`exclude_entrypoint`功能来实现这一点。
-- [不将入口点包含在内](https://github.com/fair-exchange/safecoin-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token-swap/program/Cargo.toml#L19)
+- [不将入口点包含在内](https://github.com/fair-exchange/panoptis-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token-swap/program/Cargo.toml#L19)
 
 ## 项目依赖关系 {#project-dependencies}
 
-至少，Panoptis Rust程序必须引入[safecoin-program](https://crates.io/crates/safecoin-program)。
+至少，Panoptis Rust程序必须引入[panoptis-program](https://crates.io/crates/panoptis-program)。
 
 Panoptis BPF程序具有某些[限制](#Restrictions)，可能会阻止将某些箱体作为依赖项包含进来或需要特殊处理。
 
@@ -66,9 +66,9 @@ $ cargo build-bpf
 
 通过直接行使程序功能，可以通过传统的`cargo test`机制对Panoptis程序进行单元测试。
 
-为了帮助在更接近实时集群的环境中进行测试，开发人员可以使用[`program-test`](https://crates.io/crates/safecoin-program-test)箱体。  `程序测试`箱体将启动运行时的本地实例，并允许测试发送多个事务，同时在测试期间保持状态。
+为了帮助在更接近实时集群的环境中进行测试，开发人员可以使用[`program-test`](https://crates.io/crates/panoptis-program-test)箱体。  `程序测试`箱体将启动运行时的本地实例，并允许测试发送多个事务，同时在测试期间保持状态。
 
-有关更多信息，请参见[在sysvar示例中测试](https://github.com/fair-exchange/safecoin-program-library/blob/master/examples/rust/sysvar/tests/functional.rs)，来学习如何包含一条指令syavar帐户由程序发送和处理。
+有关更多信息，请参见[在sysvar示例中测试](https://github.com/fair-exchange/panoptis-program-library/blob/master/examples/rust/sysvar/tests/functional.rs)，来学习如何包含一条指令syavar帐户由程序发送和处理。
 
 ## 程序入口点 {#project-entrypoint}
 
@@ -269,4 +269,4 @@ $ cargo build-bpf --dump
 
 ## 示例 {#examples}
 
-[Panoptis 程序库github](https://github.com/fair-exchange/safecoin-program-library/tree/master/examples/rust)代码库包含了Rust例子集合。
+[Panoptis 程序库github](https://github.com/fair-exchange/panoptis-program-library/tree/master/examples/rust)代码库包含了Rust例子集合。

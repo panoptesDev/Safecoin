@@ -1,19 +1,19 @@
 [package]
-name = "safecoin-clap-utils"
+name = "panoptis-clap-utils"
 version = "1.6.19"
 description = "Panoptis utilities for the clap"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-clap-utils"
+documentation = "https://docs.rs/panoptis-clap-utils"
 edition = "2018"
 
 [dependencies]
 clap = "2.33.0"
 rpassword = "4.0"
-safecoin-remote-wallet = { path = "../remote-wallet", version = "=1.6.19" }
-safecoin-sdk = { path = "../sdk", version = "=1.6.19" }
+panoptis-remote-wallet = { path = "../remote-wallet", version = "=1.6.19" }
+panoptis-sdk = { path = "../sdk", version = "=1.6.19" }
 thiserror = "1.0.21"
 tiny-bip39 = "0.8.0"
 uriparse = "0.6.3"

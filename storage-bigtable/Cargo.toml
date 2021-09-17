@@ -1,12 +1,12 @@
 [package]
-name = "safecoin-storage-bigtable"
+name = "panoptis-storage-bigtable"
 version = "1.6.19"
 description = "Panoptis Storage BigTable"
 authors = ["Solana Maintainers <maintainers@solana.com>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-storage-bigtable"
+documentation = "https://docs.rs/panoptis-storage-bigtable"
 edition = "2018"
 
 [dependencies]
@@ -24,9 +24,9 @@ rand_core = "0.6.2"
 serde = "1.0.122"
 serde_derive = "1.0.103"
 smpl_jwt = "0.6.0"
-safecoin-sdk = { path = "../sdk", version = "=1.6.19" }
-safecoin-storage-proto = { path = "../storage-proto", version = "=1.6.19" }
-safecoin-transaction-status = { path = "../transaction-status", version = "=1.6.19" }
+panoptis-sdk = { path = "../sdk", version = "=1.6.19" }
+panoptis-storage-proto = { path = "../storage-proto", version = "=1.6.19" }
+panoptis-transaction-status = { path = "../transaction-status", version = "=1.6.19" }
 thiserror = "1.0"
 futures = "0.3.8"
 tonic = { version = "0.5.0", features = ["tls", "transport"] }

@@ -1,18 +1,18 @@
 [package]
-name = "safecoin-banks-interface"
+name = "panoptis-banks-interface"
 version = "1.6.19"
 description = "Panoptis banks RPC interface"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-banks-interface"
+documentation = "https://docs.rs/panoptis-banks-interface"
 edition = "2018"
 
 [dependencies]
 mio = "0.7.6"
 serde = { version = "1.0.122", features = ["derive"] }
-safecoin-sdk = { path = "../sdk", version = "=1.6.19" }
+panoptis-sdk = { path = "../sdk", version = "=1.6.19" }
 tarpc = { version = "0.24.1", features = ["full"] }
 
 [dev-dependencies]

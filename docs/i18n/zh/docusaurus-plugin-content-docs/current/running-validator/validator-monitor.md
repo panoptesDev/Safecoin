@@ -7,7 +7,7 @@ title: 监控验证节点
 通过运行以下命令，确认您的验证节点的IP地址和**身份pubkey**在八卦网络中处于可见状态：
 
 ```bash
-safecoin-gossip spy --entrypoint devnet.safecoin.org:10015
+panoptis-gossip spy --entrypoint devnet.safecoin.org:10015
 ```
 
 ## 检查余额
@@ -31,7 +31,7 @@ safecoin vote-account ~/vote-account-keypair.json
 有几个有用的JSON-RPC端点，用于监视集群上的验证节点以及集群的运行状况：
 
 ```bash
-＃与safecoin-gossip相似，您应该在集群节点列表中看到您的验证节点
+＃与panoptis-gossip相似，您应该在集群节点列表中看到您的验证节点
 curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1, "method":"getClusterNodes"}' http://api.devnet.safecoin.org
 # 如果您的验证节点进行了正确的投票，那么它应该出现在“当前”投票帐户列表中。 如果已经质押，那么`stake` 应当为 > 0
 curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1, "method":"getVoteAccounts"}' http://api.devnet.safecoin.org

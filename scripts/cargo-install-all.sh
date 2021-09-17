@@ -67,28 +67,28 @@ if [[ $CI_OS_NAME = windows ]]; then
     cargo-build-bpf
     cargo-test-bpf
     solana
-    safecoin-install
-    safecoin-install-init
-    safecoin-keygen
-    safecoin-stake-accounts
-    safecoin-tokens
+    panoptis-install
+    panoptis-install-init
+    panoptis-keygen
+    panoptis-stake-accounts
+    panoptis-tokens
   )
 else
   ./fetch-perf-libs.sh
 
   BINS=(
     solana
-    safecoin-bench-exchange
-    safecoin-bench-tps
-    safecoin-faucet
-    safecoin-gossip
-    safecoin-install
-    safecoin-keygen
-    safecoin-ledger-tool
-    safecoin-log-analyzer
-    safecoin-net-shaper
-    safecoin-sys-tuner
-    safecoin-validator
+    panoptis-bench-exchange
+    panoptis-bench-tps
+    panoptis-faucet
+    panoptis-gossip
+    panoptis-install
+    panoptis-keygen
+    panoptis-ledger-tool
+    panoptis-log-analyzer
+    panoptis-net-shaper
+    panoptis-sys-tuner
+    panoptis-validator
   )
 
   # Speed up net.sh deploys by excluding unused binaries
@@ -96,19 +96,19 @@ else
     BINS+=(
       cargo-build-bpf
       cargo-test-bpf
-      safecoin-dos
-      safecoin-install-init
-      safecoin-stake-accounts
-      safecoin-stake-o-matic
-      safecoin-test-validator
-      safecoin-tokens
-      safecoin-watchtower
+      panoptis-dos
+      panoptis-install-init
+      panoptis-stake-accounts
+      panoptis-stake-o-matic
+      panoptis-test-validator
+      panoptis-tokens
+      panoptis-watchtower
     )
   fi
 
-  #XXX: Ensure `safecoin-genesis` is built LAST!
+  #XXX: Ensure `panoptis-genesis` is built LAST!
   # See https://github.com/fair-exchange/safecoin/issues/5826
-  BINS+=(safecoin-genesis)
+  BINS+=(panoptis-genesis)
 fi
 
 binArgs=()

@@ -21,14 +21,14 @@ Create new accounts, allocate account data, assign accounts to owning programs,
 transfer lamports from System Program owned accounts and pay transacation fees.
 
 - Program id: `11111111111111111111111111111111`
-- Instructions: [SystemInstruction](https://docs.rs/safecoin-sdk/VERSION_FOR_DOCS_RS/solana_sdk/system_instruction/enum.SystemInstruction.html)
+- Instructions: [SystemInstruction](https://docs.rs/panoptis-sdk/VERSION_FOR_DOCS_RS/solana_sdk/system_instruction/enum.SystemInstruction.html)
 
 ## Config Program
 
 Add configuration data to the chain and the list of public keys that are permitted to modify it
 
 - Program id: `Config1111111111111111111111111111111111111`
-- Instructions: [config_instruction](https://docs.rs/safecoin-config-program/VERSION_FOR_DOCS_RS/solana_config_program/config_instruction/index.html)
+- Instructions: [config_instruction](https://docs.rs/panoptis-config-program/VERSION_FOR_DOCS_RS/solana_config_program/config_instruction/index.html)
 
 Unlike the other programs, the Config program does not define any individual
 instructions. It has just one implicit instruction, a "store" instruction. Its
@@ -41,21 +41,21 @@ Create and manage accounts representing stake and rewards for delegations to
 validators.
 
 - Program id: `Stake11111111111111111111111111111111111111`
-- Instructions: [StakeInstruction](https://docs.rs/safecoin-stake-program/VERSION_FOR_DOCS_RS/solana_stake_program/stake_instruction/enum.StakeInstruction.html)
+- Instructions: [StakeInstruction](https://docs.rs/panoptis-stake-program/VERSION_FOR_DOCS_RS/solana_stake_program/stake_instruction/enum.StakeInstruction.html)
 
 ## Vote Program
 
 Create and manage accounts that track validator voting state and rewards.
 
 - Program id: `Vote111111111111111111111111111111111111111`
-- Instructions: [VoteInstruction](https://docs.rs/safecoin-vote-program/VERSION_FOR_DOCS_RS/solana_vote_program/vote_instruction/enum.VoteInstruction.html)
+- Instructions: [VoteInstruction](https://docs.rs/panoptis-vote-program/VERSION_FOR_DOCS_RS/solana_vote_program/vote_instruction/enum.VoteInstruction.html)
 
 ## BPF Loader
 
 Deploys, upgrades, and executes programs on the chain.
 
 - Program id: `BPFLoaderUpgradeab1e11111111111111111111111`
-- Instructions: [LoaderInstruction](https://docs.rs/safecoin-sdk/VERSION_FOR_DOCS_RS/solana_sdk/loader_upgradeable_instruction/enum.UpgradeableLoaderInstruction.html)
+- Instructions: [LoaderInstruction](https://docs.rs/panoptis-sdk/VERSION_FOR_DOCS_RS/solana_sdk/loader_upgradeable_instruction/enum.UpgradeableLoaderInstruction.html)
 
 The BPF Upgradeable Loader marks itself as "owner" of the executable and
 program-data accounts it creates to store your program. When a user invokes an

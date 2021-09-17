@@ -35,7 +35,7 @@ RPC需要提供至少6个月的交易历史。  当前的历史记录，以天�
 BigTable有一个gRPC端点，可以使用[tonic](https://crates.io/crates/crate)] 和原始protobuf API进行访问，因为目前还没有针对BigTable的更高级别的Rust crate存在。  实际上，这使得BigTable查询结果的解析变得更加复杂，但并不是一个重要的问题。
 
 ## 数据群
-通过使用新的`safecoin-ledger-tool`命令，将给定插槽范围的rocksdb数据转换为实例模式，实例数据的持续填充将以一个纪元的节奏进行。
+通过使用新的`panoptis-ledger-tool`命令，将给定插槽范围的rocksdb数据转换为实例模式，实例数据的持续填充将以一个纪元的节奏进行。
 
 同样的过程将被手动运行一次，以回填现有的账本数据。
 

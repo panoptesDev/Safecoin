@@ -46,7 +46,7 @@ Update successful
 safecoin --version
 ```
 
-- 安装成功后，就可以通过 `safecoin-install update` 随时更新 Panoptis 软件到新版本。
+- 安装成功后，就可以通过 `panoptis-install update` 随时更新 Panoptis 软件到新版本。
 
 ---
 
@@ -59,13 +59,13 @@ safecoin --version
 - 复制并粘贴以下命令，然后按回车下载 Panoptis 安装程序到临时目录：
 
 ```bash
-curl https://release.solana.com/LATEST_PANOPTIS_RELEASE_VERSION/safecoin-install-init-x86_64-pc-windows-msvc.exe --output C:\safecoin-install-tmp\safecoin-install-init.exe --create-dirs
+curl https://release.solana.com/LATEST_PANOPTIS_RELEASE_VERSION/panoptis-install-init-x86_64-pc-windows-msvc.exe --output C:\panoptis-install-tmp\panoptis-install-init.exe --create-dirs
 ```
 
 - 复制并粘贴以下命令，然后按 Enter 安装最新版本的 Panoptis 软件。 如果系统弹出安全提示窗口，请选择允许程序运行。
 
 ```bash
-C:\safecoin-install-tmp\safecoin-install-init.exe LATEST_PANOPTIS_RELEASE_VERSION
+C:\panoptis-install-tmp\panoptis-install-init.exe LATEST_PANOPTIS_RELEASE_VERSION
 ```
 
 - 安装程序完成后，请按 Enter 键。
@@ -78,11 +78,11 @@ C:\safecoin-install-tmp\safecoin-install-init.exe LATEST_PANOPTIS_RELEASE_VERSIO
 safecoin --version
 ```
 
-- 安装成功后，就可以通过 `safecoin-install update` 随时更新 Panoptis 软件到新版本。
+- 安装成功后，就可以通过 `panoptis-install update` 随时更新 Panoptis 软件到新版本。
 
 ## 下载预置二进制文件
 
-如果您不想通过 `safecoin-install` 来管理安装，您也可以手动下载并安装二进制安装包。
+如果您不想通过 `panoptis-install` 来管理安装，您也可以手动下载并安装二进制安装包。
 
 ### Linux 系统
 
@@ -127,5 +127,5 @@ export PATH=$PWD/bin:$PATH
 然后你可以运行以下命令来获得与预置二进制文件相同的结果：
 
 ```bash
-safecoin-install init
+panoptis-install init
 ```

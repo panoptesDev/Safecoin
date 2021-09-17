@@ -1,13 +1,13 @@
 [package]
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 edition = "2018"
-name = "safecoin-genesis"
+name = "panoptis-genesis"
 description = "Panoptis: Enterprise Security for the Community by the Community"
 version = "1.6.19"
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
 homepage = "https://safecoin.org/"
-documentation = "https://docs.rs/safecoin-genesis"
+documentation = "https://docs.rs/panoptis-genesis"
 
 [dependencies]
 base64 = "0.12.3"
@@ -16,22 +16,22 @@ chrono = "0.4"
 serde = "1.0.122"
 serde_json = "1.0.56"
 serde_yaml = "0.8.13"
-safecoin-budget-program = { path = "../programs/budget", version = "=1.6.19" }
-safecoin-clap-utils = { path = "../clap-utils", version = "=1.6.19" }
-safecoin-cli-config = { path = "../cli-config", version = "=1.6.19" }
-safecoin-exchange-program = { path = "../programs/exchange", version = "=1.6.19" }
-safecoin-ledger = { path = "../ledger", version = "=1.6.19" }
-safecoin-logger = { path = "../logger", version = "=1.6.19" }
-safecoin-runtime = { path = "../runtime", version = "=1.6.19" }
-safecoin-sdk = { path = "../sdk", version = "=1.6.19" }
-safecoin-stake-program = { path = "../programs/stake", version = "=1.6.19" }
-safecoin-version = { path = "../version", version = "=1.6.19" }
-safecoin-vest-program = { path = "../programs/vest", version = "=1.6.19" }
-safecoin-vote-program = { path = "../programs/vote", version = "=1.6.19" }
+panoptis-budget-program = { path = "../programs/budget", version = "=1.6.19" }
+panoptis-clap-utils = { path = "../clap-utils", version = "=1.6.19" }
+panoptis-cli-config = { path = "../cli-config", version = "=1.6.19" }
+panoptis-exchange-program = { path = "../programs/exchange", version = "=1.6.19" }
+panoptis-ledger = { path = "../ledger", version = "=1.6.19" }
+panoptis-logger = { path = "../logger", version = "=1.6.19" }
+panoptis-runtime = { path = "../runtime", version = "=1.6.19" }
+panoptis-sdk = { path = "../sdk", version = "=1.6.19" }
+panoptis-stake-program = { path = "../programs/stake", version = "=1.6.19" }
+panoptis-version = { path = "../version", version = "=1.6.19" }
+panoptis-vest-program = { path = "../programs/vest", version = "=1.6.19" }
+panoptis-vote-program = { path = "../programs/vote", version = "=1.6.19" }
 tempfile = "3.1.0"
 
 [[bin]]
-name = "safecoin-genesis"
+name = "panoptis-genesis"
 path = "src/main.rs"
 
 [lib]

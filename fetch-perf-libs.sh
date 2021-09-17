@@ -23,18 +23,18 @@ if [[ $VERSION != "$(cat target/perf-libs/.version 2> /dev/null)" ]]; then
     set -x
     cd target/perf-libs
 
-    if [[ -r ~/.cache/safecoin-perf-$PERF_LIBS_VERSION.tgz ]]; then
-      cp ~/.cache/safecoin-perf-$PERF_LIBS_VERSION.tgz safecoin-perf.tgz
+    if [[ -r ~/.cache/panoptis-perf-$PERF_LIBS_VERSION.tgz ]]; then
+      cp ~/.cache/panoptis-perf-$PERF_LIBS_VERSION.tgz panoptis-perf.tgz
     else
-      curl -L --retry 5 --retry-delay 2 --retry-connrefused -o safecoin-perf.tgz \
-        https://github.com/fair-exchange/safecoin-perf-libs/releases/download/$PERF_LIBS_VERSION/safecoin-perf.tgz
+      curl -L --retry 5 --retry-delay 2 --retry-connrefused -o panoptis-perf.tgz \
+        https://github.com/fair-exchange/panoptis-perf-libs/releases/download/$PERF_LIBS_VERSION/panoptis-perf.tgz
     fi
-    tar zxvf safecoin-perf.tgz
+    tar zxvf panoptis-perf.tgz
 
-    if [[ ! -r ~/.cache/safecoin-perf-$PERF_LIBS_VERSION.tgz ]]; then
+    if [[ ! -r ~/.cache/panoptis-perf-$PERF_LIBS_VERSION.tgz ]]; then
       # Save it for next time
       mkdir -p ~/.cache
-      mv safecoin-perf.tgz ~/.cache/safecoin-perf-$PERF_LIBS_VERSION.tgz
+      mv panoptis-perf.tgz ~/.cache/panoptis-perf-$PERF_LIBS_VERSION.tgz
     fi
     echo "$VERSION" > .version
   )

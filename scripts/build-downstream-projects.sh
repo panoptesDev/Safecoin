@@ -21,21 +21,21 @@ update_solana_dependencies() {
   declare tomls=()
   while IFS='' read -r line; do tomls+=("$line"); done < <(find "$1" -name Cargo.toml)
 
-  sed -i -e "s#\(safecoin-program = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
-  sed -i -e "s#\(safecoin-program-test = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
-  sed -i -e "s#\(safecoin-sdk = \"\).*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
-  sed -i -e "s#\(safecoin-sdk = { version = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
-  sed -i -e "s#\(safecoin-client = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
-  sed -i -e "s#\(safecoin-client = { version = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
+  sed -i -e "s#\(panoptis-program = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
+  sed -i -e "s#\(panoptis-program-test = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
+  sed -i -e "s#\(panoptis-sdk = \"\).*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
+  sed -i -e "s#\(panoptis-sdk = { version = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
+  sed -i -e "s#\(panoptis-client = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
+  sed -i -e "s#\(panoptis-client = { version = \"\)[^\"]*\(\"\)#\1$solana_ver\2#g" "${tomls[@]}" || return $?
 }
 
 patch_crates_io() {
   cat >> "$1" <<EOF
 [patch.crates-io]
-safecoin-client = { path = "$solana_dir/client" }
-safecoin-program = { path = "$solana_dir/sdk/program" }
-safecoin-program-test = { path = "$solana_dir/program-test" }
-safecoin-sdk = { path = "$solana_dir/sdk" }
+panoptis-client = { path = "$solana_dir/client" }
+panoptis-program = { path = "$solana_dir/sdk/program" }
+panoptis-program-test = { path = "$solana_dir/program-test" }
+panoptis-sdk = { path = "$solana_dir/sdk" }
 EOF
 }
 
@@ -61,7 +61,7 @@ spl() {
   (
     set -x
     rm -rf spl
-    git clone https://github.com/fair-exchange/safecoin-program-library.git spl
+    git clone https://github.com/fair-exchange/panoptis-program-library.git spl
     cd spl
 
     ./patch.crates-io.sh "$solana_dir"

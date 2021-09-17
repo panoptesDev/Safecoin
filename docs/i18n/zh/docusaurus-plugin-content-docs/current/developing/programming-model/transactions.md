@@ -101,7 +101,7 @@ https://github.com/fair-exchange/safecoin/blob/6606590b8132e56dab9e60b3f7d20ba74
 
 程序可以自由指定如何将信息编码到指令数据字节数组中。 数据编码方式的选择应考虑到解码的开销，因为该步骤是由链上程序执行的。 据观察，一些常见的编码(例如Rust的bincode) 效率很低。
 
-[Panoptis程序库的代币程序](https://github.com/fair-exchange/safecoin-program-library/tree/master/token)提供了一个示例，说明如何有效地对指令数据进行编码，但是请注意，这种方法仅支持固定大小的类型。 代币利用[Pack](https://github.com/fair-exchange/safecoin/blob/master/sdk/program/src/program_pack.rs)特征来对代币指令和代币的指令数据进行编码/解码帐户状态。
+[Panoptis程序库的代币程序](https://github.com/fair-exchange/panoptis-program-library/tree/master/token)提供了一个示例，说明如何有效地对指令数据进行编码，但是请注意，这种方法仅支持固定大小的类型。 代币利用[Pack](https://github.com/fair-exchange/safecoin/blob/master/sdk/program/src/program_pack.rs)特征来对代币指令和代币的指令数据进行编码/解码帐户状态。
 
 ## 签名
 

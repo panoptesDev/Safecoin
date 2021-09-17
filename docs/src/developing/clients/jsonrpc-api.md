@@ -5,7 +5,7 @@ title: JSON RPC API
 Panoptis nodes accept HTTP requests using the [JSON-RPC 2.0](https://www.jsonrpc.org/specification) specification.
 
 To interact with a Panoptis node inside a JavaScript application, use the
-[solana-web3.js](https://github.com/fair-exchange/safecoin-web3.js) library, which
+[solana-web3.js](https://github.com/fair-exchange/panoptis-web3.js) library, which
 gives a convenient interface for the RPC methods.
 
 ## RPC HTTP Endpoint
@@ -188,7 +188,7 @@ health-check mechanism for use by load balancers or other network
 infrastructure. This request will always return a HTTP 200 OK response with a body of
 "ok", "behind" or "unknown" based on the following conditions:
 
-1. If one or more `--trusted-validator` arguments are provided to `safecoin-validator`, "ok" is returned
+1. If one or more `--trusted-validator` arguments are provided to `panoptis-validator`, "ok" is returned
    when the node has within `HEALTH_CHECK_SLOT_DISTANCE` slots of the highest
    trusted validator, otherwise "behind". "unknown" is returned when no slot
    information from trusted validators is not yet available.
@@ -1457,7 +1457,7 @@ Result:
 Returns the current health of the node.
 
 If one or more `--trusted-validator` arguments are provided to
-`safecoin-validator`, "ok" is returned when the node has within
+`panoptis-validator`, "ok" is returned when the node has within
 `HEALTH_CHECK_SLOT_DISTANCE` slots of the highest trusted validator, otherwise
 an error is returned.  "ok" is always returned if no trusted validators are
 provided.
@@ -3020,7 +3020,7 @@ None
 
 The result field will be a JSON object with the following fields:
 
-- `safecoin-core`, software version of safecoin-core
+- `panoptis-core`, software version of panoptis-core
 - `feature-set`, unique identifier of the current software's feature set
 
 #### Example:
@@ -3034,7 +3034,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 Result:
 ```json
-{"jsonrpc":"2.0","result":{"safecoin-core": "1.6.19"},"id":1}
+{"jsonrpc":"2.0","result":{"panoptis-core": "1.6.19"},"id":1}
 ```
 
 ### getVoteAccounts

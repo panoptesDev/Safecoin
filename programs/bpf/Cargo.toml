@@ -1,5 +1,5 @@
 [package]
-name = "safecoin-bpf-programs"
+name = "panoptis-bpf-programs"
 description = "Panoptis: Enterprise Security for the Community by the Community"
 version = "1.6.19"
 documentation = "https://docs.rs/solana"
@@ -25,15 +25,15 @@ elf = "0.0.10"
 itertools = "0.10.0"
 miow = "0.2.2"
 net2 = "0.2.37"
-safecoin-bpf-loader-program = { path = "../bpf_loader", version = "=1.6.19" }
-safecoin-cli-output = { path = "../../cli-output", version = "=1.6.19" }
-safecoin-logger = { path = "../../logger", version = "=1.6.19" }
-safecoin-measure = { path = "../../measure", version = "=1.6.19" }
+panoptis-bpf-loader-program = { path = "../bpf_loader", version = "=1.6.19" }
+panoptis-cli-output = { path = "../../cli-output", version = "=1.6.19" }
+panoptis-logger = { path = "../../logger", version = "=1.6.19" }
+panoptis-measure = { path = "../../measure", version = "=1.6.19" }
 solana_rbpf = "=0.2.9"
-safecoin-runtime = { path = "../../runtime", version = "=1.6.19" }
-safecoin-sdk = { path = "../../sdk", version = "=1.6.19" }
-safecoin-transaction-status = { path = "../../transaction-status", version = "=1.6.19" }
-safecoin-account-decoder = { path = "../../account-decoder", version = "=1.6.19" }
+panoptis-runtime = { path = "../../runtime", version = "=1.6.19" }
+panoptis-sdk = { path = "../../sdk", version = "=1.6.19" }
+panoptis-transaction-status = { path = "../../transaction-status", version = "=1.6.19" }
+panoptis-account-decoder = { path = "../../account-decoder", version = "=1.6.19" }
 
 
 [[bench]]
