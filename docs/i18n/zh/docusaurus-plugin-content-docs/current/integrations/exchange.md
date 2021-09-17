@@ -437,33 +437,33 @@ SPL 代币的工作流程类似于原生 PANO 代币，但本节将讨论它们�
 
 每种 *类型* 的 SPL 代币都是由一个 *铸造* 账号所产生。  该帐户存储了代币功能的元数据，如供应量、小数点数和对铸造的多种权限。  每个 SPL Token 帐户引用与它铸造相关的字段，并且只能与该种类型的 SPL 代币交互。
 
-### 安装 `safe-token` CLI 工具
+### 安装 `pano-token` CLI 工具
 
-使用 `safe-token` 命令行功能查询和修改 SPL Token 帐户。 本部分提供的示例取决于能否在本地系统安装。
+使用 `pano-token` 命令行功能查询和修改 SPL Token 帐户。 本部分提供的示例取决于能否在本地系统安装。
 
-`safe-token` 从 Rust [crates.io](https://crates.io/crates/safe-token) 中通过 Rust `cargo` 命令行功能衍生出来的。 最新版本的 `cargo` 可以在 [rustuprers](https://rustup.rs)，通过方便的工具安装在您的平台。 一旦 `cargo` 安装完毕， `spl-toke` 可以通过以下命令获得：
+`pano-token` 从 Rust [crates.io](https://crates.io/crates/pano-token) 中通过 Rust `cargo` 命令行功能衍生出来的。 最新版本的 `cargo` 可以在 [rustuprers](https://rustup.rs)，通过方便的工具安装在您的平台。 一旦 `cargo` 安装完毕， `spl-toke` 可以通过以下命令获得：
 
 ```
-cargo install safe-token-cli
+cargo install pano-token-cli
 ```
 
 然后您可以检查已安装的版本进行验证
 
 ```
-safe-token --version
+pano-token --version
 ```
 
 输出结果应该类似于
 
 ```text
-safe-token-cli 2.0.1
+pano-token-cli 2.0.1
 ```
 
 ### 创建帐户
 
 SPL 代币账户包含了本地系统程序账户所不具备的额外要求：
 
-1. 在创建 SPL Token 帐户之前，必须先存入一定数量的代币。   代币帐户可以使用 `safe-token create-account` 命令显式创建， 或者 `safe-token transfer --fund-receiving ...` 命令隐式创建。
+1. 在创建 SPL Token 帐户之前，必须先存入一定数量的代币。   代币帐户可以使用 `pano-token create-account` 命令显式创建， 或者 `pano-token transfer --fund-receiving ...` 命令隐式创建。
 1. 在生效期间，SPL Token 帐户必须保持 [rent-exempt](developing/programming-model/accounts.md#rent-exemption) 状态，因此在创建帐户时需要存入少量的原生 PANO 代币。 对于 SPL Token v2 账户，该数量为 0.00203928 PANO(2 039 280 lamports)。
 
 #### 命令行
@@ -472,12 +472,12 @@ SPL 代币账户包含了本地系统程序账户所不具备的额外要求：
 1. 由资产账户的密钥所拥有
 
 ```
-safe-token create-account <TOKEN_MINT_ADDRESS>
+pano-token create-account <TOKEN_MINT_ADDRESS>
 ```
 
 #### 示例：
 ```
-$ safe-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir
+$ pano-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir
 Creating account 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
 Signature: 4JsqZEPra2eDTHtHpB4FMWSfk3UgcCVmkKkP7zESZeMrKmFFkDkNd91pKP3vPVVZZPiu5XxyJwS73Vi5WsZL88D7
 ```
@@ -485,7 +485,7 @@ Signature: 4JsqZEPra2eDTHtHpB4FMWSfk3UgcCVmkKkP7zESZeMrKmFFkDkNd91pKP3vPVVZZPiu5
 或者创建指定密钥对的 SPL 代币账户：
 ```
 $ panoptis-keygen new -o token-account.json
-$ safe-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir token-account.json
+$ pano-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir token-account.json
 Creating account 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
 Signature: 4JsqZEPra2eDTHtHpB4FMWSfk3UgcCVmkKkP7zESZeMrKmFFkDkNd91pKP3vPVVZZPiu5XxyJwS73Vi5WsZL88D7
 ```
@@ -494,7 +494,7 @@ Signature: 4JsqZEPra2eDTHtHpB4FMWSfk3UgcCVmkKkP7zESZeMrKmFFkDkNd91pKP3vPVVZZPiu5
 
 #### 命令行
 ```
-safe-token balance <TOKEN_ACCOUNT_ADDRESS>
+pano-token balance <TOKEN_ACCOUNT_ADDRESS>
 ```
 
 #### 示例：
@@ -511,12 +511,12 @@ $ safecoin balance 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
 
 #### 命令行
 ```
-safe-token transfer <SENDER_ACCOUNT_ADDRESS> <AMOUNT> <RECIPIENT_WALLET_ADDRESS> --fund-recipient
+pano-token transfer <SENDER_ACCOUNT_ADDRESS> <AMOUNT> <RECIPIENT_WALLET_ADDRESS> --fund-recipient
 ```
 
 #### 示例：
 ```
-$ safe-token transfer 6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN 1 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
+$ pano-token transfer 6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN 1 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
 发送 1 个代币
   发送方：6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN
   接收方：6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
@@ -537,9 +537,9 @@ $ safe-token transfer 6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN 1 6VzWGL51jLe
 
 从提款地址为正确的铸币确定关联的代币帐户，并将转账发送到该帐户。  请注意关联的代币帐户现在还不存在，因此交易所应该代表用户为该账户提供资金。  对于 SPL Token v2 账户，为提款账户提供的资金额为 0.00203928 PANO (2,039 280 lamports)。
 
-用来提现的 `safe-token transfer` 命令模板为：
+用来提现的 `pano-token transfer` 命令模板为：
 ```
-$ safe-token transfer --fund-recipient <exchange token account> <withdrawal amount> <withdrawal address>
+$ pano-token transfer --fund-recipient <exchange token account> <withdrawal amount> <withdrawal address>
 ```
 
 ### 其他考虑因素

@@ -3758,7 +3758,7 @@ version = "1.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2e3e763494a25557a794609de9e2ec1cb37cf3da95b63c20e6a6cb94264256fd"
 dependencies = [
- "safe-token",
+ "pano-token",
  "panoptis-program 1.6.19 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -3772,7 +3772,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safe-token"
+name = "pano-token"
 version = "3.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5e0dffdf53fa9749b3db1bafcbca101da987da95d7dfd52fe5a414a89f394fb1"
@@ -3795,7 +3795,7 @@ dependencies = [
  "bs58",
  "bv",
  "lazy_static",
- "safe-token",
+ "pano-token",
  "panoptis-config-program",
  "panoptis-sdk",
  "panoptis-stake-program",
@@ -4148,7 +4148,7 @@ dependencies = [
  "reqwest",
  "retain_mut",
  "rustc_version 0.2.3",
- "safe-token",
+ "pano-token",
  "panoptis-account-decoder",
  "panoptis-banks-server",
  "panoptis-clap-utils",
@@ -5161,7 +5161,7 @@ dependencies = [
  "indicatif",
  "pickledb",
  "safe-associated-token-account",
- "safe-token",
+ "pano-token",
  "panoptis-account-decoder",
  "panoptis-clap-utils",
  "panoptis-cli-config",
@@ -5191,7 +5191,7 @@ dependencies = [
  "lazy_static",
  "safe-associated-token-account",
  "safe-memo",
- "safe-token",
+ "pano-token",
  "panoptis-account-decoder",
  "panoptis-runtime",
  "panoptis-sdk",
@@ -5698,7 +5698,7 @@ dependencies = [
  "log 0.4.14",
  "rand 0.7.3",
  "rayon",
- "safe-token",
+ "pano-token",
  "panoptis-account-decoder",
  "panoptis-clap-utils",
  "panoptis-client",

@@ -40,7 +40,7 @@ export type UpgradeableProgramAccountData = {
 };
 
 export type TokenProgramData = {
-  program: "safe-token";
+  program: "pano-token";
   parsed: TokenAccount;
 };
 
@@ -226,7 +226,7 @@ async function fetchAccountInfo(
               };
               break;
 
-            case "safe-token":
+            case "pano-token":
               data = {
                 program: result.data.program,
                 parsed: create(info, TokenAccount),
@@ -294,7 +294,7 @@ export function useMintAccountInfo(
     try {
       const data = accountInfo?.data?.details?.data;
       if (!data) return;
-      if (data.program !== "safe-token" || data.parsed.type !== "mint") {
+      if (data.program !== "pano-token" || data.parsed.type !== "mint") {
         return;
       }
 
@@ -314,7 +314,7 @@ export function useTokenAccountInfo(
   try {
     const data = accountInfo?.data?.details?.data;
     if (!data) return;
-    if (data.program !== "safe-token" || data.parsed.type !== "account") {
+    if (data.program !== "pano-token" || data.parsed.type !== "account") {
       return;
     }
 

@@ -1,4 +1,4 @@
-// Partial SPL Token v2.0.x declarations inlined to avoid an external dependency on the safe-token crate
+// Partial SPL Token v2.0.x declarations inlined to avoid an external dependency on the pano-token crate
 solana_sdk::declare_id!("7v5TwK92hUSqduoL3R8NtzTNfNzMA48nJL4mzPYMdDrD");
 
 pub(crate) mod new_token_program {

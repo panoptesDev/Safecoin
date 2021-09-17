@@ -2340,7 +2340,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
     "value": [
       {
         "data": {
-          "program": "safe-token",
+          "program": "pano-token",
           "parsed": {
             "accountType": "account",
             "info": {
@@ -2428,7 +2428,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
     "value": [
       {
         "data": {
-          "program": "safe-token",
+          "program": "pano-token",
           "parsed": {
             "accountType": "account",
             "info": {

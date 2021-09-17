@@ -50,7 +50,7 @@ import { useCluster, Cluster } from "providers/cluster";
 import { Link } from "react-router-dom";
 import { Location } from "history";
 import { useQuery } from "utils/url";
-import { TokenInfoMap } from "@solana/safe-token-registry";
+import { TokenInfoMap } from "@solana/pano-token-registry";
 import { useTokenRegistry } from "providers/mints/token-registry";
 
 const TRUNCATE_TOKEN_LENGTH = 10;
@@ -471,7 +471,7 @@ const TokenTransactionRow = React.memo(
           }
 
           if ("parsed" in ix) {
-            if (ix.program === "safe-token") {
+            if (ix.program === "pano-token") {
               name = instructionTypeName(ix, tx);
             } else {
               return undefined;
@@ -571,7 +571,7 @@ function InstructionDetails({
 
   let instructionTypes = instructionType.innerInstructions
     .map((ix) => {
-      if ("parsed" in ix && ix.program === "safe-token") {
+      if ("parsed" in ix && ix.program === "pano-token") {
         return instructionTypeName(ix, tx);
       }
       return undefined;

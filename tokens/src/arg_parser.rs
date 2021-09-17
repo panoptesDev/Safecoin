@@ -201,7 +201,7 @@ where
                 ),
         )
         .subcommand(
-            SubCommand::with_name("distribute-safe-tokens")
+            SubCommand::with_name("distribute-pano-tokens")
                 .about("Distribute SPL tokens")
                 .arg(
                     Arg::with_name("db_path")
@@ -285,7 +285,7 @@ where
                 ),
         )
         .subcommand(
-            SubCommand::with_name("safe-token-balances")
+            SubCommand::with_name("pano-token-balances")
                 .about("Balance of SPL token associated accounts")
                 .arg(
                     Arg::with_name("input_csv")
@@ -523,11 +523,11 @@ where
         ("distribute-stake", Some(matches)) => {
             Command::DistributeTokens(parse_distribute_stake_args(matches)?)
         }
-        ("distribute-safe-tokens", Some(matches)) => {
+        ("distribute-pano-tokens", Some(matches)) => {
             Command::DistributeTokens(parse_distribute_spl_tokens_args(matches)?)
         }
         ("balances", Some(matches)) => Command::Balances(parse_balances_args(matches)?),
-        ("safe-token-balances", Some(matches)) => Command::Balances(parse_balances_args(matches)?),
+        ("pano-token-balances", Some(matches)) => Command::Balances(parse_balances_args(matches)?),
         ("transaction-log", Some(matches)) => {
             Command::TransactionLog(parse_transaction_log_args(matches))
         }

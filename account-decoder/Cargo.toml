@@ -23,7 +23,7 @@ panoptis-config-program = { path = "../programs/config", version = "=1.6.19" }
 panoptis-sdk = { path = "../sdk", version = "=1.6.19" }
 panoptis-stake-program = { path = "../programs/stake", version = "=1.6.19" }
 panoptis-vote-program = { path = "../programs/vote", version = "=1.6.19" }
-spl-token-v2-0 = { package = "safe-token", version = ">=3.1.6", features = ["no-entrypoint"] }
+spl-token-v2-0 = { package = "pano-token", version = ">=3.1.6", features = ["no-entrypoint"] }
 thiserror = "1.0"
 zstd = "0.5.1"
 

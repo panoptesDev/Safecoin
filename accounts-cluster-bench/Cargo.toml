@@ -25,7 +25,7 @@ panoptis-runtime = { path = "../runtime", version = "=1.6.19" }
 panoptis-sdk = { path = "../sdk", version = "=1.6.19" }
 panoptis-transaction-status = { path = "../transaction-status", version = "=1.6.19" }
 panoptis-version = { path = "../version", version = "=1.6.19" }
-spl-token-v2-0 = { package = "safe-token", version = ">=3.1.6", features = ["no-entrypoint"] }
+spl-token-v2-0 = { package = "pano-token", version = ">=3.1.6", features = ["no-entrypoint"] }
 
 [dev-dependencies]
 solana-local-cluster = { path = "../local-cluster", version = "=1.6.19" }

@@ -5030,7 +5030,7 @@ impl Bank {
 
             // As a workaround for
             // https://github.com/fair-exchange/panoptis-program-library/issues/374, ensure that the
-            // safe-token 2 native mint account is owned by the safe-token 2 program.
+            // pano-token 2 native mint account is owned by the pano-token 2 program.
             let store = if let Some(existing_native_mint_account) =
                 self.get_account(&inline_spl_token_v2_0::native_mint::id())
             {

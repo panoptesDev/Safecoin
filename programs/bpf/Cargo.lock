@@ -2822,7 +2822,7 @@ dependencies = [
  "panoptis-sdk",
  "panoptis-stake-program",
  "panoptis-vote-program",
- "safe-token",
+ "pano-token",
  "thiserror",
  "zstd",
 ]
@@ -3727,7 +3727,7 @@ dependencies = [
  "panoptis-vote-program",
  "safe-associated-token-account",
  "safe-memo",
- "safe-token",
+ "pano-token",
  "thiserror",
 ]
 
@@ -3795,7 +3795,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4adc47eebe5d2b662cbaaba1843719c28a67e5ec5d0460bc3ca60900a51f74e2"
 dependencies = [
  "panoptis-program 1.7.1",
- "safe-token",
+ "pano-token",
 ]
 
 [[package]]
@@ -3808,7 +3808,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "safe-token"
+name = "pano-token"
 version = "3.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fbfa8fd791aeb4d7ad5fedb7872478de9f4e8b4fcb02dfd9e7f2f9ae3f3ddd73"

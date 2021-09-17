@@ -1781,7 +1781,7 @@ impl JsonRpcRequestProcessor {
         }
     }
 
-    /// Get an iterator of safe-token accounts by owner address
+    /// Get an iterator of pano-token accounts by owner address
     fn get_filtered_spl_token_accounts_by_owner(
         &self,
         bank: &Arc<Bank>,
@@ -1830,7 +1830,7 @@ impl JsonRpcRequestProcessor {
         }
     }
 
-    /// Get an iterator of safe-token accounts by mint address
+    /// Get an iterator of pano-token accounts by mint address
     fn get_filtered_spl_token_accounts_by_mint(
         &self,
         bank: &Arc<Bank>,
@@ -7164,7 +7164,7 @@ pub mod tests {
         assert_eq!(
             result["result"]["value"]["data"],
             json!({
-                "program": "safe-token",
+                "program": "pano-token",
                 "space": TokenAccount::get_packed_len(),
                 "parsed": {
                     "type": "account",
@@ -7209,7 +7209,7 @@ pub mod tests {
         assert_eq!(
             result["result"]["value"]["data"],
             json!({
-                "program": "safe-token",
+                "program": "pano-token",
                 "space": Mint::get_packed_len(),
                 "parsed": {
                     "type": "mint",

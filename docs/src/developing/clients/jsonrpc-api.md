@@ -2761,7 +2761,7 @@ Result:
     "value": [
       {
         "data": {
-          "program": "safe-token",
+          "program": "pano-token",
           "parsed": {
             "accountType": "account",
             "info": {
@@ -2851,7 +2851,7 @@ Result:
     "value": [
       {
         "data": {
-          "program": "safe-token",
+          "program": "pano-token",
           "parsed": {
             "accountType": "account",
             "info": {

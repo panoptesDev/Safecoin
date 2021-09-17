@@ -581,31 +581,31 @@ stores metadata describing token features like the supply, number of decimals, a
 various authorities with control over the mint. Each SPL Token account references
 its associated mint and may only interact with SPL Tokens of that type.
 
-### Installing the `safe-token` CLI Tool
+### Installing the `pano-token` CLI Tool
 
-SPL Token accounts are queried and modified using the `safe-token` command line
+SPL Token accounts are queried and modified using the `pano-token` command line
 utility. The examples provided in this section depend upon having it installed
 on the local system.
 
-`safe-token` is distributed from Rust [crates.io](https://crates.io/crates/safe-token)
+`pano-token` is distributed from Rust [crates.io](https://crates.io/crates/pano-token)
 via the Rust `cargo` command line utility. The latest version of `cargo` can be
 installed using a handy one-liner for your platform at [rustup.rs](https://rustup.rs).
-Once `cargo` is installed, `safe-token` can be obtained with the following command:
+Once `cargo` is installed, `pano-token` can be obtained with the following command:
 
 ```
-cargo install safe-token-cli
+cargo install pano-token-cli
 ```
 
 You can then check the installed version to verify
 
 ```
-safe-token --version
+pano-token --version
 ```
 
 Which should result in something like
 
 ```text
-safe-token-cli 2.0.1
+pano-token-cli 2.0.1
 ```
 
 ### Account Creation
@@ -615,8 +615,8 @@ accounts do not:
 
 1. SPL Token accounts must be created before an amount of tokens can be
    deposited. Token accounts can be created explicitly with the
-   `safe-token create-account` command, or implicitly by the
-   `safe-token transfer --fund-recipient ...` command.
+   `pano-token create-account` command, or implicitly by the
+   `pano-token transfer --fund-recipient ...` command.
 1. SPL Token accounts must remain [rent-exempt](developing/programming-model/accounts.md#rent-exemption)
    for the duration of their existence and therefore require a small amount of
    native PANO tokens be deposited at account creation. For SPL Token v2 accounts,
@@ -630,13 +630,13 @@ To create an SPL Token account with the following properties:
 1. Owned by the funding account's keypair
 
 ```
-safe-token create-account <TOKEN_MINT_ADDRESS>
+pano-token create-account <TOKEN_MINT_ADDRESS>
 ```
 
 #### Example
 
 ```
-$ safe-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir
+$ pano-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir
 Creating account 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
 Signature: 4JsqZEPra2eDTHtHpB4FMWSfk3UgcCVmkKkP7zESZeMrKmFFkDkNd91pKP3vPVVZZPiu5XxyJwS73Vi5WsZL88D7
 ```
@@ -645,7 +645,7 @@ Or to create an SPL Token account with a specific keypair:
 
 ```
 $ panoptis-keygen new -o token-account.json
-$ safe-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir token-account.json
+$ pano-token create-account AkUFCWTXb3w9nY2n6SFJvBV6VwvFUCe4KBMCcgLsa2ir token-account.json
 Creating account 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
 Signature: 4JsqZEPra2eDTHtHpB4FMWSfk3UgcCVmkKkP7zESZeMrKmFFkDkNd91pKP3vPVVZZPiu5XxyJwS73Vi5WsZL88D7
 ```
@@ -655,7 +655,7 @@ Signature: 4JsqZEPra2eDTHtHpB4FMWSfk3UgcCVmkKkP7zESZeMrKmFFkDkNd91pKP3vPVVZZPiu5
 #### Command Line
 
 ```
-safe-token balance <TOKEN_ACCOUNT_ADDRESS>
+pano-token balance <TOKEN_ACCOUNT_ADDRESS>
 ```
 
 #### Example
@@ -678,13 +678,13 @@ provided.
 #### Command Line
 
 ```
-safe-token transfer <SENDER_ACCOUNT_ADDRESS> <AMOUNT> <RECIPIENT_WALLET_ADDRESS> --fund-recipient
+pano-token transfer <SENDER_ACCOUNT_ADDRESS> <AMOUNT> <RECIPIENT_WALLET_ADDRESS> --fund-recipient
 ```
 
 #### Example
 
 ```
-$ safe-token transfer 6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN 1 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
+$ pano-token transfer 6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN 1 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
 Transfer 1 tokens
   Sender: 6B199xxzw3PkAm25hGJpjj3Wj3WNYNHzDAnt1tEqg5BN
   Recipient: 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
@@ -726,10 +726,10 @@ exchange should fund the account on behalf of the user. For SPL Token v2
 accounts, funding the withdrawal account will require 0.00203928 PANO (2,039,280
 lamports).
 
-Template `safe-token transfer` command for a withdrawal:
+Template `pano-token transfer` command for a withdrawal:
 
 ```
-$ safe-token transfer --fund-recipient <exchange token account> <withdrawal amount> <withdrawal address>
+$ pano-token transfer --fund-recipient <exchange token account> <withdrawal amount> <withdrawal address>
 ```
 
 ### Other Considerations

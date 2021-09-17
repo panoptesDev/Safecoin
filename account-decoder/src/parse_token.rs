@@ -42,7 +42,7 @@ pub fn parse_token(
             .map_err(|_| ParseAccountError::AccountNotParsable(ParsableAccount::SafeToken))?;
         let decimals = mint_decimals.ok_or_else(|| {
             ParseAccountError::AdditionalDataMissing(
-                "no mint_decimals provided to parse safe-token account".to_string(),
+                "no mint_decimals provided to parse pano-token account".to_string(),
             )
         })?;
         Ok(TokenAccountType::Account(UiTokenAccount {

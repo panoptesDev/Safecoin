@@ -79,7 +79,7 @@ panoptis-sys-tuner = { path = "../sys-tuner", version = "=1.6.19" }
 panoptis-transaction-status = { path = "../transaction-status", version = "=1.6.19" }
 panoptis-version = { path = "../version", version = "=1.6.19" }
 panoptis-vote-program = { path = "../programs/vote", version = "=1.6.19" }
-spl-token-v2-0 = { package = "safe-token", version = ">=3.1.6", features = ["no-entrypoint"] }
+spl-token-v2-0 = { package = "pano-token", version = ">=3.1.6", features = ["no-entrypoint"] }
 tempfile = "3.1.0"
 thiserror = "1.0"
 tokio = { version = "1", features = ["full"] }

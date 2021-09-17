@@ -123,10 +123,10 @@ mkdir -p "$installDir/bin"
   # shellcheck disable=SC2086 # Don't want to double quote $rust_version
   "$cargo" $maybeRustVersion build $maybeReleaseFlag "${binArgs[@]}"
 
-  # Exclude `safe-token` binary for net.sh builds
+  # Exclude `pano-token` binary for net.sh builds
   if [[ -z "$validatorOnly" ]]; then
     # shellcheck disable=SC2086 # Don't want to double quote $rust_version
-    "$cargo" $maybeRustVersion install safe-token-cli --root "$installDir"
+    "$cargo" $maybeRustVersion install pano-token-cli --root "$installDir"
   fi
 )
 
