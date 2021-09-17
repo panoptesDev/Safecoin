@@ -2,8 +2,8 @@
 //! "ticks", a measure of time in the PoH stream
 use crate::poh_recorder::{PohRecorder, Record};
 use crossbeam_channel::Receiver;
-use safecoin_ledger::poh::Poh;
-use safecoin_measure::measure::Measure;
+use panoptis_ledger::poh::Poh;
+use panoptis_measure::measure::Measure;
 use solana_sdk::poh_config::PohConfig;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
@@ -351,10 +351,10 @@ mod tests {
     use super::*;
     use crate::poh_recorder::WorkingBank;
     use rand::{thread_rng, Rng};
-    use safecoin_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo};
-    use safecoin_ledger::leader_schedule_cache::LeaderScheduleCache;
-    use safecoin_ledger::{blockstore::Blockstore, get_tmp_ledger_path};
-    use safecoin_measure::measure::Measure;
+    use panoptis_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo};
+    use panoptis_ledger::leader_schedule_cache::LeaderScheduleCache;
+    use panoptis_ledger::{blockstore::Blockstore, get_tmp_ledger_path};
+    use panoptis_measure::measure::Measure;
     use solana_perf::test_tx::test_tx;
     use solana_runtime::bank::Bank;
     use solana_sdk::clock;

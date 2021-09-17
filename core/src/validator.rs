@@ -34,7 +34,7 @@ use crate::{
 };
 use crossbeam_channel::{bounded, unbounded};
 use rand::{thread_rng, Rng};
-use safecoin_ledger::{
+use panoptis_ledger::{
     bank_forks_utils,
     blockstore::{Blockstore, BlockstoreSignals, CompletedSlotsReceiver, PurgeType},
     blockstore_db::BlockstoreRecoveryMode,
@@ -43,7 +43,7 @@ use safecoin_ledger::{
     leader_schedule_cache::LeaderScheduleCache,
     poh::compute_hash_time_ns,
 };
-use safecoin_measure::measure::Measure;
+use panoptis_measure::measure::Measure;
 use solana_metrics::datapoint_info;
 use solana_runtime::{
     accounts_index::AccountSecondaryIndexes,
@@ -1557,7 +1557,7 @@ pub fn is_snapshot_config_invalid(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use safecoin_ledger::{create_new_tmp_ledger, genesis_utils::create_genesis_config_with_leader};
+    use panoptis_ledger::{create_new_tmp_ledger, genesis_utils::create_genesis_config_with_leader};
     use solana_sdk::genesis_config::create_genesis_config;
     use solana_sdk::poh_config::PohConfig;
     use std::fs::remove_dir_all;
@@ -1604,8 +1604,8 @@ mod tests {
     fn test_backup_and_clear_blockstore() {
         use std::time::Instant;
         solana_logger::setup();
-        use safecoin_ledger::get_tmp_ledger_path;
-        use safecoin_ledger::{blockstore, entry};
+        use panoptis_ledger::get_tmp_ledger_path;
+        use panoptis_ledger::{blockstore, entry};
         let blockstore_path = get_tmp_ledger_path!();
         {
             let blockstore = Blockstore::open(&blockstore_path).unwrap();

@@ -1,4 +1,4 @@
-use safecoin_client::{pubsub_client::PubsubClient, rpc_client::RpcClient, rpc_response::SlotInfo};
+use panoptis_client::{pubsub_client::PubsubClient, rpc_client::RpcClient, rpc_response::SlotInfo};
 use solana_core::{
     optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
     rpc_pubsub_service::{PubSubConfig, PubSubService},

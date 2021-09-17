@@ -61,7 +61,7 @@ have not made any errors.
 panoptis-keygen new --no-outfile
 ```
 
-> If the `--no-outfile` flag is **omitted**, the default behavior is to write the keypair to `~/.config/safecoin/id.json`, resulting in a [file system wallet](file-system-wallet.md)
+> If the `--no-outfile` flag is **omitted**, the default behavior is to write the keypair to `~/.config/panoptis/id.json`, resulting in a [file system wallet](file-system-wallet.md)
 
 The output of this command will display a line like this:
 
@@ -88,7 +88,7 @@ Public keys can be derived from a seed phrase and a passphrase if you choose to
 use one. This is useful for using an offline-generated seed phrase to derive a
 valid public key. The `panoptis-keygen pubkey` command will walk you through how
 to use your seed phrase (and a passphrase if you chose to use one) as a signer
-with the safecoin command-line tools using the `ask` uri scheme.
+with the panoptis command-line tools using the `ask` uri scheme.
 
 ```bash
 panoptis-keygen pubkey prompt://
@@ -176,13 +176,13 @@ Next, configure the `solana` CLI tool to
 [connect to a particular cluster](../cli/choose-a-cluster.md):
 
 ```bash
-safecoin config set --url <CLUSTER URL> # (i.e. https://api.mainnet-beta.safecoin.org)
+panoptis config set --url <CLUSTER URL> # (i.e. https://api.mainnet-beta.panoptis.org)
 ```
 
 Finally, to check the balance, run the following command:
 
 ```bash
-safecoin balance <PUBKEY>
+panoptis balance <PUBKEY>
 ```
 
 ## Creating Multiple Paper Wallet Addresses

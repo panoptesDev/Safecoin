@@ -13,7 +13,7 @@ use {
         signature::Signature,
         transaction::{self, Transaction, TransactionError},
     },
-    safecoin_transaction_status::{TransactionConfirmationStatus, TransactionStatus},
+    panoptis_transaction_status::{TransactionConfirmationStatus, TransactionStatus},
     solana_version::Version,
     std::{collections::HashMap, sync::RwLock},
 };

@@ -5,7 +5,7 @@ use {
     },
     chrono::DateTime,
     clap::ArgMatches,
-    safecoin_remote_wallet::remote_wallet::RemoteWalletManager,
+    panoptis_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
         clock::UnixTimestamp,
         commitment_config::CommitmentConfig,

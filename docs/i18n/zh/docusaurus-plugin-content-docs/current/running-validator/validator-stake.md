@@ -9,7 +9,7 @@ title: 质押
 如果要委托质押，首先请确保您的验证程序正在运行，并且跟上集群。 验证节点启动后，可能需要一些时间来跟上。 请使用 `catchup` 命令来监控该过程：
 
 ```bash
-safecoin catchup ~/validator-keypair.json
+panoptis catchup ~/validator-keypair.json
 ```
 
 在验证节点跟上之前，它无法成功投票，因此也无法委托质押。
@@ -29,13 +29,13 @@ panoptis-keygen new -o ~/validator-stake-keypair.json
 在首先创建质押帐户之前，现在先把 1 PANO 委托给您的验证节点：
 
 ```bash
-safecoin create-stake-account ~/validator-stake-keypair.json 1
+panoptis create-stake-account ~/validator-stake-keypair.json 1
 ```
 
 然后将这个质押委托给您的验证节点：
 
 ```bash
-safecoin delegate-stake ~/validator-stake-keypair.json ~/vote-account-keypair.json
+panoptis delegate-stake ~/validator-stake-keypair.json ~/vote-account-keypair.json
 ```
 
 > 不要委托您剩余的 PANO，因为验证程序需要用这些代币进行投票。
@@ -43,7 +43,7 @@ safecoin delegate-stake ~/validator-stake-keypair.json ~/vote-account-keypair.js
 任何时候都可以使用相同的命令将质押重新委托到另一个节点，但每个 epoch 只能够换一次：
 
 ```bash
-safecoin delegate-stake ~/validator-stake-keypair.json ~/some-other-vote-account-keypair.json
+panoptis delegate-stake ~/validator-stake-keypair.json ~/some-other-vote-account-keypair.json
 ```
 
 假设节点正在投票，现在您已经开始运行并产生验证节点奖励。 在每个 epoch 结束阶段，奖励会自动进行发放。
@@ -62,12 +62,12 @@ safecoin delegate-stake ~/validator-stake-keypair.json ~/some-other-vote-account
 
 在预热期间，您可以通过以下命令来监控一个验证节点的委托：
 
-- 查看您的投票账户：`safecoin vote-account - keypair.json`，这将显示验证节点提交给网络的所有投票的当前状态。
-- 查看您的质押账户、委托偏好以及您的质押细节：`safecoin stock-account ~/validator-stake-keypair.json`
+- 查看您的投票账户：`panoptis vote-account - keypair.json`，这将显示验证节点提交给网络的所有投票的当前状态。
+- 查看您的质押账户、委托偏好以及您的质押细节：`panoptis stock-account ~/validator-stake-keypair.json`
 - `Panoptis validators` 显示当前所有验证程序的活跃质押，包括您的
-- `safecoin stake-history` 展示了最近epochs中预热和冷却的历史
+- `panoptis stake-history` 展示了最近epochs中预热和冷却的历史
 - 在您的验证节点查找日志消息，指明您的下一位领导者插槽：`[2019-09-27T20：16：00.319721164Z INFO solana_core:::replay_stage] <VALIDATOR_IDENTITY_PUBKEY> 投票并在出块高度重置PoH####。 我的下一个领导者插槽是 ####`
-- 质押预热完毕后，您可以通过运行 `safecoin validators` 来看到验证程序中列出的一个质押余额。
+- 质押预热完毕后，您可以通过运行 `panoptis validators` 来看到验证程序中列出的一个质押余额。
 
 ## 监视您质押的验证节点
 
@@ -95,7 +95,7 @@ safecoin delegate-stake ~/validator-stake-keypair.json ~/some-other-vote-account
 在从集群中分离验证节点之前，应通过运行以下命令停用先前委托的质押：
 
 ```bash
-safecoin deactivate-stake ~/validator-stake-keypair.json
+panoptis deactivate-stake ~/validator-stake-keypair.json
 ```
 
 质押不会立即停用，而是类似于预热的方式先进行冷却。 您的验证程序应在冷却时保持在群集上。 在冷却的同时，您的质押将继续获得奖励。 只有在质押冷却之后，才能安全关闭验证节点或从网络中撤出。 冷却时间可能需要几个epoch，具体取决于活跃质押及其规模。

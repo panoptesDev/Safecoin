@@ -294,10 +294,10 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 
 发送同步传输到 Panoptis 集群可以让您轻松保证转账的成功并由集群确定最终性。
 
-Panoptis的命令行工具提供了一个用于生成、提交和确认转账交易的简单命令， `safecoin transfer`。 默认情况下，该方法将等待并跟踪 stderr 的进度，直到集群确认了某笔交易。 如果交易失败，它将报告任何类型的交易错误。
+Panoptis的命令行工具提供了一个用于生成、提交和确认转账交易的简单命令， `panoptis transfer`。 默认情况下，该方法将等待并跟踪 stderr 的进度，直到集群确认了某笔交易。 如果交易失败，它将报告任何类型的交易错误。
 
 ```bash
-safecoin transfer <USER_ADDRESS> <AMOUNT> --keypair <KEYPAIR> --url http://localhost:8328
+panoptis transfer <USER_ADDRESS> <AMOUNT> --keypair <KEYPAIR> --url http://localhost:8328
 ```
 
 [Panoptis Javascript SDK](https://github.com/fair-exchange/panoptis-web3.js) 为 JS 生态提供了类似的方法。 使用 `SystemProgram` 创造一笔转账交易，然后使用 `sendAndConfirmTransaction` 方法提交。
@@ -311,13 +311,13 @@ safecoin transfer <USER_ADDRESS> <AMOUNT> --keypair <KEYPAIR> --url http://local
 首先，使用 [`getFees` 端点](developing/clients/jsonrpc-api.md#getfees) 或 CLI 命令获取最近的区块哈希：
 
 ```bash
-safecoin fees --url http://localhost:8328
+panoptis fees --url http://localhost:8328
 ```
 
 在命令行工具中，通过 `--no-wait` 参数发送异步传输，使用 `--blockhash` 参数包含您最近的区块哈希：
 
 ```bash
-safecoin transfer <USER_ADDRESS> <AMOUNT> --no-wait --blockhash <RECENT_BLOCKHASH> --keypair <KEYPAIR> --url http://localhost:8328
+panoptis transfer <USER_ADDRESS> <AMOUNT> --no-wait --blockhash <RECENT_BLOCKHASH> --keypair <KEYPAIR> --url http://localhost:8328
 ```
 
 您也可以手动化生成、签名和序列化一笔交易，然后用 JSON-RPC [`发送交易` 端点](developing/clients/jsonrpc-api.md#sendtransaction) 将它关闭到某个集群。
@@ -360,7 +360,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0", "id":1, "
 
 #### 区块哈希过期
 
-当您使用 [`getFees` endpoint](developing/clients/jsonrpc-api.md#getfees) 或 `safecoin fees` 请求您提款交易最近的区块哈希，响应将包括 `lastValidSlot`，有效区块哈希的最后一个插槽。 您可以使用 [`getSlot` query](developing/clients/jsonrpc-api.md#getslot) 检查集群插槽；一旦集群槽大于`lastValidSlot`，那么使用该区块哈希的提现交易永远不会成功。
+当您使用 [`getFees` endpoint](developing/clients/jsonrpc-api.md#getfees) 或 `panoptis fees` 请求您提款交易最近的区块哈希，响应将包括 `lastValidSlot`，有效区块哈希的最后一个插槽。 您可以使用 [`getSlot` query](developing/clients/jsonrpc-api.md#getslot) 检查集群插槽；一旦集群槽大于`lastValidSlot`，那么使用该区块哈希的提现交易永远不会成功。
 
 您也可以通过发送一个以区块哈希作为参数 [`getFeeCalculatorForBlockhash`](developing/clients/jsonrpc-api.md#getfeecalculatorforblockhash) 的请求，来再次确认某个区块哈希是否仍然有效。 如果响应值为空，那么该区块哈希已经过期，提现请求就一定不会成功。
 
@@ -499,7 +499,7 @@ pano-token balance <TOKEN_ACCOUNT_ADDRESS>
 
 #### 示例：
 ```
-$ safecoin balance 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
+$ panoptis balance 6VzWGL51jLebvnDifvcuEDec17sK6Wupi4gYhm5RzfkV
 0
 ```
 
@@ -549,4 +549,4 @@ $ pano-token transfer --fund-recipient <exchange token account> <withdrawal amou
 
 ## 测试集成
 
-请务必先在 Panoptis devnet 和 testnet [clusters](../clusters.md) 测试完整的工作流，然后再迁移到 mainnet-beta 上。 Devnet 是最开放和最灵活、最理想的初始开发方式，而 testnet 提供了更现实的集群配置。 Devnet 和 testnet 都有一个水龙头，您可以通过运行 `safecoin airdrop 10` 获取一些用来开发和测试的 devnet 或 testnet 的 PANO 代币。
+请务必先在 Panoptis devnet 和 testnet [clusters](../clusters.md) 测试完整的工作流，然后再迁移到 mainnet-beta 上。 Devnet 是最开放和最灵活、最理想的初始开发方式，而 testnet 提供了更现实的集群配置。 Devnet 和 testnet 都有一个水龙头，您可以通过运行 `panoptis airdrop 10` 获取一些用来开发和测试的 devnet 或 testnet 的 PANO 代币。

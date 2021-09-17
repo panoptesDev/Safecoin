@@ -100,7 +100,7 @@ extern crate serde_json;
 extern crate solana_metrics;
 
 #[macro_use]
-extern crate safecoin_frozen_abi_macro;
+extern crate panoptis_frozen_abi_macro;
 
 #[cfg(test)]
 #[macro_use]

@@ -160,8 +160,8 @@ change the validator identity. The follow steps assume that
 `~/withdraw-authority.json` is that keypair.
 
 1. Create the new validator identity keypair, `panoptis-keygen new -o ~/new-validator-keypair.json`.
-2. Ensure that the new identity account has been funded, `safecoin transfer ~/new-validator-keypair.json 500`.
-3. Run `safecoin vote-update-validator ~/vote-account-keypair.json ~/new-validator-keypair.json ~/withdraw-authority.json`
+2. Ensure that the new identity account has been funded, `panoptis transfer ~/new-validator-keypair.json 500`.
+3. Run `panoptis vote-update-validator ~/vote-account-keypair.json ~/new-validator-keypair.json ~/withdraw-authority.json`
    to modify the validator identity in your vote account
 4. Restart your validator with the new identity keypair for the `--identity` argument
 
@@ -171,14 +171,14 @@ The _vote authority_ keypair may only be changed at epoch boundaries and
 requires some additional arguments to `panoptis-validator` for a seamless
 migration.
 
-1. Run `safecoin epoch-info`. If there is not much time remaining time in the
+1. Run `panoptis epoch-info`. If there is not much time remaining time in the
    current epoch, consider waiting for the next epoch to allow your validator
    plenty of time to restart and catch up.
 2. Create the new vote authority keypair, `panoptis-keygen new -o ~/new-vote-authority.json`.
-3. Determine the current _vote authority_ keypair by running `safecoin vote-account ~/vote-account-keypair.json`. It may be validator's
+3. Determine the current _vote authority_ keypair by running `panoptis vote-account ~/vote-account-keypair.json`. It may be validator's
    identity account (the default) or some other keypair. The following steps
    assume that `~/validator-keypair.json` is that keypair.
-4. Run `safecoin vote-authorize-voter ~/vote-account-keypair.json ~/validator-keypair.json ~/new-vote-authority.json`.
+4. Run `panoptis vote-authorize-voter ~/vote-account-keypair.json ~/validator-keypair.json ~/new-vote-authority.json`.
    The new vote authority is scheduled to become active starting at the next epoch.
 5. `panoptis-validator` now needs to be restarted with the old and new vote
    authority keypairs, so that it can smoothly transition at the next epoch. Add
@@ -189,4 +189,4 @@ migration.
 
 ### Vote Account Authorized Withdrawer
 
-No special handling is required. Use the `safecoin vote-authorize-withdrawer` command as needed.
+No special handling is required. Use the `panoptis vote-authorize-withdrawer` command as needed.

@@ -12,7 +12,7 @@ to the cluster. It may take some time to catch up after your validator boots.
 Use the `catchup` command to monitor your validator through this process:
 
 ```bash
-safecoin catchup ~/validator-keypair.json
+panoptis catchup ~/validator-keypair.json
 ```
 
 Until your validator has caught up, it will not be able to vote successfully and
@@ -37,13 +37,13 @@ panoptis-keygen new -o ~/validator-stake-keypair.json
 Now delegate 1 PANO to your validator by first creating your stake account:
 
 ```bash
-safecoin create-stake-account ~/validator-stake-keypair.json 1
+panoptis create-stake-account ~/validator-stake-keypair.json 1
 ```
 
 and then delegating that stake to your validator:
 
 ```bash
-safecoin delegate-stake ~/validator-stake-keypair.json ~/vote-account-keypair.json
+panoptis delegate-stake ~/validator-stake-keypair.json ~/vote-account-keypair.json
 ```
 
 > Don’t delegate your remaining PANO, as your validator will use those tokens to vote.
@@ -52,7 +52,7 @@ Stakes can be re-delegated to another node at any time with the same command,
 but only one re-delegation is permitted per epoch:
 
 ```bash
-safecoin delegate-stake ~/validator-stake-keypair.json ~/some-other-vote-account-keypair.json
+panoptis delegate-stake ~/validator-stake-keypair.json ~/some-other-vote-account-keypair.json
 ```
 
 Assuming the node is voting, now you're up and running and generating validator
@@ -84,18 +84,18 @@ period.
 
 Monitor a validator's stake during warmup by:
 
-- View your vote account:`safecoin vote-account ~/vote-account-keypair.json` This displays the current state of all the votes the validator has submitted to the network.
-- View your stake account, the delegation preference and details of your stake:`safecoin stake-account ~/validator-stake-keypair.json`
-- `safecoin validators` displays the current active stake of all validators, including yours
-- `safecoin stake-history` shows the history of stake warming up and cooling down over recent epochs
+- View your vote account:`panoptis vote-account ~/vote-account-keypair.json` This displays the current state of all the votes the validator has submitted to the network.
+- View your stake account, the delegation preference and details of your stake:`panoptis stake-account ~/validator-stake-keypair.json`
+- `panoptis validators` displays the current active stake of all validators, including yours
+- `panoptis stake-history` shows the history of stake warming up and cooling down over recent epochs
 - Look for log messages on your validator indicating your next leader slot: `[2019-09-27T20:16:00.319721164Z INFO solana_core::replay_stage] <VALIDATOR_IDENTITY_PUBKEY> voted and reset PoH at tick height ####. My next leader slot is ####`
-- Once your stake is warmed up, you will see a stake balance listed for your validator by running `safecoin validators`
+- Once your stake is warmed up, you will see a stake balance listed for your validator by running `panoptis validators`
 
 ## Monitor Your Staked Validator
 
 Confirm your validator becomes a [leader](../terminology.md#leader)
 
-- After your validator is caught up, use the `safecoin balance` command to monitor the earnings as your validator is selected as leader and collects transaction fees
+- After your validator is caught up, use the `panoptis balance` command to monitor the earnings as your validator is selected as leader and collects transaction fees
 - Panoptis nodes offer a number of useful JSON-RPC methods to return information about the network and your validator's participation. Make a request by using curl \(or another http client of your choosing\), specifying the desired method in JSON-RPC-formatted data. For example:
 
 ```bash
@@ -118,7 +118,7 @@ Before detaching your validator from the cluster, you should deactivate the
 stake that was previously delegated by running:
 
 ```bash
-safecoin deactivate-stake ~/validator-stake-keypair.json
+panoptis deactivate-stake ~/validator-stake-keypair.json
 ```
 
 Stake is not deactivated immediately and instead cools down in a similar fashion

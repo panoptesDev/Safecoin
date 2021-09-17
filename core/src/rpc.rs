@@ -14,7 +14,7 @@ use bincode::{config::Options, serialize};
 use jsonrpc_core::{types::error, Error, Metadata, Result};
 use jsonrpc_derive::rpc;
 use serde::{Deserialize, Serialize};
-use safecoin_account_decoder::{
+use panoptis_account_decoder::{
     parse_account_data::AccountAdditionalData,
     parse_token::{
         get_token_account_mint, spl_token_id_v2_0, spl_token_v2_0_native_mint,
@@ -22,7 +22,7 @@ use safecoin_account_decoder::{
     },
     UiAccount, UiAccountData, UiAccountEncoding, UiDataSliceConfig,
 };
-use safecoin_client::{
+use panoptis_client::{
     rpc_cache::LargestAccountsCache,
     rpc_config::*,
     rpc_custom_error::RpcCustomError,
@@ -37,8 +37,8 @@ use safecoin_client::{
     rpc_response::Response as RpcResponse,
     rpc_response::*,
 };
-use safecoin_faucet::faucet::request_airdrop_transaction;
-use safecoin_ledger::{
+use panoptis_faucet::faucet::request_airdrop_transaction;
+use panoptis_ledger::{
     blockstore::Blockstore, blockstore_db::BlockstoreError, get_tmp_ledger_path,
     leader_schedule_cache::LeaderScheduleCache,
 };
@@ -70,7 +70,7 @@ use solana_sdk::{
     transaction::{self, Transaction, TransactionError},
 };
 use solana_stake_program::stake_state::StakeState;
-use safecoin_transaction_status::{
+use panoptis_transaction_status::{
     EncodedConfirmedTransaction, Reward, RewardType, TransactionConfirmationStatus,
     TransactionStatus, UiConfirmedBlock, UiTransactionEncoding,
 };
@@ -2385,7 +2385,7 @@ pub mod rpc_minimal {
                 .get_epoch_leader_schedule(epoch)
                 .map(|leader_schedule| {
                     let mut schedule_by_identity =
-                        safecoin_ledger::leader_schedule_utils::leader_schedule_by_identity(
+                        panoptis_ledger::leader_schedule_utils::leader_schedule_by_identity(
                             leader_schedule.get_slot_leaders().iter().enumerate(),
                         );
                     if let Some(identity) = config.identity {
@@ -3749,8 +3749,8 @@ pub mod tests {
     use bincode::deserialize;
     use jsonrpc_core::{futures, ErrorCode, MetaIoHandler, Output, Response, Value};
     use jsonrpc_core_client::transports::local;
-    use safecoin_client::rpc_filter::{Memcmp, MemcmpEncodedBytes};
-    use safecoin_ledger::{
+    use panoptis_client::rpc_filter::{Memcmp, MemcmpEncodedBytes};
+    use panoptis_ledger::{
         blockstore_meta::PerfSample,
         blockstore_processor::fill_blockstore_slot_with_ticks,
         genesis_utils::{create_genesis_config, GenesisConfigInfo},
@@ -3771,7 +3771,7 @@ pub mod tests {
         timing::slot_duration_from_slots_per_year,
         transaction::{self, TransactionError},
     };
-    use safecoin_transaction_status::{
+    use panoptis_transaction_status::{
         EncodedConfirmedBlock, EncodedTransaction, EncodedTransactionWithStatusMeta,
         TransactionDetails, UiMessage,
     };
@@ -4442,7 +4442,7 @@ pub mod tests {
 
             assert_eq!(
                 bob_schedule.len(),
-                safecoin_ledger::leader_schedule_utils::leader_schedule(bank.epoch(), &bank)
+                panoptis_ledger::leader_schedule_utils::leader_schedule(bank.epoch(), &bank)
                     .unwrap()
                     .get_slot_leaders()
                     .len()

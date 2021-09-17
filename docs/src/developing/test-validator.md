@@ -56,33 +56,33 @@ software.
 
 #### Configure the CLI Tool Suite to target a local cluster by default
 ```
-safecoin config set --url http://127.0.0.1:8328
+panoptis config set --url http://127.0.0.1:8328
 ```
 
 #### Verify the CLI Tool Suite configuration
 ```
-safecoin genesis-hash
+panoptis genesis-hash
 ```
 * **NOTE:** The result should match the `Genesis Hash:` field in the
 `panoptis-test-validator` status output
 
 #### Check the wallet balance
 ```
-safecoin balance
+panoptis balance
 ```
 * **NOTE:** `Error: No such file or directory (os error 2)` means that the default
 wallet does not yet exist. Create it with `panoptis-keygen new`.
 * **NOTE:** If the wallet has a zero PANO balance, airdrop some localnet PANO with
-`safecoin airdrop 10`
+`panoptis airdrop 10`
 
 #### Perform a basic transfer transaction
 ```
-safecoin transfer EPhgPANa5Rh2wa4V2jxt7YbtWa3Uyw4sTeZ13cQjDDB8 1
+panoptis transfer EPhgPANa5Rh2wa4V2jxt7YbtWa3Uyw4sTeZ13cQjDDB8 1
 ```
 
 #### Monitor `msg!()` output from on-chain programs
 ```
-safecoin logs
+panoptis logs
 ```
 * **NOTE:** This command needs to be running when the target transaction is
 executed. Run it in its own terminal

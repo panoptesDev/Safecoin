@@ -1,6 +1,6 @@
 use {
     crate::client_error,
-    safecoin_account_decoder::{parse_token::UiTokenAmount, UiAccount},
+    panoptis_account_decoder::{parse_token::UiTokenAmount, UiAccount},
     solana_sdk::{
         clock::{Epoch, Slot, UnixTimestamp},
         fee_calculator::{FeeCalculator, FeeRateGovernor},
@@ -8,7 +8,7 @@ use {
         inflation::Inflation,
         transaction::{Result, TransactionError},
     },
-    safecoin_transaction_status::{
+    panoptis_transaction_status::{
         ConfirmedTransactionStatusWithSignature, TransactionConfirmationStatus,
     },
     std::{collections::HashMap, fmt, net::SocketAddr},

@@ -10,7 +10,7 @@ public RPC endpoints currently available and recommended for each public cluster
 
 #### Endpoint
 
-- `https://api.devnet.safecoin.org` - single Panoptis-hosted api node; rate-limited
+- `https://api.devnet.panoptis.org` - single Panoptis-hosted api node; rate-limited
 
 #### Rate Limits
 
@@ -24,7 +24,7 @@ public RPC endpoints currently available and recommended for each public cluster
 
 #### Endpoint
 
-- `https://api.testnet.safecoin.org` - single Panoptis-hosted api node; rate-limited
+- `https://api.testnet.panoptis.org` - single Panoptis-hosted api node; rate-limited
 
 #### Rate Limits
 
@@ -38,7 +38,7 @@ public RPC endpoints currently available and recommended for each public cluster
 
 #### Endpoints
 
-- `https://api.mainnet-beta.safecoin.org` - Panoptis-hosted api node cluster, backed by a load balancer; rate-limited
+- `https://api.mainnet-beta.panoptis.org` - Panoptis-hosted api node cluster, backed by a load balancer; rate-limited
 - `https://solana-api.projectserum.com` - Project Serum-hosted api node
 
 #### Rate Limits

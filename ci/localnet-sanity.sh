@@ -202,8 +202,8 @@ killNodes() {
   # Try to use the RPC exit API to cleanly exit the first two nodes
   # (dynamic nodes, -x, are just killed)
   echo "--- RPC exit"
-  $safecoin_validator --ledger "$PANOPTIS_CONFIG_DIR"/bootstrap-validator exit --force || true
-  $safecoin_validator --ledger "$PANOPTIS_CONFIG_DIR"/validator exit --force || true
+  $panoptis_validator --ledger "$PANOPTIS_CONFIG_DIR"/bootstrap-validator exit --force || true
+  $panoptis_validator --ledger "$PANOPTIS_CONFIG_DIR"/validator exit --force || true
 
   # Give the nodes a splash of time to cleanly exit before killing them
   sleep 2
@@ -271,7 +271,7 @@ verifyLedger() {
     echo "--- $ledger ledger verification"
     (
       set -x
-      $safecoin_ledger_tool --ledger "$PANOPTIS_CONFIG_DIR"/$ledger verify
+      $panoptis_ledger_tool --ledger "$PANOPTIS_CONFIG_DIR"/$ledger verify
     ) || flag_error
   done
 }
@@ -317,7 +317,7 @@ while [[ $iteration -le $iterations ]]; do
     set -x
     client_keypair=/tmp/client-id.json-$$
     $solana_keygen new --no-passphrase -fso $client_keypair || exit $?
-    $safecoin_gossip spy -n 127.0.0.1:10015 --num-nodes-exactly $numNodes || exit $?
+    $panoptis_gossip spy -n 127.0.0.1:10015 --num-nodes-exactly $numNodes || exit $?
     rm -rf $client_keypair
   ) || flag_error
 

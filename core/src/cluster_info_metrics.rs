@@ -1,5 +1,5 @@
 use crate::crds_gossip::CrdsGossip;
-use safecoin_measure::measure::Measure;
+use panoptis_measure::measure::Measure;
 use solana_sdk::pubkey::Pubkey;
 use std::{
     collections::HashMap,

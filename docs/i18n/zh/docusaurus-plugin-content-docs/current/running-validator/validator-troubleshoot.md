@@ -7,7 +7,7 @@ Discord 有一个 **\#validator-support** 频道可以用来联系其他测试�
 ## 有用的链接 & 讨论
 
 - [网络浏览器](http://explorer.solana.com/)
-- [Testnet 性能仪表板](https://metrics.safecoin.org:3000/d/monitor-edge/cluster-telemetry-edge?refresh=60s&orgId=2)
+- [Testnet 性能仪表板](https://metrics.panoptis.org:3000/d/monitor-edge/cluster-telemetry-edge?refresh=60s&orgId=2)
 - 验证节点频道
   - [\#validator-support](https://discord.gg/rZsenD) 用于任何验证节点相关查询的通用支持频道。
   - [\#tourdesol](https://discord.gg/BdujK2) Tour de PANO 参与者的讨论和支持频道([Tour de PANO是什么？](https://solana.com/tds/)).
@@ -16,6 +16,6 @@ Discord 有一个 **\#validator-support** 频道可以用来联系其他测试�
 - [核心软件代码库](https://github.com/panoptisdev/panoptis)
 - [Tour de PANO 文档](https://docs.solana.com/tour-de-sol)
 - [TdS 代码库](https://github.com/solana-labs/tour-de-sol)
-- [TdS 性能指示板](https://metrics.safecoin.org:3000/d/monitor-edge/cluster-telemetry-edge?refresh=1m&from=now-15m&to=now&var-testnet=tds)
+- [TdS 性能指示板](https://metrics.panoptis.org:3000/d/monitor-edge/cluster-telemetry-edge?refresh=1m&from=now-15m&to=now&var-testnet=tds)
 
 找不到您想要的东西？ 请发送电子邮件到 ryan@solana.com 或在 Discord 联系 @rshea\#2622。

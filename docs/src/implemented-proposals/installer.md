@@ -2,7 +2,7 @@
 title: Cluster Software Installation and Updates
 ---
 
-Currently users are required to build the safecoin cluster software themselves from the git repository and manually update it, which is error prone and inconvenient.
+Currently users are required to build the panoptis cluster software themselves from the git repository and manually update it, which is error prone and inconvenient.
 
 This document proposes an easy to use software install and updater that can be used to deploy pre-built binaries for supported platforms. Users may elect to use binaries supplied by Panoptis or any other party they trust. Deployment of updates is managed using an on-chain update manifest program.
 
@@ -13,7 +13,7 @@ This document proposes an easy to use software install and updater that can be u
 The easiest install method for supported platforms:
 
 ```bash
-$ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/panoptis-install-init.sh | sh
+$ curl -sSf https://raw.githubusercontent.com/fair-exchange/panoptis/v1.0.0/install/panoptis-install-init.sh | sh
 ```
 
 This script will check github for the latest tagged release and download and run the `panoptis-install-init` binary from there.
@@ -22,7 +22,7 @@ If additional arguments need to be specified during the installation, the follow
 
 ```bash
 $ init_args=.... # arguments for `panoptis-install-init ...`
-$ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/panoptis-install-init.sh | sh -s - ${init_args}
+$ curl -sSf https://raw.githubusercontent.com/fair-exchange/panoptis/v1.0.0/install/panoptis-install-init.sh | sh -s - ${init_args}
 ```
 
 ### Fetch and run a pre-built installer from a Github release
@@ -47,7 +47,7 @@ $ cargo run -- --help
 
 ### Deploy a new update to a cluster
 
-Given a safecoin release tarball \(as created by `ci/publish-tarball.sh`\) that has already been uploaded to a publicly accessible URL, the following commands will deploy the update:
+Given a panoptis release tarball \(as created by `ci/publish-tarball.sh`\) that has already been uploaded to a publicly accessible URL, the following commands will deploy the update:
 
 ```bash
 $ panoptis-keygen new -o update-manifest.json  # <-- only generated once, the public key is shared with users
@@ -65,7 +65,7 @@ $ panoptis-install run panoptis-validator ...  # <-- runs a validator, restartin
 
 ## On-chain Update Manifest
 
-An update manifest is used to advertise the deployment of new release tarballs on a safecoin cluster. The update manifest is stored using the `config` program, and each update manifest account describes a logical update channel for a given target triple \(eg, `x86_64-apple-darwin`\). The account public key is well-known between the entity deploying new updates and users consuming those updates.
+An update manifest is used to advertise the deployment of new release tarballs on a panoptis cluster. The update manifest is stored using the `config` program, and each update manifest account describes a logical update channel for a given target triple \(eg, `x86_64-apple-darwin`\). The account public key is well-known between the entity deploying new updates and users consuming those updates.
 
 The update tarball itself is hosted elsewhere, off-chain and can be fetched from the specified `download_url`.
 
@@ -87,7 +87,7 @@ pub struct SignedUpdateManifest {
 }
 ```
 
-Note that the `manifest` field itself contains a corresponding signature \(`manifest_signature`\) to guard against man-in-the-middle attacks between the `panoptis-install` tool and the safecoin cluster RPC API.
+Note that the `manifest` field itself contains a corresponding signature \(`manifest_signature`\) to guard against man-in-the-middle attacks between the `panoptis-install` tool and the panoptis cluster RPC API.
 
 To guard against rollback attacks, `panoptis-install` will refuse to install an update with an older `timestamp_secs` than what is currently installed.
 
@@ -115,7 +115,7 @@ The `panoptis-install` tool is used by the user to install and update their clus
 
 It manages the following files and directories in the user's home directory:
 
-- `~/.config/safecoin/install/config.yml` - user configuration and information about currently installed software version
+- `~/.config/panoptis/install/config.yml` - user configuration and information about currently installed software version
 - `~/.local/share/solana/install/bin` - a symlink to the current release. eg, `~/.local/share/solana-update/<update-pubkey>-<manifest_signature>/bin`
 - `~/.local/share/solana/install/releases/<download_sha256>/` - contents of a release
 
@@ -123,7 +123,7 @@ It manages the following files and directories in the user's home directory:
 
 ```text
 panoptis-install 0.16.0
-The safecoin cluster software installer
+The panoptis cluster software installer
 
 USAGE:
     panoptis-install [OPTIONS] <SUBCOMMAND>
@@ -156,7 +156,7 @@ FLAGS:
 
 OPTIONS:
     -d, --data_dir <PATH>    Directory to store install data [default: .../Library/Application Support/solana]
-    -u, --url <URL>          JSON RPC URL for the safecoin cluster [default: http://api.devnet.safecoin.org]
+    -u, --url <URL>          JSON RPC URL for the panoptis cluster [default: http://api.devnet.panoptis.org]
     -p, --pubkey <PUBKEY>    Public key of the update manifest [default: 9XX329sPuskWhH4DQh6k16c87dHKhXLBZTL3Gxmve8Gp]
 ```
 
@@ -183,7 +183,7 @@ FLAGS:
     -h, --help    Prints help information
 
 ARGS:
-    <download_url>               URL to the safecoin release archive
+    <download_url>               URL to the panoptis release archive
     <update_manifest_keypair>    Keypair file for the update manifest (/path/to/keypair.json)
 ```
 

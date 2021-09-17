@@ -26,10 +26,10 @@ while [[ $($solana_cli --url http://localhost:8328 slot --commitment processed) 
   sleep 1
 done
 
-$safecoin_validator --ledger config/ledger exit --force || true
+$panoptis_validator --ledger config/ledger exit --force || true
 
 wait $pid
 
-$safecoin_ledger_tool create-snapshot --ledger config/ledger "$snapshot_slot" config/snapshot-ledger
+$panoptis_ledger_tool create-snapshot --ledger config/ledger "$snapshot_slot" config/snapshot-ledger
 cp config/ledger/genesis.tar.bz2 config/snapshot-ledger
-$safecoin_ledger_tool verify --ledger config/snapshot-ledger
+$panoptis_ledger_tool verify --ledger config/snapshot-ledger

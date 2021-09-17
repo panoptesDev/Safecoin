@@ -31,7 +31,7 @@ sh -c "$(curl -sSfL https://release.solana.com/LATEST_PANOPTIS_RELEASE_VERSION/i
 
 ```text
 downloading LATEST_PANOPTIS_RELEASE_VERSION installer
-Configuration: /home/solana/.config/safecoin/install/config.yml
+Configuration: /home/solana/.config/panoptis/install/config.yml
 Active release directory: /home/solana/.local/share/solana/install/active_release
 * Release version: LATEST_PANOPTIS_RELEASE_VERSION
 * Release URL: https://github.com/panoptisdev/panoptis/releases/download/LATEST_PANOPTIS_RELEASE_VERSION/solana-release-x86_64-unknown-linux-gnu.tar.bz2
@@ -42,7 +42,7 @@ Update successful
   to
 
 ```bash
-Please update your PATH environment variable to include the safecoin programs:
+Please update your PATH environment variable to include the panoptis programs:
 ```
 
 - If you get the above message, copy and paste the recommended command below
@@ -50,7 +50,7 @@ Please update your PATH environment variable to include the safecoin programs:
 - Confirm you have the desired version of `solana` installed by running:
 
 ```bash
-safecoin --version
+panoptis --version
 ```
 
 - After a successful install, `panoptis-install update` may be used to easily
@@ -91,7 +91,7 @@ C:\panoptis-install-tmp\panoptis-install-init.exe LATEST_PANOPTIS_RELEASE_VERSIO
 - Confirm you have the desired version of `solana` installed by entering:
 
 ```bash
-safecoin --version
+panoptis --version
 ```
 
 - After a successful install, `panoptis-install update` may be used to easily

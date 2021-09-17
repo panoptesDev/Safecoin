@@ -26,7 +26,7 @@ sh -c "$(curl -sSfL https://release.solana.com/LATEST_PANOPTIS_RELEASE_VERSION/i
 
 ```text
 downloading LATEST_PANOPTIS_RELEASE_VERSION installer
-Configuration: /home/solana/.config/safecoin/install/config.yml
+Configuration: /home/solana/.config/panoptis/install/config.yml
 Active release directory: /home/solana/.local/share/solana/install/active_release
 * Release version: LATEST_PANOPTIS_RELEASE_VERSION
 * Release URL: https://github.com/panoptisdev/panoptis/releases/download/LATEST_PANOPTIS_RELEASE_VERSION/solana-release-x86_64-unknown-linux-gnu.tar.bz2
@@ -43,7 +43,7 @@ Update successful
 - 通过运行以下命令来确认您已经安装了想要的 `solana` 版本：
 
 ```bash
-safecoin --version
+panoptis --version
 ```
 
 - 安装成功后，就可以通过 `panoptis-install update` 随时更新 Panoptis 软件到新版本。
@@ -75,7 +75,7 @@ C:\panoptis-install-tmp\panoptis-install-init.exe LATEST_PANOPTIS_RELEASE_VERSIO
 - 通过运行以下命令来确认您已经安装了想要的 `solana` 版本：
 
 ```bash
-safecoin --version
+panoptis --version
 ```
 
 - 安装成功后，就可以通过 `panoptis-install update` 随时更新 Panoptis 软件到新版本。

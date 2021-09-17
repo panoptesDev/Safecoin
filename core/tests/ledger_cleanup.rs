@@ -5,10 +5,10 @@
 mod tests {
     use log::*;
     use solana_core::ledger_cleanup_service::LedgerCleanupService;
-    use safecoin_ledger::blockstore::{make_many_slot_entries, Blockstore};
-    use safecoin_ledger::get_tmp_ledger_path;
-    use safecoin_ledger::shred::Shred;
-    use safecoin_measure::measure::Measure;
+    use panoptis_ledger::blockstore::{make_many_slot_entries, Blockstore};
+    use panoptis_ledger::get_tmp_ledger_path;
+    use panoptis_ledger::shred::Shred;
+    use panoptis_measure::measure::Measure;
     use std::collections::VecDeque;
     use std::str::FromStr;
     use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};

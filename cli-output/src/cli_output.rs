@@ -12,9 +12,9 @@ use {
     inflector::cases::titlecase::to_title_case,
     serde::{Deserialize, Serialize},
     serde_json::{Map, Value},
-    safecoin_account_decoder::parse_token::UiTokenAccount,
-    safecoin_clap_utils::keypair::SignOnly,
-    safecoin_client::rpc_response::{
+    panoptis_account_decoder::parse_token::UiTokenAccount,
+    panoptis_clap_utils::keypair::SignOnly,
+    panoptis_client::rpc_response::{
         RpcAccountBalance, RpcContactInfo, RpcInflationGovernor, RpcInflationRate, RpcKeyedAccount,
         RpcSupply, RpcVoteAccountInfo,
     },
@@ -29,7 +29,7 @@ use {
         transaction::{Transaction, TransactionError},
     },
     solana_stake_program::stake_state::{Authorized, Lockup},
-    safecoin_transaction_status::{
+    panoptis_transaction_status::{
         EncodedConfirmedBlock, EncodedTransaction, TransactionConfirmationStatus,
         UiTransactionStatusMeta,
     },

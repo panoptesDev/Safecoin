@@ -226,7 +226,7 @@ pub fn cluster_info_retransmit() {
 #[test]
 #[ignore]
 pub fn cluster_info_scale() {
-    use safecoin_measure::measure::Measure;
+    use panoptis_measure::measure::Measure;
     use solana_perf::test_tx::test_tx;
     use solana_runtime::bank::Bank;
     use solana_runtime::genesis_utils::{

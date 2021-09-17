@@ -20,7 +20,7 @@ $panoptis-keygen pubkey
 
 ```bash
 // 命令
-$ safecoin airdrop 2
+$ panoptis airdrop 2
 
 // 返回
 "2.0000000 PANO"
@@ -30,7 +30,7 @@ $ safecoin airdrop 2
 
 ```bash
 // 命令
-$ safecoin balance
+$ panoptis balance
 
 // 返回
 "3.00050001 PANO"
@@ -40,7 +40,7 @@ $ safecoin balance
 
 ```bash
 // 命令
-$ safecoin confirm <TX_SIGNATURE>
+$ panoptis confirm <TX_SIGNATURE>
 
 // 返回
 "Confirmed" / "Not found" / "Transaction failed with error <ERR>"
@@ -50,7 +50,7 @@ $ safecoin confirm <TX_SIGNATURE>
 
 ```bash
 // 命令
-$ safecoin deploy <PATH>
+$ panoptis deploy <PATH>
 
 // 返回
 <PROGRAM_ID>

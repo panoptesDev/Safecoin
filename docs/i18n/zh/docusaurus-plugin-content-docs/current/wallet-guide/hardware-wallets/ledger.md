@@ -55,16 +55,16 @@ panoptis-keygen pubkey usb://ledger?key=0
 
 ### 查看钱包余额
 
-无论是哪个钱包，您都可以通过 `safecoin balance` 命令来查看帐户余额：
+无论是哪个钱包，您都可以通过 `panoptis balance` 命令来查看帐户余额：
 
 ```bash
-safecoin balance SOME_WALLET_ADDRESS
+panoptis balance SOME_WALLET_ADDRESS
 ```
 
 例如，如果您的地址是 `7cvkjYAkUYs4W8XcXscca7cBrEGFeSUjeZmKoNBvEwyri`，那么可以输入以下命令查看余额：
 
 ```bash
-safecoin balance 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri
+panoptis balance 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri
 ```
 
 您也可以在[Explorer](https://explorer.solana.com/accounts)查看任何账户地址的余额，在网页浏览器中将地址粘贴到搜索框来查看余额。
@@ -75,10 +75,10 @@ safecoin balance 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri
 
 您需要使用该设备来签署交易，完成从 Nano 地址发送代币（通过生成钱包地址的相同密钥对 URL）。 请确保您的 Nano 已插入电脑，通过 PIN 解锁，并且 Ledger Live 处于未运行状态， 同时 Panoptis 应用在设备中打开，显示“应用已准备就绪”。
 
-`safecoin transfer` 命令用于指定代币发送地址和数量，通过 `--keypair` 参数来指定发送代币的密钥对（签署交易），同时对应地址的余额将减少。
+`panoptis transfer` 命令用于指定代币发送地址和数量，通过 `--keypair` 参数来指定发送代币的密钥对（签署交易），同时对应地址的余额将减少。
 
 ```bash
-safecoin transfer RECIPIENT_ADDRESS AMOUNT --keypair KEYPAIR_URL_OF_SENDER
+panoptis transfer RECIPIENT_ADDRESS AMOUNT --keypair KEYPAIR_URL_OF_SENDER
 ```
 
 下面是一个完整的实例。 首先，通过某个密钥对 URL 中查看一个地址。 然后检查该地址的余额。 最后，输入一笔交易来发送 `1` PANO到接收地址 `7cvkjYAkUYs4W8XcXscca7cBrEGFeSUjeZmKoNBvEwyri`。 按下回车键传输命令时，您将看到在 Ledger 设备批准交易细节的提示。 在设备上通过左右键查看交易细节。 如果信息正确，请同时按下"允许"界面的两个按钮，否则请在"拒绝"界面按下这两个按钮。
@@ -87,10 +87,10 @@ safecoin transfer RECIPIENT_ADDRESS AMOUNT --keypair KEYPAIR_URL_OF_SENDER
 ~$ panoptis-keygen pubkey usb://ledger?key=42
 CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
 
-~$ safecoin balance CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
+~$ panoptis balance CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
 1.000005 PANO
 
-~$ safecoin transfer 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri 1 --keypair usb://ledger?key=42
+~$ panoptis transfer 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri 1 --keypair usb://ledger?key=42
 
 等待您在 Ledger 硬件钱包确认 usb://ledger/2JT2Xvy6T8hSmT8g6WdeDbHUgoeGdj6bE2VueCZUJmyN
 ✅ 已允许
@@ -109,7 +109,7 @@ CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
 您可以使用界面交互提示而不是使用 Panoptis CLI `交易栏` 命令来生成完全合格的 URL。 例如，试着将 Nano 连接到 USB，输入 PIN 码解锁，并运行以下命令：
 
 ```text
-safecoin resolve-signer usb://ledger?key=0/0
+panoptis resolve-signer usb://ledger?key=0/0
 ```
 
 您将看到类似这样的输出：

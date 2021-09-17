@@ -8,13 +8,13 @@ of different commands for each action you might want to take. You can view the l
 of all possible commands by running:
 
 ```bash
-safecoin --help
+panoptis --help
 ```
 
 To zoom in on how to use a particular command, run:
 
 ```bash
-safecoin <COMMAND> --help
+panoptis <COMMAND> --help
 ```
 
 where you replace the text `<COMMAND>` with the name of the command you want

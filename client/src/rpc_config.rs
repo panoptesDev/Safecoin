@@ -1,11 +1,11 @@
 use {
     crate::rpc_filter::RpcFilterType,
-    safecoin_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
+    panoptis_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
     solana_sdk::{
         clock::{Epoch, Slot},
         commitment_config::{CommitmentConfig, CommitmentLevel},
     },
-    safecoin_transaction_status::{TransactionDetails, UiTransactionEncoding},
+    panoptis_transaction_status::{TransactionDetails, UiTransactionEncoding},
 };
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]

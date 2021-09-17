@@ -4,7 +4,7 @@ description: 阅读本指南以后
 ---
 
 - [网络浏览器](http://explorer.solana.com/)
-- [TdS 性能指示板](https://metrics.safecoin.org:3000/d/monitor-edge/cluster-telemetry-edge?refresh=1m&from=now-15m&to=now&var-testnet=tds)
+- [TdS 性能指示板](https://metrics.panoptis.org:3000/d/monitor-edge/cluster-telemetry-edge?refresh=1m&from=now-15m&to=now&var-testnet=tds)
 - 验证节点频道
   - [\#validator-support](https://discord.gg/rZsenD) 通用群组用于讨论 Tour de PANO 故障以外的验证节点相关疑问。
   - [\#tourdesol-validators](https://discord.gg/BdujK2) 群组供 Tour de PANO 参与者进行交流。

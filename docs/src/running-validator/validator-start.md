@@ -4,11 +4,11 @@ title: Starting a Validator
 
 ## Configure Panoptis CLI
 
-The safecoin cli includes `get` and `set` configuration commands to automatically
+The panoptis cli includes `get` and `set` configuration commands to automatically
 set the `--url` argument for cli commands. For example:
 
 ```bash
-safecoin config set --url http://api.devnet.safecoin.org
+panoptis config set --url http://api.devnet.panoptis.org
 ```
 
 While this section demonstrates how to connect to the Devnet cluster, the steps
@@ -20,10 +20,10 @@ Before attaching a validator node, sanity check that the cluster is accessible
 to your machine by fetching the transaction count:
 
 ```bash
-safecoin transaction-count
+panoptis transaction-count
 ```
 
-View the [metrics dashboard](https://metrics.safecoin.org:3000/d/monitor/cluster-telemetry) for more
+View the [metrics dashboard](https://metrics.panoptis.org:3000/d/monitor/cluster-telemetry) for more
 detail on cluster activity.
 
 ## Confirm your Installation
@@ -32,7 +32,7 @@ Try running following command to join the gossip network and view all the other
 nodes in the cluster:
 
 ```bash
-panoptis-gossip spy --entrypoint entrypoint.devnet.safecoin.org:10015
+panoptis-gossip spy --entrypoint entrypoint.devnet.panoptis.org:10015
 # Press ^C to exit
 ```
 
@@ -50,10 +50,10 @@ that CUDA is enabled: `"[<timestamp> solana::validator] CUDA is enabled"`
 
 #### Automatic
 
-The safecoin repo includes a daemon to adjust system settings to optimize performance
+The panoptis repo includes a daemon to adjust system settings to optimize performance
 (namely by increasing the OS UDP buffer and file mapping limits).
 
-The daemon (`panoptis-sys-tuner`) is included in the safecoin binary release. Restart
+The daemon (`panoptis-sys-tuner`) is included in the panoptis binary release. Restart
 it, _before_ restarting your validator, after each software upgrade to ensure that
 the latest recommended settings are applied.
 
@@ -197,19 +197,19 @@ To back-up your validator identify keypair, **back-up your
 
 ## More Panoptis CLI Configuration
 
-Now that you have a keypair, set the safecoin configuration to use your validator
+Now that you have a keypair, set the panoptis configuration to use your validator
 keypair for all following commands:
 
 ```bash
-safecoin config set --keypair ~/validator-keypair.json
+panoptis config set --keypair ~/validator-keypair.json
 ```
 
 You should see the following output:
 
 ```text
-Config File: /home/solana/.config/safecoin/cli/config.yml
-RPC URL: http://api.devnet.safecoin.org
-WebSocket URL: ws://api.devnet.safecoin.org/ (computed)
+Config File: /home/solana/.config/panoptis/cli/config.yml
+RPC URL: http://api.devnet.panoptis.org
+WebSocket URL: ws://api.devnet.panoptis.org/ (computed)
 Keypair Path: /home/solana/validator-keypair.json
 Commitment: confirmed
 ```
@@ -219,7 +219,7 @@ Commitment: confirmed
 Airdrop yourself some PANO to get started:
 
 ```bash
-safecoin airdrop 1
+panoptis airdrop 1
 ```
 
 Note that airdrops are only available on Devnet and Testnet. Both are limited
@@ -228,13 +228,13 @@ to 1 PANO per request.
 To view your current balance:
 
 ```text
-safecoin balance
+panoptis balance
 ```
 
 Or to see in finer detail:
 
 ```text
-safecoin balance --lamports
+panoptis balance --lamports
 ```
 
 Read more about the [difference between PANO and lamports here](../introduction.md#what-are-sols).
@@ -253,7 +253,7 @@ The following command can be used to create your vote account on the blockchain
 with all the default options:
 
 ```bash
-safecoin create-vote-account ~/vote-account-keypair.json ~/validator-keypair.json
+panoptis create-vote-account ~/vote-account-keypair.json ~/validator-keypair.json
 ```
 
 Read more about [creating and managing a vote account](vote-accounts.md).
@@ -281,7 +281,7 @@ panoptis-validator \
   --identity ~/validator-keypair.json \
   --vote-account ~/vote-account-keypair.json \
   --rpc-port 8328 \
-  --entrypoint entrypoint.devnet.safecoin.org:10015 \
+  --entrypoint entrypoint.devnet.panoptis.org:10015 \
   --limit-ledger-size \
   --log ~/panoptis-validator.log
 ```
@@ -303,7 +303,7 @@ Confirm your validator connected to the network by opening a new terminal and
 running:
 
 ```bash
-panoptis-gossip spy --entrypoint entrypoint.devnet.safecoin.org:10015
+panoptis-gossip spy --entrypoint entrypoint.devnet.panoptis.org:10015
 ```
 
 If your validator is connected, its public key and IP address will appear in the list.

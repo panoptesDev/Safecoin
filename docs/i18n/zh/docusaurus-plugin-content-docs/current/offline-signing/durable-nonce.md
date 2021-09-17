@@ -27,7 +27,7 @@ title: 持久交易随机数（Nonces）
 
 ```bash
 panoptis-keygen new -o nonce-keypair.json
-safecoin create-nonce-account nonce-keypair.json 1
+panoptis create-nonce-account nonce-keypair.json 1
 ```
 
 - 输出
@@ -47,7 +47,7 @@ safecoin create-nonce-account nonce-keypair.json 1
 - 命令
 
 ```bash
-safecoin nonce none-non-keypair.json
+panoptis nonce none-non-keypair.json
 ```
 
 - 输出
@@ -65,7 +65,7 @@ safecoin nonce none-non-keypair.json
 - 命令
 
 ```bash
-safecoin new-nonce none-non-keypair.json
+panoptis new-nonce none-non-keypair.json
 ```
 
 - 输出
@@ -83,7 +83,7 @@ safecoin new-nonce none-non-keypair.json
 - 命令
 
 ```bash
-safecoin non-account non-ceypair.json
+panoptis non-account non-ceypair.json
 ```
 
 - 输出
@@ -103,7 +103,7 @@ nonce: DZar6t2EaCFQTbUP4DHKwZ1wT8gCPW2aRfkVWhydkBvS
 - 命令
 
 ```bash
-safecoin withdraw-from-nonce-account nonce-keypair.json ~/.config/safecoin/id.json 0.5
+panoptis withdraw-from-nonce-account nonce-keypair.json ~/.config/panoptis/id.json 0.5
 ```
 
 - 输出
@@ -123,7 +123,7 @@ safecoin withdraw-from-nonce-account nonce-keypair.json ~/.config/safecoin/id.js
 - 命令
 
 ```bash
-safecoin authorize-non-account non-keypair.json nonce-authority.json
+panoptis authorize-non-account non-keypair.json nonce-authority.json
 ```
 
 - 输出
@@ -166,7 +166,7 @@ $ panoptis-keygen new -o bob.json
 Alice 需要一些资产来创建一个 nonce 帐户并发送给 Bob。 空投一些PANO给她
 
 ```bash
-$ safecoin airdrop -k alice.json 10
+$ panoptis airdrop -k alice.json 10
 10 PANO
 ```
 
@@ -177,7 +177,7 @@ $ safecoin airdrop -k alice.json 10
 > 这里没有单独的 [nonce authority](#nonce-authority) 被使用，所以 `alice.json` 对nonce 帐户拥有完全的权限
 
 ```bash
-$ safecoin create-nonce-account -k alice.json nonce.json 1
+$ panoptis create-nonce-account -k alice.json nonce.json 1
 3KPZr96BTsL3hqera9up82KAU462Gz31xjqJ6ehuAjF935Yf8i1kmfEbo6SVbNaACKE5z6gySrNjVRvmS8DcPuwV
 ```
 
@@ -186,7 +186,7 @@ $ safecoin create-nonce-account -k alice.json nonce.json 1
 Alice 试图为支付给 Bob，但签名需要太长时间。 指定的区块哈希已经过期，导致交易失败
 
 ```bash
-$ safecoin pay -k alice.json --blockhash expiredDTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7 bob.json 1
+$ panoptis pay -k alice.json --blockhash expiredDTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7 bob.json 1
 [2020-01-02T18:48:28.462911000Z ERROR solana_cli::cli] Io(Custom { kind: Other, error: "Transaction \"33gQQaoPc9jWePMvDAeyJpcnSPiGUAdtVg8zREWv4GiKjkcGNufgpcbFyRKRrA25NkgjZySEeKue5rawyeH5TzsV\" failed: None" })
 Error: Io(Custom { kind: Other, error: "Transaction \"33gQQaoPc9jWePMvDAeyJpcnSPiGUAdtVg8zREWv4GiKjkcGNufgpcbFyRKRrA25NkgjZySEeKue5rawyeH5TzsV\" failed: None" })
 ```
@@ -198,14 +198,14 @@ Alice 重试交易，这次指定她的nonce账户和存储在那里的区块哈
 > 记住，`alice.json` 是这个示例中的 [nonce 授权](#nonce-authority)
 
 ```bash
-$ safecoin nonce-account nonce.json
+$ panoptis nonce-account nonce.json
 balance: 1 PANO
 minimum balance required: 0.00136416 PANO
 nonce: F7vmkY3DTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7
 ```
 
 ```bash
-$ safecoin pay -k alice.json --blockhash F7vmkY3DTaxfagtWjQweib42b6ZHADSx94Tw8gHx3W7 --nonce nonce.json bob.json 1
+$ panoptis pay -k alice.json --blockhash F7vmkY3DTaxfagtWjQweib42b6ZHADSx94Tw8gHx3W7 --nonce nonce.json bob.json 1
 HR1368UKHVZyenmH7yVz5sBAijV6XAPeWbEiXEGVYQorRMcoijeNAbzZqEZiH8cDB8tk65ckeegFjK8dHwNFgQ
 ```
 
@@ -214,12 +214,12 @@ HR1368UKHVZyenmH7yVz5sBAijV6XAPeWbEiXEGVYQorRMcoijeNAbzZqEZiH8cDB8tk65ckeegFjK8d
 交易成功！ Bob 从 Alice 那里收到1个PANO，并且Alice存储的nonce更新到了一个新的值
 
 ```bash
-$ safecoin balance -k bob.json
+$ panoptis balance -k bob.json
 1 PANO
 ```
 
 ```bash
-$ safecoin nonce-account nonce.json
+$ panoptis nonce-account nonce.json
 balance: 1 PANO
 minimum balance required: 0.00136416 PANO
 nonce: 6bjroqDcZgTv6Vavhqf81oBHTv3aMnX19UTB51YhAZnN

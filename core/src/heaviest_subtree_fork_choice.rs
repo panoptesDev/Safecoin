@@ -3,7 +3,7 @@ use crate::{
     latest_validator_votes_for_frozen_banks::LatestValidatorVotesForFrozenBanks,
     progress_map::ProgressMap, tree_diff::TreeDiff,
 };
-use safecoin_measure::measure::Measure;
+use panoptis_measure::measure::Measure;
 use solana_runtime::{bank::Bank, bank_forks::BankForks, epoch_stakes::EpochStakes};
 use solana_sdk::{
     clock::{Epoch, Slot},

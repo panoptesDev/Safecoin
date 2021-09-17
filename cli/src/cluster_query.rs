@@ -6,20 +6,20 @@ use crate::{
 use clap::{value_t, value_t_or_exit, App, AppSettings, Arg, ArgMatches, SubCommand};
 use console::{style, Emoji};
 use serde::{Deserialize, Serialize};
-use safecoin_clap_utils::{
+use panoptis_clap_utils::{
     input_parsers::*,
     input_validators::*,
     keypair::DefaultSigner,
     offline::{blockhash_arg, BLOCKHASH_ARG},
 };
-use safecoin_cli_output::{
+use panoptis_cli_output::{
     display::{
         build_balance_message, format_labeled_address, new_spinner_progress_bar,
         println_name_value, println_transaction, unix_timestamp_to_string, writeln_name_value,
     },
     *,
 };
-use safecoin_client::{
+use panoptis_client::{
     client_error::ClientErrorKind,
     pubsub_client::PubsubClient,
     rpc_client::{GetConfirmedSignaturesForAddress2Config, RpcClient},
@@ -32,7 +32,7 @@ use safecoin_client::{
     rpc_request::DELINQUENT_VALIDATOR_SLOT_DISTANCE,
     rpc_response::SlotInfo,
 };
-use safecoin_remote_wallet::remote_wallet::RemoteWalletManager;
+use panoptis_remote_wallet::remote_wallet::RemoteWalletManager;
 use solana_sdk::{
     account::from_account,
     account_utils::StateMut,
@@ -57,7 +57,7 @@ use solana_sdk::{
     transaction::Transaction,
 };
 use solana_stake_program::stake_state::StakeState;
-use safecoin_transaction_status::UiTransactionEncoding;
+use panoptis_transaction_status::UiTransactionEncoding;
 use solana_vote_program::vote_state::VoteState;
 use std::{
     collections::{BTreeMap, HashMap, VecDeque},
@@ -1708,7 +1708,7 @@ pub fn process_show_stakes(
 
     let mut program_accounts_config = RpcProgramAccountsConfig {
         account_config: RpcAccountInfoConfig {
-            encoding: Some(safecoin_account_decoder::UiAccountEncoding::Base64),
+            encoding: Some(panoptis_account_decoder::UiAccountEncoding::Base64),
             ..RpcAccountInfoConfig::default()
         },
         ..RpcProgramAccountsConfig::default()

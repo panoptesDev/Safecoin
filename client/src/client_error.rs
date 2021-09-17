@@ -1,6 +1,6 @@
 use {
     crate::{rpc_request, rpc_response},
-    safecoin_faucet::faucet::FaucetError,
+    panoptis_faucet::faucet::FaucetError,
     solana_sdk::{
         signature::SignerError, transaction::TransactionError, transport::TransportError,
     },

@@ -3010,7 +3010,7 @@ Result:
 
 ### getVersion
 
-Returns the current safecoin versions running on the node
+Returns the current panoptis versions running on the node
 
 #### Parameters:
 

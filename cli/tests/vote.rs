@@ -3,12 +3,12 @@ use solana_cli::{
     spend_utils::SpendAmount,
     test_utils::check_recent_balance,
 };
-use safecoin_client::{
+use panoptis_client::{
     blockhash_query::{self, BlockhashQuery},
     rpc_client::RpcClient,
 };
 use solana_core::test_validator::TestValidator;
-use safecoin_faucet::faucet::run_local_faucet;
+use panoptis_faucet::faucet::run_local_faucet;
 use solana_sdk::{
     account_utils::StateMut,
     commitment_config::CommitmentConfig,

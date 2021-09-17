@@ -1,13 +1,13 @@
 use crossbeam_channel::{Receiver, RecvTimeoutError};
 use itertools::izip;
-use safecoin_ledger::{
+use panoptis_ledger::{
     blockstore::Blockstore,
     blockstore_processor::{TransactionStatusBatch, TransactionStatusMessage},
 };
 use solana_runtime::bank::{
     Bank, InnerInstructionsList, NonceRollbackInfo, TransactionLogMessages,
 };
-use safecoin_transaction_status::{InnerInstructions, Reward, TransactionStatusMeta};
+use panoptis_transaction_status::{InnerInstructions, Reward, TransactionStatusMeta};
 use std::{
     sync::{
         atomic::{AtomicBool, AtomicU64, Ordering},

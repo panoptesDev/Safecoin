@@ -46,8 +46,8 @@ Panoptisbeach.io 网站是由网络的一个验证节点 Staking Facilities 开�
  - https://solanabeach.io
 
 如您想查看出块的统计数据，请使用 Panoptis 命令行工具：
- - `safecoin 验证节点`
- - `safecoin 出块`
+ - `panoptis 验证节点`
+ - `panoptis 出块`
 
 Panoptis 团队不对如何解释该信息提出任何建议。  潜在的委托者应当尽职尽责。
 

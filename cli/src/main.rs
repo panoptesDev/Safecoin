@@ -3,7 +3,7 @@ use clap::{
     SubCommand,
 };
 use console::style;
-use safecoin_clap_utils::{
+use panoptis_clap_utils::{
     input_validators::{is_url, is_url_or_moniker, normalize_to_url_if_moniker},
     keypair::{CliSigners, DefaultSigner, SKIP_SEED_PHRASE_VALIDATION_ARG},
     DisplayError,
@@ -12,10 +12,10 @@ use solana_cli::cli::{
     app, parse_command, process_command, CliCommandInfo, CliConfig, SettingType,
     DEFAULT_CONFIRM_TX_TIMEOUT_SECONDS, DEFAULT_RPC_TIMEOUT_SECONDS,
 };
-use safecoin_cli_config::{Config, CONFIG_FILE};
-use safecoin_cli_output::{display::println_name_value, OutputFormat};
-use safecoin_client::rpc_config::RpcSendTransactionConfig;
-use safecoin_remote_wallet::remote_wallet::RemoteWalletManager;
+use panoptis_cli_config::{Config, CONFIG_FILE};
+use panoptis_cli_output::{display::println_name_value, OutputFormat};
+use panoptis_client::rpc_config::RpcSendTransactionConfig;
+use panoptis_remote_wallet::remote_wallet::RemoteWalletManager;
 use std::{collections::HashMap, error, path::PathBuf, sync::Arc, time::Duration};
 
 pub fn println_name_value_or(name: &str, value: &str, setting_type: SettingType) {
@@ -288,7 +288,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
             .takes_value(true)
             .global(true)
             .validator(is_url)
-            .help("WebSocket URL for the safecoin cluster"),
+            .help("WebSocket URL for the panoptis cluster"),
     )
     .arg(
         Arg::with_name("keypair")

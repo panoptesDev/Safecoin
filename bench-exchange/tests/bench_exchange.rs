@@ -1,5 +1,5 @@
 use log::*;
-use safecoin_bench_exchange::bench::{airdrop_lamports, do_bench_exchange, Config};
+use panoptis_bench_exchange::bench::{airdrop_lamports, do_bench_exchange, Config};
 use solana_core::{
     gossip_service::{discover_cluster, get_multi_client},
     validator::ValidatorConfig,
@@ -7,7 +7,7 @@ use solana_core::{
 use solana_exchange_program::{
     exchange_processor::process_instruction, id, solana_exchange_program,
 };
-use safecoin_faucet::faucet::run_local_faucet_with_port;
+use panoptis_faucet::faucet::run_local_faucet_with_port;
 use solana_local_cluster::{
     local_cluster::{ClusterConfig, LocalCluster},
     validator_configs::make_identical_validator_configs,

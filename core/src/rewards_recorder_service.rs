@@ -1,8 +1,8 @@
 use crossbeam_channel::{Receiver, RecvTimeoutError, Sender};
-use safecoin_ledger::blockstore::Blockstore;
+use panoptis_ledger::blockstore::Blockstore;
 use solana_runtime::bank::RewardInfo;
 use solana_sdk::{clock::Slot, pubkey::Pubkey};
-use safecoin_transaction_status::Reward;
+use panoptis_transaction_status::Reward;
 use std::{
     sync::{
         atomic::{AtomicBool, Ordering},

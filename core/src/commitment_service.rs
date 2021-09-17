@@ -1,5 +1,5 @@
 use crate::{consensus::Stake, rpc_subscriptions::RpcSubscriptions};
-use safecoin_measure::measure::Measure;
+use panoptis_measure::measure::Measure;
 use solana_metrics::datapoint_info;
 use solana_runtime::{
     bank::Bank,
@@ -247,7 +247,7 @@ impl AggregateCommitmentService {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use safecoin_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo};
+    use panoptis_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo};
     use solana_runtime::{
         accounts_background_service::AbsRequestSender,
         bank_forks::BankForks,

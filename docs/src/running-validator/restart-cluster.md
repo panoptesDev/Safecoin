@@ -11,7 +11,7 @@ Call this slot `SLOT_X`
 
 ### Step 2. Stop the validator(s)
 
-### Step 3. Optionally install the new safecoin version
+### Step 3. Optionally install the new panoptis version
 
 ### Step 4. Create a new snapshot for slot `SLOT_X` with a hard fork at slot `SLOT_X`
 
@@ -53,7 +53,7 @@ Post something like the following to #announcements (adjusting the text as appro
 >   --expected-bank-hash NEW_BANK_HASH  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
 >   --hard-fork SLOT_X                  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
 >   --no-snapshot-fetch                 # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
->   --entrypoint entrypoint.testnet.safecoin.org:10015
+>   --entrypoint entrypoint.testnet.panoptis.org:10015
 >   --trusted-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on
 >   --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY
 >   --no-untrusted-rpc
@@ -67,7 +67,7 @@ Post something like the following to #announcements (adjusting the text as appro
 > panoptis-validator
 >   --wait-for-supermajority SLOT_X     # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
 >   --expected-bank-hash NEW_BANK_HASH  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
->   --entrypoint entrypoint.testnet.safecoin.org:10015
+>   --entrypoint entrypoint.testnet.panoptis.org:10015
 >   --trusted-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on
 >   --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY
 >   --no-untrusted-rpc
@@ -81,7 +81,7 @@ Post something like the following to #announcements (adjusting the text as appro
 >
 > To confirm your restarted validator is correctly waiting for the 80%:
 > a. Look for `N% of active stake visible in gossip` log messages
-> b. Ask it over RPC what slot it's on: `safecoin --url http://127.0.0.1:8328 slot`. It should return `SLOT_X` until we get to 80% stake
+> b. Ask it over RPC what slot it's on: `panoptis --url http://127.0.0.1:8328 slot`. It should return `SLOT_X` until we get to 80% stake
 >
 > Thanks!
 

@@ -6,8 +6,8 @@ use clap::{value_t_or_exit, App, AppSettings, Arg, ArgMatches, SubCommand};
 use log::*;
 use num_traits::FromPrimitive;
 use serde_json::{self, Value};
-use safecoin_account_decoder::{UiAccount, UiAccountEncoding};
-use safecoin_clap_utils::{
+use panoptis_account_decoder::{UiAccount, UiAccountEncoding};
+use panoptis_clap_utils::{
     self,
     fee_payer::{fee_payer_arg, FEE_PAYER_ARG},
     input_parsers::*,
@@ -17,13 +17,13 @@ use safecoin_clap_utils::{
     nonce::*,
     offline::*,
 };
-use safecoin_cli_output::{
+use panoptis_cli_output::{
     display::{build_balance_message, println_name_value},
     return_signers_with_config, CliAccount, CliSignature, CliSignatureVerificationStatus,
     CliTransaction, CliTransactionConfirmation, CliValidatorsSortOrder, OutputFormat,
     ReturnSignersConfig,
 };
-use safecoin_client::{
+use panoptis_client::{
     blockhash_query::BlockhashQuery,
     client_error::{ClientError, Result as ClientResult},
     nonce_utils,
@@ -34,7 +34,7 @@ use safecoin_client::{
     },
     rpc_response::RpcKeyedAccount,
 };
-use safecoin_remote_wallet::remote_wallet::RemoteWalletManager;
+use panoptis_remote_wallet::remote_wallet::RemoteWalletManager;
 use solana_sdk::{
     clock::{Epoch, Slot},
     commitment_config::CommitmentConfig,
@@ -52,7 +52,7 @@ use solana_stake_program::{
     stake_instruction::LockupArgs,
     stake_state::{Lockup, StakeAuthorize},
 };
-use safecoin_transaction_status::{EncodedTransaction, UiTransactionEncoding};
+use panoptis_transaction_status::{EncodedTransaction, UiTransactionEncoding};
 use solana_vote_program::vote_state::VoteAuthorize;
 use std::{
     collections::HashMap, error, fmt::Write as FmtWrite, fs::File, io::Write, str::FromStr,
@@ -459,15 +459,15 @@ pub struct CliConfig<'a> {
 
 impl CliConfig<'_> {
     fn default_keypair_path() -> String {
-        safecoin_cli_config::Config::default().keypair_path
+        panoptis_cli_config::Config::default().keypair_path
     }
 
     fn default_json_rpc_url() -> String {
-        safecoin_cli_config::Config::default().json_rpc_url
+        panoptis_cli_config::Config::default().json_rpc_url
     }
 
     fn default_websocket_url() -> String {
-        safecoin_cli_config::Config::default().websocket_url
+        panoptis_cli_config::Config::default().websocket_url
     }
 
     fn default_commitment() -> CommitmentConfig {
@@ -504,13 +504,13 @@ impl CliConfig<'_> {
             (SettingType::Explicit, websocket_cfg_url.to_string()),
             (
                 SettingType::Computed,
-                safecoin_cli_config::Config::compute_websocket_url(&normalize_to_url_if_moniker(
+                panoptis_cli_config::Config::compute_websocket_url(&normalize_to_url_if_moniker(
                     json_rpc_cmd_url,
                 )),
             ),
             (
                 SettingType::Computed,
-                safecoin_cli_config::Config::compute_websocket_url(&normalize_to_url_if_moniker(
+                panoptis_cli_config::Config::compute_websocket_url(&normalize_to_url_if_moniker(
                     json_rpc_cfg_url,
                 )),
             ),
@@ -1011,7 +1011,7 @@ fn process_airdrop(
 
         if current_balance < pre_balance.saturating_add(lamports) {
             println!("Balance unchanged");
-            println!("Run `safecoin confirm -v {:?}` for more info", signature);
+            println!("Run `panoptis confirm -v {:?}` for more info", signature);
             Ok("".to_string())
         } else {
             Ok(build_balance_message(current_balance, false, true))
@@ -2277,7 +2277,7 @@ pub fn app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> App<'ab, '
 mod tests {
     use super::*;
     use serde_json::{json, Value};
-    use safecoin_client::{
+    use panoptis_client::{
         blockhash_query,
         mock_sender::SIGNATURE,
         rpc_request::RpcRequest,
@@ -2288,7 +2288,7 @@ mod tests {
         signature::{keypair_from_seed, read_keypair_file, write_keypair_file, Keypair, Presigner},
         transaction::TransactionError,
     };
-    use safecoin_transaction_status::TransactionConfirmationStatus;
+    use panoptis_transaction_status::TransactionConfirmationStatus;
     use std::path::PathBuf;
 
     fn make_tmp_path(name: &str) -> String {

@@ -14,7 +14,7 @@ edition = "2018"
 name = "solana_core"
 
 [badges]
-codecov = { repository = "fair-exchange/safecoin", branch = "master", service = "github" }
+codecov = { repository = "fair-exchange/panoptis", branch = "master", service = "github" }
 
 [dependencies]
 ahash = "0.6.1"

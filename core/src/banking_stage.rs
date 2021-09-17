@@ -11,11 +11,11 @@ use crossbeam_channel::{Receiver as CrossbeamReceiver, RecvTimeoutError};
 use itertools::Itertools;
 use lru::LruCache;
 use retain_mut::RetainMut;
-use safecoin_ledger::{
+use panoptis_ledger::{
     blockstore::Blockstore, blockstore_processor::TransactionStatusSender,
     entry::hash_transactions, leader_schedule_cache::LeaderScheduleCache,
 };
-use safecoin_measure::{measure::Measure, thread_mem_usage};
+use panoptis_measure::{measure::Measure, thread_mem_usage};
 use solana_metrics::{inc_new_counter_debug, inc_new_counter_info};
 use solana_perf::{
     cuda_runtime::PinnedVec,
@@ -46,7 +46,7 @@ use solana_sdk::{
     timing::{duration_as_ms, timestamp},
     transaction::{self, Transaction, TransactionError},
 };
-use safecoin_transaction_status::token_balances::{
+use panoptis_transaction_status::token_balances::{
     collect_token_balances, TransactionTokenBalancesSet,
 };
 use std::{
@@ -1441,7 +1441,7 @@ mod tests {
     };
     use crossbeam_channel::unbounded;
     use itertools::Itertools;
-    use safecoin_ledger::{
+    use panoptis_ledger::{
         blockstore::entries_to_test_shreds,
         entry::{next_entry, Entry, EntrySlice},
         genesis_utils::{create_genesis_config, GenesisConfigInfo},
@@ -1456,7 +1456,7 @@ mod tests {
         system_transaction,
         transaction::TransactionError,
     };
-    use safecoin_transaction_status::TransactionWithStatusMeta;
+    use panoptis_transaction_status::TransactionWithStatusMeta;
     use std::{
         net::SocketAddr,
         path::Path,

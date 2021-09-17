@@ -46,7 +46,7 @@ panoptis-validator
   --expected-bank-hash NEW_BANK_HASH  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --hard-fork SLOT_X                  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --no-snapshot-fetch                 # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
-  --entrypoint entrypoint.testnet.safecoin.org:10015
+  --entrypoint entrypoint.testnet.panoptis.org:10015
   --trusted-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on
   --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY
   --no-untrusted-rpc
@@ -60,7 +60,7 @@ b. If your validator doesn't have ledger up to slot SLOT_X or if you have delete
 panoptis-validator
   --wait-for-supermajority SLOT_X     # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --expected-bank-hash NEW_BANK_HASH  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
-  --entrypoint entrypoint.testnet.safecoin.org:10015
+  --entrypoint entrypoint.testnet.panoptis.org:10015
   --trusted-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on
   --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY
   --no-untrusted-rpc
@@ -72,7 +72,7 @@ panoptis-validator
 
 3. 等待80%的质押在线
 
-要确认您已经正确重新启动验证程序并且在等待80%质押： a。 查找八卦日志消息中`可见的N％活跃质押` b. 通过RPC询问它在哪个插槽上：`safecoin --url http://127.0.0.1:8328 slot`。  它应该返回`SLOT_X`，直到我们获得80％的质押
+要确认您已经正确重新启动验证程序并且在等待80%质押： a。 查找八卦日志消息中`可见的N％活跃质押` b. 通过RPC询问它在哪个插槽上：`panoptis --url http://127.0.0.1:8328 slot`。  它应该返回`SLOT_X`，直到我们获得80％的质押
 
 感谢！
 

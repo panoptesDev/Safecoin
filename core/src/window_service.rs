@@ -17,14 +17,14 @@ use crossbeam_channel::{
 use rayon::iter::IntoParallelRefMutIterator;
 use rayon::iter::ParallelIterator;
 use rayon::ThreadPool;
-use safecoin_ledger::{
+use panoptis_ledger::{
     blockstore::{self, Blockstore, BlockstoreInsertionMetrics, MAX_DATA_SHREDS_PER_SLOT},
     leader_schedule_cache::LeaderScheduleCache,
     shred::{Nonce, Shred},
 };
 use solana_metrics::{inc_new_counter_debug, inc_new_counter_error};
 use solana_perf::packet::Packets;
-use safecoin_rayon_threadlimit::get_thread_count;
+use panoptis_rayon_threadlimit::get_thread_count;
 use solana_runtime::{bank::Bank, bank_forks::BankForks};
 use solana_sdk::{clock::Slot, packet::PACKET_DATA_SIZE, pubkey::Pubkey, timing::duration_as_ms};
 use solana_streamer::streamer::PacketSender;
@@ -573,7 +573,7 @@ impl WindowService {
 mod test {
     use super::*;
     use crate::contact_info::ContactInfo;
-    use safecoin_ledger::{
+    use panoptis_ledger::{
         blockstore::{make_many_slot_entries, Blockstore},
         entry::{create_ticks, Entry},
         genesis_utils::create_genesis_config_with_leader,

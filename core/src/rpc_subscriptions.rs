@@ -10,8 +10,8 @@ use jsonrpc_pubsub::{
     SubscriptionId,
 };
 use serde::Serialize;
-use safecoin_account_decoder::{parse_token::spl_token_id_v2_0, UiAccount, UiAccountEncoding};
-use safecoin_client::{
+use panoptis_account_decoder::{parse_token::spl_token_id_v2_0, UiAccount, UiAccountEncoding};
+use panoptis_client::{
     rpc_config::{RpcAccountInfoConfig, RpcProgramAccountsConfig, RpcSignatureSubscribeConfig},
     rpc_filter::RpcFilterType,
     rpc_response::{
@@ -19,7 +19,7 @@ use safecoin_client::{
         RpcLogsResponse, RpcResponseContext, RpcSignatureResult, SlotInfo, SlotUpdate,
     },
 };
-use safecoin_measure::measure::Measure;
+use panoptis_measure::measure::Measure;
 use solana_runtime::{
     bank::{
         Bank, TransactionLogCollectorConfig, TransactionLogCollectorFilter, TransactionLogInfo,

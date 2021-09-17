@@ -39,7 +39,7 @@ A nonce account is created by first generating a new keypair, then create the ac
 
 ```bash
 panoptis-keygen new -o nonce-keypair.json
-safecoin create-nonce-account nonce-keypair.json 1
+panoptis create-nonce-account nonce-keypair.json 1
 ```
 
 - Output
@@ -61,7 +61,7 @@ presently stored nonce value with
 - Command
 
 ```bash
-safecoin nonce nonce-keypair.json
+panoptis nonce nonce-keypair.json
 ```
 
 - Output
@@ -80,7 +80,7 @@ value can be advanced by
 - Command
 
 ```bash
-safecoin new-nonce nonce-keypair.json
+panoptis new-nonce nonce-keypair.json
 ```
 
 - Output
@@ -98,7 +98,7 @@ Inspect a nonce account in a more human friendly format with
 - Command
 
 ```bash
-safecoin nonce-account nonce-keypair.json
+panoptis nonce-account nonce-keypair.json
 ```
 
 - Output
@@ -118,7 +118,7 @@ Withdraw funds from a nonce account with
 - Command
 
 ```bash
-safecoin withdraw-from-nonce-account nonce-keypair.json ~/.config/safecoin/id.json 0.5
+panoptis withdraw-from-nonce-account nonce-keypair.json ~/.config/panoptis/id.json 0.5
 ```
 
 - Output
@@ -138,7 +138,7 @@ Reassign the authority of a nonce account after creation with
 - Command
 
 ```bash
-safecoin authorize-nonce-account nonce-keypair.json nonce-authority.json
+panoptis authorize-nonce-account nonce-keypair.json nonce-authority.json
 ```
 
 - Output
@@ -184,7 +184,7 @@ Alice will need some funds to create a nonce account and send to Bob. Airdrop
 her some PANO
 
 ```bash
-$ safecoin airdrop -k alice.json 1
+$ panoptis airdrop -k alice.json 1
 1 PANO
 ```
 
@@ -195,7 +195,7 @@ Now Alice needs a nonce account. Create one
 > Here, no separate [nonce authority](#nonce-authority) is employed, so `alice.json` has full authority over the nonce account
 
 ```bash
-$ safecoin create-nonce-account -k alice.json nonce.json 0.1
+$ panoptis create-nonce-account -k alice.json nonce.json 0.1
 3KPZr96BTsL3hqera9up82KAU462Gz31xjqJ6eHUAjF935Yf8i1kmfEbo6SVbNaACKE5z6gySrNjVRvmS8DcPuwV
 ```
 
@@ -205,7 +205,7 @@ Alice attempts to pay Bob, but takes too long to sign. The specified blockhash
 expires and the transaction fails
 
 ```bash
-$ safecoin pay -k alice.json --blockhash expiredDTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7 bob.json 0.01
+$ panoptis pay -k alice.json --blockhash expiredDTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7 bob.json 0.01
 [2020-01-02T18:48:28.462911000Z ERROR solana_cli::cli] Io(Custom { kind: Other, error: "Transaction \"33gQQaoPc9jWePMvDAeyJpcnSPiGUAdtVg8zREWv4GiKjkcGNufgpcbFyRKRrA25NkgjZySEeKue5rawyeH5TzsV\" failed: None" })
 Error: Io(Custom { kind: Other, error: "Transaction \"33gQQaoPc9jWePMvDAeyJpcnSPiGUAdtVg8zREWv4GiKjkcGNufgpcbFyRKRrA25NkgjZySEeKue5rawyeH5TzsV\" failed: None" })
 ```
@@ -218,14 +218,14 @@ blockhash stored there
 > Remember, `alice.json` is the [nonce authority](#nonce-authority) in this example
 
 ```bash
-$ safecoin nonce-account nonce.json
+$ panoptis nonce-account nonce.json
 balance: 0.1 PANO
 minimum balance required: 0.00136416 PANO
 nonce: F7vmkY3DTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7
 ```
 
 ```bash
-$ safecoin pay -k alice.json --blockhash F7vmkY3DTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7 --nonce nonce.json bob.json 0.01
+$ panoptis pay -k alice.json --blockhash F7vmkY3DTaxfagttWjQweib42b6ZHADSx94Tw8gHx3W7 --nonce nonce.json bob.json 0.01
 HR1368UKHVZyenmH7yVz5sBAijV6XAPeWbEiXEGVYQorRMcoijeNAbzZqEZiH8cDB8tk65ckqeegFjK8dHwNFgQ
 ```
 
@@ -235,12 +235,12 @@ The transaction succeeds! Bob receives 0.01 PANO from Alice and Alice's stored
 nonce advances to a new value
 
 ```bash
-$ safecoin balance -k bob.json
+$ panoptis balance -k bob.json
 0.01 PANO
 ```
 
 ```bash
-$ safecoin nonce-account nonce.json
+$ panoptis nonce-account nonce.json
 balance: 0.1 PANO
 minimum balance required: 0.00136416 PANO
 nonce: 6bjroqDcZgTv6Vavhqf81oBHTv3aMnX19UTB51YhAZnN

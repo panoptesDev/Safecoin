@@ -1,15 +1,15 @@
 use crate::cli::{CliCommand, CliCommandInfo, CliConfig, CliError, ProcessResult};
 use clap::{App, Arg, ArgMatches, SubCommand};
-use safecoin_clap_utils::{
+use panoptis_clap_utils::{
     input_parsers::{pubkeys_of, value_of},
     input_validators::is_valid_pubkey,
     keypair::*,
 };
-use safecoin_cli_output::{
+use panoptis_cli_output::{
     CliEpochRewardshMetadata, CliInflation, CliKeyedEpochReward, CliKeyedEpochRewards,
 };
-use safecoin_client::rpc_client::RpcClient;
-use safecoin_remote_wallet::remote_wallet::RemoteWalletManager;
+use panoptis_client::rpc_client::RpcClient;
+use panoptis_remote_wallet::remote_wallet::RemoteWalletManager;
 use solana_sdk::{clock::Epoch, pubkey::Pubkey};
 use std::sync::Arc;
 

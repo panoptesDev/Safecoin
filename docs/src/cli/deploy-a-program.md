@@ -28,7 +28,7 @@ To deploy a program, you will need the location of the program's shared object
 (the program binary .so)
 
 ```bash
-safecoin program deploy <PROGRAM_FILEPATH>
+panoptis program deploy <PROGRAM_FILEPATH>
 ```
 
 Successful deployment will return the program id of the deployed program, for
@@ -41,7 +41,7 @@ Program Id: 3KS2k14CmtnuVv2fvYcvdrNgC94Y11WETBpMUGgXyWZL
 Specify the keypair in the deploy command to deploy to a specific program id:
 
 ```bash
-safecoin program deploy --program-id <KEYPAIR_FILEPATH> <PROGRAM_FILEPATH>
+panoptis program deploy --program-id <KEYPAIR_FILEPATH> <PROGRAM_FILEPATH>
 ```
 
 If the program id is not specified on the command line the tools will first look
@@ -62,7 +62,7 @@ generated automatically by the program build tools:
 To get information about a deployed program:
 
 ```bash
-safecoin program show <ACCOUNT_ADDRESS>
+panoptis program show <ACCOUNT_ADDRESS>
 ```
 
 An example output looks like:
@@ -95,7 +95,7 @@ redeployments will be to the same program address.
 The command looks the same as the deployment command:
 
 ```bash
-safecoin program deploy <PROGRAM_FILEPATH>
+panoptis program deploy <PROGRAM_FILEPATH>
 ```
 
 By default, programs are deployed to accounts that are twice the size of the
@@ -106,7 +106,7 @@ may fail. To avoid this, specify a `max_len` that is at least the size (in
 bytes) that the program is expected to become (plus some wiggle room).
 
 ```bash
-safecoin program deploy --max-len 200000 <PROGRAM_FILEPATH>
+panoptis program deploy --max-len 200000 <PROGRAM_FILEPATH>
 ```
 
 Note that program accounts are required to be
@@ -132,10 +132,10 @@ Recover the intermediate account's ephemeral keypair file with
 valley flat great hockey share token excess clever benefit traffic avocado athlete
 ==================================================================================
 To resume a deploy, pass the recovered keypair as
-the [PROGRAM_ADDRESS_SIGNER] argument to `safecoin deploy` or
-as the [BUFFER_SIGNER] to `safecoin program deploy` or `safecoin write-buffer'.
+the [PROGRAM_ADDRESS_SIGNER] argument to `panoptis deploy` or
+as the [BUFFER_SIGNER] to `panoptis program deploy` or `panoptis write-buffer'.
 Or to recover the account's lamports, pass it as the
-[BUFFER_ACCOUNT_ADDRESS] argument to `safecoin program drain`.
+[BUFFER_ACCOUNT_ADDRESS] argument to `panoptis program drain`.
 ==================================================================================
 ```
 
@@ -150,7 +150,7 @@ When asked, enter the 12-word seed phrase.
 Then issue a new `deploy` command and specify the buffer:
 
 ```bash
-safecoin program deploy --buffer <KEYPAIR_PATH> <PROGRAM_FILEPATH>
+panoptis program deploy --buffer <KEYPAIR_PATH> <PROGRAM_FILEPATH>
 ```
 
 ### Closing buffer accounts and reclaiming their lamports
@@ -164,43 +164,43 @@ The buffer account's authority must be present to close a buffer account, to
 list all the open buffer accounts that match the default authority:
 
 ```bash
-safecoin program show --buffers
+panoptis program show --buffers
 ```
 
 To specify a different authority:
 
 ```bash
-safecoin program show --buffers --buffer-authority <AURTHORITY_ADRESS>
+panoptis program show --buffers --buffer-authority <AURTHORITY_ADRESS>
 ```
 
 To close a single account:
 
 ```bash
-safecoin program close <BUFFER_ADDRESS>
+panoptis program close <BUFFER_ADDRESS>
 ```
 
 To close a single account and specify a different authority than the default:
 
 ```bash
-safecoin program close <BUFFER_ADDRESS> --buffer-authority <KEYPAIR_FILEPATH>
+panoptis program close <BUFFER_ADDRESS> --buffer-authority <KEYPAIR_FILEPATH>
 ```
 
 To close a single account and specify a different recipient than the default:
 
 ```bash
-safecoin program close <BUFFER_ADDRESS> --recipient <RECIPIENT_ADDRESS>
+panoptis program close <BUFFER_ADDRESS> --recipient <RECIPIENT_ADDRESS>
 ```
 
 To close all the buffer accounts associated with the current authority:
 
 ```bash
-safecoin program close --buffers
+panoptis program close --buffers
 ```
 
 To show all buffer accounts regardless of the authority
 
 ```bash
-safecoin program show --buffers --all
+panoptis program show --buffers --all
 ```
 
 ### Set a program's upgrade authority
@@ -213,19 +213,19 @@ require an authority to be explicitly specified.
 The authority can be specified during deployment:
 
 ```bash
-safecoin program deploy --upgrade-authority <UPGRADE_AUTHORITY_SIGNER> <PROGRAM_FILEPATH>
+panoptis program deploy --upgrade-authority <UPGRADE_AUTHORITY_SIGNER> <PROGRAM_FILEPATH>
 ```
 
 Or after deployment and using the default keypair as the current authority:
 
 ```bash
-safecoin program set-upgrade-authority <PROGRAM_ADDRESS> --new-upgrade-authority <NEW_UPGRADE_AUTHORITY>
+panoptis program set-upgrade-authority <PROGRAM_ADDRESS> --new-upgrade-authority <NEW_UPGRADE_AUTHORITY>
 ```
 
 Or after deployment and specifying the current authority:
 
 ```bash
-safecoin program set-upgrade-authority <PROGRAM_ADDRESS> --upgrade-authority <UPGRADE_AUTHORITY_SIGNER> --new-upgrade-authority <NEW_UPGRADE_AUTHORITY>
+panoptis program set-upgrade-authority <PROGRAM_ADDRESS> --upgrade-authority <UPGRADE_AUTHORITY_SIGNER> --new-upgrade-authority <NEW_UPGRADE_AUTHORITY>
 ```
 
 ### Immutable programs
@@ -234,31 +234,31 @@ A program can be marked immutable, which prevents all further redeployments, by
 specifying the `--final` flag during deployment:
 
 ```bash
-safecoin program deploy <PROGRAM_FILEPATH> --final
+panoptis program deploy <PROGRAM_FILEPATH> --final
 ```
 
 Or anytime after:
 
 ```bash
-safecoin program set-upgrade-authority <PROGRAM_ADDRESS> --final
+panoptis program set-upgrade-authority <PROGRAM_ADDRESS> --final
 ```
 
-`safecoin program deploy ...` utilizes Panoptis's upgradeable loader, but there is
+`panoptis program deploy ...` utilizes Panoptis's upgradeable loader, but there is
 another way to deploy immutable programs using the original on-chain loader:
 
 ```bash
-safecoin deploy <PROGRAM_FILEPATH>
+panoptis deploy <PROGRAM_FILEPATH>
 ```
 
-Programs deployed with `safecoin deploy ...` are not redeployable and are not
-compatible with the `safecoin program ...` commands.
+Programs deployed with `panoptis deploy ...` are not redeployable and are not
+compatible with the `panoptis program ...` commands.
 
 ### Dumping a program to a file
 
 The deployed program may be dumped back to a local file:
 
 ```bash
-safecoin program dump <ACCOUNT_ADDRESS> <OUTPUT_FILEPATH>
+panoptis program dump <ACCOUNT_ADDRESS> <OUTPUT_FILEPATH>
 ```
 
 The dumped file will be in the same as what was deployed, so in the case of a
@@ -270,7 +270,7 @@ known program binary. The original program file can be zero-extended, hashed,
 and compared to the hash of the dumped file.
 
 ```bash
-$ safecoin dump <ACCOUNT_ADDRESS> dump.so
+$ panoptis dump <ACCOUNT_ADDRESS> dump.so
 $ cp original.so extended.so
 $ truncate -r dump.so extended.so
 $ sha256sum extended.so dump.so
@@ -284,13 +284,13 @@ like multi-entity governed programs where the governing members fist verify the
 intermediary buffer contents and then vote to allow an upgrade using it.
 
 ```bash
-safecoin program write-buffer <PROGRAM_FILEPATH>
+panoptis program write-buffer <PROGRAM_FILEPATH>
 ```
 
 Buffer accounts support authorities like program accounts:
 
 ```bash
-safecoin program set-buffer-authority <BUFFER_ADDRESS> --new-upgrade-authority <NEW_UPGRADE_AUTHORITY>
+panoptis program set-buffer-authority <BUFFER_ADDRESS> --new-upgrade-authority <NEW_UPGRADE_AUTHORITY>
 ```
 
 One exception is that buffer accounts cannot be marked immutable like program
@@ -300,7 +300,7 @@ The buffer account, once entirely written, can be passed to `deploy` to deploy
 the program:
 
 ```bash
-safecoin program deploy --program-id <PROGRAM_ADDRESS> --buffer <BUFFER_ADDRESS>
+panoptis program deploy --program-id <PROGRAM_ADDRESS> --buffer <BUFFER_ADDRESS>
 ```
 
 Note, the buffer's authority must match the program's upgrade authority.

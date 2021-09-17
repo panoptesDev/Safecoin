@@ -22,7 +22,7 @@ pubkey: GKvqsuNcnwWqPzzuhLmGi4rzzh55FhJtGizkhHaEJqiV
 创建一个质押账户:
 
 ```bash
-safecoin create-stake-account --from <KEYPAIR> stake-account.json <AMOUNT> \
+panoptis create-stake-account --from <KEYPAIR> stake-account.json <AMOUNT> \
     --stake-authority <KEYPAIR> --withdraw-authority <KEYPAIR> \
     --fee-payer <KEYPAIR>
 ```
@@ -31,10 +31,10 @@ safecoin create-stake-account --from <KEYPAIR> stake-account.json <AMOUNT> \
 
 现在可以丢弃 stake-account.json 文件了。 要授权额外的操作，您可以通过 `--stake-authority` 或 `--rap-authority` 密钥对，而无需使用 stak-account.json。
 
-使用 `safecoin stake-account` 命令查看新的质押账户：
+使用 `panoptis stake-account` 命令查看新的质押账户：
 
 ```bash
-safecoin stake-account <STAKE_ACCOUNT_ADDRESS>
+panoptis stake-account <STAKE_ACCOUNT_ADDRESS>
 ```
 
 结果大概呈这样：
@@ -47,10 +47,10 @@ Withdraw Authority: EXU95vqs93yPeCeAU7mPPu6HbRUmTFPEiGug9oCdvQ5F
 ```
 
 ### 设置质押和取款权限
-创建账号时，如果需要设置 [质押和提现权限](../staking/stake-accounts.md#understanding-account-authorities)，您可以通过 `--stake-authority` and `--withdraw-authority` 选项或 `safecoin stake-authorize` 命令来实现。 例如，要设置一个新的质押权限，请运行：
+创建账号时，如果需要设置 [质押和提现权限](../staking/stake-accounts.md#understanding-account-authorities)，您可以通过 `--stake-authority` and `--withdraw-authority` 选项或 `panoptis stake-authorize` 命令来实现。 例如，要设置一个新的质押权限，请运行：
 
 ```bash
-safecoin stake-authorize <STAKE_ACCOUNT_ADDRESS> \
+panoptis stake-authorize <STAKE_ACCOUNT_ADDRESS> \
     --stake-authority <KEYPAIR> --new-stake-authority <PUBKEY> \
     --fee-payer <KEYPAIR>
 ```
@@ -62,41 +62,41 @@ safecoin stake-authorize <STAKE_ACCOUNT_ADDRESS> \
 当委托质押时，你需要将所有密钥账户中的代币委托给某一个验证节点。 而要委托给多个验证节点，您就需要多个质押账户。 为每个帐户创建一个新密钥对并管理那些地址可能比较繁琐。 好在您可以通过 `--seed` 选项来派生多个质押地址：
 
 ```bash
-safecoin create-stake-account --from <KEYPAIR> <STAKE_ACCOUNT_KEYPAIR> --seed <STRING> <AMOUNT> \
+panoptis create-stake-account --from <KEYPAIR> <STAKE_ACCOUNT_KEYPAIR> --seed <STRING> <AMOUNT> \
     --stake-authority <PUBKEY> --withdraw-authority <PUBKEY> --fee-payer <KEYPAIR>
 ```
 
-`<STRING>` 是一个最多32字节的任意字符串，通常情况下是一个对应该派生账户的数字。 第一个账户是"0"，第二个是 "1"，以此类推。 `<STAKE_ACCOUNT_KEYPAIR>` 公钥发挥基本地址的作用。 该命令将从基础地址和种子字符串中派生一个新地址。 要查看派生出哪个质押地址，请使用 `safecoin create-address-with-seed`命令：
+`<STRING>` 是一个最多32字节的任意字符串，通常情况下是一个对应该派生账户的数字。 第一个账户是"0"，第二个是 "1"，以此类推。 `<STAKE_ACCOUNT_KEYPAIR>` 公钥发挥基本地址的作用。 该命令将从基础地址和种子字符串中派生一个新地址。 要查看派生出哪个质押地址，请使用 `panoptis create-address-with-seed`命令：
 
 ```bash
-safecoin create-address-with-seed --from <PUBKEY> <SEED_STRING> STAKE
+panoptis create-address-with-seed --from <PUBKEY> <SEED_STRING> STAKE
 ```
 
-`<PUBKEY>` is the public key of the `<STAKE_ACCOUNT_KEYPAIR>` passed to `safecoin create-stake-account`.
+`<PUBKEY>` is the public key of the `<STAKE_ACCOUNT_KEYPAIR>` passed to `panoptis create-stake-account`.
 
 该命令将输出派生地址，可以用于质押操作中的 `<STAKE_ACCOUNT_ADDRESS>` 参数。
 
 ## 委托您的质押
 
-想要委托您的质押给某个验证节点，您首先需要它的投票帐号地址。 您可以通过 `safecoin validators` 命令来查询所有验证节点列表和他们的投票账户：
+想要委托您的质押给某个验证节点，您首先需要它的投票帐号地址。 您可以通过 `panoptis validators` 命令来查询所有验证节点列表和他们的投票账户：
 
 ```bash
-safecoin 验证节点
+panoptis 验证节点
 ```
 
-每行的第一列包含验证节点的身份，第二列是投票帐户地址。 选择一个验证节点，并在 `safecoin delegate-stake` 中使用它的投票帐户地址：
+每行的第一列包含验证节点的身份，第二列是投票帐户地址。 选择一个验证节点，并在 `panoptis delegate-stake` 中使用它的投票帐户地址：
 
 ```bash
-safecoin delegate-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <VOTE_ACCOUNT_ADDRESS> \
+panoptis delegate-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <VOTE_ACCOUNT_ADDRESS> \
     --fee-payer <KEYPAIR>
 ```
 
 质押权限 `<KEYPAIR>` 对地址 `<STAKE_ACCOUNT_ADDRESS>` 进行帐户授权操作。 该质押被委托给投票账户地址 `<VOTE_ACCOUNT_ADDRESS>`。
 
-委托质押后，使用 `safecoin stake-account` 查看质押账户的变化：
+委托质押后，使用 `panoptis stake-account` 查看质押账户的变化：
 
 ```bash
-safecoin stake-account <STAKE_ACCOUNT_ADDRESS>
+panoptis stake-account <STAKE_ACCOUNT_ADDRESS>
 ```
 
 您将在输出中看到“Delegated Stake”和“Delegated Vote Account Address”两个新字段。 结果大概呈这样：
@@ -113,10 +113,10 @@ Withdraw Authority: EXU95vqs93yPeCeAU7mPPu6HbRUmTFPEiGug9oCdvQ5F
 
 ## 取消质押
 
-质押委托以后，您可以使用 `safecoin deactivate-stake` 命令来取消委托的质押：
+质押委托以后，您可以使用 `panoptis deactivate-stake` 命令来取消委托的质押：
 
 ```bash
-safecoin deactivate-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> \
+panoptis deactivate-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> \
     --fee-payer <KEYPAIR>
 ```
 
@@ -126,10 +126,10 @@ safecoin deactivate-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> \
 
 ## 提现质押
 
-使用 `safecoin withdraw-stake` 命令将代币转移出质押帐户：
+使用 `panoptis withdraw-stake` 命令将代币转移出质押帐户：
 
 ```bash
-safecoin withdraw-stake --withdraw-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <RECIPIENT_ADDRESS> <AMOUNT> \
+panoptis withdraw-stake --withdraw-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <RECIPIENT_ADDRESS> <AMOUNT> \
     --fee-payer <KEYPAIR>
 ```
 
@@ -137,10 +137,10 @@ safecoin withdraw-stake --withdraw-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <
 
 ## 拆分质押
 
-在现有质押不能取款的时候，您可能想将质押分配给另外的验证节点。 无法取回的原因可能是处于质押、冷却或锁定的状态。 若要将代币从现有质押账户转移到一个新的帐户，请使用 `safecoin split-stake` 命令：
+在现有质押不能取款的时候，您可能想将质押分配给另外的验证节点。 无法取回的原因可能是处于质押、冷却或锁定的状态。 若要将代币从现有质押账户转移到一个新的帐户，请使用 `panoptis split-stake` 命令：
 
 ```bash
-safecoin split-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <NEW_STAKE_ACCOUNT_KEYPAIR> <AMOUNT> \
+panoptis split-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <NEW_STAKE_ACCOUNT_KEYPAIR> <AMOUNT> \
     --fee-payer <KEYPAIR>
 ```
 

@@ -30,7 +30,7 @@ use crate::{
     weighted_shuffle::weighted_shuffle,
 };
 use rand::{seq::SliceRandom, CryptoRng, Rng};
-use safecoin_ledger::shred::Shred;
+use panoptis_ledger::shred::Shred;
 use solana_sdk::sanitize::{Sanitize, SanitizeError};
 
 use bincode::{serialize, serialized_size};
@@ -39,8 +39,8 @@ use rand::thread_rng;
 use rayon::prelude::*;
 use rayon::{ThreadPool, ThreadPoolBuilder};
 use serde::ser::Serialize;
-use safecoin_measure::measure::Measure;
-use safecoin_measure::thread_mem_usage;
+use panoptis_measure::measure::Measure;
+use panoptis_measure::thread_mem_usage;
 use solana_metrics::{inc_new_counter_debug, inc_new_counter_error};
 use solana_net_utils::{
     bind_common, bind_common_in_range, bind_in_range, find_available_port_in_range,
@@ -50,7 +50,7 @@ use solana_perf::packet::{
     limited_deserialize, to_packets_with_destination, Packet, Packets, PacketsRecycler,
     PACKET_DATA_SIZE,
 };
-use safecoin_rayon_threadlimit::get_thread_count;
+use panoptis_rayon_threadlimit::get_thread_count;
 use solana_runtime::bank_forks::BankForks;
 use solana_sdk::{
     clock::{Slot, DEFAULT_MS_PER_SLOT, DEFAULT_SLOTS_PER_EPOCH},
@@ -3042,7 +3042,7 @@ mod tests {
     use itertools::izip;
     use rand::{seq::SliceRandom, SeedableRng};
     use rand_chacha::ChaChaRng;
-    use safecoin_ledger::shred::Shredder;
+    use panoptis_ledger::shred::Shredder;
     use solana_sdk::signature::{Keypair, Signer};
     use solana_vote_program::{vote_instruction, vote_state::Vote};
     use std::iter::repeat_with;

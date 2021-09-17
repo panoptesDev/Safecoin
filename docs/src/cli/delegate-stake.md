@@ -34,7 +34,7 @@ want to perform an action on the stake account you create next.
 Now, create a stake account:
 
 ```bash
-safecoin create-stake-account --from <KEYPAIR> stake-account.json <AMOUNT> \
+panoptis create-stake-account --from <KEYPAIR> stake-account.json <AMOUNT> \
     --stake-authority <KEYPAIR> --withdraw-authority <KEYPAIR> \
     --fee-payer <KEYPAIR>
 ```
@@ -46,10 +46,10 @@ The stake-account.json file can now be discarded. To authorize additional
 actions, you will use the `--stake-authority` or `--withdraw-authority` keypair,
 not stake-account.json.
 
-View the new stake account with the `safecoin stake-account` command:
+View the new stake account with the `panoptis stake-account` command:
 
 ```bash
-safecoin stake-account <STAKE_ACCOUNT_ADDRESS>
+panoptis stake-account <STAKE_ACCOUNT_ADDRESS>
 ```
 
 The output will look similar to this:
@@ -66,11 +66,11 @@ Withdraw Authority: EXU95vqs93yPeCeAU7mPPu6HbRUmTFPEiGug9oCdvQ5F
 [Stake and withdraw authorities](../staking/stake-accounts.md#understanding-account-authorities)
 can be set when creating an account via the
 `--stake-authority` and `--withdraw-authority` options, or afterward with the
-`safecoin stake-authorize` command. For example, to set a new stake authority,
+`panoptis stake-authorize` command. For example, to set a new stake authority,
 run:
 
 ```bash
-safecoin stake-authorize <STAKE_ACCOUNT_ADDRESS> \
+panoptis stake-authorize <STAKE_ACCOUNT_ADDRESS> \
     --stake-authority <KEYPAIR> --new-stake-authority <PUBKEY> \
     --fee-payer <KEYPAIR>
 ```
@@ -87,7 +87,7 @@ addresses can be cumbersome. Fortunately, you can derive stake addresses using
 the `--seed` option:
 
 ```bash
-safecoin create-stake-account --from <KEYPAIR> <STAKE_ACCOUNT_KEYPAIR> --seed <STRING> <AMOUNT> \
+panoptis create-stake-account --from <KEYPAIR> <STAKE_ACCOUNT_KEYPAIR> --seed <STRING> <AMOUNT> \
     --stake-authority <PUBKEY> --withdraw-authority <PUBKEY> --fee-payer <KEYPAIR>
 ```
 
@@ -95,14 +95,14 @@ safecoin create-stake-account --from <KEYPAIR> <STAKE_ACCOUNT_KEYPAIR> --seed <S
 number corresponding to which derived account this is. The first account might
 be "0", then "1", and so on. The public key of `<STAKE_ACCOUNT_KEYPAIR>` acts
 as the base address. The command derives a new address from the base address
-and seed string. To see what stake address the command will derive, use `safecoin create-address-with-seed`:
+and seed string. To see what stake address the command will derive, use `panoptis create-address-with-seed`:
 
 ```bash
-safecoin create-address-with-seed --from <PUBKEY> <SEED_STRING> STAKE
+panoptis create-address-with-seed --from <PUBKEY> <SEED_STRING> STAKE
 ```
 
 `<PUBKEY>` is the public key of the `<STAKE_ACCOUNT_KEYPAIR>` passed to
-`safecoin create-stake-account`.
+`panoptis create-stake-account`.
 
 The command will output a derived address, which can be used for the
 `<STAKE_ACCOUNT_ADDRESS>` argument in staking operations.
@@ -111,18 +111,18 @@ The command will output a derived address, which can be used for the
 
 To delegate your stake to a validator, you will need its vote account address.
 Find it by querying the cluster for the list of all validators and their vote
-accounts with the `safecoin validators` command:
+accounts with the `panoptis validators` command:
 
 ```bash
-safecoin validators
+panoptis validators
 ```
 
 The first column of each row contains the validator's identity and the second
 is the vote account address. Choose a validator and use its vote account
-address in `safecoin delegate-stake`:
+address in `panoptis delegate-stake`:
 
 ```bash
-safecoin delegate-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <VOTE_ACCOUNT_ADDRESS> \
+panoptis delegate-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <VOTE_ACCOUNT_ADDRESS> \
     --fee-payer <KEYPAIR>
 ```
 
@@ -130,11 +130,11 @@ The stake authority `<KEYPAIR>` authorizes the operation on the account with
 address `<STAKE_ACCOUNT_ADDRESS>`. The stake is delegated to the vote account
 with address `<VOTE_ACCOUNT_ADDRESS>`.
 
-After delegating stake, use `safecoin stake-account` to observe the changes
+After delegating stake, use `panoptis stake-account` to observe the changes
 to the stake account:
 
 ```bash
-safecoin stake-account <STAKE_ACCOUNT_ADDRESS>
+panoptis stake-account <STAKE_ACCOUNT_ADDRESS>
 ```
 
 You will see new fields "Delegated Stake" and "Delegated Vote Account Address"
@@ -152,11 +152,11 @@ Withdraw Authority: EXU95vqs93yPeCeAU7mPPu6HbRUmTFPEiGug9oCdvQ5F
 
 ## Deactivate Stake
 
-Once delegated, you can undelegate stake with the `safecoin deactivate-stake`
+Once delegated, you can undelegate stake with the `panoptis deactivate-stake`
 command:
 
 ```bash
-safecoin deactivate-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> \
+panoptis deactivate-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> \
     --fee-payer <KEYPAIR>
 ```
 
@@ -168,10 +168,10 @@ in the cool down period will fail.
 
 ## Withdraw Stake
 
-Transfer tokens out of a stake account with the `safecoin withdraw-stake` command:
+Transfer tokens out of a stake account with the `panoptis withdraw-stake` command:
 
 ```bash
-safecoin withdraw-stake --withdraw-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <RECIPIENT_ADDRESS> <AMOUNT> \
+panoptis withdraw-stake --withdraw-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <RECIPIENT_ADDRESS> <AMOUNT> \
     --fee-payer <KEYPAIR>
 ```
 
@@ -184,10 +184,10 @@ to transfer to `<RECIPIENT_ADDRESS>`.
 You may want to delegate stake to additional validators while your existing
 stake is not eligible for withdrawal. It might not be eligible because it is
 currently staked, cooling down, or locked up. To transfer tokens from an
-existing stake account to a new one, use the `safecoin split-stake` command:
+existing stake account to a new one, use the `panoptis split-stake` command:
 
 ```bash
-safecoin split-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <NEW_STAKE_ACCOUNT_KEYPAIR> <AMOUNT> \
+panoptis split-stake --stake-authority <KEYPAIR> <STAKE_ACCOUNT_ADDRESS> <NEW_STAKE_ACCOUNT_KEYPAIR> <AMOUNT> \
     --fee-payer <KEYPAIR>
 ```
 

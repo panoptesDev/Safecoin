@@ -123,9 +123,9 @@ To determine which features are activated use the [Panoptis command-line
 tools](cli/install-solana-cli-tools.md):
 
 ```bash
-safecoin feature status
+panoptis feature status
 ```
 
 If you encounter problems first ensure that the Panoptis tools version you are
-using match the version returned by `safecoin cluster-version`. If they do not
+using match the version returned by `panoptis cluster-version`. If they do not
 match [install the correct tool suite](cli/install-solana-cli-tools.md).

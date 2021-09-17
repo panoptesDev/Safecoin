@@ -46,7 +46,7 @@ panoptis-keygen --version
 panoptis-keygen new --no-outfile
 ```
 
-> 如果 `--no-outfile` 标志显示为 **omitted**，那么默认行为是将密钥写入到 `~/.config/safecoin/id.json`，最终产生一个 [文件系统钱包](file-system-wallet.md)
+> 如果 `--no-outfile` 标志显示为 **omitted**，那么默认行为是将密钥写入到 `~/.config/panoptis/id.json`，最终产生一个 [文件系统钱包](file-system-wallet.md)
 
 此命令的输出将显示下面的这一行：
 
@@ -111,13 +111,13 @@ panoptis-keygen verify <PUBKEY> ASK
 接下来，配置 `solana` CLI 工具到 [连接一个特定集群](../cli/choose-a-cluster.md)：
 
 ```bash
-safecoin config set --url <CLUSTER URL> # (例如 https://api.mainnet-beta.safecoin.org)
+panoptis config set --url <CLUSTER URL> # (例如 https://api.mainnet-beta.panoptis.org)
 ```
 
 最后，如需检查余额，请运行以下命令：
 
 ```bash
-safecoin balance <PUBKEY>
+panoptis balance <PUBKEY>
 ```
 
 ## 创建多个纸钱包地址

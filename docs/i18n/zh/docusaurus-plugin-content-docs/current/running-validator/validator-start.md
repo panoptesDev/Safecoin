@@ -7,7 +7,7 @@ title: 启动验证程序
 Panoptis cli包含`get`和`set`配置命令，可自动为cli命令设置`--url`参数。 例如：
 
 ```bash
-safecoin config set --url http://api.devnet.safecoin.org
+panoptis config set --url http://api.devnet.panoptis.org
 ```
 
 尽管本节演示了如何连接到Devnet群集，但其他的[Panoptis群集](../clusters.md)步骤与此类似。
@@ -17,17 +17,17 @@ safecoin config set --url http://api.devnet.safecoin.org
 在附加验证节点之前，通过获取事务计数来明确检查集群是否可被您的机器访问：
 
 ```bash
-safecoin 交易数统计
+panoptis 交易数统计
 ```
 
-查看 [性能展板](https://metrics.safecoin.org:3000/d/monitor/cluster-telemetry) 来了解集群活动的细节。
+查看 [性能展板](https://metrics.panoptis.org:3000/d/monitor/cluster-telemetry) 来了解集群活动的细节。
 
 ## 确认您的安装程序
 
 尝试运行以下命令以加入八卦网络并查看集群中的所有其他节点：
 
 ```bash
-panoptis-gossip spy --entrypoint devnet.safecoin.org/8001
+panoptis-gossip spy --entrypoint devnet.panoptis.org/8001
 # 按^C 退出
 ```
 
@@ -159,14 +159,14 @@ panoptis-keygen grind --starts-with e1v1s:1
 现在您有了密钥对，将solana配置设置为对以下所有命令使用验证节点密钥对：
 
 ```bash
-safecoin config set --keypair ~/validator-keypair.json
+panoptis config set --keypair ~/validator-keypair.json
 ```
 
 您应该看到以下输出：
 
 ```text
-Wallet Config Updated: /home/solana/.config/safecoin/wallet/config.yml
-* url: http://api.devnet.safecoin.org
+Wallet Config Updated: /home/solana/.config/panoptis/wallet/config.yml
+* url: http://api.devnet.panoptis.org
 * keypair: /home/solana/validator-keypair.json
 ```
 
@@ -175,7 +175,7 @@ Wallet Config Updated: /home/solana/.config/safecoin/wallet/config.yml
 空投自己一些PANO即可开始使用：
 
 ```bash
-safecoin airdrop 10
+panoptis airdrop 10
 ```
 
 请注意，空投只能在Devnet和Testnet上使用。 每次请求都限制在 10 个 PANO。
@@ -183,13 +183,13 @@ safecoin airdrop 10
 要查看您当前的余额：
 
 ```text
-safecoin balance
+panoptis balance
 ```
 
 或查看更详细的信息：
 
 ```text
-safecoin balance --lamports
+panoptis balance --lamports
 ```
 
 在这里阅读更多关于 [PANO与lamports 之间的差异](../introduction.md#what-are-sols)。
@@ -205,7 +205,7 @@ panoptis-keygen new -o ~/vote-account-keypair.json
 以下命令可用于使用所有在区块链上创建投票帐户的默认选项：
 
 ```bash
-safecoin create-vote-account ~/vote-account-keypair.json ~/validator-keypair.json
+panoptis create-vote-account ~/vote-account-keypair.json ~/validator-keypair.json
 ```
 
 阅读更多关于 [创建和管理一个投票账户](vote-accounts.md)的信息。
@@ -226,7 +226,7 @@ panoptis-validator \
   --vote-account ~/vote-account-keypair.json \
   --ledger ~/validator-ledger \
   --rpc-port 8328 \
-  --entrypoint devnet.safecoin.org:10015 \
+  --entrypoint devnet.panoptis.org:10015 \
   --limit-ledger-size \
   --log ~/panoptis-validator.log
 ```
@@ -238,7 +238,7 @@ panoptis-validator \
 通过打开一个新终端并运行以下命令来确认连接到网络的验证节点：
 
 ```bash
-panoptis-gossip spy --entrypoint devnet.safecoin.org:10015
+panoptis-gossip spy --entrypoint devnet.panoptis.org:10015
 ```
 
 如果您的验证节点已连接，其公钥和IP地址将出现在列表中。

@@ -1,10 +1,10 @@
 use crate::cli::Config;
 use log::*;
 use rayon::prelude::*;
-use safecoin_client::perf_utils::{sample_txs, SampleStats};
+use panoptis_client::perf_utils::{sample_txs, SampleStats};
 use solana_core::gen_keys::GenKeys;
-use safecoin_faucet::faucet::request_airdrop_transaction;
-use safecoin_measure::measure::Measure;
+use panoptis_faucet::faucet::request_airdrop_transaction;
+use panoptis_measure::measure::Measure;
 use solana_metrics::{self, datapoint_info};
 use solana_sdk::{
     client::Client,

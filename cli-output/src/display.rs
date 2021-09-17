@@ -7,7 +7,7 @@ use {
         clock::UnixTimestamp, hash::Hash, message::Message, native_token::lamports_to_sol,
         program_utils::limited_deserialize, pubkey::Pubkey, transaction::Transaction,
     },
-    safecoin_transaction_status::UiTransactionStatusMeta,
+    panoptis_transaction_status::UiTransactionStatusMeta,
     safe_memo::id as safe_memo_id,
     safe_memo::v1::id as safe_memo_v1_id,
     std::{collections::HashMap, fmt, io},

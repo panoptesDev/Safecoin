@@ -14,7 +14,7 @@ use solana_core::{
     crds_value::{CrdsData, CrdsValue, CrdsValueLabel},
     ping_pong::PingCache,
 };
-use safecoin_rayon_threadlimit::get_thread_count;
+use panoptis_rayon_threadlimit::get_thread_count;
 use solana_sdk::{
     hash::hash,
     pubkey::Pubkey,

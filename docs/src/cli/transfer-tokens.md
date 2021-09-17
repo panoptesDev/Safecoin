@@ -27,7 +27,7 @@ on devnet have **no** value, so don't worry if you lose them.
 First, _airdrop_ yourself some play tokens on the devnet.
 
 ```bash
-safecoin airdrop 1 <RECIPIENT_ACCOUNT_ADDRESS> --url https://api.devnet.safecoin.org
+panoptis airdrop 1 <RECIPIENT_ACCOUNT_ADDRESS> --url https://api.devnet.panoptis.org
 ```
 
 where you replace the text `<RECIPIENT_ACCOUNT_ADDRESS>` with your base58-encoded
@@ -39,7 +39,7 @@ Confirm the airdrop was successful by checking the account's balance.
 It should output `1 PANO`:
 
 ```bash
-safecoin balance <ACCOUNT_ADDRESS> --url https://api.devnet.safecoin.org
+panoptis balance <ACCOUNT_ADDRESS> --url https://api.devnet.panoptis.org
 ```
 
 #### Create a second wallet address
@@ -71,17 +71,17 @@ with the private keypair corresponding to the sender's public key in the
 transaction.
 
 ```bash
-safecoin transfer --from <KEYPAIR> <RECIPIENT_ACCOUNT_ADDRESS> 0.5 --allow-unfunded-recipient --url https://api.devnet.safecoin.org --fee-payer <KEYPAIR>
+panoptis transfer --from <KEYPAIR> <RECIPIENT_ACCOUNT_ADDRESS> 0.5 --allow-unfunded-recipient --url https://api.devnet.panoptis.org --fee-payer <KEYPAIR>
 ```
 
 where you replace `<KEYPAIR>` with the path to a keypair in your first wallet,
 and replace `<RECIPIENT_ACCOUNT_ADDRESS>` with the address of your second
 wallet.
 
-Confirm the updated balances with `safecoin balance`:
+Confirm the updated balances with `panoptis balance`:
 
 ```bash
-safecoin balance <ACCOUNT_ADDRESS> --url http://api.devnet.safecoin.org
+panoptis balance <ACCOUNT_ADDRESS> --url http://api.devnet.panoptis.org
 ```
 
 where `<ACCOUNT_ADDRESS>` is either the public key from your keypair or the
@@ -101,11 +101,11 @@ Save this seed phrase to recover your new keypair:
 width enhance concert vacant ketchup eternal spy craft spy guard tag punch    # If this was a real wallet, never share these words on the internet like this!
 ==========================================================================
 
-$ safecoin airdrop 1 DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org  # Airdropping 1 PANO to my wallet's address/pubkey
+$ panoptis airdrop 1 DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.panoptis.org  # Airdropping 1 PANO to my wallet's address/pubkey
 Requesting airdrop of 1 PANO from 35.233.193.70:9900
 1 PANO
 
-$ safecoin balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org # Check the address's balance
+$ panoptis balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.panoptis.org # Check the address's balance
 1 PANO
 
 $ panoptis-keygen new --no-outfile  # Creating a second wallet, a paper wallet
@@ -118,13 +118,13 @@ Save this seed phrase to recover your new keypair:
 clump panic cousin hurt coast charge engage fall eager urge win love   # If this was a real wallet, never share these words on the internet like this!
 ====================================================================
 
-$ safecoin transfer --from my_solana_wallet.json 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv 0.5 --allow-unfunded-recipient --url https://api.devnet.safecoin.org --fee-payer my_solana_wallet.json  # Transferring tokens to the public address of the paper wallet
+$ panoptis transfer --from my_solana_wallet.json 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv 0.5 --allow-unfunded-recipient --url https://api.devnet.panoptis.org --fee-payer my_solana_wallet.json  # Transferring tokens to the public address of the paper wallet
 3gmXvykAd1nCQQ7MjosaHLf69Xyaqyq1qw2eu1mgPyYXd5G4v1rihhg1CiRw35b9fHzcftGKKEu4mbUeXY2pEX2z  # This is the transaction signature
 
-$ safecoin balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.safecoin.org
+$ panoptis balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.panoptis.org
 0.499995 PANO  # The sending account has slightly less than 0.5 PANO remaining due to the 0.000005 PANO transaction fee payment
 
-$ safecoin balance 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv --url https://api.devnet.safecoin.org
+$ panoptis balance 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv --url https://api.devnet.panoptis.org
 0.5 PANO  # The second wallet has now received the 0.5 PANO transfer from the first wallet
 
 ```
@@ -145,14 +145,14 @@ characters. Its length varies from 32 to 44 characters.
 If you already hold PANO and want to send tokens to someone, you will need
 a path to your keypair, their base58-encoded public key, and a number of
 tokens to transfer. Once you have that collected, you can transfer tokens
-with the `safecoin transfer` command:
+with the `panoptis transfer` command:
 
 ```bash
-safecoin transfer --from <KEYPAIR> <RECIPIENT_ACCOUNT_ADDRESS> <AMOUNT> --fee-payer <KEYPAIR>
+panoptis transfer --from <KEYPAIR> <RECIPIENT_ACCOUNT_ADDRESS> <AMOUNT> --fee-payer <KEYPAIR>
 ```
 
-Confirm the updated balances with `safecoin balance`:
+Confirm the updated balances with `panoptis balance`:
 
 ```bash
-safecoin balance <ACCOUNT_ADDRESS>
+panoptis balance <ACCOUNT_ADDRESS>
 ```

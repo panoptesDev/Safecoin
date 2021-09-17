@@ -56,7 +56,7 @@ panoptis-core = { path = "../core", version = "=1.6.19" }
 tempfile = "3.1.0"
 
 [[bin]]
-name = "safecoin"
+name = "panoptis"
 path = "src/main.rs"
 
 [package.metadata.docs.rs]

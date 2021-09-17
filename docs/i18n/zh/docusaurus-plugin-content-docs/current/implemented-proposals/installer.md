@@ -123,7 +123,7 @@ pub struct SignedUpdateManifest {
 
 ```text
 panoptis-install 0.16.0
-The safecoin cluster software installer
+The panoptis cluster software installer
 
 USAGE:
     panoptis-install [OPTIONS] <SUBCOMMAND>
@@ -156,7 +156,7 @@ FLAGS:
 
 OPTIONS:
     -d, --data_dir <PATH>    Directory to store install data [default: .../Library/Application Support/solana]
-    -u, --url <URL>          JSON RPC URL for the safecoin cluster [default: http://api.devnet.safecoin.org]
+    -u, --url <URL>          JSON RPC URL for the panoptis cluster [default: http://api.devnet.safecoin.org]
     -p, --pubkey <PUBKEY>    Public key of the update manifest [default: 9XX329sPuskWhH4DQh6k16c87dHKhXLBZTL3Gxmve8Gp]
 ```
 
@@ -183,7 +183,7 @@ FLAGS:
     -h, --help    Prints help information
 
 ARGS:
-    <download_url>               URL to the safecoin release archive
+    <download_url>               URL to the panoptis release archive
     <update_manifest_keypair>    Keypair file for the update manifest (/path/to/keypair.json)
 ```
 

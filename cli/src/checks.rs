@@ -1,5 +1,5 @@
 use crate::cli::CliError;
-use safecoin_client::{
+use panoptis_client::{
     client_error::{ClientError, Result as ClientResult},
     rpc_client::RpcClient,
 };
@@ -151,7 +151,7 @@ pub fn check_unique_pubkeys(
 mod tests {
     use super::*;
     use serde_json::json;
-    use safecoin_client::{
+    use panoptis_client::{
         rpc_request::RpcRequest,
         rpc_response::{Response, RpcResponseContext},
     };

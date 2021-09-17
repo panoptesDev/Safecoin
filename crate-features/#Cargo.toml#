@@ -10,7 +10,7 @@ license = "Apache-2.0"
 edition = "2018"
 
 [lib]
-name = "safecoin_crate_features"
+name = "panoptis_crate_features"
 
 [dependencies]
 backtrace = { version = "0.3.33", features = ["serialize-serde"] }

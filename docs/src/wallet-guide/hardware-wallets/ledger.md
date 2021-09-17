@@ -80,17 +80,17 @@ associated keypair URL as the signer for transactions from that address.
 ### View your Balance
 
 To view the balance of any account, regardless of which wallet it uses, use the
-`safecoin balance` command:
+`panoptis balance` command:
 
 ```bash
-safecoin balance SOME_WALLET_ADDRESS
+panoptis balance SOME_WALLET_ADDRESS
 ```
 
 For example, if your address is `7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri`,
 then enter the following command to view the balance:
 
 ```bash
-safecoin balance 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri
+panoptis balance 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri
 ```
 
 You can also view the balance of any account address on the Accounts tab in the
@@ -110,13 +110,13 @@ used to derive the address. To do this, make sure your Nano is plugged in,
 unlocked with the PIN, Ledger Live is not running, and the Panoptis App is open
 on the device, showing "Application is Ready".
 
-The `safecoin transfer` command is used to specify to which address to send tokens,
+The `panoptis transfer` command is used to specify to which address to send tokens,
 how many tokens to send, and uses the `--keypair` argument to specify which
 keypair is sending the tokens, which will sign the transaction, and the balance
 from the associated address will decrease.
 
 ```bash
-safecoin transfer RECIPIENT_ADDRESS AMOUNT --keypair KEYPAIR_URL_OF_SENDER
+panoptis transfer RECIPIENT_ADDRESS AMOUNT --keypair KEYPAIR_URL_OF_SENDER
 ```
 
 Below is a full example. First, an address is viewed at a certain keypair URL.
@@ -132,10 +132,10 @@ screen.
 ~$ panoptis-keygen pubkey usb://ledger?key=42
 CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
 
-~$ safecoin balance CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
+~$ panoptis balance CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
 1.000005 PANO
 
-~$ safecoin transfer 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri 1 --keypair usb://ledger?key=42
+~$ panoptis transfer 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri 1 --keypair usb://ledger?key=42
 Waiting for your approval on Ledger hardware wallet usb://ledger/2JT2Xvy6T8hSmT8g6WdeDbHUgoeGdj6bE2VueCZUJmyN
 ✅ Approved
 
@@ -166,7 +166,7 @@ connecting a Nano to USB, unlock it with your pin, and running the
 following command:
 
 ```text
-safecoin resolve-signer usb://ledger?key=0/0
+panoptis resolve-signer usb://ledger?key=0/0
 ```
 
 You will see output similar to:

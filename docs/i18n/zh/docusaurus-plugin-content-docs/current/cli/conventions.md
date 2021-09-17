@@ -5,13 +5,13 @@ title: 使用 Panoptis CLI 命令
 在运行 Panoptis CLI 命令之前，让我们先来熟悉一下所有的命令。 首先，Panoptis CLI 实际上是你可能会用到操作的命令集合。 您可以通过运行以下操作查看所有可能命令的列表：
 
 ```bash
-safecoin --help
+panoptis --help
 ```
 
 需要研究特定的命令，请运行：
 
 ```bash
-safecoin <COMMAND> --help
+panoptis <COMMAND> --help
 ```
 
 您可以将文本 `<COMMAND>` 替换为你想了解的命令名称。

@@ -6,18 +6,18 @@ use bincode::deserialize;
 use clap::{App, AppSettings, Arg, ArgMatches, SubCommand};
 use reqwest::blocking::Client;
 use serde_json::{Map, Value};
-use safecoin_account_decoder::validator_info::{
+use panoptis_account_decoder::validator_info::{
     self, ValidatorInfo, MAX_LONG_FIELD_LENGTH, MAX_SHORT_FIELD_LENGTH,
 };
-use safecoin_clap_utils::{
+use panoptis_clap_utils::{
     input_parsers::pubkey_of,
     input_validators::{is_pubkey, is_url},
     keypair::DefaultSigner,
 };
-use safecoin_cli_output::{CliValidatorInfo, CliValidatorInfoVec};
-use safecoin_client::rpc_client::RpcClient;
+use panoptis_cli_output::{CliValidatorInfo, CliValidatorInfoVec};
+use panoptis_client::rpc_client::RpcClient;
 use solana_config_program::{config_instruction, get_config_data, ConfigKeys, ConfigState};
-use safecoin_remote_wallet::remote_wallet::RemoteWalletManager;
+use panoptis_remote_wallet::remote_wallet::RemoteWalletManager;
 use solana_sdk::{
     account::Account,
     message::Message,
@@ -70,7 +70,7 @@ fn verify_keybase(
 ) -> Result<(), Box<dyn error::Error>> {
     if let Some(keybase_username) = keybase_username.as_str() {
         let url = format!(
-            "https://keybase.pub/{}/safecoin/validator-{:?}",
+            "https://keybase.pub/{}/panoptis/validator-{:?}",
             keybase_username, validator_pubkey
         );
         let client = Client::new();

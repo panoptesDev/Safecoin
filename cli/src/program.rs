@@ -8,15 +8,15 @@ use crate::{
 use bip39::{Language, Mnemonic, MnemonicType, Seed};
 use clap::{App, AppSettings, Arg, ArgMatches, SubCommand};
 use log::*;
-use safecoin_account_decoder::{UiAccountEncoding, UiDataSliceConfig};
+use panoptis_account_decoder::{UiAccountEncoding, UiDataSliceConfig};
 use solana_bpf_loader_program::{bpf_verifier, BpfError, ThisInstructionMeter};
-use safecoin_clap_utils::{self, input_parsers::*, input_validators::*, keypair::*};
-use safecoin_cli_output::{
+use panoptis_clap_utils::{self, input_parsers::*, input_validators::*, keypair::*};
+use panoptis_cli_output::{
     display::new_spinner_progress_bar, CliProgram, CliProgramAccountType, CliProgramAuthority,
     CliProgramBuffer, CliProgramId, CliUpgradeableBuffer, CliUpgradeableBuffers,
     CliUpgradeableProgram,
 };
-use safecoin_client::{
+use panoptis_client::{
     client_error::ClientErrorKind,
     rpc_client::RpcClient,
     rpc_config::RpcSendTransactionConfig,
@@ -26,7 +26,7 @@ use safecoin_client::{
     tpu_client::{TpuClient, TpuClientConfig},
 };
 use solana_rbpf::vm::{Config, Executable};
-use safecoin_remote_wallet::remote_wallet::RemoteWalletManager;
+use panoptis_remote_wallet::remote_wallet::RemoteWalletManager;
 use solana_sdk::{
     account::Account,
     account_utils::StateMut,
@@ -47,7 +47,7 @@ use solana_sdk::{
     transaction::Transaction,
     transaction::TransactionError,
 };
-use safecoin_transaction_status::TransactionConfirmationStatus;
+use panoptis_transaction_status::TransactionConfirmationStatus;
 use std::{
     collections::HashMap,
     error,
@@ -1966,11 +1966,11 @@ fn report_ephemeral_mnemonic(words: usize, mnemonic: bip39::Mnemonic) {
     );
     eprintln!("{}\n{}\n{}", divider, phrase, divider);
     eprintln!("To resume a deploy, pass the recovered keypair as");
-    eprintln!("the [PROGRAM_ADDRESS_SIGNER] argument to `safecoin deploy` or");
-    eprintln!("as the [BUFFER_SIGNER] to `safecoin program deploy` or `safecoin write-buffer'.");
+    eprintln!("the [PROGRAM_ADDRESS_SIGNER] argument to `panoptis deploy` or");
+    eprintln!("as the [BUFFER_SIGNER] to `panoptis program deploy` or `panoptis write-buffer'.");
     eprintln!("Or to recover the account's lamports, pass it as the");
     eprintln!(
-        "[BUFFER_ACCOUNT_ADDRESS] argument to `safecoin program close`.\n{}",
+        "[BUFFER_ACCOUNT_ADDRESS] argument to `panoptis program close`.\n{}",
         divider
     );
 }
@@ -2106,7 +2106,7 @@ mod tests {
     use super::*;
     use crate::cli::{app, parse_command, process_command};
     use serde_json::Value;
-    use safecoin_cli_output::OutputFormat;
+    use panoptis_cli_output::OutputFormat;
     use solana_sdk::signature::write_keypair_file;
 
     fn make_tmp_path(name: &str) -> String {

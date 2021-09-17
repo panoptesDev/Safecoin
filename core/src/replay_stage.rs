@@ -28,15 +28,15 @@ use crate::{
     unfrozen_gossip_verified_vote_hashes::UnfrozenGossipVerifiedVoteHashes,
     window_service::DuplicateSlotReceiver,
 };
-use safecoin_client::rpc_response::SlotUpdate;
-use safecoin_ledger::{
+use panoptis_client::rpc_response::SlotUpdate;
+use panoptis_ledger::{
     block_error::BlockError,
     blockstore::Blockstore,
     blockstore_processor::{self, BlockstoreProcessorError, TransactionStatusSender},
     entry::VerifyRecyclers,
     leader_schedule_cache::LeaderScheduleCache,
 };
-use safecoin_measure::{measure::Measure, thread_mem_usage};
+use panoptis_measure::{measure::Measure, thread_mem_usage};
 use solana_metrics::inc_new_counter_info;
 use solana_runtime::{
     accounts_background_service::AbsRequestSender, bank::Bank, bank_forks::BankForks,
@@ -839,7 +839,7 @@ impl ReplayStage {
     }
 
     fn report_memory(
-        allocated: &safecoin_measure::thread_mem_usage::Allocatedp,
+        allocated: &panoptis_measure::thread_mem_usage::Allocatedp,
         name: &'static str,
         start: u64,
     ) {
@@ -2607,7 +2607,7 @@ pub(crate) mod tests {
         transaction_status_service::TransactionStatusService,
     };
     use crossbeam_channel::unbounded;
-    use safecoin_ledger::{
+    use panoptis_ledger::{
         blockstore::make_slot_entries,
         blockstore::{entries_to_test_shreds, BlockstoreError},
         blockstore_processor, create_new_tmp_ledger,
@@ -2635,7 +2635,7 @@ pub(crate) mod tests {
         system_transaction,
         transaction::TransactionError,
     };
-    use safecoin_transaction_status::TransactionWithStatusMeta;
+    use panoptis_transaction_status::TransactionWithStatusMeta;
     use solana_vote_program::{
         vote_state::{VoteState, VoteStateVersions},
         vote_transaction,

@@ -103,8 +103,8 @@ performance statistics about each one.
 
 To view block production statistics, use the Panoptis command-line tools:
 
-- `safecoin validators`
-- `safecoin block-production`
+- `panoptis validators`
+- `panoptis block-production`
 
 The Panoptis team does not make recommendations on how to interpret this
 information. Potential delegators should do their own due diligence.

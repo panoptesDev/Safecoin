@@ -1,12 +1,12 @@
 #![allow(clippy::integer_arithmetic)]
 use serial_test::serial;
-use safecoin_bench_tps::{
+use panoptis_bench_tps::{
     bench::{do_bench_tps, generate_and_fund_keypairs},
     cli::Config,
 };
-use safecoin_client::thin_client::create_client;
+use panoptis_client::thin_client::create_client;
 use solana_core::{cluster_info::VALIDATOR_PORT_RANGE, validator::ValidatorConfig};
-use safecoin_faucet::faucet::run_local_faucet_with_port;
+use panoptis_faucet::faucet::run_local_faucet_with_port;
 use solana_local_cluster::{
     local_cluster::{ClusterConfig, LocalCluster},
     validator_configs::make_identical_validator_configs,

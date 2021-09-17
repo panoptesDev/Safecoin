@@ -3,10 +3,10 @@ use solana_cli::{
     cli::{process_command, CliCommand, CliConfig},
     program::ProgramCliCommand,
 };
-use safecoin_cli_output::OutputFormat;
-use safecoin_client::rpc_client::RpcClient;
+use panoptis_cli_output::OutputFormat;
+use panoptis_client::rpc_client::RpcClient;
 use solana_core::test_validator::TestValidator;
-use safecoin_faucet::faucet::run_local_faucet;
+use panoptis_faucet::faucet::run_local_faucet;
 use solana_sdk::{
     account_utils::StateMut,
     bpf_loader,
