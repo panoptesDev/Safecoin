@@ -2,7 +2,7 @@
 authors = ["Solana Maintainers <maintainers@solana.com>"]
 description = "Panoptis: Enterprise Security for the Community by the Community"
 edition = "2018"
-homepage = "https://safecoin.org/"
+homepage = "https://panoptis.network/"
 license = "Apache-2.0"
 name = "proto"
 publish = false

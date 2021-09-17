@@ -2,7 +2,7 @@
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 description = "I will find you and I will stake you"
 edition = "2018"
-homepage = "https://safecoin.org/"
+homepage = "https://panoptis.network/"
 documentation = "https://docs.rs/"
 license = "Apache-2.0"
 name = "panoptis-stake-o-matic"

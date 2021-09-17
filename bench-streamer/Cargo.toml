@@ -5,7 +5,7 @@ name = "panoptis-bench-streamer"
 version = "1.6.19"
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
-homepage = "https://safecoin.org/"
+homepage = "https://panoptis.network/"
 publish = false
 
 [dependencies]

@@ -2,7 +2,7 @@
 name = "panoptis-secp256k1-program"
 description = "Panoptis Secp256k1 program"
 version = "1.6.19"
-homepage = "https://safecoin.org/"
+homepage = "https://panoptis.network/"
 documentation = "https://docs.rs/panoptis-secp256k1-program"
 repository = "https://github.com/fair-exchange/safecoin"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]

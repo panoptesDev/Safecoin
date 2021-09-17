@@ -5,7 +5,7 @@ description = "Panoptis BPF test program written in Rust"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"
-homepage = "https://safecoin.org/"
+homepage = "https://panoptis.network/"
 documentation = "https://docs.rs/solana-bpf-rust-ro-modify"
 edition = "2018"
 
