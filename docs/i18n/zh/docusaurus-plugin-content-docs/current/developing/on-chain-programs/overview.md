@@ -2,21 +2,21 @@
 title: "概述"
 ---
 
-开发人员可以编写自己的程序并将其部署到Safecoin区块链。
+开发人员可以编写自己的程序并将其部署到Panoptis区块链。
 
 [Helloworld示例](examples.md#helloworld)是了解如何编写、构建、部署、与链上程序交互的入门材料。
 
 ## Berkley数据包过滤器(BPF)
 
-Safecoin链上程序通过[LLVM编译器基础结构](https://llvm.org/)编译为[可执行和可链接格式(ELF)](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format)，其中包含了[Berkley数据包过滤器(BPF)](https://en.wikipedia.org/wiki/Berkeley_Packet_Filter)字节码的变体。
+Panoptis链上程序通过[LLVM编译器基础结构](https://llvm.org/)编译为[可执行和可链接格式(ELF)](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format)，其中包含了[Berkley数据包过滤器(BPF)](https://en.wikipedia.org/wiki/Berkeley_Packet_Filter)字节码的变体。
 
-由于Safecoin使用LLVM编译器基础结构，因此可以使用可以针对LLVM的BPF后端的任何编程语言编写程序。 Safecoin当前支持用Rust和C / C ++编写程序。
+由于Panoptis使用LLVM编译器基础结构，因此可以使用可以针对LLVM的BPF后端的任何编程语言编写程序。 Panoptis当前支持用Rust和C / C ++编写程序。
 
 BPF提供了有效的[指令集](https://github.com/iovisor/bpf-docs/blob/master/eBPF.md)，可以在解释的虚拟机中执行，也可以作为高效的即时编译原生执行指令。
 
 ## 内存映射
 
-Safecoin BPF程序使用的虚拟地址内存映射是固定的，其布局如下
+Panoptis BPF程序使用的虚拟地址内存映射是固定的，其布局如下
 
 - 程序代码从0x100000000开始
 - 堆栈数据从0x200000000开始

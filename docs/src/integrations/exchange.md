@@ -1,8 +1,8 @@
 ---
-title: Add Safecoin to Your Exchange
+title: Add Panoptis to Your Exchange
 ---
 
-This guide describes how to add Safecoin's native token PANO to your cryptocurrency
+This guide describes how to add Panoptis's native token PANO to your cryptocurrency
 exchange.
 
 ## Node Setup
@@ -13,18 +13,18 @@ operations with a bundled monitoring tool.
 
 This setup enables you:
 
-- to have a trusted gateway to the Safecoin mainnet-beta cluster to get data and
+- to have a trusted gateway to the Panoptis mainnet-beta cluster to get data and
   submit withdrawal transactions
 - to have full control over how much historical block data is retained
 - to maintain your service availability even if one node fails
 
-Safecoin nodes demand relatively high computing power to handle our fast blocks
+Panoptis nodes demand relatively high computing power to handle our fast blocks
 and high TPS. For specific requirements, please see
 [hardware recommendations](../running-validator/validator-reqs.md).
 
 To run an api node:
 
-1. [Install the Safecoin command-line tool suite](../cli/install-solana-cli-tools.md)
+1. [Install the Panoptis command-line tool suite](../cli/install-solana-cli-tools.md)
 2. Start the validator with at least the following parameters:
 
 ```bash
@@ -117,9 +117,9 @@ historical ledger data that cannot be filled.
 ### Minimizing Validator Port Exposure
 
 The validator requires that various UDP and TCP ports be open for inbound
-traffic from all other Safecoin validators. While this is the most efficient mode of
+traffic from all other Panoptis validators. While this is the most efficient mode of
 operation, and is strongly recommended, it is possible to restrict the
-validator to only require inbound traffic from one other Safecoin validator.
+validator to only require inbound traffic from one other Panoptis validator.
 
 First add the `--restricted-repair-only-mode` argument. This will cause the
 validator to operate in a restricted mode where it will not receive pushes from
@@ -146,13 +146,13 @@ validators and only on the _Gossip_, _Repair_ and _ServeR_ ports.
 
 ## Setting up Deposit Accounts
 
-Safecoin accounts do not require any on-chain initialization; once they contain
+Panoptis accounts do not require any on-chain initialization; once they contain
 some PANO, they exist. To set up a deposit account for your exchange, simply
-generate a Safecoin keypair using any of our [wallet tools](../wallet-guide/cli.md).
+generate a Panoptis keypair using any of our [wallet tools](../wallet-guide/cli.md).
 
 We recommend using a unique deposit account for each of your users.
 
-Safecoin accounts are charged [rent](developing/programming-model/accounts.md#rent) on creation and once per
+Panoptis accounts are charged [rent](developing/programming-model/accounts.md#rent) on creation and once per
 epoch, but they can be made rent-exempt if they contain 2-years worth of rent in
 PANO. In order to find the minimum rent-exempt balance for your deposit accounts,
 query the
@@ -179,7 +179,7 @@ transfer to the appropriate deposit address.
 
 To track all the deposit accounts for your exchange, poll for each confirmed
 block and inspect for addresses of interest, using the JSON-RPC service of your
-Safecoin API node.
+Panoptis API node.
 
 - To identify which blocks are available, send a [`getConfirmedBlocks` request](developing/clients/jsonrpc-api.md#getconfirmedblocks),
   passing the last block you have already processed as the start-slot parameter:
@@ -373,16 +373,16 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 
 ## Sending Withdrawals
 
-To accommodate a user's request to withdraw PANO, you must generate a Safecoin
+To accommodate a user's request to withdraw PANO, you must generate a Panoptis
 transfer transaction, and send it to the api node to be forwarded to your
 cluster.
 
 ### Synchronous
 
-Sending a synchronous transfer to the Safecoin cluster allows you to easily ensure
+Sending a synchronous transfer to the Panoptis cluster allows you to easily ensure
 that a transfer is successful and finalized by the cluster.
 
-Safecoin's command-line tool offers a simple command, `safecoin transfer`, to
+Panoptis's command-line tool offers a simple command, `safecoin transfer`, to
 generate, submit, and confirm transfer transactions. By default, this method
 will wait and track progress on stderr until the transaction has been finalized
 by the cluster. If the transaction fails, it will report any transaction errors.
@@ -391,7 +391,7 @@ by the cluster. If the transaction fails, it will report any transaction errors.
 safecoin transfer <USER_ADDRESS> <AMOUNT> --allow-unfunded-recipient --keypair <KEYPAIR> --url http://localhost:8328
 ```
 
-The [Safecoin Javascript SDK](https://github.com/fair-exchange/safecoin-web3.js)
+The [Panoptis Javascript SDK](https://github.com/fair-exchange/safecoin-web3.js)
 offers a similar approach for the JS ecosystem. Use the `SystemProgram` to build
 a transfer transaction, and submit it using the `sendAndConfirmTransaction`
 method.
@@ -482,14 +482,14 @@ prevent accidental loss of user funds.
 
 #### Basic verfication
 
-Safecoin addresses a 32-byte array, encoded with the bitcoin base58 alphabet. This
+Panoptis addresses a 32-byte array, encoded with the bitcoin base58 alphabet. This
 results in an ASCII text string matching the following regular expression:
 
 ```
 [1-9A-HJ-NP-Za-km-z]{32,44}
 ```
 
-This check is insufficient on its own as Safecoin addresses are not checksummed, so
+This check is insufficient on its own as Panoptis addresses are not checksummed, so
 typos cannot be detected. To further validate the user's input, the string can be
 decoded and the resulting byte array's length confirmed to be 32. However, there
 are some addresses that can decode to 32 bytes despite a typo such as a single
@@ -503,7 +503,7 @@ confirm their intentions if a non-zero balance is discovered.
 
 #### Valid ed25519 pubkey check
 
-The address of a normal account in Safecoin is a Base58-encoded string of a
+The address of a normal account in Panoptis is a Base58-encoded string of a
 256-bit ed25519 public key. Not all bit patterns are valid public keys for the
 ed25519 curve, so it is possible to ensure user-supplied account addresses are
 at least correct ed25519 public keys.
@@ -569,7 +569,7 @@ public class PubkeyValidator
 ## Supporting the SPL Token Standard
 
 [SPL Token](https://spl.solana.com/token) is the standard for wrapped/synthetic
-token creation and exchange on the Safecoin blockchain.
+token creation and exchange on the Panoptis blockchain.
 
 The SPL Token workflow is similar to that of native PANO tokens, but there are a
 few differences which will be discussed in this section.
@@ -745,7 +745,7 @@ the SPL Token's mint account.
 
 ## Testing the Integration
 
-Be sure to test your complete workflow on Safecoin devnet and testnet
+Be sure to test your complete workflow on Panoptis devnet and testnet
 [clusters](../clusters.md) before moving to production on mainnet-beta. Devnet
 is the most open and flexible, and ideal for initial development, while testnet
 offers more realistic cluster configuration. Both devnet and testnet support a faucet,

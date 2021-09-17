@@ -4,9 +4,9 @@ title: Delegate Stake
 
 After you have [received PANO](transfer-tokens.md), you might consider putting
 it to use by delegating _stake_ to a validator. Stake is what we call tokens
-in a _stake account_. Safecoin weights validator votes by the amount of stake
+in a _stake account_. Panoptis weights validator votes by the amount of stake
 delegated to them, which gives those validators more influence in determining
-then next valid block of transactions in the blockchain. Safecoin then generates
+then next valid block of transactions in the blockchain. Panoptis then generates
 new PANO periodically to reward stakers and validators. You earn more rewards
 the more stake you delegate.
 

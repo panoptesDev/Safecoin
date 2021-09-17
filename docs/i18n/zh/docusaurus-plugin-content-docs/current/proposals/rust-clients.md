@@ -8,7 +8,7 @@ title: Rust 客户端
 
 ## 拟定的解决方案
 
-代替实现`客户端`特征，应使用其实现来构造`ThinClient`。 这样，当前具有`客户端`特征的所有实用程序功能都可以移至`ThinClient`中。 然后，`ThinClient`可以移至`safecoin-sdk`中，因为它的所有网络相关性都在`Client`的实现中。 然后，我们将添加一个名为`Client`的新实现，称为`ClusterClient`，并将其存在于`ThinClient`当前所在的`Safecoin-client`工具箱中。
+代替实现`客户端`特征，应使用其实现来构造`ThinClient`。 这样，当前具有`客户端`特征的所有实用程序功能都可以移至`ThinClient`中。 然后，`ThinClient`可以移至`safecoin-sdk`中，因为它的所有网络相关性都在`Client`的实现中。 然后，我们将添加一个名为`Client`的新实现，称为`ClusterClient`，并将其存在于`ThinClient`当前所在的`Panoptis-client`工具箱中。
 
 重组之后，任何需要客户端的代码都将以`ThinClient`的形式编写。 在单元测试中，将使用`ThinClient<BankClient>`调用该功能，而`main()`函数、基准测试和集成测试将通过`ThinClient<ClusterClient>`调用该功能。
 

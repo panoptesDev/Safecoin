@@ -11,7 +11,7 @@ RPC需要提供至少6个月的交易历史。  当前的历史记录，以天�
 * [getConfirmedTransaction](developing/clients/jsonrpc-api.md#getconfirmedtransaction)
 * [getSignatureStatuses](developing/clients/jsonrpc-api.md#getsignaturestatuses)
 
-需要注意的是，不支持[getBlockTime](developing/clients/jsonrpc-api.md#getblocktime)，因为一旦https://github.com/Safecoin-labs/Safecoin/issues/10089 被修复，那么`getBlockTime`就可以被删除。
+需要注意的是，不支持[getBlockTime](developing/clients/jsonrpc-api.md#getblocktime)，因为一旦https://github.com/Panoptis-labs/Panoptis/issues/10089 被修复，那么`getBlockTime`就可以被删除。
 
 一些系统设计限制。
 * 需要存储和搜索的数据量可以快速的跳到TB级，并且是不可改变的。

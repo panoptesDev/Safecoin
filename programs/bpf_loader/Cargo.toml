@@ -1,7 +1,7 @@
 [package]
 name = "safecoin-bpf-loader-program"
 version = "1.6.19"
-description = "Safecoin BPF loader"
+description = "Panoptis BPF loader"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"

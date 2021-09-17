@@ -1,7 +1,7 @@
 [package]
 name = "safecoin-exchange-program"
 version = "1.6.19"
-description = "Safecoin Exchange program"
+description = "Panoptis Exchange program"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"

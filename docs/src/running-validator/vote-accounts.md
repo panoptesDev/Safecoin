@@ -3,7 +3,7 @@ title: Vote Account Management
 ---
 
 This page describes how to set up an on-chain _vote account_. Creating a vote
-account is needed if you plan to run a validator node on Safecoin.
+account is needed if you plan to run a validator node on Panoptis.
 
 ## Create a Vote Account
 
@@ -76,7 +76,7 @@ validator process.
 The vote authority can be set to the same address as the validator identity.
 If the validator identity is also the vote authority, only one
 signature per vote transaction is needed in order to both sign the vote and pay
-the transaction fee. Because transaction fees on Safecoin are assessed
+the transaction fee. Because transaction fees on Panoptis are assessed
 per-signature, having one signer instead of two will result in half the transaction
 fee paid compared to setting the vote authority and validator identity to two
 different accounts.

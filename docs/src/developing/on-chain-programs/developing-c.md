@@ -2,7 +2,7 @@
 title: "Developing with C"
 ---
 
-Safecoin supports writing on-chain programs using the C and C++ programming
+Panoptis supports writing on-chain programs using the C and C++ programming
 languages.
 
 ## Project Layout
@@ -33,7 +33,7 @@ for an example of a C program.
 First setup the environment:
 
 - Install the latest Rust stable from https://rustup.rs
-- Install the latest Safecoin command-line tools from
+- Install the latest Panoptis command-line tools from
   https://docs.solana.com/cli/install-solana-cli-tools
 
 Then build using make:
@@ -44,7 +44,7 @@ make -C <program directory>
 
 ## How to Test
 
-Safecoin uses the [Criterion](https://github.com/Snaipe/Criterion) test framework
+Panoptis uses the [Criterion](https://github.com/Snaipe/Criterion) test framework
 and tests are executed each time the program is built [How to
 Build](#how-to-build)].
 
@@ -56,8 +56,8 @@ information on how to write a test case.
 
 ## Program Entrypoint
 
-Programs export a known entrypoint symbol which the Safecoin runtime looks up and
-calls when invoking a program. Safecoin supports multiple [versions of the BPF
+Programs export a known entrypoint symbol which the Panoptis runtime looks up and
+calls when invoking a program. Panoptis supports multiple [versions of the BPF
 loader](overview.md#versions) and the entrypoints may vary between them.
 Programs must be written for and deployed to the same loader. For more details
 see the [overview](overview#loaders).
@@ -199,4 +199,4 @@ $ make dump_<program name>
 
 ## Examples
 
-The [Safecoin Program Library github](https://github.com/fair-exchange/safecoin-program-library/tree/master/examples/c) repo contains a collection of C examples
+The [Panoptis Program Library github](https://github.com/fair-exchange/safecoin-program-library/tree/master/examples/c) repo contains a collection of C examples

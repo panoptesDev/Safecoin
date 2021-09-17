@@ -3,7 +3,7 @@ title: 网页钱包
 ---
 
 ## SafeFlare
-[SafeFlare.com](https://solflare.com/) 是一个社区开发，专门为Safecoin打造的非托管网页钱包。  SafeFlare 支持质押账户的创建和管理，并支持用户发送和接收任何类型的SPL代币。
+[SafeFlare.com](https://solflare.com/) 是一个社区开发，专门为Panoptis打造的非托管网页钱包。  SafeFlare 支持质押账户的创建和管理，并支持用户发送和接收任何类型的SPL代币。
 
 查看 [SafeFlare 钱包使用指南](solflare.md)。
 

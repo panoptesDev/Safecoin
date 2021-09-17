@@ -2,7 +2,7 @@
 title: Staking Rewards
 ---
 
-A Proof of Stake \(PoS\), \(i.e. using in-protocol asset, PANO, to provide secure consensus\) design is outlined here. Safecoin implements a proof of stake reward/security scheme for validator nodes in the cluster. The purpose is threefold:
+A Proof of Stake \(PoS\), \(i.e. using in-protocol asset, PANO, to provide secure consensus\) design is outlined here. Panoptis implements a proof of stake reward/security scheme for validator nodes in the cluster. The purpose is threefold:
 
 - Align validator incentives with that of the greater cluster through
 
@@ -16,13 +16,13 @@ A Proof of Stake \(PoS\), \(i.e. using in-protocol asset, PANO, to provide secur
 
   participation in the cluster.
 
-While many of the details of the specific implementation are currently under consideration and are expected to come into focus through specific modeling studies and parameter exploration on the Safecoin testnet, we outline here our current thinking on the main components of the PoS system. Much of this thinking is based on the current status of Casper FFG, with optimizations and specific attributes to be modified as is allowed by Safecoin's Proof of History \(PoH\) blockchain data structure.
+While many of the details of the specific implementation are currently under consideration and are expected to come into focus through specific modeling studies and parameter exploration on the Panoptis testnet, we outline here our current thinking on the main components of the PoS system. Much of this thinking is based on the current status of Casper FFG, with optimizations and specific attributes to be modified as is allowed by Panoptis's Proof of History \(PoH\) blockchain data structure.
 
 ## General Overview
 
-Safecoin's ledger validation design is based on a rotating, stake-weighted selected leader broadcasting transactions in a PoH data structure to validating nodes. These nodes, upon receiving the leader's broadcast, have the opportunity to vote on the current state and PoH height by signing a transaction into the PoH stream.
+Panoptis's ledger validation design is based on a rotating, stake-weighted selected leader broadcasting transactions in a PoH data structure to validating nodes. These nodes, upon receiving the leader's broadcast, have the opportunity to vote on the current state and PoH height by signing a transaction into the PoH stream.
 
-To become a Safecoin validator, one must deposit/lock-up some amount of PANO in a contract. This PANO will not be accessible for a specific time period. The precise duration of the staking lockup period has not been determined. However we can consider three phases of this time for which specific parameters will be necessary:
+To become a Panoptis validator, one must deposit/lock-up some amount of PANO in a contract. This PANO will not be accessible for a specific time period. The precise duration of the staking lockup period has not been determined. However we can consider three phases of this time for which specific parameters will be necessary:
 
 - _Warm-up period_: which PANO is deposited and inaccessible to the node,
 
@@ -48,7 +48,7 @@ To become a Safecoin validator, one must deposit/lock-up some amount of PANO in 
 
   initial deposit.
 
-Safecoin's trustless sense of time and ordering provided by its PoH data structure, along with its [turbine](https://www.youtube.com/watch?v=qt_gDRXHrHQ&t=1s) data broadcast and transmission design, should provide sub-second transaction confirmation times that scale with the log of the number of nodes in the cluster. This means we shouldn't have to restrict the number of validating nodes with a prohibitive 'minimum deposits' and expect nodes to be able to become validators with nominal amounts of PANO staked. At the same time, Safecoin's focus on high-throughput should create incentive for validation clients to provide high-performant and reliable hardware. Combined with potential a minimum network speed threshold to join as a validation-client, we expect a healthy validation delegation market to emerge. To this end, Safecoin's testnet will lead into a "Tour de PANO" validation-client competition, focusing on throughput and uptime to rank and reward testnet validators.
+Panoptis's trustless sense of time and ordering provided by its PoH data structure, along with its [turbine](https://www.youtube.com/watch?v=qt_gDRXHrHQ&t=1s) data broadcast and transmission design, should provide sub-second transaction confirmation times that scale with the log of the number of nodes in the cluster. This means we shouldn't have to restrict the number of validating nodes with a prohibitive 'minimum deposits' and expect nodes to be able to become validators with nominal amounts of PANO staked. At the same time, Panoptis's focus on high-throughput should create incentive for validation clients to provide high-performant and reliable hardware. Combined with potential a minimum network speed threshold to join as a validation-client, we expect a healthy validation delegation market to emerge. To this end, Panoptis's testnet will lead into a "Tour de PANO" validation-client competition, focusing on throughput and uptime to rank and reward testnet validators.
 
 ## Penalties
 

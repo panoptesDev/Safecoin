@@ -2,18 +2,18 @@
 title: Ledger Nano
 ---
 
-本网页展示了如何通过 Ledger Nano S 或 Nano X 来使用命令行工具与 Safecoin 交互。  其他解决方案与 Safecoin 与 Nano 的交互， [请点击这里](../ledger-live.md#interact-with-the-solana-network)
+本网页展示了如何通过 Ledger Nano S 或 Nano X 来使用命令行工具与 Panoptis 交互。  其他解决方案与 Panoptis 与 Nano 的交互， [请点击这里](../ledger-live.md#interact-with-the-solana-network)
 
 ## 开始前的准备
 
-- [使用 Safecoin 应用设置 Nano](../ledger-live.md)
-- [安装 Safecoin 命令行工具](../../cli/install-solana-cli-tools.md)
+- [使用 Panoptis 应用设置 Nano](../ledger-live.md)
+- [安装 Panoptis 命令行工具](../../cli/install-solana-cli-tools.md)
 
-## 通过 Safecoin CLI 使用 Ledger Nano
+## 通过 Panoptis CLI 使用 Ledger Nano
 
 1. 确保 Ledger Live 应用程序已关闭
 2. 将您的 Nano 插入计算机 USB 端口
-3. 输入 pin 码并在 Nano 上启动 Safecoin 应用
+3. 输入 pin 码并在 Nano 上启动 Panoptis 应用
 4. 确保屏幕显示“应用程序已准备好”
 
 ### 查看您的钱包 ID
@@ -24,7 +24,7 @@ title: Ledger Nano
 safecoin-keygen pubkey usb://ledger
 ```
 
-该步骤确认您的 Ledger 设备已经连接正确，并且能够与 Safecoin CLI 正常交互。 该命令返回你 Ledger 设备唯一的_钱包 ID_. 当有多台 Nano 设备连接到同一台计算机时， 您可以通过钱包 ID 来指定想使用的 Ledger 硬件钱包。 如果您的电脑只使用一个 Nano 设备，那么就无需指明钱包 ID。 关于通过钱包 ID 使用特定 Ledger 的信息，请参阅[管理多个硬件钱包](#manage-multiple-hardware-wallets)。
+该步骤确认您的 Ledger 设备已经连接正确，并且能够与 Panoptis CLI 正常交互。 该命令返回你 Ledger 设备唯一的_钱包 ID_. 当有多台 Nano 设备连接到同一台计算机时， 您可以通过钱包 ID 来指定想使用的 Ledger 硬件钱包。 如果您的电脑只使用一个 Nano 设备，那么就无需指明钱包 ID。 关于通过钱包 ID 使用特定 Ledger 的信息，请参阅[管理多个硬件钱包](#manage-multiple-hardware-wallets)。
 
 ### 查看您的钱包地址
 
@@ -43,7 +43,7 @@ safecoin-keygen pubkey usb://ledger?key=2
 
 * 注意：密钥对 URL 参数在 **zsh** &nbsp;[更多解决方案](#troubleshooting)中将被忽视。
 
-您也可以在 `key=` 后面输入其他的数值。 这些命令显示的任何地址都是有效的 Safecoin 钱包地址。 与每个地址相关联的隐私信息都安全地存储在 Nano 上，并对该地址的交易进行签名。 只需给你生成的任何地址的密钥对 URL 进行备注，就可以用来接收代币。
+您也可以在 `key=` 后面输入其他的数值。 这些命令显示的任何地址都是有效的 Panoptis 钱包地址。 与每个地址相关联的隐私信息都安全地存储在 Nano 上，并对该地址的交易进行签名。 只需给你生成的任何地址的密钥对 URL 进行备注，就可以用来接收代币。
 
 如果您只计划设备上使用一个地址/密钥对， 那么容易记住的一个路径可能是 `key=0` 的地址。 通过该命令查看它的地址：
 
@@ -69,11 +69,11 @@ safecoin balance 7cvkjYAkUYs4W8XcXsca7cBrEGFeSUjeZmKoNBvEwyri
 
 您也可以在[Explorer](https://explorer.solana.com/accounts)查看任何账户地址的余额，在网页浏览器中将地址粘贴到搜索框来查看余额。
 
-注意：任何余额为 0 PANO的地址（例如您在 Ledger 新创建的地址），将在浏览器器中显示“未找到”。 Safecoin 对空账户和不存在账户的处理是一样的。 当您的帐户地址中有一些 PANO 代币的时候才会正确显示。
+注意：任何余额为 0 PANO的地址（例如您在 Ledger 新创建的地址），将在浏览器器中显示“未找到”。 Panoptis 对空账户和不存在账户的处理是一样的。 当您的帐户地址中有一些 PANO 代币的时候才会正确显示。
 
 ### 从 Nano 发送 PANO
 
-您需要使用该设备来签署交易，完成从 Nano 地址发送代币（通过生成钱包地址的相同密钥对 URL）。 请确保您的 Nano 已插入电脑，通过 PIN 解锁，并且 Ledger Live 处于未运行状态， 同时 Safecoin 应用在设备中打开，显示“应用已准备就绪”。
+您需要使用该设备来签署交易，完成从 Nano 地址发送代币（通过生成钱包地址的相同密钥对 URL）。 请确保您的 Nano 已插入电脑，通过 PIN 解锁，并且 Ledger Live 处于未运行状态， 同时 Panoptis 应用在设备中打开，显示“应用已准备就绪”。
 
 `safecoin transfer` 命令用于指定代币发送地址和数量，通过 `--keypair` 参数来指定发送代币的密钥对（签署交易），同时对应地址的余额将减少。
 
@@ -98,15 +98,15 @@ CjeqzArkZt6xwdnZ9NZSf8D1CNJN1rjeFiyd8q7iLWAV
 签名：kemu9jDEuPirKNRKiHan7ycybYsZp7pFefAdvWZRq5VRHCLgXTXaFVw3pfh87MQcWX4kQY4TjSBmESrwMApom1V
 ```
 
-在设备批准交易后，应用界面会显示交易签名，您需要等待最大的确认数量(32) 才能返回。 这个过程只需要几秒钟，然后交易就能在 Safecoin 网络确认。 您可以到[Explorer](https://explorer.solana.com/transactions)交易栏中粘贴该交易签名，来查看这笔交易或任何其他交易的详细信息。
+在设备批准交易后，应用界面会显示交易签名，您需要等待最大的确认数量(32) 才能返回。 这个过程只需要几秒钟，然后交易就能在 Panoptis 网络确认。 您可以到[Explorer](https://explorer.solana.com/transactions)交易栏中粘贴该交易签名，来查看这笔交易或任何其他交易的详细信息。
 
 ## 进阶操作
 
 ### 管理多个硬件钱包
 
-有时候通过多个硬件钱包对交易进行签名非常有用。 使用多个钱包签名需要 _完全合格的密钥对 URL_。 当 URL 不完全合格时，Safecoin CLI 将提示所有已连接硬件钱包的完全合格的 URL，并要求您选择每个签名使用哪个钱包。
+有时候通过多个硬件钱包对交易进行签名非常有用。 使用多个钱包签名需要 _完全合格的密钥对 URL_。 当 URL 不完全合格时，Panoptis CLI 将提示所有已连接硬件钱包的完全合格的 URL，并要求您选择每个签名使用哪个钱包。
 
-您可以使用界面交互提示而不是使用 Safecoin CLI `交易栏` 命令来生成完全合格的 URL。 例如，试着将 Nano 连接到 USB，输入 PIN 码解锁，并运行以下命令：
+您可以使用界面交互提示而不是使用 Panoptis CLI `交易栏` 命令来生成完全合格的 URL。 例如，试着将 Nano 连接到 USB，输入 PIN 码解锁，并运行以下命令：
 
 ```text
 safecoin resolve-signer usb://ledger?key=0/0

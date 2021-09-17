@@ -1,7 +1,7 @@
 import React from "react";
-import { SafecoinClusterStatsProvider } from "./solanaClusterStats";
+import { PanoptisClusterStatsProvider } from "./solanaClusterStats";
 
 type Props = { children: React.ReactNode };
 export function StatsProvider({ children }: Props) {
-  return <SafecoinClusterStatsProvider>{children}</SafecoinClusterStatsProvider>;
+  return <PanoptisClusterStatsProvider>{children}</PanoptisClusterStatsProvider>;
 }

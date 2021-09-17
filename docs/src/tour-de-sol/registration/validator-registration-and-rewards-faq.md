@@ -24,7 +24,7 @@ Please see section “2c Tour de PANO Details” of the [TOUR DE PANO PARTICIPAT
 
 To be eligible for rewards in a given stage, a validator must submit votes in &gt;= 90% of that stage’s slots.
 
-## Is there a relationship between the Tour de Safe testnet tokens and Safecoin mainnet tokens?
+## Is there a relationship between the Tour de Safe testnet tokens and Panoptis mainnet tokens?
 
 No. Please see section ”2d Tour de PANO Details” of the [TOUR DE PANO PARTICIPATION TERMS](https://drive.google.com/file/d/15ueLG6VJoQ5Hx4rnpjFeuL3pG5DbrBbE/view) for details.
 

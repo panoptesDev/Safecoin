@@ -2,12 +2,12 @@
 title: 后向兼容政策
 ---
 
-随着Safecoin开发人员生态系统的发展，围绕打破API和行为更改（影响为Safecoin构建的应用程序和工具）的明确期望也将越来越高。 在一个完美的世界中，Safecoin的开发可以以非常快的速度继续进行，而不会给现有开发人员造成任何问题。 但是，将需要做出一些妥协，因此，本文档尝试澄清和整理新发行版的过程。
+随着Panoptis开发人员生态系统的发展，围绕打破API和行为更改（影响为Panoptis构建的应用程序和工具）的明确期望也将越来越高。 在一个完美的世界中，Panoptis的开发可以以非常快的速度继续进行，而不会给现有开发人员造成任何问题。 但是，将需要做出一些妥协，因此，本文档尝试澄清和整理新发行版的过程。
 
 ### 期望值
 
-- Safecoin软件版本包括API，SDK和CLI工具(带有一些[exceptions](#exceptions))。
-- Safecoin软件版本遵循语义版本控制，更多详细信息请参见下文。
+- Panoptis软件版本包括API，SDK和CLI工具(带有一些[exceptions](#exceptions))。
+- Panoptis软件版本遵循语义版本控制，更多详细信息请参见下文。
 - 适用于`MINOR`版本的软件将与同一`MAJOR`版本上的所有软件兼容。
 
 ### 弃用过程
@@ -18,13 +18,13 @@ title: 后向兼容政策
 
 ### 发布时间
 
-Safecoin RPC API、Rust SDK、CLI工具和BPF程序SDK均已更新并随每个Safecoin软件版本一起提供，并且应始终在特定`MINOR`版本的`PATCH`更新之间兼容。
+Panoptis RPC API、Rust SDK、CLI工具和BPF程序SDK均已更新并随每个Panoptis软件版本一起提供，并且应始终在特定`MINOR`版本的`PATCH`更新之间兼容。
 
 #### 发布频道
 
 - `edge`软件，其中包含最先进的功能，没有向后兼容策略
-- 在Safecoin Tour de PANO测试网集群上运行的`beta`软件
-- 在Safecoin Mainnet Beta和Devnet集群上运行的`stable`软件
+- 在Panoptis Tour de PANO测试网集群上运行的`beta`软件
+- 在Panoptis Mainnet Beta和Devnet集群上运行的`stable`软件
 
 #### 主要版本(x.0.0)
 
@@ -32,7 +32,7 @@ Safecoin RPC API、Rust SDK、CLI工具和BPF程序SDK均已更新并随每个Sa
 
 #### 次要版本(1.x.0)
 
-新功能和建议实施已添加到_new_版本的`MINOR`版本(例如1.4.0)中，并且首先在Safecoin的Tour de PANO测试网集群上运行。 在测试网上运行时，`MINOR`版本被认为在`beta`发布渠道中。 在对这些更改进行了修补并证明是可靠的之后，`MINOR`版本将升级到`stable`发布渠道并部署到Mainnet Beta集群。
+新功能和建议实施已添加到_new_版本的`MINOR`版本(例如1.4.0)中，并且首先在Panoptis的Tour de PANO测试网集群上运行。 在测试网上运行时，`MINOR`版本被认为在`beta`发布渠道中。 在对这些更改进行了修补并证明是可靠的之后，`MINOR`版本将升级到`stable`发布渠道并部署到Mainnet Beta集群。
 
 #### 修补程序版本(1.0.x)
 
@@ -56,7 +56,7 @@ Safecoin RPC API、Rust SDK、CLI工具和BPF程序SDK均已更新并随每个Sa
 * [`safecoin-sdk`](https://docs.rs/safecoin-sdk/) - 用于创建交易和解析帐户状态的Rust SDK
 * [`safecoin-program`](https://docs.rs/safecoin-program/) - 用于编写程序的Rust SDK
 * [`safecoin-client`](https://docs.rs/safecoin-client/) - 用于连接RPC API的Rust客户端
-* [`safecoin-cli-config`](https://docs.rs/safecoin-cli-config/) - 用于管理Safecoin CLI配置文件的Rust客户端
+* [`safecoin-cli-config`](https://docs.rs/safecoin-cli-config/) - 用于管理Panoptis CLI配置文件的Rust客户端
 
 补丁发布：
 - Bug修复
@@ -86,7 +86,7 @@ Safecoin RPC API、Rust SDK、CLI工具和BPF程序SDK均已更新并随每个Sa
 
 ### Runtime功能
 
-Safecoin新的runtime功能已进行功能切换并手动激活。 Runtime功能包括：引入新的本机程序，sysvars和syscalls；并改变他们的行为。 功能激活与群集无关，因此可以在Mainnet-beta上激活之前在Testnet上建立置信度。
+Panoptis新的runtime功能已进行功能切换并手动激活。 Runtime功能包括：引入新的本机程序，sysvars和syscalls；并改变他们的行为。 功能激活与群集无关，因此可以在Mainnet-beta上激活之前在Testnet上建立置信度。
 
 发布过程如下：
 
@@ -98,7 +98,7 @@ Safecoin新的runtime功能已进行功能切换并手动激活。 Runtime功能
 
 #### 公共API节点
 
-Safecoin提供了公开可用的RPC API节点，供所有开发人员使用。 Safecoin团队将尽最大努力将任何更改传达给主机，端口，限速行为，可用性等。 但是，我们建议开发人员依靠自己的验证器节点来阻止对Safecoin操作的节点的依赖。
+Panoptis提供了公开可用的RPC API节点，供所有开发人员使用。 Panoptis团队将尽最大努力将任何更改传达给主机，端口，限速行为，可用性等。 但是，我们建议开发人员依靠自己的验证器节点来阻止对Panoptis操作的节点的依赖。
 
 #### 本地集群脚本和Docker映像
 
@@ -108,7 +108,7 @@ Safecoin提供了公开可用的RPC API节点，供所有开发人员使用。 S
 
 #### Web3 JavaScript SDK
 
-Web3.JS SDK还遵循语义版本控制规范，但与Safecoin软件版本分开提供。
+Web3.JS SDK还遵循语义版本控制规范，但与Panoptis软件版本分开提供。
 
 #### 攻击向量
 

@@ -3,7 +3,7 @@ title: Stake Programming
 ---
 
 To maximize stake distribution, decentralization, and censorship resistance on
-the Safecoin network, staking can be performed programmatically. The team
+the Panoptis network, staking can be performed programmatically. The team
 and community have developed several on-chain and off-chain programs to make
 stakes easier to manage.
 

@@ -42,7 +42,7 @@ title: "运行时（runtime）"
 
 对于跨程序调用，所调用的程序将继承其父级的预算。  如果被调用的程序消耗了预算或超出了限制，则整个调用链和父级都将停止。
 
-可以在Safecoin SDK中找到当前的[计算预算](https://github.com/fair-exchange/safecoin/blob/d3a3a7548c857f26ec2cb10e270da72d373020ec/sdk/src/process_instruction.rs#L65)。
+可以在Panoptis SDK中找到当前的[计算预算](https://github.com/fair-exchange/safecoin/blob/d3a3a7548c857f26ec2cb10e270da72d373020ec/sdk/src/process_instruction.rs#L65)。
 
 例如，如果当前预算是：
 
@@ -73,14 +73,14 @@ log_pubkey_units: 100,
 
 ## 新的功能
 
-随着Safecoin的发展，可能会引入新功能或补丁，这些新功能或补丁会更改集群的行为以及程序的运行方式。  行为的变化必须在群集的各个节点之间进行协调，如果节点不协调，则这些变化可能会导致共识破裂。  Safecoin支持一种称为运行时功能的机制，以方便平滑地采用更改。
+随着Panoptis的发展，可能会引入新功能或补丁，这些新功能或补丁会更改集群的行为以及程序的运行方式。  行为的变化必须在群集的各个节点之间进行协调，如果节点不协调，则这些变化可能会导致共识破裂。  Panoptis支持一种称为运行时功能的机制，以方便平滑地采用更改。
 
-运行时功能是历时协调的事件，将在集群中发生一个或多个行为更改。  对Safecoin的新更改（将更改行为）使用功能门进行包装，并且默认情况下处于禁用状态。  然后使用Safecoin工具激活功能，将其标记为未决，一旦标记为未决，该功能将在下一个时期激活。
+运行时功能是历时协调的事件，将在集群中发生一个或多个行为更改。  对Panoptis的新更改（将更改行为）使用功能门进行包装，并且默认情况下处于禁用状态。  然后使用Panoptis工具激活功能，将其标记为未决，一旦标记为未决，该功能将在下一个时期激活。
 
-要确定激活了哪些功能，请使用[Safecoin命令行工具](cli/install-solana-cli-tools.md)：
+要确定激活了哪些功能，请使用[Panoptis命令行工具](cli/install-solana-cli-tools.md)：
 
 ```bash
 solana功能状态
 ```
 
-如果首先遇到问题，请确保您使用的Safecoin工具版本与`safecoin cluster-version`返回的版本相匹配。  如果它们不匹配，请[安装正确的工具套件](cli/install-solana-cli-tools.md)。
+如果首先遇到问题，请确保您使用的Panoptis工具版本与`safecoin cluster-version`返回的版本相匹配。  如果它们不匹配，请[安装正确的工具套件](cli/install-solana-cli-tools.md)。

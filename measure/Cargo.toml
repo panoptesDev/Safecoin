@@ -1,6 +1,6 @@
 [package]
 name = "safecoin-measure"
-description = "Safecoin: Enterprise Security for the Community by the Community"
+description = "Panoptis: Enterprise Security for the Community by the Community"
 version = "1.6.19"
 homepage = "https://safecoin.org/"
 documentation = "https://docs.rs/safecoin-measure"

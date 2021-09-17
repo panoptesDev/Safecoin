@@ -2,7 +2,7 @@
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 edition = "2018"
 name = "safecoin-cli-output"
-description = "Safecoin: Enterprise Security for the Community by the Community"
+description = "Panoptis: Enterprise Security for the Community by the Community"
 version = "1.6.19"
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"

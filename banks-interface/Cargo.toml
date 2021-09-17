@@ -1,7 +1,7 @@
 [package]
 name = "safecoin-banks-interface"
 version = "1.6.19"
-description = "Safecoin banks RPC interface"
+description = "Panoptis banks RPC interface"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"

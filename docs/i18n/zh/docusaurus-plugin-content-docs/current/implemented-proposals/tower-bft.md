@@ -2,7 +2,7 @@
 title: Tower BFT
 ---
 
-本设计介绍了Safecoin的_塔式BFT_算法。 它解决了以下问题。
+本设计介绍了Panoptis的_塔式BFT_算法。 它解决了以下问题。
 
 - 一些分叉可能最终不会被集群的超级多数接受，投票者需要从对这些分叉的投票中恢复过来。
 - 许多分叉可能会被不同的投票者投票，而每个投票者可能会看到一组不同的可投票分叉。 被选中的分叉最终应该为集群收敛。
@@ -14,7 +14,7 @@ title: Tower BFT
 
 ## 时间
 
-Safecoin集群通过可验证的延迟函数生成时间源，我们调用[历史证明](../cluster/synchronization.md)。
+Panoptis集群通过可验证的延迟函数生成时间源，我们调用[历史证明](../cluster/synchronization.md)。
 
 历史证明用于为所有活跃的领导者创建一个确定性的循环赛时间表。 在任何给定的时间，只有1个领导者可以提出分叉，这可以从账本本身计算出来。 更多细节，请参见[分叉生成](../cluster/fork-generation.md)和[领袖轮换](../cluster/leader-rotation.md)。
 

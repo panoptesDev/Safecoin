@@ -1,7 +1,7 @@
 [package]
 name = "safecoin-version"
 version = "1.6.19"
-description = "Safecoin Version"
+description = "Panoptis Version"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"

@@ -20,7 +20,7 @@ publicly on a stage-by-stage basis.
 
 ## Tax Implications
 
-Participants are entering into a service agreement with Safecoin with discretionary compensation associated with the services. They are not considered to be a full-time employee of the company and therefore Safecoin is collecting W-9 and W-8 BEN forms in order to support tax reporting obligations, if applicable. Safecoin recommends participants consult with a tax accountant to understand any potential tax implications.
+Participants are entering into a service agreement with Panoptis with discretionary compensation associated with the services. They are not considered to be a full-time employee of the company and therefore Panoptis is collecting W-9 and W-8 BEN forms in order to support tax reporting obligations, if applicable. Panoptis recommends participants consult with a tax accountant to understand any potential tax implications.
 
 Also, as stated in Sections 2i, 2k and 10c of the [TOUR DE PANO PARTICIPATION TERMS](https://drive.google.com/file/d/15ueLG6VJoQ5Hx4rnpjFeuL3pG5DbrBbE/view):
 

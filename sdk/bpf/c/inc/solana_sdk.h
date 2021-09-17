@@ -1,6 +1,6 @@
 #pragma once
 /**
- * @brief Safecoin C-based BPF program utility functions and types
+ * @brief Panoptis C-based BPF program utility functions and types
  */
 
 #ifdef __cplusplus
@@ -254,9 +254,9 @@ static void sol_free(void *ptr) {
 }
 
 /**
- * The Safecoin runtime provides a memory region that is available to programs at
+ * The Panoptis runtime provides a memory region that is available to programs at
  * a fixed virtual address and length. The builtin functions `sol_calloc` and
- * `sol_free` call into the Safecoin runtime to allocate from this memory region
+ * `sol_free` call into the Panoptis runtime to allocate from this memory region
  * for heap operations.  Because the memory region is directly available to
  * programs another option is a program can implement their own heap directly on
  * top of that region.  If a program chooses to implement their own heap they

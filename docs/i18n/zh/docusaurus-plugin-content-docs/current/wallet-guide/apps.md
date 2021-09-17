@@ -2,7 +2,7 @@
 title: 移动应用钱包
 ---
 
-Safecoin得到了多个第三方应用的支持，它们为大多数新手或加密钱包用户提供熟悉的体验。
+Panoptis得到了多个第三方应用的支持，它们为大多数新手或加密钱包用户提供熟悉的体验。
 
 ## Trust Wallet
 [Trust Wallet](https://trustwallet.com/) 是一款适用于iOS和Android的应用，可用于发送和接收PANO代币。

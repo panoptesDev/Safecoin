@@ -18,7 +18,7 @@ safecoin catchup ~/validator-keypair.json
 
 ## 创建质押密钥
 
-如果还没有质押密钥，那么您需要新创建一个。 如果你完成了这个步骤，那么在 Safecoin 运行目录中将出现 “validator-stake-keypair.json”。
+如果还没有质押密钥，那么您需要新创建一个。 如果你完成了这个步骤，那么在 Panoptis 运行目录中将出现 “validator-stake-keypair.json”。
 
 ```bash
 safecoin-keygen new -o ~/validator-stake-keypair.json
@@ -64,7 +64,7 @@ safecoin delegate-stake ~/validator-stake-keypair.json ~/some-other-vote-account
 
 - 查看您的投票账户：`safecoin vote-account - keypair.json`，这将显示验证节点提交给网络的所有投票的当前状态。
 - 查看您的质押账户、委托偏好以及您的质押细节：`safecoin stock-account ~/validator-stake-keypair.json`
-- `Safecoin validators` 显示当前所有验证程序的活跃质押，包括您的
+- `Panoptis validators` 显示当前所有验证程序的活跃质押，包括您的
 - `safecoin stake-history` 展示了最近epochs中预热和冷却的历史
 - 在您的验证节点查找日志消息，指明您的下一位领导者插槽：`[2019-09-27T20：16：00.319721164Z INFO solana_core:::replay_stage] <VALIDATOR_IDENTITY_PUBKEY> 投票并在出块高度重置PoH####。 我的下一个领导者插槽是 ####`
 - 质押预热完毕后，您可以通过运行 `safecoin validators` 来看到验证程序中列出的一个质押余额。
@@ -74,7 +74,7 @@ safecoin delegate-stake ~/validator-stake-keypair.json ~/some-other-vote-account
 确认你的验证节点变成了一个 [领导者](../terminology.md#leader)
 
 - 在您的验证节点被追上后，使用`solanabalance`命令来监控收入，因为您的验证人被选为领导者并收取交易费用
-- Safecoin节点提供了许多有用的JSON-RPC方法，来返回有关网络和验证节点参与的信息。 通过使用curl\(或您选择的另一个http客户端) 发出请求，并在JSON-RPC格式的数据中指定所需的方法。 例如：
+- Panoptis节点提供了许多有用的JSON-RPC方法，来返回有关网络和验证节点参与的信息。 通过使用curl\(或您选择的另一个http客户端) 发出请求，并在JSON-RPC格式的数据中指定所需的方法。 例如：
 
 ```bash
   // 请求
@@ -87,7 +87,7 @@ safecoin delegate-stake ~/validator-stake-keypair.json ~/some-other-vote-account
 有用的 JSON RPC 方法：
 
 - `getEpochInfo`[一个纪元](../terminology.md#epoch) 是一段时间，即 [slots](../terminology.md#slot)的数量，一个 [领导者计划](../terminology.md#leader-schedule) 在这个期间有效。 这将告诉你当前的epoch以及集群经过了多长时间。
-- `getVoteAccounts` 这将告诉您，目前验证程序有多少活跃的质押。 验证节点的质押百分比是在epoch刚开始时激活的。 您可以 [在这里](../cluster/stake-delegation-and-rewards.md) 了解更多关于Safecoin质押的信息。
+- `getVoteAccounts` 这将告诉您，目前验证程序有多少活跃的质押。 验证节点的质押百分比是在epoch刚开始时激活的。 您可以 [在这里](../cluster/stake-delegation-and-rewards.md) 了解更多关于Panoptis质押的信息。
 - `getLeaderSchedule` 在任何时候，网络只需要一个验证节点来生成账本条目。 目前被选定生成账本条目的 [验证节点](../cluster/leader-rotation.md#leader-rotation) 被称为“领导者”。 这将返回当前激活质押的完整领导者时间表\(按插槽来算\) ，身份公钥将在此处显示一次或多次。
 
 ## 停用质押

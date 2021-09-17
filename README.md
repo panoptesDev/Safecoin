@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://solana.com">
-    <img alt="Safecoin" src="https://raw.githubusercontent.com/Fair-Exchange/safecoinwiki/master/Logos/SafeCoin/SafeCoin-Logo-with-text.png"/>
+    <img alt="Panoptis" src="https://raw.githubusercontent.com/Fair-Exchange/safecoinwiki/master/Logos/SafeCoin/SafeCoin-Logo-with-text.png"/>
   </a>
 </p>
 
@@ -33,8 +33,8 @@ $ sudo apt-get install libssl-dev libudev-dev pkg-config zlib1g-dev llvm clang m
 ## **2. Download the source code.**
 
 ```bash
-$ git clone https://github.com/Fair-Exchange/Safecoin.git
-$ cd Safecoin
+$ git clone https://github.com/panoptisDev/panoptis.git
+$ cd panoptis
 ```
 
 ## **3. Build.**
@@ -115,7 +115,7 @@ investment.
 Any content produced by SF or developer resources that SF provides, are
 for educational and inspiration purposes only. SF does not encourage,
 induce or sanction the deployment, integration or use of any such
-applications (including the code comprising the Safecoin blockchain
+applications (including the code comprising the Panoptis blockchain
 protocol) in violation of applicable laws or regulations and hereby
 prohibits any such deployment, integration or use. This includes use of
 any such applications by the reader (a) in violation of export control
@@ -132,14 +132,14 @@ prohibit U.S. persons (and other persons that are subject to such laws)
 from transacting with persons in certain countries and territories or
 that are on the SDN list. As a project based primarily on open-source
 software, it is possible that such sanctioned persons may nevertheless
-bypass prohibitions, obtain the code comprising the Safecoin blockchain
+bypass prohibitions, obtain the code comprising the Panoptis blockchain
 protocol (or other project code or applications) and deploy, integrate,
 or otherwise use it. Accordingly, there is a risk to individuals that
-other persons using the Safecoin blockchain protocol may be sanctioned
+other persons using the Panoptis blockchain protocol may be sanctioned
 persons and that transactions with such persons would be a violation of
 U.S. export controls and sanctions law. This risk applies to
 individuals, organizations, and other ecosystem participants that
-deploy, integrate, or use the Safecoin blockchain protocol code directly
-(e.g., as a node operator), and individuals that transact on the Safecoin
+deploy, integrate, or use the Panoptis blockchain protocol code directly
+(e.g., as a node operator), and individuals that transact on the Panoptis
 blockchain through light clients, third party interfaces, and/or wallet
 software.

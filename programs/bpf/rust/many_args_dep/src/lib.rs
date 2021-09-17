@@ -1,4 +1,4 @@
-//! @brief Safecoin Rust-based BPF program utility functions and types
+//! @brief Panoptis Rust-based BPF program utility functions and types
 
 extern crate solana_program;
 use solana_program::msg;

@@ -1,4 +1,4 @@
-//! The `rpc` module implements the Safecoin RPC interface.
+//! The `rpc` module implements the Panoptis RPC interface.
 
 use crate::{
     cluster_info::ClusterInfo,

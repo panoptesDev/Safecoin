@@ -1,20 +1,20 @@
 ---
-title: 安装 Safecoin 工具包
+title: 安装 Panoptis 工具包
 ---
 
-取决于您喜欢的工作公式，在电脑上安装 Safecoin 工具的方法有多种：
+取决于您喜欢的工作公式，在电脑上安装 Panoptis 工具的方法有多种：
 
-- [使用 Safecoin 的安装工具 (最简单的方法)](#use-solanas-install-tool)
+- [使用 Panoptis 的安装工具 (最简单的方法)](#use-solanas-install-tool)
 - [下载预置的二进制文件](#download-prebuilt-binaries)
 - [通过源代码安装](#build-from-source)
 
-## 通过 Safecoin 安装工具
+## 通过 Panoptis 安装工具
 
 ### MacOS & Linux
 
 - 打开您最喜欢的终端应用
 
-- 通过运行下述指令，安装 Safecoin 版本[LATEST_PANOPTIS_RELEASE_VERSION](https://github.com/fair-exchange/safecoin/releases/tag/LATEST_PANOPTIS_RELEASE_VERSION) 到您的机器：
+- 通过运行下述指令，安装 Panoptis 版本[LATEST_PANOPTIS_RELEASE_VERSION](https://github.com/fair-exchange/safecoin/releases/tag/LATEST_PANOPTIS_RELEASE_VERSION) 到您的机器：
 
 ```bash
 sh -c "$(curl -sSfL https://release.solana.com/LATEST_PANOPTIS_RELEASE_VERSION/install)"
@@ -36,7 +36,7 @@ Update successful
 - 根据您的系统，安装程序消息的结束可能稍有不同
 
 ```bash
-请更新您的 PATH 环境变量来包含 Safecoin 程序：
+请更新您的 PATH 环境变量来包含 Panoptis 程序：
 ```
 
 - 如果您收到上述消息，复制并粘贴下面的推荐命令来更新 `PATH`
@@ -46,7 +46,7 @@ Update successful
 safecoin --version
 ```
 
-- 安装成功后，就可以通过 `safecoin-install update` 随时更新 Safecoin 软件到新版本。
+- 安装成功后，就可以通过 `safecoin-install update` 随时更新 Panoptis 软件到新版本。
 
 ---
 
@@ -56,13 +56,13 @@ safecoin --version
 
   - 在 Windows 搜索栏中搜索命令提示。 当命令提示应用出现后，右键单击并选择“以管理员打开”。 如果弹出窗口请求“允许此应用进行设备更改？”，请点击是。
 
-- 复制并粘贴以下命令，然后按回车下载 Safecoin 安装程序到临时目录：
+- 复制并粘贴以下命令，然后按回车下载 Panoptis 安装程序到临时目录：
 
 ```bash
 curl https://release.solana.com/LATEST_PANOPTIS_RELEASE_VERSION/safecoin-install-init-x86_64-pc-windows-msvc.exe --output C:\safecoin-install-tmp\safecoin-install-init.exe --create-dirs
 ```
 
-- 复制并粘贴以下命令，然后按 Enter 安装最新版本的 Safecoin 软件。 如果系统弹出安全提示窗口，请选择允许程序运行。
+- 复制并粘贴以下命令，然后按 Enter 安装最新版本的 Panoptis 软件。 如果系统弹出安全提示窗口，请选择允许程序运行。
 
 ```bash
 C:\safecoin-install-tmp\safecoin-install-init.exe LATEST_PANOPTIS_RELEASE_VERSION
@@ -78,7 +78,7 @@ C:\safecoin-install-tmp\safecoin-install-init.exe LATEST_PANOPTIS_RELEASE_VERSIO
 safecoin --version
 ```
 
-- 安装成功后，就可以通过 `safecoin-install update` 随时更新 Safecoin 软件到新版本。
+- 安装成功后，就可以通过 `safecoin-install update` 随时更新 Panoptis 软件到新版本。
 
 ## 下载预置二进制文件
 

@@ -16,7 +16,7 @@ title: 验证节点要求
   - 虽然纯CPU的节点可能能够跟上初始的空闲网络，但是一旦事务吞吐量增加，就将需要GPU。
   - 什么类型的 GPU ？
     - 我们建议使用Nvidia Turing和volta系列GPU（从1660ti到2080ti系列用户级GPU或Tesla系列服务器GPU）。
-    - 我们目前不支持OpenCL，因此不支持AMD GPU。 我们对移植Safecoin到OpenCL设有一项奖励。 有兴趣？ [请查看我们的GitHub。](https://github.com/fair-exchange/safecoin)
+    - 我们目前不支持OpenCL，因此不支持AMD GPU。 我们对移植Panoptis到OpenCL设有一项奖励。 有兴趣？ [请查看我们的GitHub。](https://github.com/fair-exchange/safecoin)
 - 电源消耗
   - 运行AMD Threadripper 3950x和2x 2080Ti GPU的验证器节点，其功耗大约为800-1000W。
 
@@ -36,7 +36,7 @@ title: 验证节点要求
 
 虽然您可以在云计算平台上运行验证节点，但从长远来看它可能并不具有成本效益。
 
-但是，在VM实例上运行非投票api节点，来供您自己内部使用可能会很方便。 该用例包括在Safecoin上构建的交易所和服务。
+但是，在VM实例上运行非投票api节点，来供您自己内部使用可能会很方便。 该用例包括在Panoptis上构建的交易所和服务。
 
 实际上，官方mainnet-beta API节点当前(2020年10月) 在具有2048 GB SSD的 GCE `n1-standard-32`(32 vCPU，120 GB内存) 实例上运行。
 
@@ -53,7 +53,7 @@ title: 验证节点要求
 ## 软件设置
 
 - 我们在Ubuntu 04/18上进行开发和运行。 在Ubuntu 04/16上运行时，某些用户会遇到一些问题
-- 请参阅 [安装Safecoin](../cli/install-solana-cli-tools.md) 以获取当前的 Safecoin 软件版本。
+- 请参阅 [安装Panoptis](../cli/install-solana-cli-tools.md) 以获取当前的 Panoptis 软件版本。
 
 请确保所使用的计算机不在本地NAT后面，以避免NAT遍历问题。 云托管的机器效果最好。 **请确保8000到10000的IP端口没有被禁止，来让网络实现进出通信。** 关于寄宿网络端口转发的更多信息，请参阅 [这个文档](http://www.mcs.sdsmt.edu/lpyeatt/courses/314/PortForwardingSetup.pdf)。
 
@@ -61,4 +61,4 @@ title: 验证节点要求
 
 ## GPU 要求
 
-要在您的系统上使用GPU，必须使用CUDA。 发布的 Safecoin 二进制文件是通过 [CUDA Toolkit 10.1 update 1](https://developer.nvidia.com/cuda-toolkit-archive) 在 Ubuntu 18.04 上构建的。 如果您的机器使用了不同的 CUDA，那么您将需要从源代码进行重建。
+要在您的系统上使用GPU，必须使用CUDA。 发布的 Panoptis 二进制文件是通过 [CUDA Toolkit 10.1 update 1](https://developer.nvidia.com/cuda-toolkit-archive) 在 Ubuntu 18.04 上构建的。 如果您的机器使用了不同的 CUDA，那么您将需要从源代码进行重建。

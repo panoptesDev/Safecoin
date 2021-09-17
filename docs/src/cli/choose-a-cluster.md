@@ -2,12 +2,12 @@
 title: Connecting to a Cluster
 ---
 
-See [Safecoin Clusters](../clusters.md) for general information about the
+See [Panoptis Clusters](../clusters.md) for general information about the
 available clusters.
 
 ## Configure the command-line tool
 
-You can check what cluster the Safecoin command-line tool (CLI) is currently targeting by
+You can check what cluster the Panoptis command-line tool (CLI) is currently targeting by
 running the following command:
 
 ```bash

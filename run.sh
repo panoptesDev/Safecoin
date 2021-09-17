@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-# Run a minimal Safecoin cluster.  Ctrl-C to exit.
+# Run a minimal Panoptis cluster.  Ctrl-C to exit.
 #
-# Before running this script ensure standard Safecoin programs are available
+# Before running this script ensure standard Panoptis programs are available
 # in the PATH, or that `cargo build` ran successfully
 #
 set -e

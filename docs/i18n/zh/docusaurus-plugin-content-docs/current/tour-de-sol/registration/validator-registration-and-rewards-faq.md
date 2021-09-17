@@ -26,9 +26,9 @@ title: 注册常见问题
 
 为了有资格在给定阶段获得奖励，验证者必须在该阶段 &gt;= 50％的位置中提交投票。
 
-如果验证者无法为某个阶段提交 &gt;= 50％的投票，但仍然认为他们应该在该阶段获得奖励，那么他们可以向Safecoin提出重新考虑的请求。
+如果验证者无法为某个阶段提交 &gt;= 50％的投票，但仍然认为他们应该在该阶段获得奖励，那么他们可以向Panoptis提出重新考虑的请求。
 
-## Tour de Safe 测试代币与 Safecoin 主网代币之间是否有关系？
+## Tour de Safe 测试代币与 Panoptis 主网代币之间是否有关系？
 
 没有。 详情请查看 [TOR DE PANO 参与条款中](https://drive.google.com/file/d/15ueLG6VJoQ5Hx4rnpjFeuL3pG5DbrBbE/view) 的“2d Tour de PANO Details”。
 

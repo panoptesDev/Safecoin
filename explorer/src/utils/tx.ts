@@ -39,7 +39,7 @@ export enum PROGRAM_NAMES {
 
   // other
   BONFIDA_POOL = "Bonfida Pool Program",
-  BREAK_PANOPTIS = "Break Safecoin Program",
+  BREAK_PANOPTIS = "Break Panoptis Program",
   RAYDIUM_LIQUIDITY_1 = "Raydium Liquidity Pool Program v1",
   RAYDIUM_LIQUIDITY_2 = "Raydium Liquidity Pool Program v2",
   RAYDIUM_STAKING = "Raydium Staking Program",

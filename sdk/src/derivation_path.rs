@@ -56,7 +56,7 @@ impl DerivationPath {
     }
 
     pub fn from_key_str(path: &str) -> Result<Self, DerivationPathError> {
-        Self::from_key_str_with_coin(path, Safecoin)
+        Self::from_key_str_with_coin(path, Panoptis)
     }
 
     fn from_key_str_with_coin<T: Bip44>(path: &str, coin: T) -> Result<Self, DerivationPathError> {
@@ -94,7 +94,7 @@ impl DerivationPath {
     }
 
     pub fn new_bip44(account: Option<u32>, change: Option<u32>) -> Self {
-        Self::new_bip44_with_coin(Safecoin, account, change)
+        Self::new_bip44_with_coin(Panoptis, account, change)
     }
 
     fn new_bip44_with_coin<T: Bip44>(coin: T, account: Option<u32>, change: Option<u32>) -> Self {
@@ -159,7 +159,7 @@ impl DerivationPath {
             let key = query.get(QueryKey::Key.as_ref());
             if let Some(key) = key {
                 // Use from_key_str instead of TryInto here to make it more explicit that this
-                // generates a Safecoin bip44 DerivationPath
+                // generates a Panoptis bip44 DerivationPath
                 return Self::from_key_str(key).map(Some);
             }
             if key_only {
@@ -252,9 +252,9 @@ trait Bip44 {
     }
 }
 
-struct Safecoin;
+struct Panoptis;
 
-impl Bip44 for Safecoin {
+impl Bip44 for Panoptis {
     const COIN: u32 = 19165;
 }
 
@@ -329,7 +329,7 @@ mod tests {
             DerivationPath::new_bip44(Some(1), Some(2))
         );
 
-        // Test non-Safecoin Bip44
+        // Test non-Panoptis Bip44
         let s = "m/44'/999'/1/2";
         assert_eq!(
             DerivationPath::from_absolute_path_str(s).unwrap(),

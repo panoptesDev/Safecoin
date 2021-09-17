@@ -277,7 +277,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
             .global(true)
             .validator(is_url_or_moniker)
             .help(
-                "URL for Safecoin's JSON RPC or moniker (or their first letter): \
+                "URL for Panoptis's JSON RPC or moniker (or their first letter): \
                    [mainnet-beta, testnet, devnet, localhost]",
             ),
     )
@@ -368,7 +368,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
     )
     .subcommand(
         SubCommand::with_name("config")
-            .about("Safecoin command-line tool configuration settings")
+            .about("Panoptis command-line tool configuration settings")
             .aliases(&["get", "set"])
             .setting(AppSettings::SubcommandRequiredElseHelp)
             .subcommand(

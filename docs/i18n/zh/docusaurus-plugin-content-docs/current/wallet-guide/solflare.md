@@ -4,7 +4,7 @@ title: SafeFlare 网页钱包
 
 ## 介绍
 
-[SafeFlare.com](https://solflare.com/) 是一个社区开发，专门为Safecoin打造的网页钱包。 SafeFlare支持发送和接收原生PANO代币以及SPL代币(类似于Safecoin的ERC-20格式代币)。 另外，SafeFlare还支持PANO代币的质押。
+[SafeFlare.com](https://solflare.com/) 是一个社区开发，专门为Panoptis打造的网页钱包。 SafeFlare支持发送和接收原生PANO代币以及SPL代币(类似于Panoptis的ERC-20格式代币)。 另外，SafeFlare还支持PANO代币的质押。
 
 作为一个 _非托管_ 钱包，SafeFlare网站本身不存储您的私钥，私钥存储在加密的 [Keystore 文件](#using-a-keystore-file) 或 [Ledger Nano S 或 X 硬件钱包](#using-a-ledger-nano-hardware-wallet) 中。
 
@@ -19,7 +19,7 @@ title: SafeFlare 网页钱包
 #### 创建一个新的 Keystore 文件
 要使用密钥库文件创建钱包，请单击“创建钱包”，然后选择“使用 Keystore 文件”。  按照提示创建密码，该密码将用于加密 Keystore 文件，然后将新文件下载到您的计算机。  系统将提示您将 Keystore 文件上传到网站，来验证下载是否已正确保存。
 
-**请注意：如果丢失了Keystore文件或配套登录的密码，该钱包中的所有资金将永久丢失。  Safecoin团队和SafeFlare开发人员都无法帮助您恢复丢失的密钥。**
+**请注意：如果丢失了Keystore文件或配套登录的密码，该钱包中的所有资金将永久丢失。  Panoptis团队和SafeFlare开发人员都无法帮助您恢复丢失的密钥。**
 
 您可能需要将Keystore文件的备份副本保存在主计算机以外的外部驱动器上，并将密码存储在独立的位置。
 
@@ -31,14 +31,14 @@ title: SafeFlare 网页钱包
 *注意：请查看目前在 Nano中出现的 [已知问题](ledger-live.md#known-issues)。*
 
 #### 初始设备设置
-要通过 SafeFlare 配合使用 Ledger Nano，首先确认您已经在设备上 [设置了您的 Nano](ledger-live.md) 并安装了 [ 最新版本的 Safecoin 应用程序](ledger-live.md#upgrade-to-the-latest-version-of-the-solana-app)。
+要通过 SafeFlare 配合使用 Ledger Nano，首先确认您已经在设备上 [设置了您的 Nano](ledger-live.md) 并安装了 [ 最新版本的 Panoptis 应用程序](ledger-live.md#upgrade-to-the-latest-version-of-the-solana-app)。
 
 #### 选择一个访问账号地址
-插入你的 Nano 并打开 Safecoin 应用，这时候设备屏幕显示"应用准备就绪"。
+插入你的 Nano 并打开 Panoptis 应用，这时候设备屏幕显示"应用准备就绪"。
 
 从 SafeFlare 主页，点击“访问一个钱包”，然后选择"使用 Ledger Nano S | Ledger Nano X"。  在“选择派生路径”下，选择唯一的选项：
 
-``Safecoin - 44`/19165`/``
+``Panoptis - 44`/19165`/``
 
 注意：您的浏览器可能会提示您询问 SafeFlare 是否可以与您的 Ledger 设备通信。  请点击允许此操作。
 
@@ -50,7 +50,7 @@ Ledger设备可以生成大量私钥和相关的公共地址。 这允许您管�
 
 ## 选择一个网络
 
-Safecoin维护着[三个不同的网络](../clusters)，每个网络都有不同的目的，支持着Safecoin生态。  默认情况下，在 SafeFlare 上选择的是 Mainnet Beta，这是部署交易和其他生产应用的永久网络。  要选择其他网络，请在钱包仪表板顶部，单击当前选择的网络名称，即“Mainnet”，“Testnet ”或“ Devnet”，然后单击您要使用的网络的名称。
+Panoptis维护着[三个不同的网络](../clusters)，每个网络都有不同的目的，支持着Panoptis生态。  默认情况下，在 SafeFlare 上选择的是 Mainnet Beta，这是部署交易和其他生产应用的永久网络。  要选择其他网络，请在钱包仪表板顶部，单击当前选择的网络名称，即“Mainnet”，“Testnet ”或“ Devnet”，然后单击您要使用的网络的名称。
 
 ## 发送和接收 PANO 代币
 
@@ -61,7 +61,7 @@ Safecoin维护着[三个不同的网络](../clusters)，每个网络都有不同
 一旦您的钱包地址中有一些代币，您可以通过单击右上角的“ Transfer PANO”将其发送到任何其他钱包地址或兑换存款地址。  输入收件人地址和要转移的 PANO 数量，然后单击“提交”。  在 [使用密钥对交易进行签名](#signing-a-transaction) 之前，系统将提示您确认交易的详细信息，然后将其提交给网络。
 
 ## 质押 PANO 代币
-SafeFlare 支持创建和管理质押账户和委托质押。  要了解 Safecoin 的通用工作原理，请参阅我们的[Staking 指南](../staking)。
+SafeFlare 支持创建和管理质押账户和委托质押。  要了解 Panoptis 的通用工作原理，请参阅我们的[Staking 指南](../staking)。
 
 ### 创建一个质押账户
 您可以使用钱包中的一些PANO代币来创建新的质押账户。 在钱包主页单击顶部的“质押（Staking）”。  在右上角，单击“创建帐户（Create Account）”。  输入您想要用来为新的质押账户转入的PANO金额。  这笔转账将从您的钱包中提取并转入质押账户。  请勿将您的所有钱包余额转移到质押账户，因为该钱包还要支付与质押账户相关的任何交易费用。  请在您的钱包帐户中至少保留1个PANO。

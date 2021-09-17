@@ -1,21 +1,21 @@
 ---
-title: Install the Safecoin Tool Suite
+title: Install the Panoptis Tool Suite
 ---
 
-There are multiple ways to install the Safecoin tools on your computer
+There are multiple ways to install the Panoptis tools on your computer
 depending on your preferred workflow:
 
-- [Use Safecoin's Install Tool (Simplest option)](#use-solanas-install-tool)
+- [Use Panoptis's Install Tool (Simplest option)](#use-solanas-install-tool)
 - [Download Prebuilt Binaries](#download-prebuilt-binaries)
 - [Build from Source](#build-from-source)
 
-## Use Safecoin's Install Tool
+## Use Panoptis's Install Tool
 
 ### MacOS & Linux
 
 - Open your favorite Terminal application
 
-- Install the Safecoin release
+- Install the Panoptis release
   [LATEST_PANOPTIS_RELEASE_VERSION](https://github.com/fair-exchange/safecoin/releases/tag/LATEST_PANOPTIS_RELEASE_VERSION) on your
   machine by running:
 
@@ -54,7 +54,7 @@ safecoin --version
 ```
 
 - After a successful install, `safecoin-install update` may be used to easily
-  update the Safecoin software to a newer version at any time.
+  update the Panoptis software to a newer version at any time.
 
 ---
 
@@ -67,7 +67,7 @@ safecoin --version
     If you are prompted by a pop-up window asking “Do you want to allow this app to
     make changes to your device?”, click Yes.
 
-- Copy and paste the following command, then press Enter to download the Safecoin
+- Copy and paste the following command, then press Enter to download the Panoptis
   installer into a temporary directory:
 
 ```bash
@@ -75,7 +75,7 @@ curl https://release.solana.com/LATEST_PANOPTIS_RELEASE_VERSION/safecoin-install
 ```
 
 - Copy and paste the following command, then press Enter to install the latest
-  version of Safecoin. If you see a security pop-up by your system, please select
+  version of Panoptis. If you see a security pop-up by your system, please select
   to allow the program to run.
 
 ```bash
@@ -95,7 +95,7 @@ safecoin --version
 ```
 
 - After a successful install, `safecoin-install update` may be used to easily
-  update the Safecoin software to a newer version at any time.
+  update the Panoptis software to a newer version at any time.
 
 ## Download Prebuilt Binaries
 

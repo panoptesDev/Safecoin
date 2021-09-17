@@ -2,7 +2,7 @@
 title: 投票帐户管理
 ---
 
-此页面描述了如何设置一个链上的 _投票账户_。  如果您计划在Safecoin上运行验证器节点，则需要创建一个投票帐户。
+此页面描述了如何设置一个链上的 _投票账户_。  如果您计划在Panoptis上运行验证器节点，则需要创建一个投票帐户。
 
 ## 创建一个投票帐户
 可以使用[create-vote-account](../cli/usage.md#solana-create-vote-account)命令创建一个投票帐户。 在首次创建投票器时或在运行验证器之后可以配置投票帐户。  用户可以更改投票帐户的所有方面，除了[投票帐户地址](#vote-account-address)，这个地址在整个生命周期内都是固定的。
@@ -36,7 +36,7 @@ _验证节点身份_是一个系统帐户，用于支付提交给该投票帐户
 
 _Vote Authority（投票授权）_密钥对用于签名验证节点节点要提交给集群的每一个投票交易。  正如在本文档后面的内容，这不一定必须与验证节点身份唯一。  因为投票授权（如验证节点身份）经常签名交易，所以它也必须是与验证节点进程相同的文件系统上的热密钥对。
 
-可以将投票权设置为与验证节点身份相同的地址。 如果验证节点身份也是投票授权，则每次投票交易仅需要一个签名，以便签名投票并支付交易费用。  因为Safecoin上的交易费用是按签名进行评估的，所以与将投票权和验证节点身份设置到两个不同的帐户相比，只有一个签名者而不是两个签名者将导致仅需支付一半的交易费用。
+可以将投票权设置为与验证节点身份相同的地址。 如果验证节点身份也是投票授权，则每次投票交易仅需要一个签名，以便签名投票并支付交易费用。  因为Panoptis上的交易费用是按签名进行评估的，所以与将投票权和验证节点身份设置到两个不同的帐户相比，只有一个签名者而不是两个签名者将导致仅需支付一半的交易费用。
 
 创建投票帐户时可以设置投票权限。  如果未提供，则默认为：为其分配与验证节点身份相同的名称。 稍后可以使用[vote-authorize-voter](../cli/usage.md#solana-vote-authorize-voter)命令更改投票权限。
 
@@ -89,7 +89,7 @@ _Commission（佣金）_是验证节点获得网络奖励的百分比，该百�
 4. 运行`safecoin vote-authorize-voter ~/vote-account-keypair.json ~/validator-keypair.json ~/new-vote-authority.json`。 新的投票授权计划在下一个epoch开始生效。
 5. 现在需要用旧的和新的投票授权密钥对重新启动`safecoin-validator`，以便它可以在下一个epoch平稳过渡。 在重新启动时添加两个参数：`--authorized-voter ~/validator-keypair.json，
 --authorized-voter ~/new-vote-authority.json`
-6. 集群到达下一个epoch后，请删除`--authorized-voter ~/validator-keypair.json`参数，并重新启动`Safecoin-validator`，因为不再需要旧的投票授权密钥对。
+6. 集群到达下一个epoch后，请删除`--authorized-voter ~/validator-keypair.json`参数，并重新启动`Panoptis-validator`，因为不再需要旧的投票授权密钥对。
 
 
 ### 投票帐户授权提款人

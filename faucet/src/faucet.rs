@@ -1,6 +1,6 @@
-//! The `faucet` module provides an object for launching a Safecoin Faucet,
+//! The `faucet` module provides an object for launching a Panoptis Faucet,
 //! which is the custodian of any remaining lamports in a mint.
-//! The Safecoin Faucet builds and sends airdrop transactions,
+//! The Panoptis Faucet builds and sends airdrop transactions,
 //! checking requests against a single-request cap and a per-IP limit
 //! for a given time time_slice.
 

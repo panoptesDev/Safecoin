@@ -1,7 +1,7 @@
 Docker image containing rust nightly and some preinstalled crates used in CI.
 
 This image may be manually updated by running `CI=true ./build.sh` if you are a member
-of the [Safecoin Labs](https://hub.docker.com/u/solanalabs/) Docker Hub
+of the [Panoptis Labs](https://hub.docker.com/u/solanalabs/) Docker Hub
 organization.
 
 ## Moving to a newer nightly

@@ -1,4 +1,4 @@
-# Safecoin Release process
+# Panoptis Release process
 
 ## Branches and Tags
 
@@ -141,7 +141,7 @@ Alternatively use the Github UI.
 unresolved issues still in the `X.Y.Z` milestone, then close the `X.Y.Z` milestone.
 
 ### Verify release automation success
-Go to [Safecoin Releases](https://github.com/fair-exchange/safecoin/releases) and click on the latest release that you just published.
+Go to [Panoptis Releases](https://github.com/fair-exchange/safecoin/releases) and click on the latest release that you just published.
 Verify that all of the build artifacts are present, then the uncheck **"This is a pre-release"** for the release.
 
 Build artifacts can take up to 60 minutes after creating the tag before
@@ -149,7 +149,7 @@ appearing.  To check for progress:
 * The `solana-secondary` Buildkite pipeline handles creating the Linux release artifacts and updated crates.  Look for a job under the tag name of the release: https://buildkite.com/fair-exchange/safecoin-secondary.
 * The macOS and Windows release artifacts are produced by Travis CI: https://travis-ci.com/github/fair-exchange/safecoin/branches
 
-[Crates.io](https://crates.io/crates/solana) should have an updated Safecoin version.  This can take 2-3 hours, and sometimes fails in the `solana-secondary` job.
+[Crates.io](https://crates.io/crates/solana) should have an updated Panoptis version.  This can take 2-3 hours, and sometimes fails in the `solana-secondary` job.
 If this happens and the error is non-fatal, click "Retry" on the "publish crate" job
 
 ### Update software on devnet.safecoin.org/testnet.safecoin.org/mainnet-beta.safecoin.org

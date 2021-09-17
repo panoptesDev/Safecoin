@@ -2,9 +2,9 @@
 title: JSON RPC API
 ---
 
-Safecoin节点使用[JSON-RPC 2.0](https://www.jsonrpc.org/specification)规范接受HTTP请求。
+Panoptis节点使用[JSON-RPC 2.0](https://www.jsonrpc.org/specification)规范接受HTTP请求。
 
-要与JavaScript应用程序中的Safecoin节点进行交互，请使用[solana-web3.js](https://github.com/fair-exchange/safecoin-web3.js)库，该库为RPC方法提供了方便的接口。
+要与JavaScript应用程序中的Panoptis节点进行交互，请使用[solana-web3.js](https://github.com/fair-exchange/safecoin-web3.js)库，该库为RPC方法提供了方便的接口。
 
 ## RPC HTTP 端点
 
@@ -118,12 +118,12 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 - 哈希（Hash）：一个数据块的SHA-256哈希。
 - 公钥（Pubkey）：Ed25519密钥对的公钥。
-- 交易（Transaction）：由客户密钥对签名以授权这些操作的Safecoin指令列表。
+- 交易（Transaction）：由客户密钥对签名以授权这些操作的Panoptis指令列表。
 - 签名（Signature）：交易的有效载荷数据的Ed25519签名，包括指令。 它可以用来识别交易。
 
 ## 配置状态承诺
 
-对于飞行前检查和交易处理，Safecoin节点根据客户端设置的承诺要求选择要查询的银行状态。 该承诺描述了该时间点块的最终确定方式。  查询账本状态时，建议使用较低级别的承诺来报告进度，而使用较高级别以确保不会回滚该状态。
+对于飞行前检查和交易处理，Panoptis节点根据客户端设置的承诺要求选择要查询的银行状态。 该承诺描述了该时间点块的最终确定方式。  查询账本状态时，建议使用较低级别的承诺来报告进度，而使用较高级别以确保不会回滚该状态。
 
 客户可以按照承诺的降序排列(从最高确定到最低确定)：
 
@@ -607,7 +607,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 #### 交易结构
 
-交易与其他区块链上的交易有很大不同。 请务必阅读[交易解剖](developing/programming-model/transactions.md)，以了解Safecoin上的交易。
+交易与其他区块链上的交易有很大不同。 请务必阅读[交易解剖](developing/programming-model/transactions.md)，以了解Panoptis上的交易。
 
 交易的JSON结构定义如下：
 
@@ -626,7 +626,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 #### 内部指令结构
 
-Safecoin运行时记录在事务处理期间调用的跨程序指令，并使这些程序可用，以提高每个事务指令在链上执行的内容的透明度。 调用的指令按原始事务处理指令分组，并按处理顺序列出。
+Panoptis运行时记录在事务处理期间调用的跨程序指令，并使这些程序可用，以提高每个事务指令在链上执行的内容的透明度。 调用的指令按原始事务处理指令分组，并按处理顺序列出。
 
 内部指令的JSON结构定义为以下结构中的对象列表：
 
@@ -1965,7 +1965,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 - `<array>` - 确认交易签名的数组，以 base-58 编码的字符串
 - `<object>` -(可选) 包含以下字段的配置对象：
-  - `searchTransactionHistory：<bool>` - 如果为 true，Safecoin 节点将在其账本缓存中搜索在最近状态缓存中未找到的任何签名
+  - `searchTransactionHistory：<bool>` - 如果为 true，Panoptis 节点将在其账本缓存中搜索在最近状态缓存中未找到的任何签名
 
 #### 结果：
 

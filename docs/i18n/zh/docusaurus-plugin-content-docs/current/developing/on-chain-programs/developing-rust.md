@@ -2,11 +2,11 @@
 title: "用Rust开发"
 ---
 
-Safecoin 支持使用[Rust](https://www.rust-lang.org/) 编程语言编写链上的程序。
+Panoptis 支持使用[Rust](https://www.rust-lang.org/) 编程语言编写链上的程序。
 
 ## 项目布局 {#project-layout}
 
-Safecoin Rust程序遵循典型的[Rust项目布局](https://doc.rust-lang.org/cargo/guide/project-layout.html)：
+Panoptis Rust程序遵循典型的[Rust项目布局](https://doc.rust-lang.org/cargo/guide/project-layout.html)：
 
 ```
 /inc/
@@ -24,7 +24,7 @@ Safecoin Rust程序遵循典型的[Rust项目布局](https://doc.rust-lang.org/c
 features = []
 ```
 
-Safecoin Rust 程序可能会直接依赖于对方，以便在进行 [交叉程序调用](developing/programming-model/calling-between-programs.md#cross-program-invocations)时获得指令协助。 这样做时，重要的是不要拉入依赖程序的入口点符号，因为它们可能与程序本身的符号冲突。  为避免这种情况，程序应在 `Cargo.toml` 中定义一个 ` exclude_entrypoint `功能，并使用它来排除入口点。
+Panoptis Rust 程序可能会直接依赖于对方，以便在进行 [交叉程序调用](developing/programming-model/calling-between-programs.md#cross-program-invocations)时获得指令协助。 这样做时，重要的是不要拉入依赖程序的入口点符号，因为它们可能与程序本身的符号冲突。  为避免这种情况，程序应在 `Cargo.toml` 中定义一个 ` exclude_entrypoint `功能，并使用它来排除入口点。
 
 - [定义特性](https://github.com/fair-exchange/safecoin-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token/program/Cargo.toml#L12)
 - [排除入口点](https://github.com/fair-exchange/safecoin-program-library/blob/a5babd6cbea0d3f29d8c57d2ecbbd2a2bd59c8a9/token/program/src/lib.rs#L12)
@@ -34,20 +34,20 @@ Safecoin Rust 程序可能会直接依赖于对方，以便在进行 [交叉程�
 
 ## 项目依赖关系 {#project-dependencies}
 
-至少，Safecoin Rust程序必须引入[safecoin-program](https://crates.io/crates/safecoin-program)。
+至少，Panoptis Rust程序必须引入[safecoin-program](https://crates.io/crates/safecoin-program)。
 
-Safecoin BPF程序具有某些[限制](#Restrictions)，可能会阻止将某些箱体作为依赖项包含进来或需要特殊处理。
+Panoptis BPF程序具有某些[限制](#Restrictions)，可能会阻止将某些箱体作为依赖项包含进来或需要特殊处理。
 
 例如：
 - 要求架构的箱体（Crates）是官方工具链支持箱体的子集。  除非解决了这个问题，并且没有将BPF添加到那些体系结构检查中，否则没有解决方法。
-- 箱体可能取决于Safecoin确定性程序环境中不支持的`rand`。  要包含`rand`相关的箱体，请参考[在 Rand 开发](#depending-on-rand)。
+- 箱体可能取决于Panoptis确定性程序环境中不支持的`rand`。  要包含`rand`相关的箱体，请参考[在 Rand 开发](#depending-on-rand)。
 - 即使程序本身未包含堆栈溢出代码，箱体也可能会使堆栈溢出。  有关的更多信息，请参见[Stack](overview.md#stack)。
 
 ## 如何开发 {#how-to-build}
 
 首先设置环境：
 - 从https://rustup.rs/安装最新的Rust稳定版本
-- 从https://docs.solana.com/cli/install-solana-cli-tools安装最新的Safecoin命令行工具
+- 从https://docs.solana.com/cli/install-solana-cli-tools安装最新的Panoptis命令行工具
 
 正常的cargo构建可用于针对您的主机构建程序，该程序可用于单元测试：
 
@@ -55,7 +55,7 @@ Safecoin BPF程序具有某些[限制](#Restrictions)，可能会阻止将某些
 $ cargo build
 ```
 
-要为可部署到集群的Safecoin BPF目标构建一个特定的程序，例如SPL代币，请执行以下操作：
+要为可部署到集群的Panoptis BPF目标构建一个特定的程序，例如SPL代币，请执行以下操作：
 
 ```bash
 $ cd <the program directory>
@@ -64,7 +64,7 @@ $ cargo build-bpf
 
 ## 如何测试 {#how-to-test}
 
-通过直接行使程序功能，可以通过传统的`cargo test`机制对Safecoin程序进行单元测试。
+通过直接行使程序功能，可以通过传统的`cargo test`机制对Panoptis程序进行单元测试。
 
 为了帮助在更接近实时集群的环境中进行测试，开发人员可以使用[`program-test`](https://crates.io/crates/safecoin-program-test)箱体。  `程序测试`箱体将启动运行时的本地实例，并允许测试发送多个事务，同时在测试期间保持状态。
 
@@ -72,7 +72,7 @@ $ cargo build-bpf
 
 ## 程序入口点 {#project-entrypoint}
 
-程序导出一个已知的入口点符号，在调用程序时，Safecoin运行时将查找并调用该入口点符号。  Safecoin支持多个[BPF加载程序版本](overview.md#versions)，它们之间的入口点可能会有所不同。 程序必须为相同的加载器编写并部署。  有关更多详细信息，请参见[概览](overview#loaders)。
+程序导出一个已知的入口点符号，在调用程序时，Panoptis运行时将查找并调用该入口点符号。  Panoptis支持多个[BPF加载程序版本](overview.md#versions)，它们之间的入口点可能会有所不同。 程序必须为相同的加载器编写并部署。  有关更多详细信息，请参见[概览](overview#loaders)。
 
 当前有两个受支持的加载器：[BPF加载器](https://github.com/fair-exchange/safecoin/blob/7ddf10e602d2ed87a9e3737aa8c32f1db9f909d8/sdk/program/src/bpf_loader.rs#L17)和[已弃用BFT加载器](https://github.com/fair-exchange/safecoin/blob/7ddf10e602d2ed87a9e3737aa8c32f1db9f909d8/sdk/program/src/bpf_loader_deprecated.rs#L14)。
 
@@ -155,12 +155,12 @@ Rust程序通过定义自定义[`global_allocator`](https://github.com/fair-exch
   - `std::os`
 - 二进制代码在周期和调用深度上在计算上都非常昂贵，应该尽量避免。
 - 应该避免字符串格式化，因为它在计算上也很昂贵。
-- 不支持 `println!`，`print!`，应该使用Safecoin [logging helpers](#logging)。
+- 不支持 `println!`，`print!`，应该使用Panoptis [logging helpers](#logging)。
 - 运行时对程序在一条指令的处理过程中可以执行的指令数施加了限制。  相关的更多信息，请参见[计算预算](developing/programming-model/runtime.md#compute-budget)。
 
 ## 在Rand开发 {#depending-on-rand}
 
-程序必须确定性地运行，因此不能使用随机数。 有时，即使程序不使用任何随机数功能，程序也可能依赖于自己的`rand`。 如果程序依赖于`rand`，则编译将失败，因为对Safecoin没有对`get-random`进行支持。 报错通常如下所示：
+程序必须确定性地运行，因此不能使用随机数。 有时，即使程序不使用任何随机数功能，程序也可能依赖于自己的`rand`。 如果程序依赖于`rand`，则编译将失败，因为对Panoptis没有对`get-random`进行支持。 报错通常如下所示：
 
 ```
 error: target is not supported, for more information see: https://docs.rs/getrandom/#unsupported-targets
@@ -269,4 +269,4 @@ $ cargo build-bpf --dump
 
 ## 示例 {#examples}
 
-[Safecoin 程序库github](https://github.com/fair-exchange/safecoin-program-library/tree/master/examples/rust)代码库包含了Rust例子集合。
+[Panoptis 程序库github](https://github.com/fair-exchange/safecoin-program-library/tree/master/examples/rust)代码库包含了Rust例子集合。

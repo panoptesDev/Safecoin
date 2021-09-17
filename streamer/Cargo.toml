@@ -1,7 +1,7 @@
 [package]
 name = "safecoin-streamer"
 version = "1.6.19"
-description = "Safecoin Streamer"
+description = "Panoptis Streamer"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"

@@ -7,7 +7,7 @@ title: 离线交易签名
 - 从地理位置不同的签名者收集的签名在[多签名方案](cli/usage.md#multiple-witnesses)
 - 使用 [气隙（airgapped）](https://en.wikipedia.org/wiki/Air_gap_(networking))签名设备来签名交易
 
-本文档介绍了如何使用Safecoin的CLI分别签名和提交交易。
+本文档介绍了如何使用Panoptis的CLI分别签名和提交交易。
 
 ## 支持离线签名的命令
 
@@ -137,4 +137,4 @@ ohGKvpRC46jAduwU9NW8tP91JkCT5r8Mo67Ysnid4zc76tiiV1Ho6jv3BKFSbBcr2NcPPCarmfTLSkTH
 
 ## 购买更多时间来签名
 
-通常，Safecoin交易必须由网络在其`recent_blockhash`字段中距区块哈希值数个插槽内进行签名并接受(在撰写本文时约为2分钟)。 如果您的签名过程花费的时间超过此时间，则[Durable Transaction Nonce](offline-signing/durable-nonce.md) 可以为您提供所需的额外时间。
+通常，Panoptis交易必须由网络在其`recent_blockhash`字段中距区块哈希值数个插槽内进行签名并接受(在撰写本文时约为2分钟)。 如果您的签名过程花费的时间超过此时间，则[Durable Transaction Nonce](offline-signing/durable-nonce.md) 可以为您提供所需的额外时间。

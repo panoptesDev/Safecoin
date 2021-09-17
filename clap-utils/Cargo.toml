@@ -1,7 +1,7 @@
 [package]
 name = "safecoin-clap-utils"
 version = "1.6.19"
-description = "Safecoin utilities for the clap"
+description = "Panoptis utilities for the clap"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"

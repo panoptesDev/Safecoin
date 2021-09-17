@@ -2,7 +2,7 @@
 title: Starting a Validator
 ---
 
-## Configure Safecoin CLI
+## Configure Panoptis CLI
 
 The safecoin cli includes `get` and `set` configuration commands to automatically
 set the `--url` argument for cli commands. For example:
@@ -12,7 +12,7 @@ safecoin config set --url http://api.devnet.safecoin.org
 ```
 
 While this section demonstrates how to connect to the Devnet cluster, the steps
-are similar for the other [Safecoin Clusters](../clusters.md).
+are similar for the other [Panoptis Clusters](../clusters.md).
 
 ## Confirm The Cluster Is Reachable
 
@@ -195,7 +195,7 @@ ALLOCATION OF PANO TOO.
 To back-up your validator identify keypair, **back-up your
 "validator-keypair.json” file or your seed phrase to a secure location.**
 
-## More Safecoin CLI Configuration
+## More Panoptis CLI Configuration
 
 Now that you have a keypair, set the safecoin configuration to use your validator
 keypair for all following commands:
@@ -243,7 +243,7 @@ Read more about the [difference between PANO and lamports here](../introduction.
 
 If you haven’t already done so, create a vote-account keypair and create the
 vote account on the network. If you have completed this step, you should see the
-“vote-account-keypair.json” in your Safecoin runtime directory:
+“vote-account-keypair.json” in your Panoptis runtime directory:
 
 ```bash
 safecoin-keygen new -o ~/vote-account-keypair.json
@@ -339,7 +339,7 @@ the following:
 
 ```
 [Unit]
-Description=Safecoin Validator
+Description=Panoptis Validator
 After=network.target
 Wants=safecoin-sys-tuner.service
 StartLimitIntervalSec=0

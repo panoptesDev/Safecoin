@@ -18,7 +18,7 @@ and collects rent. Any account that drops to zero lamports is purged. Accounts
 can also be marked [rent-exempt](#rent-exemption) if they contain a sufficient
 number of lamports.
 
-In the same way that a Linux user uses a path to look up a file, a Safecoin client
+In the same way that a Linux user uses a path to look up a file, a Panoptis client
 uses an _address_ to look up an account. The address is a 256-bit public key.
 
 ## Signers
@@ -109,7 +109,7 @@ correctly (usually owned by the program itself).
 One example is when programs use a sysvar account. Unless the program checks the
 account's address or owner, it's impossible to be sure whether it's a real and
 valid sysvar account merely by successful deserialization of the account's data.
-Accordingly, the Safecoin SDK [checks the sysvar account's validity during
+Accordingly, the Panoptis SDK [checks the sysvar account's validity during
 deserialization](https://github.com/fair-exchange/safecoin/blob/a95675a7ce1651f7b59443eb146b356bc4b3f374/sdk/program/src/sysvar/mod.rs#L65).
 A alternative and safer way to read a sysvar is via the sysvar's [`get()`
 function](https://github.com/fair-exchange/safecoin/blob/64bfc14a75671e4ec3fe969ded01a599645080eb/sdk/program/src/sysvar/mod.rs#L73)
@@ -122,7 +122,7 @@ will be thrown out.
 
 ## Rent
 
-Keeping accounts alive on Safecoin incurs a storage cost called _rent_ because the
+Keeping accounts alive on Panoptis incurs a storage cost called _rent_ because the
 cluster must actively maintain the data to process any future transactions on
 it. This is different from Bitcoin and Ethereum, where storing accounts doesn't
 incur any costs.

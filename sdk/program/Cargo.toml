@@ -1,7 +1,7 @@
 [package]
 name = "safecoin-program"
 version = "1.6.19"
-description = "Safecoin Program"
+description = "Panoptis Program"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 homepage = "https://safecoin.org/"

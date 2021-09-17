@@ -1,4 +1,4 @@
-//! @brief Safecoin builtin helper macros
+//! @brief Panoptis builtin helper macros
 
 #[rustversion::since(1.46.0)]
 #[macro_export]

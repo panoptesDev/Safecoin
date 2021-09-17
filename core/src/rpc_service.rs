@@ -1,4 +1,4 @@
-//! The `rpc_service` module implements the Safecoin JSON RPC service.
+//! The `rpc_service` module implements the Panoptis JSON RPC service.
 
 use crate::{
     bigtable_upload_service::BigTableUploadService,

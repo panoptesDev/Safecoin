@@ -190,7 +190,7 @@ fn main() {
                 .long("bpf-sdk")
                 .value_name("PATH")
                 .takes_value(true)
-                .help("Path to the Safecoin BPF SDK"),
+                .help("Path to the Panoptis BPF SDK"),
         )
         .arg(
             Arg::with_name("features")

@@ -10,13 +10,13 @@ ensure_env || exit 1
 # Setup kernel constants
 cat > /etc/sysctl.d/20-solana-node.conf <<EOF
 
-# Safecoin networking requirements
+# Panoptis networking requirements
 net.core.rmem_default=134217728
 net.core.rmem_max=134217728
 net.core.wmem_default=134217728
 net.core.wmem_max=134217728
 
-# Safecoin earlyoom setup
+# Panoptis earlyoom setup
 kernel.sysrq=$(( $(cat /proc/sys/kernel/sysrq) | 64 ))
 
 # Allow kernel and CPU perf events

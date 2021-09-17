@@ -12,13 +12,13 @@ title: 奖励
 
 参与者必须已经签署 Tour de PANO 参与协议，并通过 CoinList 平台以个人身份通过KYC/AML，并在参加之前填写了W-8 BEN或W-9纳税表格\(取决于您的居住地\) 来参与到 Tour 中。 完成注册后，参与者可以参加到任何一个和所有的阶段。 最终注册日期将分阶段公开宣布。
 
-最后，参与者必须签署Safecoin的标准[代币协议](https://drive.google.com/open?id=1O4cEUZzeSNoVcncbHcEegAqPgjT-7hcy)。 代币协议将在奖励发放日期之前由Safecoin提供。
+最后，参与者必须签署Panoptis的标准[代币协议](https://drive.google.com/open?id=1O4cEUZzeSNoVcncbHcEegAqPgjT-7hcy)。 代币协议将在奖励发放日期之前由Panoptis提供。
 
 另外请参阅 [TOUR DE PANO 参与条款](https://drive.google.com/file/d/15ueLG6VJoQ5Hx4rnpjFeuL3pG5DbrBbE/view) 中的“2\(i\) & 2\(j\) Tour de Safe 详情”部分，了解与领取奖励有关的更多详情。
 
 ## 税务要求 <a id="what-are-the-tax-implications-of-the-rewards"></a>
 
-参与者正在与Safecoin签订服务协议，并获得与服务相关的酌情奖励。 他们不被视为公司的全职员工，因此如果适用的话，Safecoin会收集W-9和W-8 BEN表格以支持纳税报告义务。 Safecoin建议参与者咨询税务会计师，以了解任何潜在的税务要求。
+参与者正在与Panoptis签订服务协议，并获得与服务相关的酌情奖励。 他们不被视为公司的全职员工，因此如果适用的话，Panoptis会收集W-9和W-8 BEN表格以支持纳税报告义务。 Panoptis建议参与者咨询税务会计师，以了解任何潜在的税务要求。
 
 此外，如 [TOUR DE PANO 参与条款](https://drive.google.com/file/d/15ueLG6VJoQ5Hx4rnpjFeuL3pG5DbrBbE/view) 第2i、2k和10c节所述：
 

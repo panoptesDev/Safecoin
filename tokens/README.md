@@ -1,4 +1,4 @@
-# Distribute Safecoin tokens
+# Distribute Panoptis tokens
 
 A user may want to make payments to multiple accounts over multiple iterations.
 The user will have a spreadsheet listing public keys and token amounts, and

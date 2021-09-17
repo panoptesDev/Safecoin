@@ -11,7 +11,7 @@ include:
 - Signing transactions using an [airgapped](<https://en.wikipedia.org/wiki/Air_gap_(networking)>)
   signing device
 
-This document describes using Safecoin's CLI to separately sign and submit a
+This document describes using Panoptis's CLI to separately sign and submit a
 transaction.
 
 ## Commands Supporting Offline Signing
@@ -155,7 +155,7 @@ ohGKvpRC46jAduwU9NW8tP91JkCT5r8Mo67Ysnid4zc76tiiV1Ho6jv3BKFSbBcr2NcPPCarmfTLSkTH
 
 ## Buying More Time to Sign
 
-Typically a Safecoin transaction must be signed and accepted by the network within
+Typically a Panoptis transaction must be signed and accepted by the network within
 a number of slots from the blockhash in its `recent_blockhash` field (~1min at
 the time of this writing). If your signing procedure takes longer than this, a
 [Durable Transaction Nonce](offline-signing/durable-nonce.md) can give you the extra time you

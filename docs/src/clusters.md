@@ -1,11 +1,11 @@
 ---
-title: Safecoin Clusters
+title: Panoptis Clusters
 ---
 
-Safecoin maintains several different clusters with different purposes.
+Panoptis maintains several different clusters with different purposes.
 
 Before you begin make sure you have first
-[installed the Safecoin command line tools](cli/install-solana-cli-tools.md)
+[installed the Panoptis command line tools](cli/install-solana-cli-tools.md)
 
 Explorers:
 
@@ -14,7 +14,7 @@ Explorers:
 
 ## Devnet
 
-- Devnet serves as a playground for anyone who wants to take Safecoin for a
+- Devnet serves as a playground for anyone who wants to take Panoptis for a
   test drive, as a user, token holder, app developer, or validator.
 - Application developers should target Devnet.
 - Potential validators should first target Devnet.
@@ -55,7 +55,7 @@ $ safecoin-validator \
     --limit-ledger-size
 ```
 
-The `--trusted-validator`s is operated by Safecoin
+The `--trusted-validator`s is operated by Panoptis
 
 ## Testnet
 
@@ -165,4 +165,4 @@ $ safecoin-validator \
     --limit-ledger-size
 ```
 
-All four `--trusted-validator`s are operated by Safecoin
+All four `--trusted-validator`s are operated by Panoptis

@@ -2,7 +2,7 @@ use {num_derive::FromPrimitive, thiserror::Error};
 
 #[derive(Error, Debug, Clone, FromPrimitive, PartialEq)]
 pub enum LedgerError {
-    #[error("Safecoin app not open on Ledger device")]
+    #[error("Panoptis app not open on Ledger device")]
     NoAppResponse = 0x6700,
 
     #[error("Ledger sdk exception")]
@@ -68,14 +68,14 @@ pub enum LedgerError {
     #[error("Ledger operation rejected by the user")]
     UserCancel = 0x6985,
 
-    #[error("Ledger received invalid Safecoin message")]
-    SafecoinInvalidMessage = 0x6a80,
+    #[error("Ledger received invalid Panoptis message")]
+    PanoptisInvalidMessage = 0x6a80,
 
-    #[error("Safecoin summary finalization failed on Ledger device")]
-    SafecoinSummaryFinalizeFailed = 0x6f00,
+    #[error("Panoptis summary finalization failed on Ledger device")]
+    PanoptisSummaryFinalizeFailed = 0x6f00,
 
-    #[error("Safecoin summary update failed on Ledger device")]
-    SafecoinSummaryUpdateFailed = 0x6f01,
+    #[error("Panoptis summary update failed on Ledger device")]
+    PanoptisSummaryUpdateFailed = 0x6f01,
 
     #[error("Ledger received unimplemented instruction")]
     UnimplementedInstruction = 0x6d00,

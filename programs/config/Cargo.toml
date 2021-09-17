@@ -1,7 +1,7 @@
 [package]
 name = "safecoin-config-program"
 version = "1.6.19"
-description = "Safecoin Config program"
+description = "Panoptis Config program"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"

@@ -1,6 +1,6 @@
 [package]
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
-description = "Safecoin Program Test Framework"
+description = "Panoptis Program Test Framework"
 edition = "2018"
 license = "Apache-2.0"
 name = "safecoin-program-test"

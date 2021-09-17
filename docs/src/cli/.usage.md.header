@@ -2,7 +2,7 @@
 title: CLI Usage Reference
 ---
 
-The [solana-cli crate](https://crates.io/crates/solana-cli) provides a command-line interface tool for Safecoin
+The [solana-cli crate](https://crates.io/crates/solana-cli) provides a command-line interface tool for Panoptis
 
 ## Examples
 

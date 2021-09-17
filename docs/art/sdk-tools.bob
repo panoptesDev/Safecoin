@@ -1,6 +1,6 @@
 
                  .-------------------------------------.
-                 | Safecoin Runtime                      |
+                 | Panoptis Runtime                      |
                  |                                     |
   .----------.   |   .------------.   .------------.   |
   | Program  |   |   | BPF        |   | Executable |   |

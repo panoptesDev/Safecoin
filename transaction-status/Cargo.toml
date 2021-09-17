@@ -1,7 +1,7 @@
 [package]
 name = "safecoin-transaction-status"
 version = "1.6.19"
-description = "Safecoin transaction status types"
+description = "Panoptis transaction status types"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 homepage = "https://safecoin.org/"

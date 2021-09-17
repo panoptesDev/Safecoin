@@ -114,7 +114,7 @@ mod test {
 
         let validator_info = ValidatorInfo {
             info: serde_json::to_string(&json!({
-                "name": "Safecoin",
+                "name": "Panoptis",
             }))
             .unwrap(),
         };
@@ -137,7 +137,7 @@ mod test {
                         signer: true,
                     }
                 ],
-                config_data: serde_json::from_str(r#"{"name":"Safecoin"}"#).unwrap(),
+                config_data: serde_json::from_str(r#"{"name":"Panoptis"}"#).unwrap(),
             }),
         );
 

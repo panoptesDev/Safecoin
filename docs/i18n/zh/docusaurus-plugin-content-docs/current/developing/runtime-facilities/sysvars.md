@@ -2,7 +2,7 @@
 title: Sysvar群集数据
 ---
 
-Safecoin通过[`sysvar`](terminology.md#sysvar)帐户向程序公开了各种群集状态数据。 这些帐户填充在[`safecoin-program`开发工具](https://docs.rs/safecoin-program/VERSION_FOR_DOCS_RS/solana_program/sysvar/index.html)中发布的已知地址以及帐户布局中，并在下面概述。
+Panoptis通过[`sysvar`](terminology.md#sysvar)帐户向程序公开了各种群集状态数据。 这些帐户填充在[`safecoin-program`开发工具](https://docs.rs/safecoin-program/VERSION_FOR_DOCS_RS/solana_program/sysvar/index.html)中发布的已知地址以及帐户布局中，并在下面概述。
 
 要将sysvar数据包括在程序操作中，请在事务处理的帐户列表中传递sysvar帐户地址。 可以像其他任何帐户一样在您的指令处理器中读取该帐户。 始终以*只读方式*访问sysvars帐户。
 

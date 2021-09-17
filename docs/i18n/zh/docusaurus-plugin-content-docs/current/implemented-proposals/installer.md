@@ -2,9 +2,9 @@
 title: 集群软件安装和更新
 ---
 
-目前用户需要自己从git仓库中构建Safecoin集群软件，并手动更新，容易出错且不方便。
+目前用户需要自己从git仓库中构建Panoptis集群软件，并手动更新，容易出错且不方便。
 
-本文档提出了一个简单易用的软件安装和更新程序，可以用来为支持的平台部署预建的二进制文件。 用户可以选择使用由Safecoin或任何其他他们信任的方提供的二进制文件。 更新的部署是通过链上更新清单程序来管理的。
+本文档提出了一个简单易用的软件安装和更新程序，可以用来为支持的平台部署预建的二进制文件。 用户可以选择使用由Panoptis或任何其他他们信任的方提供的二进制文件。 更新的部署是通过链上更新清单程序来管理的。
 
 ## 激励的例子
 
@@ -16,7 +16,7 @@ title: 集群软件安装和更新
 $ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/install/safecoin-install-init.sh | sh
 ```
 
-这个脚本将检查github以获取最新的标签版本，并从那里下载并运行`Safecoin-install-init`二进制文件。
+这个脚本将检查github以获取最新的标签版本，并从那里下载并运行`Panoptis-install-init`二进制文件。
 
 如果在安装过程中需要指定额外的参数，可以使用下面的shell语法。
 
@@ -47,7 +47,7 @@ $ cargo run -- --help
 
 ### 向集群部署新的更新。
 
-如果Safecoin发布的tarball\(由`ci/publish-tarball.sh`创建\) 已经上传到一个可公开访问的URL中，以下命令将部署更新。
+如果Panoptis发布的tarball\(由`ci/publish-tarball.sh`创建\) 已经上传到一个可公开访问的URL中，以下命令将部署更新。
 
 ```bash
 $ safecoin-keygen new -o update-manifest.json  # <-- only generated once, the public key is shared with users
@@ -65,7 +65,7 @@ $ safecoin-install run safecoin-validator ...  # <-- runs a validator, restartin
 
 ## 链上更新清单
 
-更新清单用于在 Safecoin 集群上宣传部署新版本的 tarballs。 更新清单使用 `config` 程序存储，每个更新清单账户描述了一个给定目标三倍的逻辑更新通道(例如，`x86_64-apple-darwin`)。 账户公钥在部署新更新的实体和消费这些更新的用户之间是众所周知的。
+更新清单用于在 Panoptis 集群上宣传部署新版本的 tarballs。 更新清单使用 `config` 程序存储，每个更新清单账户描述了一个给定目标三倍的逻辑更新通道(例如，`x86_64-apple-darwin`)。 账户公钥在部署新更新的实体和消费这些更新的用户之间是众所周知的。
 
 更新的压缩包本身在其他地方托管，不在链上，可以从指定的 `download_url` 获取。
 
@@ -87,7 +87,7 @@ pub struct SignedUpdateManifest {
 }
 ```
 
-请注意，`manifest` 字段本身包含一个相应的签名\(`manifest_signature`\)，以防止 `safecoin-install` 工具和 Safecoin 集群 RPC API 之间的中间人攻击。
+请注意，`manifest` 字段本身包含一个相应的签名\(`manifest_signature`\)，以防止 `safecoin-install` 工具和 Panoptis 集群 RPC API 之间的中间人攻击。
 
 为了防止回滚攻击，`safecoin-install` 将拒绝安装比当前安装的 `timestamp_secs` 更早的更新。
 
@@ -103,7 +103,7 @@ pub struct SignedUpdateManifest {
 
   `safecoin-install` 会将这个目录以符号链接的方式连接到
 
-  `~/.local/share/Safecoin-install/bin` 供 `PATH` 环境变量使用。
+  `~/.local/share/Panoptis-install/bin` 供 `PATH` 环境变量使用。
 
   变量。
 
@@ -113,11 +113,11 @@ pub struct SignedUpdateManifest {
 
 用户使用 `safecoin-install` 工具来安装和更新他们的集群软件。
 
-它在用户的主目录中管理以下文件和目录： ~/. config/Safecoin/install/config. yml -- 用户配置和当前集群软件的信息。
+它在用户的主目录中管理以下文件和目录： ~/. config/Panoptis/install/config. yml -- 用户配置和当前集群软件的信息。
 
-- `~/.config/Safecoin/install/config.yml` - 用户配置和当前安装的软件版本信息。
-- `~/.local/share/solana/install/bin` - 当前版本的符号链接， 例如，`~/.local/share/Safecoin-update/<update-pubkey>-<manifest_signature>/bin`。
-- `~/.local/share/Safecoin/install/releases/<download_sha256>/` - 版本内容。
+- `~/.config/Panoptis/install/config.yml` - 用户配置和当前安装的软件版本信息。
+- `~/.local/share/solana/install/bin` - 当前版本的符号链接， 例如，`~/.local/share/Panoptis-update/<update-pubkey>-<manifest_signature>/bin`。
+- `~/.local/share/Panoptis/install/releases/<download_sha256>/` - 版本内容。
 
 ### 命令行界面
 

@@ -30,7 +30,7 @@ VoteState是验证节点已提交给网络的所有投票的当前状态。 Vote
 - `佣金` - VoteState从质押者的Stake帐户获得的任何奖励中抽取的佣金。 这是奖励的百分比上限。
 - Account::lamports - 佣金累计获得的lamports。 这些并不算作质押。
 - `authorized_voter` - 只有该身份能提交投票。 此字段只能通过身份认证进行修改。
-- `node_pubkey` - 在这个帐户中投票的 Safecoin 节点。
+- `node_pubkey` - 在这个帐户中投票的 Panoptis 节点。
 - `authorized_withdrawer` - 负责该账户lamports 实体的身份，独立于帐户地址和授权的投票签名者。
 
 ### VoteInstruction::Initialize\(VoteInit\)

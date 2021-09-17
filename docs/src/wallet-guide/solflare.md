@@ -5,9 +5,9 @@ title: SafeFlare Web Wallet
 ## Introduction
 
 [SafeFlare.com](https://solflare.com/) is a community-created web wallet built
-specifically for Safecoin.
+specifically for Panoptis.
 SafeFlare supports sending and receiving native PANO tokens as well as sending and
-receiving SPL Tokens (Safecoin's ERC-20 equivalent).
+receiving SPL Tokens (Panoptis's ERC-20 equivalent).
 SafeFlare also supports staking of PANO tokens.
 
 As a _non-custodial_ wallet, your private keys are not stored by the SafeFlare
@@ -35,7 +35,7 @@ computer. You will be prompted to then upload the Keystore file back to the site
 to verify that the download was saved correctly.
 
 **NOTE: If you lose your Keystore file or the password used to encrypt it, any
-funds in that wallet will be lost permanently. Neither the Safecoin team nor the
+funds in that wallet will be lost permanently. Neither the Panoptis team nor the
 SafeFlare developers can help you recover lost keys.**
 
 You may want to consider saving a backup copy of your Keystore file on an
@@ -59,18 +59,18 @@ limitations in using the Nano._
 
 To use a Ledger Nano with SafeFlare, first ensure you have
 [set up your Nano](ledger-live.md) and have [installed the latest version of
-the Safecoin app](ledger-live.md#upgrade-to-the-latest-version-of-the-solana-app)
+the Panoptis app](ledger-live.md#upgrade-to-the-latest-version-of-the-solana-app)
 on your device.
 
 #### Select a Ledger address to access
 
-Plug in your Nano and open the Safecoin app so the device screen displays
+Plug in your Nano and open the Panoptis app so the device screen displays
 "Application is Ready".
 
 From the SafeFlare home page, click "Access a Wallet" then select "Using Ledger
 Nano S | Ledger Nano X". Under "Select derivation path", select the only option:
 
-`` Safecoin - 44`/19165`/ ``
+`` Panoptis - 44`/19165`/ ``
 
 Note: Your browser may prompt you to ask if SafeFlare may communicate with your
 Ledger device. Click to allow this.
@@ -88,8 +88,8 @@ simply click Logout and re-connect with the correct address.
 
 ## Select a Network
 
-Safecoin maintains [three distinct networks](../clusters), each of which has
-its own purpose in supporting the Safecoin ecosystem. Mainnet Beta is selected by
+Panoptis maintains [three distinct networks](../clusters), each of which has
+its own purpose in supporting the Panoptis ecosystem. Mainnet Beta is selected by
 default on SafeFlare, as this is the permanent network where exchanges and other
 production apps are deployed. To select a different network, click on the name
 of the currently selected network at the top of the wallet dashboard, either
@@ -119,7 +119,7 @@ and then it will be submitted to the network.
 ## Staking PANO Tokens
 
 SafeFlare supports creating and managing stake accounts and delegations. To learn
-about how staking on Safecoin works in general, check out our
+about how staking on Panoptis works in general, check out our
 [Staking Guide](../staking).
 
 ### Create a Stake Account

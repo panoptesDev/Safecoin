@@ -24,7 +24,7 @@ const features = [
   {
     title: <>🏛 Create an SPL Token</>,
     imageUrl: "https://spl.solana.com/token",
-    description: <>Launch your own SPL Token, Safecoin's equivalent of ERC-20.</>,
+    description: <>Launch your own SPL Token, Panoptis's equivalent of ERC-20.</>,
   },
   {
     title: <>🏦 Integrate an Exchange</>,
@@ -44,16 +44,16 @@ const features = [
     ),
   },
   {
-    title: <>🤯 Learn How Safecoin Works</>,
+    title: <>🤯 Learn How Panoptis Works</>,
     imageUrl: "cluster/overview",
-    description: <>Get a high-level understanding of Safecoin's architecture.</>,
+    description: <>Get a high-level understanding of Panoptis's architecture.</>,
   }, //
   // {
   //   title: <>Understand Our Economic Design</>,
   //   imageUrl: "implemented-proposals/ed_overview/ed_overview",
   //   description: (
   //     <>
-  //       Safecoin's Economic Design provides a scalable blueprint for long term
+  //       Panoptis's Economic Design provides a scalable blueprint for long term
   //       economic development and prosperity.
   //     </>
   //   ),
@@ -84,7 +84,7 @@ function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (
-    <Layout title="Homepage" description="Safecoin Documentation">
+    <Layout title="Homepage" description="Panoptis Documentation">
       {/* <header className={clsx("hero hero--primary", styles.heroBanner)}> */}
       {/* <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
@@ -106,9 +106,9 @@ function Home() {
           <section className={styles.features}>
             <div className="container">
               <div className="alert alert--primary" role="alert">
-                <b>Announcing the Safecoin Season Hackathon</b>
+                <b>Announcing the Panoptis Season Hackathon</b>
                 <br />
-                Jumpstart your next project on Safecoin & join the fastest growing
+                Jumpstart your next project on Panoptis & join the fastest growing
                 ecosystem in crypto
                 <br />
                 <p align="right">

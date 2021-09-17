@@ -1,7 +1,7 @@
 [package]
 name = "solana-cargo-test-bpf"
 version = "1.6.19"
-description = "Execute all unit and integration tests after building with the Safecoin BPF SDK"
+description = "Execute all unit and integration tests after building with the Panoptis BPF SDK"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 homepage = "https://safecoin.org/"

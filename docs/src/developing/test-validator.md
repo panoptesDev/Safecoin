@@ -1,5 +1,5 @@
 ---
-title: Safecoin Test Validator
+title: Panoptis Test Validator
 ---
 During early stage development, it is often convenient to target a cluster with
 fewer restrictions and more configuration options than the public offerings
@@ -17,7 +17,7 @@ starts a full-featured, single-node cluster on the developer's workstation.
 - Jump to an arbitrary slot (`--warp-slot ...`)
 
 ## Installation
-The `safecoin-test-validator` binary ships with the Safecoin CLI Tool Suite.
+The `safecoin-test-validator` binary ships with the Panoptis CLI Tool Suite.
 [Install](/cli/install-solana-cli-tools) before continuing.
 
 ## Running
@@ -51,7 +51,7 @@ needed, it can be stopped with ctrl-c.
 
 ## Interacting
 Open a new terminal to interact with a [running](#running) `safecoin-test-validator`
-instance using other binaries from the Safecoin CLI Tool Suite or your own client
+instance using other binaries from the Panoptis CLI Tool Suite or your own client
 software.
 
 #### Configure the CLI Tool Suite to target a local cluster by default

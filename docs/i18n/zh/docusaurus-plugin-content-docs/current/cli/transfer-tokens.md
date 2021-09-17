@@ -48,7 +48,7 @@ pubkey: GKvqsuNcnwWqPzzuhLmGi4rzzh55FhJtGizkhHaEJqiV
 
 #### 将代币从您的第一个钱包转到第二个地址
 
-接下来，通过发送来证明你拥有空投代币。 Safecoin 集群只有在您用交易发送方公钥对应的私钥签名时，才会接受交易。
+接下来，通过发送来证明你拥有空投代币。 Panoptis 集群只有在您用交易发送方公钥对应的私钥签名时，才会接受交易。
 
 ```bash
 safecoin transfer --from <KEYPAIR> <RECIPIENT_ACCOUNT_ADDRESS> 5 --url https://api.devnet.safecoin.org --fee-payer <KEYPAIR>
@@ -108,7 +108,7 @@ $ safecoin balance 7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv --url https://ap
 
 ## 接收代币
 
-首先您需要一个地址让别人来发送代币。 在 Safecoin 区块链，钱包地址就是密钥对的公钥。 生成密钥对的方法有好几种。 这些方法取决于您选择如何存储密钥对。 密钥对存储在钱包里。 在接收代币之前，您需要通过 [来创建一个钱包](../wallet-guide/cli.md) 完成该步骤后，您就能获得每个密钥对生成的公钥。 公钥是一个 base58 字符的长字节。 其长度从 32 到 44 个字符不等。
+首先您需要一个地址让别人来发送代币。 在 Panoptis 区块链，钱包地址就是密钥对的公钥。 生成密钥对的方法有好几种。 这些方法取决于您选择如何存储密钥对。 密钥对存储在钱包里。 在接收代币之前，您需要通过 [来创建一个钱包](../wallet-guide/cli.md) 完成该步骤后，您就能获得每个密钥对生成的公钥。 公钥是一个 base58 字符的长字节。 其长度从 32 到 44 个字符不等。
 
 ## 发送代币
 

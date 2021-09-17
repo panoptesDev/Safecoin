@@ -1,7 +1,7 @@
 [package]
 name = "solana-bpf-rust-rand"
 version = "1.6.19"
-description = "Safecoin BPF test program written in Rust"
+description = "Panoptis BPF test program written in Rust"
 authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 repository = "https://github.com/fair-exchange/safecoin"
 license = "Apache-2.0"

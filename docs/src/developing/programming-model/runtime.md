@@ -66,7 +66,7 @@ invocation chain and the parent are halted.
 
 The current [compute
 budget](https://github.com/fair-exchange/safecoin/blob/d3a3a7548c857f26ec2cb10e270da72d373020ec/sdk/src/process_instruction.rs#L65)
-can be found in the Safecoin SDK.
+can be found in the Panoptis SDK.
 
 For example, if the current budget is:
 
@@ -107,25 +107,25 @@ cluster being used are required to determine the current budget's values.
 
 ## New Features
 
-As Safecoin evolves, new features or patches may be introduced that changes the
+As Panoptis evolves, new features or patches may be introduced that changes the
 behavior of the cluster and how programs run. Changes in behavior must be
 coordinated between the various nodes of the cluster, if nodes do not coordinate
-then these changes can result in a break-down of consensus. Safecoin supports a
+then these changes can result in a break-down of consensus. Panoptis supports a
 mechanism called runtime features to facilitate the smooth adoption of changes.
 
 Runtime features are epoch coordinated events where one or more behavior changes
-to the cluster will occur. New changes to Safecoin that will change behavior are
-wrapped with feature gates and disabled by default. The Safecoin tools are then
+to the cluster will occur. New changes to Panoptis that will change behavior are
+wrapped with feature gates and disabled by default. The Panoptis tools are then
 used to activate a feature, which marks it pending, once marked pending the
 feature will be activated at the next epoch.
 
-To determine which features are activated use the [Safecoin command-line
+To determine which features are activated use the [Panoptis command-line
 tools](cli/install-solana-cli-tools.md):
 
 ```bash
 safecoin feature status
 ```
 
-If you encounter problems first ensure that the Safecoin tools version you are
+If you encounter problems first ensure that the Panoptis tools version you are
 using match the version returned by `safecoin cluster-version`. If they do not
 match [install the correct tool suite](cli/install-solana-cli-tools.md).

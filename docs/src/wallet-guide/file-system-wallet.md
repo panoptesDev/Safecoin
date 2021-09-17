@@ -3,7 +3,7 @@ title: File System Wallet
 ---
 
 This document describes how to create and use a file system wallet with the
-Safecoin CLI tools. A file system wallet exists as an unencrypted keypair file
+Panoptis CLI tools. A file system wallet exists as an unencrypted keypair file
 on your computer system's filesystem.
 
 > File system wallets are the **least secure** method of storing PANO tokens. Storing large amounts of tokens in a file system wallet is **not recommended**.
@@ -11,11 +11,11 @@ on your computer system's filesystem.
 ## Before you Begin
 
 Make sure you have
-[installed the Safecoin Command Line Tools](../cli/install-solana-cli-tools.md)
+[installed the Panoptis Command Line Tools](../cli/install-solana-cli-tools.md)
 
 ## Generate a File System Wallet Keypair
 
-Use Safecoin's command-line tool `safecoin-keygen` to generate keypair files. For
+Use Panoptis's command-line tool `safecoin-keygen` to generate keypair files. For
 example, run the following from a command-line shell:
 
 ```bash

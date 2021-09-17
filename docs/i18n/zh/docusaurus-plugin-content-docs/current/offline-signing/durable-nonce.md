@@ -2,7 +2,7 @@
 title: 持久交易随机数（Nonces）
 ---
 
-持久交易随机数是一个机制，它可以绕过交易典型的个短寿期 [`recent_blockhash`](developing/programming-model/transactions.md#recent-blockhash)。 这些方案是作为Safecoin方案实施的，其机制详见 [proposal](../implemented-proposals/durable-tx-nonces.md)。
+持久交易随机数是一个机制，它可以绕过交易典型的个短寿期 [`recent_blockhash`](developing/programming-model/transactions.md#recent-blockhash)。 这些方案是作为Panoptis方案实施的，其机制详见 [proposal](../implemented-proposals/durable-tx-nonces.md)。
 
 ## 使用示例
 

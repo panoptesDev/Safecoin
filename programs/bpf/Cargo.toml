@@ -1,6 +1,6 @@
 [package]
 name = "safecoin-bpf-programs"
-description = "Safecoin: Enterprise Security for the Community by the Community"
+description = "Panoptis: Enterprise Security for the Community by the Community"
 version = "1.6.19"
 documentation = "https://docs.rs/solana"
 homepage = "https://safecoin.org/"

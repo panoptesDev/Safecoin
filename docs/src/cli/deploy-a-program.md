@@ -3,13 +3,13 @@ title: Deploy a Program
 ---
 
 Developers can deploy on-chain [programs](terminology.md#program) (often called
-smart contracts elsewhere) with the Safecoin tools.
+smart contracts elsewhere) with the Panoptis tools.
 
-To learn about developing and executing programs on Safecoin, start with the
+To learn about developing and executing programs on Panoptis, start with the
 [overview](developing/programming-model/overview.md) and then dig into the
 details of [on-chain programs](developing/on-chain-programs/overview.md).
 
-To deploy a program, use the Safecoin tools to interact with the on-chain loader
+To deploy a program, use the Panoptis tools to interact with the on-chain loader
 to:
 
 - Initialize a program account
@@ -243,7 +243,7 @@ Or anytime after:
 safecoin program set-upgrade-authority <PROGRAM_ADDRESS> --final
 ```
 
-`safecoin program deploy ...` utilizes Safecoin's upgradeable loader, but there is
+`safecoin program deploy ...` utilizes Panoptis's upgradeable loader, but there is
 another way to deploy immutable programs using the original on-chain loader:
 
 ```bash

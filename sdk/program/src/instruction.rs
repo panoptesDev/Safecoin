@@ -117,7 +117,7 @@ pub enum InstructionError {
     DuplicateAccountOutOfSync,
 
     /// Allows on-chain programs to implement program-specific error types and see them returned
-    /// by the Safecoin runtime. A program-specific error may be any type that is represented as
+    /// by the Panoptis runtime. A program-specific error may be any type that is represented as
     /// or serialized to a u32 integer.
     #[error("custom program error: {0:#x}")]
     Custom(u32),

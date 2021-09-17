@@ -4,7 +4,7 @@ title: 介绍
 
 ## 欢迎！
 
-本指南包括了关于如何参加 Safecoin Tour de PANO 的信息。 遇到困难？ 需要提出看法？ 请发邮件到 ryan@solana.com
+本指南包括了关于如何参加 Panoptis Tour de PANO 的信息。 遇到困难？ 需要提出看法？ 请发邮件到 ryan@solana.com
 
 ### [了解更多关于 Tour de PANO 的信息](https://solana.com/tds/)
 

@@ -2,12 +2,12 @@
 title: "Developing with Rust"
 ---
 
-Safecoin supports writing on-chain programs using the
+Panoptis supports writing on-chain programs using the
 [Rust](https://www.rust-lang.org/) programming language.
 
 ## Project Layout
 
-Safecoin Rust programs follow the typical [Rust project
+Panoptis Rust programs follow the typical [Rust project
 layout](https://doc.rust-lang.org/cargo/guide/project-layout.html):
 
 ```
@@ -29,7 +29,7 @@ Which must contain:
 features = []
 ```
 
-Safecoin Rust programs may depend directly on each other in order to gain access
+Panoptis Rust programs may depend directly on each other in order to gain access
 to instruction helpers when making [cross-program invocations](developing/programming-model/calling-between-programs.md#cross-program-invocations).
 When doing so it's important to not pull in the dependent program's entrypoint
 symbols because they may conflict with the program's own. To avoid this,
@@ -49,10 +49,10 @@ using the `exclude_entrypoint` feature.
 
 ## Project Dependencies
 
-At a minimum, Safecoin Rust programs must pull in the
+At a minimum, Panoptis Rust programs must pull in the
 [safecoin-program](https://crates.io/crates/safecoin-program) crate.
 
-Safecoin BPF programs have some [restrictions](#restrictions) that may prevent the
+Panoptis BPF programs have some [restrictions](#restrictions) that may prevent the
 inclusion of some crates as dependencies or require special handling.
 
 For example:
@@ -60,7 +60,7 @@ For example:
 - Crates that require the architecture be a subset of the ones supported by the
   official toolchain. There is no workaround for this unless that crate is
   forked and BPF added to that those architecture checks.
-- Crates may depend on `rand` which is not supported in Safecoin's deterministic
+- Crates may depend on `rand` which is not supported in Panoptis's deterministic
   program environment. To include a `rand` dependent crate refer to [Depending
   on Rand](#depending-on-rand).
 - Crates may overflow the stack even if the stack overflowing code isn't
@@ -72,7 +72,7 @@ For example:
 First setup the environment:
 
 - Install the latest Rust stable from https://rustup.rs/
-- Install the latest Safecoin command-line tools from
+- Install the latest Panoptis command-line tools from
   https://docs.solana.com/cli/install-solana-cli-tools
 
 The normal cargo build is available for building programs against your host
@@ -82,7 +82,7 @@ machine which can be used for unit testing:
 $ cargo build
 ```
 
-To build a specific program, such as SPL Token, for the Safecoin BPF target which
+To build a specific program, such as SPL Token, for the Panoptis BPF target which
 can be deployed to the cluster:
 
 ```bash
@@ -92,7 +92,7 @@ $ cargo build-bpf
 
 ## How to Test
 
-Safecoin programs can be unit tested via the traditional `cargo test` mechanism by
+Panoptis programs can be unit tested via the traditional `cargo test` mechanism by
 exercising program functions directly.
 
 To help facilitate testing in an environment that more closely matches a live
@@ -108,8 +108,8 @@ program.
 
 ## Program Entrypoint
 
-Programs export a known entrypoint symbol which the Safecoin runtime looks up and
-calls when invoking a program. Safecoin supports multiple [versions of the BPF
+Programs export a known entrypoint symbol which the Panoptis runtime looks up and
+calls when invoking a program. Panoptis supports multiple [versions of the BPF
 loader](overview.md#versions) and the entrypoints may vary between them.
 Programs must be written for and deployed to the same loader. For more details
 see the [overview](overview#loaders).
@@ -245,7 +245,7 @@ single-threaded environment, and must be deterministic:
   and should be avoided
 - String formatting should be avoided since it is also computationally
   expensive.
-- No support for `println!`, `print!`, the Safecoin [logging helpers](#logging)
+- No support for `println!`, `print!`, the Panoptis [logging helpers](#logging)
   should be used instead.
 - The runtime enforces a limit on the number of instructions a program can
   execute during the processing of one instruction. See
@@ -258,7 +258,7 @@ Programs are constrained to run deterministically, so random numbers are not
 available. Sometimes a program may depend on a crate that depends itself on
 `rand` even if the program does not use any of the random number functionality.
 If a program depends on `rand`, the compilation will fail because there is no
-`get-random` support for Safecoin. The error will typically look like this:
+`get-random` support for Panoptis. The error will typically look like this:
 
 ```
 error: target is not supported, for more information see: https://docs.rs/getrandom/#unsupported-targets
@@ -401,6 +401,6 @@ $ cargo build-bpf --dump
 
 ## Examples
 
-The [Safecoin Program Library
+The [Panoptis Program Library
 github](https://github.com/fair-exchange/safecoin-program-library/tree/master/examples/rust)
 repo contains a collection of Rust examples.

@@ -1,23 +1,23 @@
 ---
-title: 添加 Safecoin 到您的交易所
+title: 添加 Panoptis 到您的交易所
 ---
 
-本指南描述了如何将 Safecoin 的原生代币 PANO 添加到某个加密货币交易所。
+本指南描述了如何将 Panoptis 的原生代币 PANO 添加到某个加密货币交易所。
 
 ## 节点设置
 
 我们强烈建议在高级计算机/云端设置至少两个节点实例， 立即升级到较新的版本，并随时注意自带的监测工具的服务操作。
 
 这样设置可以让您：
-- 为 Safecoin mainnet-beta 集群设置一个可信的网关来获取数据和提交取现交易
+- 为 Panoptis mainnet-beta 集群设置一个可信的网关来获取数据和提交取现交易
 - 完全控制保留历史区块数据的多少
 - 即使某个节点失败仍然保持您的服务可用性
 
-Safecoin 节点需要较高的计算力来处理我们的快速区块和高 TPS 。  关于具体要求，请参阅[硬件建议](../running-validator/validator-reqs.md)。
+Panoptis 节点需要较高的计算力来处理我们的快速区块和高 TPS 。  关于具体要求，请参阅[硬件建议](../running-validator/validator-reqs.md)。
 
 运行一个 api 节点：
 
-1. [安装 Safecoin 命令行工具](../cli/install-solana-cli-tools.md)
+1. [安装 Panoptis 命令行工具](../cli/install-solana-cli-tools.md)
 2. 启动验证节点时至少使用以下参数：
 
 ```bash
@@ -48,7 +48,7 @@ safecoin-validator \
 
 ### 自动重启和监测
 
-我们建议将每个节点配置退出时自动重启，以确保尽可能少地丢失数据。 把 Safecoin 软件运行为一个系统服务是很好的选择。
+我们建议将每个节点配置退出时自动重启，以确保尽可能少地丢失数据。 把 Panoptis 软件运行为一个系统服务是很好的选择。
 
 对于监控，我们提供[`safecoin-watchtower`](https://github.com/fair-exchange/safecoin/blob/master/watchtower/README.md)，它可以监视您的验证节点，并且通过 `safecoin-validator` 检测节点是否不健康。 它可以直接配置 Slack、Telegram 、Discord 或 Twillio 来提醒您。 详情请运行 `safecoin-watchtower --help`。
 
@@ -75,7 +75,7 @@ safecoin-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
 
 ### 最小化验证节点端口风险
 
-验证节点要求从所有其他的 Safecoin 验证程序中打开 UDP 和 TCP 端口传入流量。   虽然这是最有效率的操作模式，我们也强烈推荐，但是可以将验证节点限制为只需要从另外一个 Safecoin 验证节点流量接入。
+验证节点要求从所有其他的 Panoptis 验证程序中打开 UDP 和 TCP 端口传入流量。   虽然这是最有效率的操作模式，我们也强烈推荐，但是可以将验证节点限制为只需要从另外一个 Panoptis 验证节点流量接入。
 
 首先添加 `--restricted-reparir-only-mode` 参数。  这将会让验证节点在受限制的模式下运行，它将不会收到其他验证节点的消息，而是要不断联系其他验证节点获取区块。  验证节点只能使用 *Gossip* 和 *ServeR* ("服务修理") 端口传输 UDP 包到其他验证节点，并且只有在其 *Gossip* 和 *Repair* 端口上接收 UDP 包。
 
@@ -87,11 +87,11 @@ safecoin-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
 
 ## 设置存款账户
 
-Safecoin 帐户不需要任何链上的初始化设置；只要有 PANO 余额，它们就自动出现。 您可以使用任何我们的 [钱包工具](../wallet-guide/cli.md) 生成一个 Safecoin 密钥，来设置一个交易所存款帐户。
+Panoptis 帐户不需要任何链上的初始化设置；只要有 PANO 余额，它们就自动出现。 您可以使用任何我们的 [钱包工具](../wallet-guide/cli.md) 生成一个 Panoptis 密钥，来设置一个交易所存款帐户。
 
 我们建议您为每个用户配置一个独特的存款帐户。
 
-Safecoin 帐户在每个 epoch 都收取一次 [ 租金 ](developing/programming-model/accounts.md#rent)，但如果它们的 PANO 价值包括两年，就可以免除租金。 想要找到您存款账户的最低免租余额，请查询[`getMinimumBalanceForRentExemption` 端点](developing/clients/jsonrpc-api.md#getminimumbalanceforrentexemption)：
+Panoptis 帐户在每个 epoch 都收取一次 [ 租金 ](developing/programming-model/accounts.md#rent)，但如果它们的 PANO 价值包括两年，就可以免除租金。 想要找到您存款账户的最低免租余额，请查询[`getMinimumBalanceForRentExemption` 端点](developing/clients/jsonrpc-api.md#getminimumbalanceforrentexemption)：
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"method":"getMinimumBalanceForRentExemption","params":[0]}' localhost:8328
@@ -109,7 +109,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 
 ### 区块投票
 
-您可以使用 Safecoin API 节点的 JSON-RPC 服务来跟踪交易所的所有存款帐户，对每个确认的区块进行调查或检查感兴趣的地址。
+您可以使用 Panoptis API 节点的 JSON-RPC 服务来跟踪交易所的所有存款帐户，对每个确认的区块进行调查或检查感兴趣的地址。
 
 - 要确定哪些区块处于可用状态，请发送 [`getConfirmedBlocks` request](developing/clients/jsonrpc-api.md#getconfirmedblocks)，通过您已经处理过的最后一个块作为启动槽参数：
 
@@ -288,19 +288,19 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0","id":1,"m
 
 ## 发送提现请求
 
-要满足用户的提款请求, 您必须生成一笔 Safecoin 转账交易，并将其发送到 API 节点来扩散到集群中。
+要满足用户的提款请求, 您必须生成一笔 Panoptis 转账交易，并将其发送到 API 节点来扩散到集群中。
 
 ### 同步
 
-发送同步传输到 Safecoin 集群可以让您轻松保证转账的成功并由集群确定最终性。
+发送同步传输到 Panoptis 集群可以让您轻松保证转账的成功并由集群确定最终性。
 
-Safecoin的命令行工具提供了一个用于生成、提交和确认转账交易的简单命令， `safecoin transfer`。 默认情况下，该方法将等待并跟踪 stderr 的进度，直到集群确认了某笔交易。 如果交易失败，它将报告任何类型的交易错误。
+Panoptis的命令行工具提供了一个用于生成、提交和确认转账交易的简单命令， `safecoin transfer`。 默认情况下，该方法将等待并跟踪 stderr 的进度，直到集群确认了某笔交易。 如果交易失败，它将报告任何类型的交易错误。
 
 ```bash
 safecoin transfer <USER_ADDRESS> <AMOUNT> --keypair <KEYPAIR> --url http://localhost:8328
 ```
 
-[Safecoin Javascript SDK](https://github.com/fair-exchange/safecoin-web3.js) 为 JS 生态提供了类似的方法。 使用 `SystemProgram` 创造一笔转账交易，然后使用 `sendAndConfirmTransaction` 方法提交。
+[Panoptis Javascript SDK](https://github.com/fair-exchange/safecoin-web3.js) 为 JS 生态提供了类似的方法。 使用 `SystemProgram` 创造一笔转账交易，然后使用 `sendAndConfirmTransaction` 方法提交。
 
 ### 异步
 
@@ -368,7 +368,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0", "id":1, "
 
 由于提款是不可逆过程，因此最好在提款确认之前对用户提供的帐户地址进行验证，以防止用户资产意外丢失。
 
-Safecoin 的普通账户地址是一个 256 位 ed25519 公钥的 Base58 编码字符串。 并非所有位图案都是 ed25519 曲线的有效公共密钥， 这样可以确保用户提供的帐户地址至少是正确的 ed25519 公钥。
+Panoptis 的普通账户地址是一个 256 位 ed25519 公钥的 Base58 编码字符串。 并非所有位图案都是 ed25519 曲线的有效公共密钥， 这样可以确保用户提供的帐户地址至少是正确的 ed25519 公钥。
 
 #### Java
 
@@ -429,7 +429,7 @@ public class PubkeyValidator
 
 ## 支持 SPL 代币标准
 
-[SPL 代币](https://spl.solana.com/token) 是在 Safecoin 区块链上创建和交易包装/合成代币的标准。
+[SPL 代币](https://spl.solana.com/token) 是在 Panoptis 区块链上创建和交易包装/合成代币的标准。
 
 SPL 代币的工作流程类似于原生 PANO 代币，但本节将讨论它们的几个不同之处。
 
@@ -549,4 +549,4 @@ $ safe-token transfer --fund-recipient <exchange token account> <withdrawal amou
 
 ## 测试集成
 
-请务必先在 Safecoin devnet 和 testnet [clusters](../clusters.md) 测试完整的工作流，然后再迁移到 mainnet-beta 上。 Devnet 是最开放和最灵活、最理想的初始开发方式，而 testnet 提供了更现实的集群配置。 Devnet 和 testnet 都有一个水龙头，您可以通过运行 `safecoin airdrop 10` 获取一些用来开发和测试的 devnet 或 testnet 的 PANO 代币。
+请务必先在 Panoptis devnet 和 testnet [clusters](../clusters.md) 测试完整的工作流，然后再迁移到 mainnet-beta 上。 Devnet 是最开放和最灵活、最理想的初始开发方式，而 testnet 提供了更现实的集群配置。 Devnet 和 testnet 都有一个水龙头，您可以通过运行 `safecoin airdrop 10` 获取一些用来开发和测试的 devnet 或 testnet 的 PANO 代币。

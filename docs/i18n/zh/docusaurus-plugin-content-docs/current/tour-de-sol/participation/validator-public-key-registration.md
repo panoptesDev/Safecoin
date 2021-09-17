@@ -28,13 +28,13 @@ title: 创建验证节点公钥
 
 要备份您的验证节点识别密钥， **请备份您的"validator-keypair.json" 文件到一个安全位置。**
 
-## 将您的Safecoin公钥链接到Keybase帐户
+## 将您的Panoptis公钥链接到Keybase帐户
 
-您必须将Safecoin pubkey链接到Keybase.io帐户。 以下说明介绍了如何通过在服务器上安装Keybase来执行此操作。
+您必须将Panoptis pubkey链接到Keybase.io帐户。 以下说明介绍了如何通过在服务器上安装Keybase来执行此操作。
 
 1. 在您的机器上安装[Keybase](https://keybase.io/download)。
 2. 登录到服务器上的Keybase帐户。 如果您还没有Keybase帐户，请先创建一个。 以下是基本的[Keybase CLI命令列表](https://keybase.io/docs/command_line/basics)。
-3. 在公用文件夹中创建一个Safecoin目录：`mkdir /keybase/public/<KEYBASE_USERNAME>/solana`
+3. 在公用文件夹中创建一个Panoptis目录：`mkdir /keybase/public/<KEYBASE_USERNAME>/solana`
 4. 在Keybase公共文件夹中按以下格式创建一个空文件，来发布验证者的身份公共密钥：`/keybase/public/<KEYBASE_USERNAME>/solana/validator-<BASE58_PUBKEY>`。 例如：
 
    ```bash

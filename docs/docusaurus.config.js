@@ -1,9 +1,9 @@
 const math = require("remark-math");
 const katex = require("rehype-katex");
 module.exports = {
-  title: "Safecoin Docs",
+  title: "Panoptis Docs",
   tagline:
-    "Safecoin is an open source project implementing a new, high-performance, permissionless blockchain.",
+    "Panoptis is an open source project implementing a new, high-performance, permissionless blockchain.",
   url: "https://docs.solana.com",
   baseUrl: "/",
   favicon: "img/favicon.ico",
@@ -26,7 +26,7 @@ module.exports = {
   themeConfig: {
     navbar: {
       logo: {
-        alt: "Safecoin Logo",
+        alt: "Panoptis Logo",
         src: "img/logo-horizontal.svg",
         srcDark: "img/logo-horizontal-dark.svg",
       },

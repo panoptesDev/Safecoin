@@ -1,5 +1,5 @@
 ---
-title: Safecoin's Proposed Inflation Schedule
+title: Panoptis's Proposed Inflation Schedule
 ---
 
 As mentioned above, the network's _Inflation Schedule_ is uniquely described by three parameters: _Initial Inflation Rate_, _Dis-inflation Rate_ and _Long-term Inflation Rate_. When considering these numbers, there are many factors to take into account:
@@ -37,4 +37,4 @@ This parameter must be estimated because it is a dynamic property of the token h
 
 ![](/img/p_ex_staked_yields.png)
 
-Again, the above shows an example _Staked Yield_ that a staker might expect over time on the Safecoin network with the _Inflation Schedule_ as specified. This is an idealized _Staked Yield_ as it neglects validator uptime impact on rewards, validator commissions, potential yield throttling and potential slashing incidents. It additionally ignores that _% of Staked PANO_ is dynamic by design - the economic incentives set up by this _Inflation Schedule_ are more clearly seen when _Token Dilution_ is taken into account (see the **Adjusted Staking Yield** section below).
+Again, the above shows an example _Staked Yield_ that a staker might expect over time on the Panoptis network with the _Inflation Schedule_ as specified. This is an idealized _Staked Yield_ as it neglects validator uptime impact on rewards, validator commissions, potential yield throttling and potential slashing incidents. It additionally ignores that _% of Staked PANO_ is dynamic by design - the economic incentives set up by this _Inflation Schedule_ are more clearly seen when _Token Dilution_ is taken into account (see the **Adjusted Staking Yield** section below).

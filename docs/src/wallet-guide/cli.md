@@ -2,14 +2,14 @@
 title: Command Line Wallets
 ---
 
-Safecoin supports several different types of wallets that can be used to interface
-directly with the Safecoin command-line tools.
+Panoptis supports several different types of wallets that can be used to interface
+directly with the Panoptis command-line tools.
 
 **If you are unfamiliar with using command line programs and just want to be able
 to send and receive PANO tokens, we recommend setting up a third-party
 [App Wallet](apps.md)**.
 
-To use a Command Line Wallet, you must first [install the Safecoin CLI tools](../cli/install-solana-cli-tools.md)
+To use a Command Line Wallet, you must first [install the Panoptis CLI tools](../cli/install-solana-cli-tools.md)
 
 ## File System Wallet
 

@@ -2,11 +2,11 @@
 title: 命令行钱包
 ---
 
-Safecoin支持几种不同类型的钱包，它们可以直接与Safecoin命令行工具进行交互。
+Panoptis支持几种不同类型的钱包，它们可以直接与Panoptis命令行工具进行交互。
 
 ** 如果您不熟悉命令行程序的使用，并且只需要发送和接收PANO代币，我们建议您设置第三方 [App Wallet](apps.md)**。
 
-您首先需要 [安装 Safecoin CLI 工具](../cli/install-solana-cli-tools.md) 才能使用命令行钱包。
+您首先需要 [安装 Panoptis CLI 工具](../cli/install-solana-cli-tools.md) 才能使用命令行钱包。
 
 ## 文件系统钱包
 

@@ -1,6 +1,6 @@
 # |source| this file to enable metrics in the current shell
 
-echoSafecoinMetricsConfig() {
+echoPanoptisMetricsConfig() {
   declare metrics_config_sh
   metrics_config_sh="$(dirname "${BASH_SOURCE[0]}")"/lib/config.sh
   if [[ ! -f "$metrics_config_sh" ]]; then
@@ -14,9 +14,9 @@ echoSafecoinMetricsConfig() {
   )
 }
 
-PANOPTIS_METRICS_CONFIG=$(echoSafecoinMetricsConfig)
+PANOPTIS_METRICS_CONFIG=$(echoPanoptisMetricsConfig)
 export PANOPTIS_METRICS_CONFIG
-unset -f echoSafecoinMetricsConfig
+unset -f echoPanoptisMetricsConfig
 
 __configure_metrics_sh="$(cd "$(dirname "${BASH_SOURCE[0]}")"/../.. || true; pwd)"/scripts/configure-metrics.sh
 if [[ -f $__configure_metrics_sh ]]; then

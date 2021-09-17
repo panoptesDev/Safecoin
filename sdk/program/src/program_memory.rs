@@ -1,4 +1,4 @@
-//! @brief Safecoin Rust-based BPF memory operations
+//! @brief Panoptis Rust-based BPF memory operations
 
 /// Memcpy
 ///
