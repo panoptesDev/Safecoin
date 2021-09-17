@@ -46,7 +46,7 @@ panoptis-stake-program = { path = "../programs/stake", version = "=1.6.19" }
 panoptis-transaction-status = { path = "../transaction-status", version = "=1.6.19" }
 panoptis-version = { path = "../version", version = "=1.6.19" }
 panoptis-vote-program = { path = "../programs/vote", version = "=1.6.19" }
-safe-memo = { version = ">=3.0.4", features = ["no-entrypoint"] }
+pano-memo = { version = ">=3.0.4", features = ["no-entrypoint"] }
 thiserror = "1.0.21"
 tiny-bip39 = "0.7.0"
 url = "2.1.1"

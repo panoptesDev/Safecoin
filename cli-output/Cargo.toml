@@ -26,7 +26,7 @@ panoptis-sdk = { path = "../sdk", version = "=1.6.19" }
 panoptis-stake-program = { path = "../programs/stake", version = "=1.6.19" }
 panoptis-transaction-status = { path = "../transaction-status", version = "=1.6.19" }
 panoptis-vote-program = { path = "../programs/vote", version = "=1.6.19" }
-safe-memo = { version = ">=3.0.4", features = ["no-entrypoint"] }
+pano-memo = { version = ">=3.0.4", features = ["no-entrypoint"] }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]
