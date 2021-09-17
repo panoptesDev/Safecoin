@@ -16,7 +16,7 @@
 { # this ensures the entire script is downloaded #
 
 if [ -z "$PANOPTIS_DOWNLOAD_ROOT" ]; then
-    PANOPTIS_DOWNLOAD_ROOT="https://github.com/fair-exchange/safecoin/releases/download/"
+    PANOPTIS_DOWNLOAD_ROOT="https://github.com/panoptisdev/panoptis/releases/download/"
 fi
 GH_LATEST_RELEASE="https://api.github.com/repos/fair-exchange/safecoin/releases/latest"
 

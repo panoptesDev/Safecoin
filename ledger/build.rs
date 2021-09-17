@@ -17,7 +17,7 @@ fn main() {
         }
         Channel::Dev => {
             println!("cargo:rustc-cfg=RUSTC_WITH_SPECIALIZATION");
-            // See https://github.com/fair-exchange/safecoin/issues/11055
+            // See https://github.com/panoptisdev/panoptis/issues/11055
             // We may be running the custom `rust-bpf-builder` toolchain,
             // which currently needs `#![feature(proc_macro_hygiene)]` to
             // be applied.

@@ -6,16 +6,16 @@ The Panoptis git repository contains all the scripts you might need to spin up y
 
 For all four variations, you'd need the latest Rust toolchain and the Panoptis source code:
 
-First, setup Rust, Cargo and system packages as described in the Panoptis [README](https://github.com/fair-exchange/safecoin#1-install-rustc-cargo-and-rustfmt)
+First, setup Rust, Cargo and system packages as described in the Panoptis [README](https://github.com/panoptisdev/panoptis#1-install-rustc-cargo-and-rustfmt)
 
 Now checkout the code from github:
 
 ```bash
-git clone https://github.com/fair-exchange/safecoin.git
+git clone https://github.com/panoptisdev/panoptis.git
 cd solana
 ```
 
-The demo code is sometimes broken between releases as we add new low-level features, so if this is your first time running the demo, you'll improve your odds of success if you check out the [latest release](https://github.com/fair-exchange/safecoin/releases) before proceeding:
+The demo code is sometimes broken between releases as we add new low-level features, so if this is your first time running the demo, you'll improve your odds of success if you check out the [latest release](https://github.com/panoptisdev/panoptis/releases) before proceeding:
 
 ```bash
 TAG=$(git describe --tags $(git rev-list --tags --max-count=1))

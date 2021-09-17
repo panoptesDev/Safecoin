@@ -107,7 +107,7 @@ else
   fi
 
   #XXX: Ensure `panoptis-genesis` is built LAST!
-  # See https://github.com/fair-exchange/safecoin/issues/5826
+  # See https://github.com/panoptisdev/panoptis/issues/5826
   BINS+=(panoptis-genesis)
 fi
 

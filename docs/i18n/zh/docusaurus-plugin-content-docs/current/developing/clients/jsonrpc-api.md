@@ -452,7 +452,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   - `transactions: <array>` - 包含以下内容的JSON对象数组：
     - `transaction: <object|[string,encoding]>` - [交易](#transaction-structure) 对象，采用JSON格式或已编码的二进制数据，具体取决于编码参数
     - `meta: <object>` - 交易状态元数据对象，包含`null`或：
-      - `err: <object | null>` - 如果交易失败，则返回错误；如果交易成功，则返回null。 [TransactionError定义](https://github.com/fair-exchange/safecoin/blob/master/sdk/src/transaction.rs#L24)
+      - `err: <object | null>` - 如果交易失败，则返回错误；如果交易成功，则返回null。 [TransactionError定义](https://github.com/panoptisdev/panoptis/blob/master/sdk/src/transaction.rs#L24)
       - `fee: <u64>` - 该交易收取的费用，以u64整数表示
       - `preBalances: <array>` - 处理交易之前的u64帐户余额数组
       - `postBalances: <array>` - 处理交易后的u64帐户余额数组
@@ -758,7 +758,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 * `<object>`
   * `signature: <string>` - 交易签名为以base-58编码的字符串
   * `slot: <u64>` - 包含交易区块的插槽
-  * `err: <object | null>` - 如果事务失败，则返回错误；如果事务成功，则返回null。 [TransactionError定义](https://github.com/fair-exchange/safecoin/blob/master/sdk/src/transaction.rs#L24)
+  * `err: <object | null>` - 如果事务失败，则返回错误；如果事务成功，则返回null。 [TransactionError定义](https://github.com/panoptisdev/panoptis/blob/master/sdk/src/transaction.rs#L24)
   * `memo: <string |null>` - 与交易关联的备忘录，如果没有备忘录，则为null
 
 #### 示例:
@@ -811,7 +811,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
   - `slot: <u64>` - 处理该交易记录的插槽
   - `transaction: <object|[string,encoding]>` - [Transaction](#transaction-structure) 对象，采用JSON格式或已编码的二进制数据，具体取决于编码参数
   - `meta: <object | null>` - 交易状态元数据对象：
-    - `err: <object | null>` - 如果交易失败，则返回错误；如果交易成功，则返回null。 [TransactionError定义](https://github.com/fair-exchange/safecoin/blob/master/sdk/src/transaction.rs#L24)
+    - `err: <object | null>` - 如果交易失败，则返回错误；如果交易成功，则返回null。 [TransactionError定义](https://github.com/panoptisdev/panoptis/blob/master/sdk/src/transaction.rs#L24)
     - `fee: <u64>` - 此交易收取的费用，以u64整数表示
     - `preBalances: <array>` - 处理交易之前的u64帐户余额数组
     - `postBalances: <array>` - 处理交易后的u64帐户余额数组
@@ -1979,7 +1979,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 - `<object>`
   - `slot：<u64>` - 交易处理的插槽
   - ` confirmations：<usize | null>` - 自签名确认以来的块数，如果已植根则为 null，并由集群的绝大多数决定
-  - `err：<object | null>` - 如果交易失败，则返回错误；如果交易成功，则返回 null。 [TransactionError definitions](https://github.com/fair-exchange/safecoin/blob/master/sdk/src/transaction.rs#L24)
+  - `err：<object | null>` - 如果交易失败，则返回错误；如果交易成功，则返回 null。 [TransactionError definitions](https://github.com/panoptisdev/panoptis/blob/master/sdk/src/transaction.rs#L24)
   - `confirmationStatus：<string | null>` - 交易的集群确认状态； `processed`，` confirmed` 或 `finalized`。 有关乐观确认的更多信息，请参见 [承诺](jsonrpc-api.md#configuring-state-commitment)。
   - 弃用：` status：<object>` - 交易状态
     - `"Ok"：<null>` - 交易成功
@@ -2793,7 +2793,7 @@ curl http://localhost:8328 -X POST -H "Content-Type: application/json" -d '
 
 包含TransactionStatus对象的RpcResponse结果将是RpcResponse JSON对象，其中`value`设置为具有以下字段的JSON对象：
 
-- `err：<object>` - 如果交易失败，则返回错误；如果交易成功，则返回null。 [TransactionError定义](https://github.com/fair-exchange/safecoin/blob/master/sdk/src/transaction.rs#L24)
+- `err：<object>` - 如果交易失败，则返回错误；如果交易成功，则返回null。 [TransactionError定义](https://github.com/panoptisdev/panoptis/blob/master/sdk/src/transaction.rs#L24)
 - `logs：<array | null>` - 交易指令在执行期间输出的日志消息数组，如果在交易能够执行之前模拟失败(例如，由于无效的哈希或签名验证失败)，则返回 null
 
 #### 示例:

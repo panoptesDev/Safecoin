@@ -220,7 +220,7 @@ impl JsonRpcRequestProcessor {
             // BlockCommitmentCache should hold an `Arc<Bank>` everywhere it currently holds
             // a slot.
             //
-            // For more information, see https://github.com/fair-exchange/safecoin/issues/11078
+            // For more information, see https://github.com/panoptisdev/panoptis/issues/11078
             warn!(
                 "Bank with {:?} not found at slot: {:?}",
                 commitment.commitment, slot
@@ -1358,7 +1358,7 @@ impl JsonRpcRequestProcessor {
     ) -> Vec<Signature> {
         if self.config.enable_rpc_transaction_history {
             // TODO: Add bigtable_ledger_storage support as a part of
-            // https://github.com/fair-exchange/safecoin/pull/10928
+            // https://github.com/panoptisdev/panoptis/pull/10928
             let end_slot = min(
                 end_slot,
                 self.block_commitment_cache

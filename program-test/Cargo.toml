@@ -4,7 +4,7 @@ description = "Panoptis Program Test Framework"
 edition = "2018"
 license = "Apache-2.0"
 name = "panoptis-program-test"
-repository = "https://github.com/fair-exchange/safecoin"
+repository = "https://github.com/panoptisdev/panoptis"
 version = "1.6.19"
 
 [lib]

@@ -37,7 +37,7 @@ ledgerDir=$PWD/config/ledger
 PANOPTIS_RUN_SH_CLUSTER_TYPE=${PANOPTIS_RUN_SH_CLUSTER_TYPE:-development}
 
 set -x
-if ! safecoin address; then
+if ! panoptis address; then
   echo Generating default keypair
   panoptis-keygen new --no-passphrase
 fi

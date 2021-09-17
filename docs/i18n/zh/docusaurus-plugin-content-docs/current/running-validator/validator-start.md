@@ -250,7 +250,7 @@ panoptis-gossip spy --entrypoint devnet.safecoin.org:10015
 ### 限制账本大小以节省磁盘空间
 `--limit-ledger-size` 参数允许您指定磁盘保留多少个账本[碎片](../terminology.md#shred)。 如果您没有配置该参数，验证节点将保留整个账本直到磁盘空间满了为止。
 
-保持账本磁盘使用量的默认值小于 500GB。  如果需要，可以通过添加参数到 `--limit-ledger-size` 来增加或减少磁盘的使用。 查看 `panoptis-validator --help` 来配置 `--limit-ledger-size` 所使用的默认限制值。  关于选择一个普通限制值的更多信息请参看 [这里](https://github.com/fair-exchange/safecoin/blob/583cec922b6107e0f85c7e14cb5e642bc7dfb340/core/src/ledger_cleanup_service.rs#L15-L26)。
+保持账本磁盘使用量的默认值小于 500GB。  如果需要，可以通过添加参数到 `--limit-ledger-size` 来增加或减少磁盘的使用。 查看 `panoptis-validator --help` 来配置 `--limit-ledger-size` 所使用的默认限制值。  关于选择一个普通限制值的更多信息请参看 [这里](https://github.com/panoptisdev/panoptis/blob/583cec922b6107e0f85c7e14cb5e642bc7dfb340/core/src/ledger_cleanup_service.rs#L15-L26)。
 
 ### 系统单位
 将验证程序作为系统单元运行是管理后台运行的一种简单方法。

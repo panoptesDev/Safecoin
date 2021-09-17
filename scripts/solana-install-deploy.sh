@@ -60,7 +60,7 @@ edge|beta)
   DOWNLOAD_URL=https://release.solana.com/"$TAG"/solana-release-$TARGET.tar.bz2
   ;;
 *)
-  DOWNLOAD_URL=https://github.com/fair-exchange/safecoin/releases/download/"$TAG"/solana-release-$TARGET.tar.bz2
+  DOWNLOAD_URL=https://github.com/panoptisdev/panoptis/releases/download/"$TAG"/solana-release-$TARGET.tar.bz2
   ;;
 esac
 

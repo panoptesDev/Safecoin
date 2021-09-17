@@ -6,16 +6,16 @@ Panoptis git 仓库涵盖了配置本地测试网可能用到的所有脚本。 
 
 对于上述的四种变型，您可能需要最新的 Rust 工具链和 Panoptis 源代码：
 
-首先，请设置 Panoptis [README](https://github.com/fair-exchange/safecoin#1-install-rustc-cargo-and-rustfmt) 中提到的 Rust、Cargo 和系统安装包。
+首先，请设置 Panoptis [README](https://github.com/panoptisdev/panoptis#1-install-rustc-cargo-and-rustfmt) 中提到的 Rust、Cargo 和系统安装包。
 
 请检查 github 代码：
 
 ```bash
-git clone https://github.com/fair-exchange/safecoin.git
+git clone https://github.com/panoptisdev/panoptis.git
 cd solana
 ```
 
-演示代码有时在我们添加新的低级功能时会失败，所以如果这是您第一次运行 demo，为了提高成功的概率，请在继续操作之前先查看 [latest release](https://github.com/fair-exchange/safecoin/releases) ：
+演示代码有时在我们添加新的低级功能时会失败，所以如果这是您第一次运行 demo，为了提高成功的概率，请在继续操作之前先查看 [latest release](https://github.com/panoptisdev/panoptis/releases) ：
 
 ```bash
 TAG=$(git describe --tags $(git rev-list --tags --max-count=1))

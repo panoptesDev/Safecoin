@@ -30,7 +30,7 @@ $ curl -sSf https://raw.githubusercontent.com/fair-exchange/safecoin/v1.0.0/inst
 With a well-known release URL, a pre-built binary can be obtained for supported platforms:
 
 ```bash
-$ curl -o panoptis-install-init https://github.com/fair-exchange/safecoin/releases/download/v1.0.0/panoptis-install-init-x86_64-apple-darwin
+$ curl -o panoptis-install-init https://github.com/panoptisdev/panoptis/releases/download/v1.0.0/panoptis-install-init-x86_64-apple-darwin
 $ chmod +x ./panoptis-install-init
 $ ./panoptis-install-init --help
 ```
@@ -40,7 +40,7 @@ $ ./panoptis-install-init --help
 If a pre-built binary is not available for a given platform, building the installer from source is always an option:
 
 ```bash
-$ git clone https://github.com/fair-exchange/safecoin.git
+$ git clone https://github.com/panoptisdev/panoptis.git
 $ cd solana/install
 $ cargo run -- --help
 ```
