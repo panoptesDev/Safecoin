@@ -10,7 +10,7 @@ const UNLOCKS_ALL_AT_9_MONTHS: UnlockInfo = UnlockInfo {
     cliff_years: 0.75,
     unlocks: 0,
     unlock_years: 0.0,
-    custodian: "4jAMsnkjcRapWdVaXMvJc1QMcD53t1tbqnwXQmdRWGRe",
+    custodian: "2n37jQMczTVy2dUMwbH2pMndmoQ3JMq4ERzsJpeNDHHG",
 };
 
 // 9 month schedule is 50% after 9 months, then monthly for 2 years
@@ -19,7 +19,7 @@ const UNLOCKS_HALF_AT_9_MONTHS: UnlockInfo = UnlockInfo {
     cliff_years: 0.75,
     unlocks: 24,
     unlock_years: 2.0,
-    custodian: "4jAMsnkjcRapWdVaXMvJc1QMcD53t1tbqnwXQmdRWGRe",
+    custodian: "2n37jQMczTVy2dUMwbH2pMndmoQ3JMq4ERzsJpeNDHHG",
 };
 
 // no lockups
@@ -28,7 +28,7 @@ const UNLOCKS_ALL_DAY_ZERO: UnlockInfo = UnlockInfo {
     cliff_years: 0.0,
     unlocks: 0,
     unlock_years: 0.0,
-    custodian: "4jAMsnkjcRapWdVaXMvJc1QMcD53t1tbqnwXQmdRWGRe",
+    custodian: "2n37jQMczTVy2dUMwbH2pMndmoQ3JMq4ERzsJpeNDHHG",
 };
 
 pub const CREATOR_STAKER_INFOS: &[StakerInfo] = &[
@@ -248,13 +248,13 @@ pub fn add_genesis_accounts(genesis_config: &mut GenesisConfig, mut issued_lampo
             &UNLOCKS_ALL_DAY_ZERO,
         );
 
-    // "one thanks" (community pool) gets 33_370_166PANO (total) - above distributions
+    // "one thanks" (community pool) gets 133_370_166PANO (total) - above distributions
     create_and_add_stakes(
         genesis_config,
         &StakerInfo {
             name: "one thanks",
-            staker: "46PJciJDDeYjTT4ycj19KedEihEe524nWzdWUKj1QgHf",
-            lamports: (33_370_166 * LAMPORTS_PER_PANO).saturating_sub(issued_lamports),
+            staker: "4h23gdsckjNnEeemBpsYe4xhQSChhLjyQZR4xRGLZ5ei",
+            lamports: (133_370_166 * LAMPORTS_PER_PANO).saturating_sub(issued_lamports),
             withdrawer: Some("3DSuNXv7qzvcB6TKAxzaREvW85vit7xw4m2NBWf75585"),
         },
         &UNLOCKS_ALL_DAY_ZERO,
@@ -278,6 +278,6 @@ mod tests {
             .map(|(_, account)| account.lamports)
             .sum::<u64>();
 
-        assert_eq!(33_370_166 * LAMPORTS_PER_PANO, lamports);
+        assert_eq!(133_370_166 * LAMPORTS_PER_PANO, lamports);
     }
 }
